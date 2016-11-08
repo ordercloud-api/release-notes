@@ -1,5 +1,5 @@
 # OrderCloud API Release Notes
-Release notes for the OrderCloud API
+*Release notes for the OrderCloud API*
 
 ###[2016](2016/README.md)
 - [November](2016/November/README.md)
