@@ -1,4 +1,4 @@
-[All Releases](../../README.md) / [2016](../README.md) / [November](README.md) / v30.2-rc
+[All Releases](../../README.md) / [2016](../README.md) / [November](README.md) / v31-rc
 # API v31 Release Candidate Notes 
 
 Planned to be released to Prod on Wednesday, November 9th, 2016 at 7 PM CDT.
