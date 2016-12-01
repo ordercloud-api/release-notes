@@ -14,4 +14,4 @@ Planned to be released to Prod TBD. {{Weekday}}, {{Month}} {{Date}}, {{Year}} at
 
 
 ## Client Libraries
-(potentially link to all of our current client libraries)
+- [Angular SDK](https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.25-prerelease)
