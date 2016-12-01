@@ -1,4 +1,4 @@
-[All Releases](../../README.md) / [{{Year}}](../README.md) / [{{Month}}](README.md) / v33-rc 
+[All Releases](../../README.md) / [2016](../README.md) / [December](README.md) / v33-rc 
 # API v33 Release Candidate Notes 
 
 Planned to be released to Prod TBD. {{Weekday}}, {{Month}} {{Date}}, {{Year}} at {{Hour PM/AM}} CST. _This date is subject to change_
