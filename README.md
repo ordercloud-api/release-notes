@@ -3,7 +3,7 @@
 
 ###[2016](2016/README.md)
 - [December](2016/December/README.md)
-	- [v33-rc](2016/December/v33-rc.md)
+	- [v33](2016/December/v33.md)
 - [November](2016/November/README.md)
 	- [v32](2016/November/v32.md)
 	- [v31](2016/November/v31.md)
