@@ -1,7 +1,7 @@
 [All Releases](../../README.md) / [2016](../README.md) / [December](README.md) / v35-rc 
 # API v35 Release Candidate Notes 
 
-Planned to be released to Production TBD. _This date is subject to change_
+Planned to be released to Production Thursday, December 15th, 2016 at 7 PM CST. _This date is subject to change_
 
 ## New Features
 - We've expanded how you can use categories in the Rules Engine. You can now use `items.total` in your value expressions. 
