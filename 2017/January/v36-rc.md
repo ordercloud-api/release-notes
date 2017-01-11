@@ -45,9 +45,9 @@ Planned to be released to Prod TBD. _This date is subject to change_
 
 ## Bug Fixes
 - You can't see expired Spending Accounts in the User Perspective Spending Account list, and you can't use one to make a new payment either.
-- You can create a payment that exceeds the Spending Account balance if and only if the Spending Account has `AllowExceed` set to `true`.
+- You can create a payment that exceeds the Spending Account balance if and only if the Spending Account Assignment for the relevant party has `AllowExceed` set to `true`.
 - Speaking of price schedules, you can now set a minimum quantity, even when the quantity is not restricted to particular breaks. So, you can now say someone has to order *at least* 5 products, but they don't have to order only 10, 20, or 30, for example.
-- A buyer user cannot cancel their completed orders. (๑•̀ㅂ•́)و
+- A buyer user without elevated permissions cannot cancel their completed orders. (๑•̀ㅂ•́)و
 
 ### Mandrill Integration
 - We've fixed an issue with the Date Submitted variable for Orders not getting pulled into Mandrill email templates properly.
