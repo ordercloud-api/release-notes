@@ -69,10 +69,38 @@ Example:
 - **ReservedQuantity** is read-only and represents the total unshipped amount on live orders (submitted or unsubmitted).
 - **AvailableQuantity** is read-only and is the difference Quantity and ReservedQuantity. It is usually the number you want to display to the buyer, and is the number checked when enforcing that orders cannot exceed inventory.
 
+### Shipment Changes
+- We have removed Shipment.Items, and shipped items are instead retrieved or updated via new endpoints, much like line items.
+- BuyerID has been removed from routes, meaning you can list shipments across multiple buyers. 
+- Shipment IDs are now seller-unique.
+- Many of the new fields on Shipment and ShipmentItem are derived from LineItems, to increase performance on lookup.
+
+|                    New Shipment Object                    |                     Notes                     |
+|-----------------------------------------------------------|-----------------------------------------------|
+| Shipment.ShippingAccount                                  | writeable, default derived from LineItems [1] |
+| Shipment.ShippingAddressID                                | writeable, default derived from LineItems [1] |
+| Shipment.ShippingAddressID                                | writeable, default derived from LineItems [1] |
+| Shipment.ShipFromAddressID                                | read-only, derived from LineItems             |
+| Shipment.ShippingAddress                                  | read-only, derived from LineItems             |
+| Shipment.ShipFromAddress                                  | read-only, derived from LineItems             |
+| ShipmentItem.UnitPrice                                    | read-only, derived from LineItems             |
+| ShipmentItem.CostCenter                                   | read-only, derived from LineItems             |
+| ShipmentItem.DateNeeded                                   | read-only, derived from LineItems             |
+| ShipmentItem.Product                                      | read-only, derived from LineItems             |
+| ShipmentItem.Specs                                        | read-only, derived from LineItems             |
+| ShipmentItem.xp                                           | read-only, derived from LineItems             |
+| `GET` `v1/shipments`                                      |                                               |
+| `GET` `v1/shipments/{id}`                                 |                                               |
+| `GET` `v1/shipments/{id}/items                          ` |                                               |
+| `GET` `v1/shipments/{id}/items/{orderID}/{lineItemID}   ` |                                               |
+| `POST` `v1/shipments/{id}/items                         ` |                                               |
+| `PATCH` `v1/shipments/{id}/items/{orderID}/{lineItemID}`  |                                               |
+
+[1] Updating these on the Shipment will update the underlying LineItem as well.
+
+
 ## Bug Fixes
-- Fixed bug
-- Fixed bug
-- Fixed bug
+
 
 ## Client Libraries
 - Save Security Profile assignment parameter order changes
