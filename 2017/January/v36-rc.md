@@ -1,7 +1,7 @@
-[All Releases](../../README.md) / [2017](../README.md) / [January](README.md) / v36-rc 
-# API v36 Release Candidate Notes 
+[All Releases](../../README.md) / [2017](../README.md) / [January](README.md) / v36 
+# API v36 Release Notes 
 
-Planned to be released to Prod TBD. _This date is subject to change_
+Released to Production on January 17th, 2017 at 7:30 PM Central.
 
 ## New Features
 - We've added a new sub-object to the LineItem object. Now, when you list LineItems, you'll see the products that are on the lineitem too. This currently does not include the full price break information.
