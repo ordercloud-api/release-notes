@@ -3,4 +3,4 @@
 
 ###[January](January/README.md)
 - [v36](January/v36.md)
-- [v37-rc](January/v37-rc.md)
+- [v37](January/v37.md)

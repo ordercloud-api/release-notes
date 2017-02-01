@@ -42,4 +42,4 @@
 ###[2017](2017/README.md)
 - [January](2017/January/README.md)
 	- [v36](2017/January/v36.md)
-	- [v37-rc](2017/January/v37-rc.md)
+	- [v37](2017/January/v37.md)
