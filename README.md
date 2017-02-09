@@ -3,6 +3,7 @@
 
 ###[2017](2017/README.md)
 -[February](2017/February/README.md)
+	- [v39-rc](2017/February/v39-rc.md)
 	- [v38](2017/February/v38.md)
 - [January](2017/January/README.md)
 	- [v36](2017/January/v36.md)
