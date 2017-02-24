@@ -16,7 +16,8 @@ The planned release to Production is TBD. _This date is subject to change_
     + If you provide an application to users, we recommend have the application redirect any user who authenticates and only has the `PasswordReset` role to be redirected to a different view, where their password can be reset using the new `/me/password` endpoint.
     + Alternately, any user can trigger an email-based password reset, using the [Forgot Password]() endpoint. 
 - Added roles that control who can list or edit shipments. Now users with `ShipmentAdmin` *or* `OrderAdmin` can create or edit shipments. Users with `ShipmentReader` or `OrderReader` can get/list shipments.
-- You can now filter product lists based on `CategoryID`. 
+- Seller-side product lists (`v1/products`) can now be filtered on `CatalogID` and `CategoryID` (`CategoryID` is unique only within a Catalog, so you must specify both in order to filter on Category.)
+- Buyer-side product lists (`v1/me/products`) that specify `CategoryID` can also specify `depth`, which can be an integer 1 or greater (`depth=1` means products directly assigned to category) or `all`. Default is `all`. 
 - An order that requires approval can now be sent back to the submitting user by the approver user for editing and re-submission. **MORE DETAILS HERE**
 - We are changing the route to register an anonymous user (previously called "Create From Temp User") to `PUT` `v1/me/temp`. This will help make our Swagger spec more flexible.
 - Any buyer user can now list shipments for their own orders in a User Perspective route, `me/shipments`. No more need for elevated permissions!
