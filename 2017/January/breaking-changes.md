@@ -21,13 +21,14 @@ The planned release to Production is TBD. _This date is subject to change_
 - An order that requires approval can now be sent back to the submitting user by the approver user for editing and re-submission. **MORE DETAILS HERE**
 - We are changing the route to register an anonymous user (previously called "Create From Temp User") to `PUT` `v1/me/temp`. This will help make our Swagger spec more flexible.
 - Any buyer user can now list shipments for their own orders in a User Perspective route, `me/shipments`. No more need for elevated permissions!
-- We are disallowing several user-level assignments. These type of assignments tend to be a short-sighted solution that result in a lot of copying when new users are added. You will no longer be able to assign the following at the user-level:
+- In order to encourage best practices, only group-level and buyer-level assignments will be allowed for the following resources:
     + Products
     + Categories
     + Promotions
     + Cost Centers
     + Message Config
-**If there are existing user-level assignments that you need for any of the above, convert them to something else before the production release date**.
+
+**If there are existing user-level assignments for any of the above, you must convert them to group- or buyer-level before the production release date**.
 
 - We have added a sub-object to Approvals to list Approving User information.
 Example:
