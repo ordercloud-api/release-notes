@@ -82,33 +82,33 @@ The planned release to Production is TBD. _This date is subject to change_
 - `QuantityAvailable` is always re-validated per the rules above on order submit.
 
 ### Shipment Changes
-- We have removed Shipment.Items, and shipped items are instead retrieved or updated via new endpoints, much like line items.
-- BuyerID has been removed from routes, meaning you can list shipments across multiple buyers. 
+- The nested `Shipment.Items` collection has been removed, and shipment items are instead retrieved or saved via new endpoints, much like line items.
+- `BuyerID` has been removed from routes, meaning you can list shipments across multiple buyers. 
 - Shipment IDs are now seller-unique.
-- Many of the new fields on Shipment and ShipmentItem are derived from LineItems, to increase performance on lookup.
+- All new fields listed below derive their values from corresponding LineItems, helping to avoid additional lookups when working with shipments.
 
-|                    New Shipment Object                    |                     Notes                     |
-|-----------------------------------------------------------|-----------------------------------------------|
-| Shipment.ShippingAccount                                  | writeable, default derived from LineItems [1] |
-| Shipment.ShippingAddressID                                | writeable, default derived from LineItems [1] |
-| Shipment.ShippingAddressID                                | writeable, default derived from LineItems [1] |
-| Shipment.ShipFromAddressID                                | read-only, derived from LineItems             |
-| Shipment.ShippingAddress                                  | read-only, derived from LineItems             |
-| Shipment.ShipFromAddress                                  | read-only, derived from LineItems             |
-| ShipmentItem.UnitPrice                                    | read-only, derived from LineItems             |
-| ShipmentItem.CostCenter                                   | read-only, derived from LineItems             |
-| ShipmentItem.DateNeeded                                   | read-only, derived from LineItems             |
-| ShipmentItem.Product                                      | read-only, derived from LineItems             |
-| ShipmentItem.Specs                                        | read-only, derived from LineItems             |
-| ShipmentItem.xp                                           | read-only, derived from LineItems             |
-| `GET` `v1/shipments`                                      |                                               |
-| `GET` `v1/shipments/{id}`                                 |                                               |
-| `GET` `v1/shipments/{id}/items                          ` |                                               |
-| `GET` `v1/shipments/{id}/items/{orderID}/{lineItemID}   ` |                                               |
-| `POST` `v1/shipments/{id}/items                         ` |                                               |
-| `PATCH` `v1/shipments/{id}/items/{orderID}/{lineItemID}`  |                                               |
+| New Shipment Field                                        | Notes                          |
+|-----------------------------------------------------------|--------------------------------|
+| Shipment.Account                                          | writeable                      |
+| Shipment.FromAddressID                                    | writeable                      |
+| Shipment.ToAddressID                                      | writeable                      |
+| Shipment.FromAddress                                      | nested object, read-only       |
+| Shipment.ToAddress                                        | nested object, read-only       |
+| ShipmentItem.UnitPrice                                    | read-only                      | 
+| ShipmentItem.CostCenter                                   | read-only                      |
+| ShipmentItem.DateNeeded                                   | nested object, read-only       |
+| ShipmentItem.Product                                      | nested object, read-only       |
+| ShipmentItem.Specs                                        | nested collection, read-only   |
+| ShipmentItem.xp                                           | read-only                      |
 
-[1] Updating these on the Shipment will update the underlying LineItem as well.
+| Old Endpoint                                               | New Endpoint                                         |
+|------------------------------------------------------------|------------------------------------------------------|
+| `GET v1/:BuyerID/shipments`                                | `GET v1/shipments`                                   |
+| `GET v1/:BuyerID/shipments/:id`                            | `GET v1/shipments/:id`                               |
+| N/A                                                        | `GET v1/shipments/:id/items`                         |
+| N/A                                                        | `GET v1/shipments/:id/items/:orderID/:lineItemID`    |
+| N/A                                                        | `POST v1/shipments/:id/items`                        |
+| N/A                                                        | `PATCH v1/shipments/:id/items/:orderID/:lineItemID`  |
 
 ### Simplified Product and Category Assignments
 
