@@ -53,42 +53,33 @@ The planned release to Production is TBD. _This date is subject to change_
 ````
 - We have also moved approval comments out of the URL query string and into the request body. There is a maximum length of 2000 characters.
 
-
 ### Inventory Revamp
-- Inventory is now a sub-object on the Product model.
+- Inventory-related data points on `Product` are being moved into a nested `Inventory` object.
 
 #### Summary of Inventory Object Changes:
 
-|            Old Inventory Object           |    New Product.Inventory Sub-Object    |
+| Old                                       | New                                    |
 |-------------------------------------------|----------------------------------------|
 | Product.InventoryEnabled                  | Product.Inventory.Enabled              |
 | Product.InventoryNotificationPoint        | Product.Inventory.NotificationPoint    |
 | Product.VarientLevelInventory             | Product.Inventory.VariantLevelTracking |
 | Product.AllowOrderExceedInventory         | Product.Inventory.OrderCanExceed       |
-| Product.InventoryVisible                  | *gone!*                                |
-| `/products/:id/inventory`                 | *gone!*                                |
-| Inventory.ID                              | *gone!*                                |
-| Inventory.Name                            | *gone!*                                |
-| number posted to `/product/:id/inventory` | Product.Inventory.Quantity             |
-| Inventory.Available                       | Product.Inventory.AvailableQuantity    |
-| Inventory.Reserved                        | Product.Inventory.ReservedQuantity     |
+| Product.InventoryVisible                  | *removed*                              |
+| `/products/:id/inventory` resource        | *removed*                              |
+| Inventory.Available                       | Product.Inventory.QuantityAvailable    |
 | Inventory.LastUpdated                     | Product.Inventory.LastUpdated          |
-| `/products/:id/inventory`                 | *gone!*                                |
+| Inventory.ID                              | *removed*                              |
+| Inventory.Name                            | *removed*                              |
+| Inventory.Reserved                        | *removed*                              |
+| `/products/:id/inventory`                 | *removed*                              |
 
-#### Summary of Inventory Action Changes:
-
-|                  Action                 |  Quantity | ReservedQuantity | Available Quantity |
-|-----------------------------------------|-----------|------------------|--------------------|
-| Add Item To Order                       | No Change | Increases        | Decreases          |
-| Submit, Submit for Approval, or Approve | No Change | No Change        | No Change          |
-| Ship Item                               | Decreases | Decreases        | No Change          |
-| Cancel or Decline Shipped Order         | No Change | Decreases        | Increases          |
-| Remove Unshipped Line Item              | No Change | Decreases        | Increases          |
-| Manually Increase Inventory             | Increases | No Change        | Increases          |
-
-- **Quantity** is writeable and represents the total amount physically warehoused by the seller.
-- **ReservedQuantity** is read-only and represents the total unshipped amount on live orders (submitted or unsubmitted).
-- **AvailableQuantity** is read-only and is the difference Quantity and ReservedQuantity. It is usually the number you want to display to the buyer, and is the number checked when enforcing that orders cannot exceed inventory.
+#### Summary of Inventory Behavioral Changes:
+- `Product.Inventory.QuantityAvailable` is writable.
+  - `PATCH v1/products/:id { "Inventory": { "QuantityAvailable": 999 } }` is the preferred way to manually set inventory.
+- `QuantityAvailable` is deducted on order submit or final order approval (whichever point order status changes to `Open`).
+- `QuantityAvailable` is adjusted when quantity changes are made to line items on `Open` orders.
+- `QuantityAvailable` is validated, but not adjusted, when items are added or quantities change on `Unsubmitted` orders. A 400 error occurs if item quantity exceeds available inventory and `Product.Inventory.OrderCanExceed` is false.
+- `QuantityAvailable` is always re-validated per the rules above on order submit.
 
 ### Shipment Changes
 - We have removed Shipment.Items, and shipped items are instead retrieved or updated via new endpoints, much like line items.
