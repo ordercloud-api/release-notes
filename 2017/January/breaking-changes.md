@@ -30,18 +30,27 @@ The planned release to Production is TBD. _This date is subject to change_
 
 **If there are existing user-level assignments for any of the above, you must convert them to group- or buyer-level before the production release date**.
 
-- We have added a sub-object to Approvals to list Approving User information.
-Example:
->`{
-"ApprovalRuleID": null,
-"ApprovingGroupID": null,
-"Status": "Pending",
-"DateCreated": null,
-"DateCompleted": null,
-"ApprovingUser:
-{ "ApproverID": null, "ApproverFirstName": null, "ApproverLastName": null, "ApproverUserName": null, "ApproverEmail": null }
-"Comments": null
-}`
+- `OrderApproval` now contains nested `Approver` object containing all details of the approving user. Example:
+````
+{
+    "ApprovalRuleID": "...",
+    "ApprovingGroupID": "...",
+    "Status": "Pending",
+    "DateCreated": "...",
+    "DateCompleted": "...",
+    "Approver":
+    {
+        "ID": "...",
+        "FirstName": "...",
+        "LastName": "...",
+        "UserName": "...",
+        "Email": "...",
+        "Active": "...",
+        "xp" : { ... }
+    },
+    "Comments": "..."
+}
+````
 - We have also moved approval comments out of the URL query string and into the request body. There is a maximum length of 2000 characters.
 
 
