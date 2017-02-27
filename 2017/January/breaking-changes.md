@@ -117,33 +117,21 @@ The planned release to Production is TBD. _This date is subject to change_
 | Catalog.Active                      |                                            |
 | CatalogAssignment.ViewAllCategories |                                            |
 | CatalogAssignment.ViewAllProducts   |                                            |
-|-------------------------------------|--------------------------------------------|
 | CategoryAssignment.Visible          | Nullable, inherited from parent or catalog |
 | CategoryAssignment.ViewAllProducts  | Nullable, inherited from parent or catalog |
-|-------------------------------------|--------------------------------------------|
-| Product.DefaultPriceScheduleId      | Optional, but encouraged.                    |
+| Product.DefaultPriceScheduleId      | Optional, but encouraged.                  |
 
-- For a Buyer User to see a Product in the User Perspective (`GET` `/me/products`), the following must *all* be true:
-    * `Product.Active` = `true`
-    * Catalog exists where:
-        + `Catalog.Active` = `true`
-        + `Buyer` is assigned via `CatalogAssignment`
-        + `Product` is assigned via `ProductCatalogAssignment`
-- For a Buyer User to see a Product in the User Perspective (`GET` `/me/products`), *one* of the following must be true:
-    * `CatalogAssignment.ViewAllProducts` = `true`, **OR**
-    * Category exists in Catalog where:
-        + `Active` = `true`
-        + Product assigned via `CategoryProductAssignment`
-        + `CategoryAssignment` exists where:
-            - `Buyer`, `User`, or `Group` matches the user
-            - `ViewAllProducts` = true for first non-null setting up the tree
-        + `ProductAssignment` exists for Buyer, User, or any Group the user belongs to. (`PriceScheduleID` not required)
-- me/products > me/catalog/products
+- For a Buyer User to see a Product in the User Perspective (`GET v1/me/products`), *all* of the following must be true:
+    * `Product.Active` is `true`
+    * Product belongs to a Catalog where `Catalog.Active` is `true`
+    * Buyer is assigned to this Catalog
 
-
+- In addtion, *one* of the following must be true:
+    * In Buyer assignment to Catalog, `CatalogAssignment.ViewAllProducts` is `true`, **OR**
+    * Product belongs to active Category in the catalog, and Category is assigned to Buyer (or any Group the user is in), and `CategoryAssignment.ViewAllProducts` is `true`, **OR**
+    * Product is assigned directly to Buyer (or any Group the user is in).
 
 ## Bug Fixes
-
 
 ## Client Libraries
 - Save Security Profile assignment parameter order changes
