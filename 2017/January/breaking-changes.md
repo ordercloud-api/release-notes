@@ -128,7 +128,7 @@ The planned release to Production is TBD. _This date is subject to change_
 
 - In addtion, *one* of the following must be true:
     * In Buyer assignment to Catalog, `CatalogAssignment.ViewAllProducts` is `true`, **OR**
-    * Product belongs to active Category in the catalog, and Category is assigned to Buyer (or any Group the user is in), and `CategoryAssignment.ViewAllProducts` is `true`, **OR**
+    * Product belongs to active Category in the catalog, Category is assigned to Buyer (or any Group the user is in), and `CategoryAssignment.ViewAllProducts` is `true`, **OR**
     * Product is assigned directly to Buyer (or any Group the user is in).
 
 ## Bug Fixes
