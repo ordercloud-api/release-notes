@@ -1,0 +1,16 @@
+[All Releases](../../README.md) / [2017](../README.md) / [March](README.md) / v41-rc
+# API v1.0.41 Release Candidate Notes 
+
+Planned to be released to Production on Friday, March 3rd, 2017 at 7:30 PM Central. 
+
+## Bug Fixes
+- Fixed an issue where the Reset Password Token didn't expire. Now expires after two hour.
+- Fixed an issue around Promotions with value expressions containing `product.incategory`
+- Fixed an issue where you couldn't delete orders after they'd been approved.
+- Fixed an issue where you'd get a 500 instead of a useful error if you submit an order without specs if the order contained a specc'd product
+- Fixed an issue where you got a 500 instead of a useful error if you tried to assign a non-existent user to an admin group
+- Improved large value handling in unit prices
+- You now (correctly) need `ApprovalRuleAdmin` and `ApprovalRuleReader` to admin/read approval rules and not `AddressReader`.
+
+
+
