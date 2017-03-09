@@ -132,6 +132,19 @@ The planned release to Production is TBD. _This date is subject to change_
     * Product belongs to active Category in the catalog, Category is assigned to Buyer (or any Group the user is in), and `CategoryAssignment.ViewAllProducts` is `true`, **OR**
     * Product is assigned directly to Buyer (or any Group the user is in).
 
+### Order URI Changes
+
+Order IDs are unique to both the buyer and the seller. Hence, specifying buyerID in the URI is not technically necessary. With the recent addition of Suppliers, it became clear that regardless of your commerce role (Buyer, Seller, or Supplier) the only peices of information necessary to identify an Order are its ID and direction (`incoming` or `outgoing`). Therefore, we are changing all order related URIs as follows:
+
+**Old:** `v1/buyers/:buyerID/orders/*`
+
+**New:** `v1/orders/:direction/*`
+
+**Notes:**
+- This affects virturally all Order, Line Item, and Payment URIs. The only exception is Order List, which already use `incoming`/`outgoing`.
+- Order Create (`POST v1/orders`) is the _only_ case where direction is not specified, because it's the only order releated action no one other than the "from" user can perform, hence it's always `outgoing`.
+
+
 ## Bug Fixes
 
 ## Client Libraries
