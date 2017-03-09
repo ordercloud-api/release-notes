@@ -2,6 +2,7 @@
 # OrderCloud API Releases for 2017
 
 ###[March](March/README.md)
+- [v42-rc](March/v42-rc.md)
 - [v41](March/v41.md)
 
 ###[February](February/README.md)

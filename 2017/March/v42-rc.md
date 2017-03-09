@@ -1,0 +1,9 @@
+[All Releases](../../README.md) / [2017](../README.md) / [March](README.md) / v42-rc
+# API v1.0.42-rc Release Candidate Notes 
+
+Planned to be released to Production on Thursday, March 9th, 2017 at 7:30 PM Central. 
+
+## Bug Fixes
+- Fixed a couple issues where markups on product specs were not being correctly reflected in lineitem totals.
+- XP filtering on buyers is now fixed.
+- Delete webhook firing issue is fixed.
