@@ -10,7 +10,7 @@ The planned release to Production is TBD. _This date is subject to change_
 
 ## New Features
 - Payments have a new boolean field, `Accepted`. Only users with the new `ProcessPayments` role will be able to create or update payments with `Accepted` set to `true`, and create Payment Transactions. 
-- Order submit logic will validate `Payment.Accepted=true` and orders without an accepted payment will fail with **ERROR CODE**.
+- Order submit logic will validate `Payment.Accepted=true` and orders without an accepted payment will fail.
 - Previously, any admin user could impersonate any buyer user. Going forward, an admin user must have the `BuyerImpersonation` claim in their security profile to impersonate buyer users.
 - Due to refactoring around our password hash algorithm, and since we do not store users' passwords ourselves, but simply a hash of the password, **users will need to reset their passwords before they can log into the OrderCloud DevCenter or any OrderCloud apps**. When you authenticate to the Ordercloud API initially after this release, the only role your user will have is the `PasswordReset` role, and after you've reset your password, you'll need to re-authenticate to get your full array of roles. 
     + If you provide an application to users, we recommend have the application redirect any user who authenticates and only has the `PasswordReset` role to be redirected to a different view, where their password can be reset using the new `/me/password` endpoint.
