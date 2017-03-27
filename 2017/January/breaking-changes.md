@@ -7,7 +7,9 @@ A public staging environment will be available starting on Sunday, April 2nd. Th
 You can access the staging environment using your production data and the following:
 
 api: `https://stagingapi.ordercloud.io`
+
 auth: `https://stagingauth.ordercloud.io`
+
 devcenter: [https://staging-account.ordercloud.io](https://staging-account.ordercloud.io)
 
 Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production ASAP. On the production release, no staging data will be transfered to production.
