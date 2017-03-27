@@ -2,11 +2,17 @@
 
 # API Breaking Changes Release Candidate Notes 
 
-Planned to be released to Staging environment TBD. 
+A public staging environment will be available starting on Sunday, April 2nd. The Breaking Change Release will be released to Production on May 4th at 7:30 PM Central.
 
-This public staging environment will be available for 30 days. Production data will be copied down to the Staging environment once, on TBD. In Staging, all webhooks will be disabled initially. Please update your webhooks and integrations in Staging to point somewhere other than Production ASAP.
+You can access the staging environment using your production data and the following:
 
-The planned release to Production is TBD. _This date is subject to change_
+api: `https://stagingapi.ordercloud.io`
+auth: `https://stagingauth.ordercloud.io`
+devcenter: [https://staging-account.ordercloud.io](https://staging-account.ordercloud.io)
+
+Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production ASAP. On the production release, no staging data will be transfered to production.
+
+The planned release to Production is May 4th at 7:30 PM Central. _This date is subject to change_
 
 ## New Features
 - Payments have a new boolean field, `Accepted`. Only users with the new `ProcessPayments` role will be able to create or update payments with `Accepted` set to `true`, and create Payment Transactions. 
@@ -21,7 +27,7 @@ The planned release to Production is TBD. _This date is subject to change_
 - Buyer-side product lists (`v1/me/products`) that specify `CategoryID` can also specify `depth`, which can be an integer 1 or greater (`depth=1` means products directly assigned to category) or `all`. Default is `all`. 
 - The Buyer-side order list for incoming orders (`v1/me/orders/incoming`) will now return all orders available for a user's approval.
 - An order that requires approval can now be sent back to the submitting user by the approver user for editing and re-submission. See [Decline Orders](https://staging-documentation.herokuapp.com/api-reference#Orders_Decline) for more details. 
-- We are changing the route to register an anonymous user (previously called "Create From Temp User") to `PUT` `v1/me/temp`. This will help make our Swagger spec more flexible.
+- We are changing the route to register an anonymous user (previously called "Create From Temp User") to `PUT` `v1/me/register`. This will help make our Swagger spec more flexible.
 - Any buyer user can now list shipments for their own orders in a User Perspective route, `me/shipments`. No more need for elevated permissions!
 - In order to encourage best practices, only group-level and buyer-level assignments will be allowed for the following resources:
     + Products
@@ -128,7 +134,7 @@ The planned release to Production is TBD. _This date is subject to change_
     * Product belongs to a Catalog where `Catalog.Active` is `true`
     * Buyer is assigned to this Catalog
 
-- In addtion, *one* of the following must be true:
+- In addition, *one* of the following must be true:
     * In Buyer assignment to Catalog, `CatalogAssignment.ViewAllProducts` is `true`, **OR**
     * Product belongs to active Category in the catalog, Category is assigned to Buyer (or any Group the user is in), and `CategoryAssignment.ViewAllProducts` is `true`, **OR**
     * Product is assigned directly to Buyer (or any Group the user is in).
@@ -142,13 +148,22 @@ Order IDs are unique to both the buyer and the seller. Hence, specifying buyerID
 **New:** `v1/orders/:direction/*`
 
 **Notes:**
-- This affects virturally all Order, Line Item, and Payment URIs. The only exception is Order List, which already use `incoming`/`outgoing`.
+- This affects virtually all Order, Line Item, and Payment URIs. The only exception is Order List, which already use `incoming`/`outgoing`.
 - Order Create (`POST v1/orders`) is the _only_ case where direction is not specified, because it's the only order releated action no one other than the "from" user can perform, hence it's always `outgoing`.
 
 
-## Bug Fixes
-
 ## Client Libraries
-- Save Security Profile assignment parameter order changes
+
+### [Javascript SDK]() 
+- We've simplified our old SDK to be more vanilla Javascript, with a separate Angular SDK. This should make things a little more framework agnostic. :D
 - We've updated our terminology around claims vs roles to consistently use roles. You may need to check your token requests and make sure that you've updated your code to use roles.
 - `MesageSenders` is now correctly spelled as `MessageSenders` in the SDK.
+- required parameters are passed in first, while optional parameters are passed in as an object with key value pairs
+ex:
+`ListProducts( {page:1, filters:{'xp.test':true})} )`
+- Docs are now generated with the SDK, to make your life easier. Check them out at the bottom of the [readme](https://github.com/cobrien451/OrderCloud-JavaScript-SDK)!
+
+### [Angular SDK]()
+- As mentioned above, we've simplified our SDKs to be more framework agnostic, and there is now an Angular-specific SDK available.
+
+### [C# SDK](https://github.com/ordercloud-api/csharp-sdk)
