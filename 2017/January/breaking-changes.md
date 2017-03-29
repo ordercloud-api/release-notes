@@ -151,7 +151,7 @@ Order IDs are unique to both the buyer and the seller. Hence, specifying buyerID
 
 **Notes:**
 - This affects virtually all Order, Line Item, and Payment URIs. The only exception is Order List, which already use `incoming`/`outgoing`.
-- Order Create (`POST v1/orders`) is the _only_ case where direction is not specified, because it's the only order releated action no one other than the "from" user can perform, hence it's always `outgoing`.
+- Order Create (`POST v1/orders`) and Anonymous User Order Transfer from anonymous user (`PUT v1/orders?tempUserToken=xyz`) are the _only_ cases where direction is not specified, because they're the only order releated actions that no one other than the "from" user can perform, hence they're always `outgoing`.
 
 
 ## Client Libraries
