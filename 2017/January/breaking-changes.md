@@ -150,7 +150,7 @@ Order IDs are unique to both the buyer and the seller. Hence, specifying buyerID
 **New:** `v1/orders/:direction/*`
 
 **Note:**
-- Anonymous User Order Transfer (`PUT v1/orders?tempUserToken=xyz`) the _only_ exception to the `:direction` requirement in order routes, because you can only transfer the order to yourself, which implies outgoing.
+Anonymous User Order Transfer (`PUT v1/orders?tempUserToken=xyz`) is the _only_ exception to the `:direction` requirement in order routes, because you can only transfer the order to yourself, which implies outgoing.
 
 ## Client Libraries
 
