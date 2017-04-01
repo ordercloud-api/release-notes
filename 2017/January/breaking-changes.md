@@ -148,7 +148,7 @@ Order IDs are unique to both the buyer and the seller. Hence, specifying a Buyer
 
 **New:** `v1/orders/incoming/*` or `v1/orders/outgoing/*`
 
-An `outgoing` order is one sent by your organization; and `incoming` order is one received by your organization. This provides a uniform way to work with orders regardless of whether your are a Buyer, Seller, or (coming soon) Supplier.
+An `outgoing` order is one sent by someone in your organization; an `incoming` order is one received by your organization. This provides a uniform way to work with orders regardless of whether your are a Buyer, Seller, or (coming soon) Supplier.
 
 There are only 3 order-related endpoints that do not require `incoming`/`outgoing`, all within the "Me" resources:
 
