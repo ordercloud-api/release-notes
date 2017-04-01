@@ -27,7 +27,6 @@ The planned release to Production is May 4th at 7:30 PM Central. _This date is s
 - Added roles that control who can list or edit shipments. Now users with `ShipmentAdmin` *or* `OrderAdmin` can create or edit shipments. Users with `ShipmentReader` or `OrderReader` can get/list shipments.
 - Seller-side product lists (`v1/products`) can now be filtered on `CatalogID` and `CategoryID` (`CategoryID` is unique only within a Catalog, so you must specify both in order to filter on Category.)
 - Buyer-side product lists (`v1/me/products`) that specify `CategoryID` can also specify `depth`, which can be an integer 1 or greater (`depth=1` means products directly assigned to category) or `all`. Default is `all`. 
-- The Buyer-side order list for incoming orders (`v1/me/orders/incoming`) will now return all orders available for a user's approval.
 - An order that requires approval can now be sent back to the submitting user by the approver user for editing and re-submission. See [Decline Orders](https://staging-documentation.herokuapp.com/api-reference#Orders_Decline) for more details. 
 - We are changing the route to register an anonymous user (previously called "Create From Temp User") to `PUT` `v1/me/register`. This will help make our Swagger spec more flexible.
 - Any buyer user can now list shipments for their own orders in a User Perspective route, `me/shipments`. No more need for elevated permissions!
@@ -143,14 +142,21 @@ The planned release to Production is May 4th at 7:30 PM Central. _This date is s
 
 ### Order URI Changes
 
-Order IDs are unique to both the buyer and the seller. Hence, specifying buyerID in the URI is not technically necessary. With the recent addition of Suppliers, it became clear that regardless of your commerce role (Buyer, Seller, or Supplier) the only peices of information necessary to identify an Order are its ID and direction (`incoming` or `outgoing`). Therefore, we are changing all order related URIs as follows:
+Order IDs are unique to both the buyer and the seller. Hence, specifying a Buyer ID in the URI is not necessary. Therefore, we are changing most order related URIs as follows:
 
 **Old:** `v1/buyers/:buyerID/orders/*`
 
-**New:** `v1/orders/:direction/*`
+**New:** `v1/orders/incoming/*` or `v1/orders/outgoing/*`
 
-**Note:**
-Anonymous User Order Transfer (`PUT v1/orders?tempUserToken=xyz`) is the _only_ exception to the `:direction` requirement in order routes, because you can only transfer the order to yourself, which implies outgoing.
+An `outgoing` order is one sent by your organization; and `incoming` order is one received by your organization. This provides a uniform way to work with orders regardless of whether your are a Buyer, Seller, or (coming soon) Supplier.
+
+There are only 3 order-related endpoints that do not require `incoming`/`outgoing`, all within the "Me" resources:
+
+- `GET v1/me/orders` - Get orders "from" the authenticated user.
+
+- `GET v1/me/orders/approvable` - Get orders in "awaiting approval" status that are approvable by the authenticatd user.
+
+- `PUT v1/me/orders?tempUserToken=xyz` - Transfer the anonomous cart associated with the user's token to the now-registered user.
 
 ## Client Libraries
 
