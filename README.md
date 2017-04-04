@@ -1,7 +1,7 @@
 # OrderCloud Release Notes
 *Release notes for the OrderCloud API*
 
-###[2017](2017/README.md)
+### [2017](2017/README.md)
 - [April](2017/April/README.md)
 	* [Breaking Changes](2017/January/breaking-changes.md)
 	* [v43-rc](2017/April/v43-rc.md)
@@ -17,7 +17,7 @@
 	- [v37](2017/January/v37.md)
 
 
-###[2016](2016/README.md)
+### [2016](2016/README.md)
 - [December](2016/December/README.md)
 	- [v33](2016/December/v33.md)
 - [November](2016/November/README.md)
