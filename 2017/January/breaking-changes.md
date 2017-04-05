@@ -169,7 +169,7 @@ There are only 3 order-related endpoints that do not require `incoming`/`outgoin
 - required parameters are passed in first, while optional parameters are passed in as an object with key value pairs
 ex:
 `ListProducts( {page:1, filters:{'xp.test':true})} )`
-- Docs are now generated with the SDK, to make your life easier. Check them out at the bottom of the [readme](https://github.com/cobrien451/OrderCloud-JavaScript-SDK)!
+- Docs are now generated with the SDK, to make your life easier. Check them out at the bottom of the [readme](https://github.com/ordercloud-api/OrderCloud-JavaScript-SDK)!
 
 ### [Angular SDK]()
 - As mentioned above, we've simplified our SDKs to be more framework agnostic, and there is now an Angular-specific SDK available.
