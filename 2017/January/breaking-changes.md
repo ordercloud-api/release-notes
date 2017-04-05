@@ -140,6 +140,8 @@ The planned release to Production is May 4th at 7:30 PM Central. _This date is s
     * Product belongs to active Category in the catalog, Category is assigned to Buyer (or any Group the user is in), and `CategoryAssignment.ViewAllProducts` is `true`, **OR**
     * Product is assigned directly to Buyer (or any Group the user is in).
 
+We recommend checking out the [Catalog Visibility Guide](https://staging-documentation.ordercloud.io/use-case-guides/product-catalog-management/new-catalog-visibility-rules).
+
 ### Order URI Changes
 
 Order IDs are unique to both the buyer and the seller. Hence, specifying a Buyer ID in the URI is not necessary. Therefore, we are changing most order related URIs as follows:
@@ -160,7 +162,7 @@ There are only 3 order-related endpoints that do not require `incoming`/`outgoin
 
 ## Client Libraries
 
-### [Javascript SDK]() 
+### [Javascript SDK](https://github.com/ordercloud-api/OrderCloud-JavaScript-SDK) 
 - We've simplified our old SDK to be more vanilla Javascript, with a separate Angular SDK. This should make things a little more framework agnostic. :D
 - We've updated our terminology around claims vs roles to consistently use roles. You may need to check your token requests and make sure that you've updated your code to use roles.
 - `MesageSenders` is now correctly spelled as `MessageSenders` in the SDK.
@@ -173,3 +175,4 @@ ex:
 - As mentioned above, we've simplified our SDKs to be more framework agnostic, and there is now an Angular-specific SDK available.
 
 ### [C# SDK](https://github.com/ordercloud-api/csharp-sdk)
+
