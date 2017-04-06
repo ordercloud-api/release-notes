@@ -17,9 +17,10 @@ Production data will be copied down to the Staging environment weekly, on Sunday
 The planned release to Production is May 4th at 7:30 PM Central. _This date is subject to change_
 
 ## New Features
-- Payments have a new boolean field, `Accepted`. Only users with the new `ProcessPayments` role will be able to create or update payments with `Accepted` set to `true`, and create Payment Transactions. 
-- Order submit logic will validate `Payment.Accepted=true` and orders without an accepted payment will fail.
-- Previously, any admin user could impersonate any buyer user. Going forward, an admin user must have the `BuyerImpersonation` role in their security profile to impersonate buyer users.
+- Payments have a new boolean field, `Accepted`. Only users with OrderAdmin, or FullAccess role will be able to create or update payments with `Accepted` set to true, and create Payment Transactions.
+- `PUT` has been removed from payments. `PATCH` is allowed, but only to patch the `Accepted` property, and only if the user has `OrderAdmin` or `FullAccess`.
+- Order submit logic will validate Payment.Accepted=true and an error will be thrown if an order with an unaccepted payment is submitted.
+- Previously, any admin user could impersonate any buyer user. Going forward, an admin user must have the `BuyerImpersonation` role in their security profile to impersonate buyer users and request the role when impersonating a user.
 - Due to refactoring around our password hash algorithm, and since we do not store users' passwords ourselves, but simply a hash of the password, **users will need to reset their passwords before they can log into the OrderCloud DevCenter or any OrderCloud apps**. When you authenticate to the Ordercloud API initially after this release, the only role your user will have is the `PasswordReset` role, and after you've reset your password, you'll need to re-authenticate to get your full array of roles. 
     + If you provide an application to users, we recommend have the application redirect any user who authenticates and only has the `PasswordReset` role to be redirected to a different view, where their password can be reset using the new `/me/password` endpoint.
     + Alternately, any user can trigger an email-based password reset, using the [Forgotten Password](https://staging-documentation.herokuapp.com/api-reference#PasswordResets) endpoint. 
@@ -156,9 +157,9 @@ There are only 3 order-related endpoints that do not require `incoming`/`outgoin
 
 - `GET v1/me/orders` - Get orders "from" the authenticated user.
 
-- `GET v1/me/orders/approvable` - Get orders in "awaiting approval" status that are approvable by the authenticatd user.
+- `GET v1/me/orders/approvable` - Get orders in "awaiting approval" status that are approvable by the authenticated user.
 
-- `PUT v1/me/orders?tempUserToken=xyz` - Transfer the anonomous cart associated with the user's token to the now-registered user.
+- `PUT v1/me/orders?tempUserToken=xyz` - Transfer the anonymous cart associated with the user's token to the now-registered user.
 
 ## Client Libraries
 
