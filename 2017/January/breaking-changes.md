@@ -17,7 +17,12 @@ Production data will be copied down to the Staging environment weekly, on Sunday
 The planned release to Production is May 4th at 7:30 PM Central. _This date is subject to change_
 
 ## New Features
-- Payments have a new boolean field, `Accepted`. Only users with OrderAdmin, or FullAccess role will be able to create or update payments with `Accepted` set to true, and create Payment Transactions.
+- Payments have a new boolean field, `Accepted`. `PUT` has been removed from Payments, and `PATCH` can never edit `Type`, `CreditCardID`, and `SpendingAccountID`.
+    +  Only users with OrderAdmin or FullAccess roles will be able to create or update the `Accepted` property.
+    + If the `Accepted` property is true AND the order has been submited, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess can.
+    + If the `Accepted` property is true AND the payment type is a credit card, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess can.
+    + If the `Accepted` property is true, the order has not been submitted, and the payment type is not a credit card, either a Shopper or OrderAdmin CAN patch the payment.
+    + If `Accepted` is false, any user with either role can patch all other fields except the 3 listed above.
 - `PUT` has been removed from payments. `PATCH` is allowed, but only to patch the `Accepted` property, and only if the user has `OrderAdmin` or `FullAccess`.
 - Order submit logic will validate Payment.Accepted=true and an error will be thrown if an order with an unaccepted payment is submitted.
 - Previously, any admin user could impersonate any buyer user. Going forward, an admin user must have the `BuyerImpersonation` role in their security profile to impersonate buyer users and request the role when impersonating a user.
@@ -92,7 +97,8 @@ The planned release to Production is May 4th at 7:30 PM Central. _This date is s
 - `QuantityAvailable` is always re-validated per the rules above on order submit.
 
 ### Shipment Changes
-- The nested `Shipment.Items` collection has been removed, and shipment items are instead retrieved or saved via new endpoints, much like line items.
+- The nested `Shipment.Items` collection has been removed, and shipment items are instead retrieved or saved via new endpoints, much like line items. 
+- To compensate for the above, there is a new `me/shipmentitems` endpoint.
 - `BuyerID` has been removed from routes, meaning you can list shipments across multiple buyers. 
 - Shipment IDs are now seller-unique.
 - All new fields listed below derive their values from corresponding LineItems, helping to avoid additional lookups when working with shipments.
