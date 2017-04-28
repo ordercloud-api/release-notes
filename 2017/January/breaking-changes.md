@@ -67,6 +67,7 @@ The planned release to Production is May 4th at 7:30 PM Central. _This date is s
 }
 ````
 - We have also moved approval comments out of the URL query string and into the request body. There is a maximum length of 2000 characters.
+- We have added new roles around the administration of Admin Addresses: `AdminAddressReader` and `AdminAddressAdmin`.
 
 ### Inventory Revamp
 - Inventory-related data points on `Product` are being moved into a nested `Inventory` object.
