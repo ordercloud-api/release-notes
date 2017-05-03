@@ -2,7 +2,7 @@
 
 # API Breaking Changes Release Candidate Notes 
 
-A public staging environment will be available starting on Sunday, April 2nd. The Breaking Change Release will be released to Production on May 4th at 7:30 PM Central.
+A public staging environment will be available starting on Sunday, April 2nd. The Breaking Change Release will be released to Production on May 4th at 8:00 PM Central.
 
 You can access the staging environment using your production data and the following:
 
@@ -14,7 +14,7 @@ devcenter: [https://staging-account.ordercloud.io](https://staging-account.order
 
 Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production ASAP. On the production release, no staging data will be transfered to production.
 
-The planned release to Production is May 4th at 7:30 PM Central. _This date is subject to change_
+The planned release to Production is May 4th at 8:00 PM Central. 
 
 ## New Features
 - Payments have a new boolean field, `Accepted`. `PUT` has been removed from Payments, and `PATCH` can never edit `Type`, `CreditCardID`, and `SpendingAccountID`.
