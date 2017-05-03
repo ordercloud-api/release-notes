@@ -1,16 +1,17 @@
 [All Releases](../README.md) / 2017
 # OrderCloud API Releases for 2017
 
-###[March](March/README.md)
-- [v42-rc](March/v42-rc.md)
-- [v41](March/v41.md)
-
-###[February](February/README.md)
-- [v41-rc](February/v41-rc.md)
-- [v40](February/v40.md)
-- [v39](February/v39.md)
-- [v38](February/v38.md)
-
-###[January](January/README.md)
-- [v36](January/v36.md)
-- [v37](January/v37.md)
+- [May](2017/May/README.md)
+    * [v50](2017/May/v50.md)
+- [April](2017/April/README.md)
+    * [v43](2017/April/v43.md)
+- [March](2017/March/README.md)
+    * [v42](2017/March/v42.md)
+    * [v41](2017/March/v41.md)
+- [February](2017/February/README.md)
+    - [v40](2017/February/v40.md)
+    - [v39](2017/February/v39.md)
+    - [v38](2017/February/v38.md)
+- [January](2017/January/README.md)
+    - [v36](2017/January/v36.md)
+    - [v37](2017/January/v37.md)
