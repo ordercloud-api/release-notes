@@ -3,6 +3,8 @@
 
 ### [2017](2017/README.md)
 - [May](2017/May/README.md)
+	* [v52](2017/May/v52.md)
+	* [v51](2017/May/v51.md)
 	* [v50](2017/May/v50.md)
 - [April](2017/April/README.md)
 	* [v43](2017/April/v43.md)
