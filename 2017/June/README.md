@@ -3,3 +3,4 @@
 # OrderCloud Releases for June, 2017
 
 ## [v1.0.55](v55.md)
+## [v1.0.56 RC](v56.md)
