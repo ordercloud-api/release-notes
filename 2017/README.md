@@ -1,8 +1,9 @@
 [All Releases](../README.md) / 2017
 # OrderCloud API Releases for 2017
 
+- [July](2017/July/README.md)
+    * [v59](2017/July/v59.md)
 - [June](2017/June/README.md)
-    * [v59](2017/June/v59.md)
     * [v58](2017/June/v58.md)
     * [v57](2017/June/v57.md)
     * [v56](2017/June/v56.md)
