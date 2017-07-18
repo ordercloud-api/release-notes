@@ -3,6 +3,7 @@
 
 ### [2017](2017/README.md)
 - [July](2017/July/README.md)
+	* [v60](2017/July/v60.md)
 	* [v59](2017/July/v59.md)
 - [June](2017/June/README.md)
 	* [v58](2017/June/v58.md)
