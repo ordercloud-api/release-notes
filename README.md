@@ -1,8 +1,6 @@
 # OrderCloud Release Notes 
 *Release notes for the OrderCloud API*
 
-## [2016](2016\README.md)
-
 ### [April](2016\April\README.md)
 - [v14](2016\April\v14.0.md)
 - [v14](2016\April\v14.1.md)
@@ -44,13 +42,13 @@
 - [v29](2016\October\v29.0.md)
 - [v30](2016\October\v30.0.md)
 
+## [2016](2016\README.md)
+
 ### [September](2016\September\README.md)
 - [v25](2016\September\v25.0.md)
 - [v25](2016\September\v25.1.md)
 - [v26](2016\September\v26.0.md)
 - [v27](2016\September\v27.0.md)
-
-## [2017](2017\README.md)
 
 ### [April](2017\April\README.md)
 - [v43](2017\April\v43.md)
@@ -85,6 +83,8 @@
 - [v52](2017\May\v52.md)
 - [v53](2017\May\v53.md)
 - [v54](2017\May\v54.md)
+
+## [2017](2017\README.md)
 
 ### [September](2017\September\README.md)
 - [v61](2017\September\v61.md)

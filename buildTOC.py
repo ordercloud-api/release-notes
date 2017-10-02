@@ -1,9 +1,6 @@
-import pathlib
+import pathlib, os, glob, fnmatch, re, datetime
 from pathlib import Path
-import os
-import glob
-import fnmatch
-import re
+
 
 
 p = Path('.')
@@ -12,9 +9,12 @@ months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augus
 
 #list (p.glob('**/*'.md))
 
+# could be worth parsing the blob of .md files into an ordered object; could then iterate over the object to produce month level readmes too.
+
 with open('README.md', 'w') as output:
 			output.write('# OrderCloud Release Notes \n*Release notes for the OrderCloud API*\n')
-			for filename in glob.glob('**/*.md', recursive = True):
+			sorter = sorted(glob.glob('**/*.md', recursive = True))
+			for filename in sorter:
 				if fnmatch.fnmatch(filename, '20??/README.md'):
 					file = re.search(r'\d+', filename)
 					output.write('\n## ' + '[' + file.group(0) + '](' + str(filename)+ ')\n')
