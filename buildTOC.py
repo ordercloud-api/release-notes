@@ -93,6 +93,6 @@ for year in sortedYears:
 				output.write('# OrderCloud API Releases for '+str(monthsIndex[month[1]])+', '+str(month[0])+'\n')
 				for indexV, version in enumerate(sortedList):
 					if version[0] == year and version[1] == month[1]:
-						output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
+						output.write('\n- [' + str(version[2]) + ']('+str(version[2])+')')
 					else:
 							continue
