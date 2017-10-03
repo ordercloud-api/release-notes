@@ -51,7 +51,7 @@ sortedMonths = sorted(sortedMonths, key=operator.itemgetter(0,1))
 print(sortedYears)
 print(sortedMonths)
 
-# write the markdown readme
+# write the markdown for repo readme.md
 with open('README.md', 'w') as output:
 	output.write('\n# OrderCloud Release Notes \n*Release notes for the OrderCloud API*')	
 	#output.write(str(sortedList))
@@ -74,3 +74,36 @@ with open('README.md', 'w') as output:
 					continue
 		
 
+# write the markdown for year readmes
+
+for indexY, year in enumerate(sortedYears):
+	with open(''+str(year)+'/README.md', 'w') as output:
+		output.write('# OrderCloud API Releases for '+str(year)+'\n')
+		for indexM, month in enumerate(sortedMonths):
+			#print(month) 
+			if month[0] == year:
+					output.write('\n\n## ['+str(monthsIndex[month[1]])+']('+str(monthsIndex[month[1]])+'/README.md'+')')
+			else:
+					continue
+			for indexV, version in enumerate(sortedList):
+					#output.write('\n# ['+ version[0]+'](\n')
+					#output.write
+				if version[0] == year and version[1] == month[1]:
+					output.write('\n- [' + str(version[2]) + ']('+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
+					output.write('\n- [' + str(version[2]) + ']('+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
+				else:
+					continue
+
+# write the markdown for month readmes
+for indexY, year in enumerate(sortedYears):
+	for indexM, month in enumerate(sortedMonths):
+		with open(''+str(month[0])+'/'+str(monthsIndex[month[1]])+'/README.md', 'w') as output:
+			output.write('# OrderCloud API Releases for '+str(monthsIndex[month[1]])+', '+str(month[0])+'\n')
+			for indexV, version in enumerate(sortedList):
+						#output.write('\n# ['+ version[0]+'](\n')
+						#output.write
+				if version[0] == year and version[1] == month[1]:
+					output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
+					output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
+				else:
+						continue

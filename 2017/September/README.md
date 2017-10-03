@@ -1,6 +1,6 @@
-[All Releases](../../README.md) / [2017](../README.md) / September
+# OrderCloud API Releases for September, 2017
 
-# OrderCloud Releases for September, 2017
-
-## [v1.0.61-rc](v61.md)
-
+- [v61.md](/v61.md)
+- [v61.md](/v61.md)
+- [v62.md](/v62.md)
+- [v62.md](/v62.md)
