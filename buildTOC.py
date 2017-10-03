@@ -1,7 +1,7 @@
 import pathlib, os, glob, fnmatch, re, datetime, operator, calendar
 from pathlib import Path
 
-monthsIndex = {1:'January', 2:'February', 3:'March',4:'April',5:'May',6:'June', 7:'July', 8:'August',9:'September', 10:'October', 11:'November', 12:'December'}
+monthsIndex = {0:'January', 1:'February', 2:'March', 3:'April', 4:'May', 5:'June', 6:'July', 7:'August', 8:'September', 9:'October', 10:'November', 11:'December'}
 
 versions = glob.glob('**/20??/*/v*.md', recursive = True)
 
@@ -29,34 +29,45 @@ sortedList = sorted(sortedList, key=operator.itemgetter(0,1))
 
 # add the year indexes to sortedYears
 for index, item in enumerate(sortedList):
-	print(item[0],index, item)
+	#print(item[0],index, item)
 	if index == 0:
-		sortedYears.append([item[0], 'README.md'])
+		sortedYears.append(item[0])
 	if item[0] > sortedList[index-1][0]:
-		sortedYears.append([item[0], 'README.md'])
+		sortedYears.append(item[0])
 
 # add the month indexes to sortedMonths
 for index, item in enumerate(sortedList):
 	#print(index, item)
 	if index == 0:
-		sortedMonths.append([item[0], item[1], 'README.md'])
+		sortedMonths.append([item[0], item[1]])
 	elif item[1] == 'README.md':
 		continue
 	elif item[1] > sortedList[index-1][1]:
-		sortedMonths.append([item[0], item[1], 'README.md'])
+		sortedMonths.append([item[0], item[1]])
+
+sortedYears = sorted(sortedYears)
+sortedMonths = sorted(sortedMonths, key=operator.itemgetter(0,1))
+
+print(sortedYears)
+print(sortedMonths)
 
 # write the markdown readme
 with open('README.md', 'w') as output:
 	output.write('\n# OrderCloud Release Notes \n*Release notes for the OrderCloud API*')	
 	#output.write(str(sortedList))
 	for indexY, year in enumerate(sortedYears):
-		output.write('\n\n## ['+str(year[0])+'](/'+str(year[0])+'/README.md'+')')
-		for indexM, month in enumerate(sortedMonths): 
-			output.write('\n\n### ['+str(monthsIndex[month[1]])+']('+str(year[0])+'/'+str(monthsIndex[month[1]])+'/README.md'+')')
+		#print(year)
+		output.write('\n\n## ['+str(year)+'](/'+str(year)+'/README.md'+')')
+		for indexM, month in enumerate(sortedMonths):
+			#print(month) 
+			if month[0] == year:
+				output.write('\n\n### ['+str(monthsIndex[month[1]])+']('+str(year)+'/'+str(monthsIndex[month[1]])+'/README.md'+')')
+			else:
+					continue
 			for indexV, version in enumerate(sortedList):
 				#output.write('\n# ['+ version[0]+'](\n')
 				#output.write
-				if version[0] == year[0] and version[1] == month[1]:
+				if version[0] == year and version[1] == month[1]:
 					output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 					output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 				else:
