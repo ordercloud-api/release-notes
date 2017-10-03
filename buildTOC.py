@@ -1,5 +1,6 @@
 import pathlib, os, glob, fnmatch, re, datetime, operator, calendar
 from pathlib import Path
+#import pdb
 
 monthsIndex = {0:'January', 1:'February', 2:'March', 3:'April', 4:'May', 5:'June', 6:'July', 7:'August', 8:'September', 9:'October', 10:'November', 11:'December'}
 
@@ -95,15 +96,20 @@ for indexY, year in enumerate(sortedYears):
 					continue
 
 # write the markdown for month readmes
-for indexY, year in enumerate(sortedYears):
-	for indexM, month in enumerate(sortedMonths):
-		with open(''+str(month[0])+'/'+str(monthsIndex[month[1]])+'/README.md', 'w') as output:
-			output.write('# OrderCloud API Releases for '+str(monthsIndex[month[1]])+', '+str(month[0])+'\n')
-			for indexV, version in enumerate(sortedList):
-						#output.write('\n# ['+ version[0]+'](\n')
-						#output.write
-				if version[0] == year and version[1] == month[1]:
-					output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
-					#output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
-				else:
-						continue
+for year in sortedYears:
+	for month in sortedMonths:
+		if month[0] == year:
+			with open(''+str(month[0])+'/'+str(monthsIndex[month[1]])+'/README.md', 'w') as output:
+				print(month)
+				output.write('# OrderCloud API Releases for '+str(monthsIndex[month[1]])+', '+str(month[0])+'\n')
+				for indexV, version in enumerate(sortedList):
+
+							#output.write('\n# ['+ version[0]+'](\n')
+							#output.write
+					if version[0] == year and version[1] == month[1]:
+
+						print(version)
+						output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
+						#output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
+					else:
+							continue

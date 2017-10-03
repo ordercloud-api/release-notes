@@ -1,4 +1,6 @@
 # OrderCloud API Releases for September, 2016
 
-- [v61.md](/v61.md)
-- [v62.md](/v62.md)
+- [v25.0.md](/v25.0.md)
+- [v25.1.md](/v25.1.md)
+- [v26.0.md](/v26.0.md)
+- [v27.0.md](/v27.0.md)
