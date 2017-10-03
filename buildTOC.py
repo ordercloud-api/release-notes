@@ -48,8 +48,8 @@ for index, item in enumerate(sortedList):
 sortedYears = sorted(sortedYears)
 sortedMonths = sorted(sortedMonths, key=operator.itemgetter(0,1))
 
-print(sortedYears)
-print(sortedMonths)
+#print(sortedYears)
+#print(sortedMonths)
 
 # write the markdown for repo readme.md
 with open('README.md', 'w') as output:
@@ -69,7 +69,7 @@ with open('README.md', 'w') as output:
 				#output.write
 				if version[0] == year and version[1] == month[1]:
 					output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
-					output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
+					#output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 				else:
 					continue
 		
@@ -90,7 +90,7 @@ for indexY, year in enumerate(sortedYears):
 					#output.write
 				if version[0] == year and version[1] == month[1]:
 					output.write('\n- [' + str(version[2]) + ']('+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
-					output.write('\n- [' + str(version[2]) + ']('+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
+					#output.write('\n- [' + str(version[2]) + ']('+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 				else:
 					continue
 
@@ -104,6 +104,6 @@ for indexY, year in enumerate(sortedYears):
 						#output.write
 				if version[0] == year and version[1] == month[1]:
 					output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
-					output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
+					#output.write('\n- [' + str(version[2]) + ']('+'/'+str(version[2])+')')
 				else:
 						continue
