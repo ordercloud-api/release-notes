@@ -43,8 +43,8 @@ for index, item in enumerate(sortedList):
 	elif item[1] > sortedList[index-1][1]:
 		sortedMonths.append([item[0], item[1]])
 
-sortedYears = sorted(sortedYears)
-sortedMonths = sorted(sortedMonths, key=operator.itemgetter(0,1))
+sortedYears = sorted(sortedYears, reverse=True)
+sortedMonths = sorted(sortedMonths, key=operator.itemgetter(0,1), reverse=True)
 
 # write the markdown for repo readme.md
 with open('README.md', 'w') as output:
