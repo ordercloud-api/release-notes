@@ -63,7 +63,8 @@ with open('README.md', 'w') as output:
 				#output.write('\n# ['+ version[0]+'](\n')
 				#output.write
 				if version[0] == year and version[1] == month[1]:
-					output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
+					# you're going to have to change the string index on version > 99
+					output.write('\n- [1.0.' + str(version[2])[1:3] + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 					#output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 				else:
 					continue
@@ -74,17 +75,22 @@ with open('README.md', 'w') as output:
 for indexY, year in enumerate(sortedYears):
 	with open(''+str(year)+'/README.md', 'w') as output:
 		output.write('# OrderCloud API Releases for '+str(year)+'\n')
+		output.write('| Released | Versions |\n|---|---|')
 		for indexM, month in enumerate(sortedMonths):
 			if month[0] == year:
-					output.write('\n\n## ['+str(monthsIndex[month[1]])+']('+str(monthsIndex[month[1]])+'/README.md'+')')
+					output.write('\n| ['+str(monthsIndex[month[1]])+']('+str(monthsIndex[month[1]])+'/README.md'+') |')
 			else:
-					continue
+					continue			
+			#print(indexM, month)
+			#output.write('')
 			for indexV, version in enumerate(sortedList):
 				if version[0] == year and version[1] == month[1]:
-					output.write('\n- [' + str(version[2]) + ']('+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
+						output.write(' [1.0.' + str(version[2])[1:3] + ']('+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+') ')
 				else:
 					continue
+			output.write(' |')
 
+				
 # write the markdown for month readmes
 for year in sortedYears:
 	for month in sortedMonths:
@@ -93,6 +99,6 @@ for year in sortedYears:
 				output.write('# OrderCloud API Releases for '+str(monthsIndex[month[1]])+', '+str(month[0])+'\n')
 				for indexV, version in enumerate(sortedList):
 					if version[0] == year and version[1] == month[1]:
-						output.write('\n- [' + str(version[2]) + ']('+str(version[2])+')')
+						output.write('\n- [1.0.' + str(version[2])[1:3] + ']('+str(version[2])+')')
 					else:
 							continue

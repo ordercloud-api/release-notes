@@ -1,4 +1,4 @@
 # OrderCloud API Releases for December, 2016
 
-- [v33.md](v33.md)
-- [v35-rc.md](v35-rc.md)
+- [1.0.33](v33.md)
+- [1.0.35](v35-rc.md)
