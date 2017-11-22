@@ -1,4 +1,4 @@
 # OrderCloud API Releases for March, 2017
 
-- [v41.md](v41.md)
-- [v42.md](v42.md)
+- [1.0.41](v41.md)
+- [1.0.42](v42.md)

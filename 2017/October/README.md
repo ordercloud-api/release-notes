@@ -1,4 +1,4 @@
 # OrderCloud API Releases for October, 2017
 
-- [v63.md](v63.md)
-- [v64.md](v64.md)
+- [1.0.63](v63.md)
+- [1.0.64](v64.md)
