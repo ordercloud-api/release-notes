@@ -48,15 +48,15 @@ sortedMonths = sorted(sortedMonths, key=operator.itemgetter(0,1), reverse=True)
 
 # write the markdown for repo readme.md
 with open('README.md', 'w') as output:
-	output.write('\n# OrderCloud Release Notes \n*Release notes for the OrderCloud API*')	
-	#output.write(str(sortedList))
+	output.write('\n# OrderCloud Release Notes \n*Release notes for the OrderCloud API*\n\n')	
+	output.write('| Released | Versions |\n|---|---|')	#output.write(str(sortedList))
 	for indexY, year in enumerate(sortedYears):
 		#print(year)
-		output.write('\n\n## ['+str(year)+'](/'+str(year)+'/README.md'+')')
+		output.write('\n| | |')
 		for indexM, month in enumerate(sortedMonths):
 			#print(month) 
 			if month[0] == year:
-				output.write('\n\n### ['+str(monthsIndex[month[1]])+']('+str(year)+'/'+str(monthsIndex[month[1]])+'/README.md'+')')
+				output.write('\n| ['+str(year)+'](/'+str(year)+'/README.md'+') ['+str(monthsIndex[month[1]])+']('+str(monthsIndex[month[1]])+'/README.md'+') |')
 			else:
 					continue
 			for indexV, version in enumerate(sortedList):
@@ -64,10 +64,11 @@ with open('README.md', 'w') as output:
 				#output.write
 				if version[0] == year and version[1] == month[1]:
 					# you're going to have to change the string index on version > 99
-					output.write('\n- [1.0.' + str(version[2])[1:3] + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
+					output.write(' [1.0.' + str(version[2])[1:3] + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 					#output.write('\n- [' + str(version[2]) + '](/'+str(version[0])+'/'+str(monthsIndex[version[1]])+'/'+str(version[2])+')')
 				else:
 					continue
+			output.write(' |')
 		
 
 # write the markdown for year readmes
