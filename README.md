@@ -4,6 +4,9 @@
 
 ## [2017](/2017/README.md)
 
+### [November](2017/November/README.md)
+- [v65.md](/2017/November/v65.md)
+
 ### [October](2017/October/README.md)
 - [v63.md](/2017/October/v63.md)
 - [v64.md](/2017/October/v64.md)
