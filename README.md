@@ -5,6 +5,7 @@
 | Released | Versions |
 |---|---|
 | | |
+| [2017](/2017/README.md) [December](December/README.md) | [1.0.66](/2017/December/v66.md) |
 | [2017](/2017/README.md) [November](November/README.md) | [1.0.65](/2017/November/v65.md) |
 | [2017](/2017/README.md) [October](October/README.md) | [1.0.63](/2017/October/v63.md) [1.0.64](/2017/October/v64.md) |
 | [2017](/2017/README.md) [September](September/README.md) | [1.0.61](/2017/September/v61.md) [1.0.62](/2017/September/v62.md) |
