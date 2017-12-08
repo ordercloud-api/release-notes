@@ -20,9 +20,10 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('OrderCloud.io', 'https://ordercloud.io'),
-         ('OrderCloud Documentation', 'https://documentation.ordercloud.io/')
+LINKS = (
+	       ('OrderCloud.io', 'https://ordercloud.io'),
+         ('OrderCloud Documentation', 'https://documentation.ordercloud.io/'),
+         ('Pelican', 'http://getpelican.com/')
          )
 
 # Social widget
@@ -32,6 +33,28 @@ SOCIAL = (('OrderCloud.io Twitter', '#'),
 DEFAULT_PAGINATION = 10
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
+
+# plugins
+
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = [
+					#'assets',
+					#'sitemap',
+					'filetime_from_git']
+
+# filetime_from_git
+
+#GIT_HISTORY_FOLLOWS_RENAME = True
+
+#GIT_GENERATE_PERMALINK = True
+
+#GIT_SHA_METADATA = True
+
+GIT_FILETIME_FROM_GIT = True
+
+
+SUMMARY_MAX_LENGTH = 50
+
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True

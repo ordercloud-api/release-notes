@@ -1,5 +1,4 @@
-[All Releases](../../README.md) / [{{Year}}](../README.md) / {{Month}}
-#OrderCloud Releases for {{Month}}, {{Year}}
+# OrderCloud API Releases for September, 2017
 
-###[{{v0.0}} (release template)](v0.0.md)
-###[{{v0.0-rc}} (candidate template)](v0.0-rc.md)
+- [1.0.61](v61.md)
+- [1.0.62](v62.md)
