@@ -15,4 +15,4 @@ deploy:
   local_dir: output
   target_branch: gh-pages
   on:
-    branch: dev
+    branch: master
