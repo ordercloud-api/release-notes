@@ -1,3 +1,5 @@
-Beautifulsoup4
+pelican
+Markdown
+beautifulsoup4
 gitpython
-markdown
+webassets
