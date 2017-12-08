@@ -1,0 +1,24 @@
+[All Releases](../../README.md) / [2016](../README.md) / [December](README.md) / v35-rc 
+# API v35 Release Candidate Notes 
+
+Planned to be released to Production Thursday, December 15th, 2016 at 7 PM CST. _This date is subject to change_
+
+## New Features
+- We've expanded how you can use categories in the Rules Engine. You can now use `items.total` in your value expressions. 
+- We've added some new Mandrill variables that can be used in your Mandrill integrations:
+    + Line Item Count
+    + PO#
+    + Ship To
+    + Prior Approver
+- You can use any Order XP in your Mandrill templates, including subobjects. EX: `orderxp_xpKey`, nested objects: `orderxp_xpKey_xpKey2`, and xp arrays indexes are accessed like this: `orderxp_xpKey_0` (with zero being the index of choice).
+- The Shipping Rate integration will now also calcuate shipping rates based off of the Line Item level ship from address, not just the product ship from address. Line Item-level shipping will take priority over product-level.
+- You can now use just a username, not an email, to trigger a forgotten password email!
+
+
+## Bug Fixes
+- We fixed a bug where the Product Delete webhook trigger wasn't firing correctly.
+- We fixed a display issue in the documentation around sorting priority.
+
+
+## Client Libraries
+(potentially link to all of our current client libraries)
