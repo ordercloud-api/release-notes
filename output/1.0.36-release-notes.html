@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+
+        <title>API v1.0.36 Release Notes</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+
+        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="./">OrderCloud API Release Notes <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="./">Home</a></li>
+
+                <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="">OrderCloud.io Twitter</a></li>
+                <li><a href="">OrderCloud.io Community Support Slack</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="./1.0.36-release-notes.html" rel="bookmark"
+                   title="Permalink to API v1.0.36 Release Notes">API v1.0.36 Release Notes</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2017-01-17T00:00:00-06:00">
+                Tue 17 January 2017
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <p>Released to Production on January 17th, 2017 at 7:30 PM Central.</p>
+<h2>New Features</h2>
+<ul>
+<li>We've added a new sub-object to the LineItem object. Now, when you list LineItems, you'll see the products that are on the lineitem too. This currently does not include the full price break information.
+    <em>New Line Item Object Example</em>:
+    <code>{
+      "ID": "6-Ap0yfJ6k2kDxEJhPA4432vjA",
+      "ProductID": "Test01",
+      "Quantity": 5,
+      "DateAdded": "2016-05-19T17:51:46.127+00:00",
+      "QuantityShipped": 0,
+      "UnitPrice": null,
+      "LineTotal": 0,
+      "CostCenter": null,
+      "DateNeeded": null,
+      "ShippingAccount": null,
+      "ShippingAddressID": "2WRMZMDcakaVaoJ6Hf_r1w",
+      "ShipFromAddressID": null,
+      "Product": {
+        "ID": "Test01",
+        "Name": "Test01",
+        "Description": "Test01 Lorem Ipsum",
+        "QuantityMultiplier": 1,
+        "ShipWeight": 1,
+        "ShipHeight": null,
+        "ShipWidth": null,
+        "ShipLength": null,
+        "xp": {
+          "test": false
+        }
+      }</code></li>
+</ul>
+<h3>Shipping Rates Integration</h3>
+<ul>
+<li>We've added UPS account configuration options to the Shipping Rates integration.</li>
+<li>We've added the option to adjust (as an admin) rates that are displayed to users by either a percentage or a flat rate, either at a global or carrier level.</li>
+<li>You can now add a manual shipper as well, to account for another kind of shipper than USPS or UPS.</li>
+</ul>
+<h3>Authorize.net</h3>
+<ul>
+<li>We're storing the partial card number for single use card payments in the Payment object's XP, so it can be used in the refund transaction.</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>You can't see expired Spending Accounts in the User Perspective Spending Account list, and you can't use one to make a new payment either.</li>
+<li>You can create a payment that exceeds the Spending Account balance if and only if the Spending Account Assignment for the relevant party has <code>AllowExceed</code> set to <code>true</code>.</li>
+<li>Speaking of price schedules, you can now set a minimum quantity, even when the quantity is not restricted to particular breaks. So, you can now say someone has to order <em>at least</em> 5 products, but they don't have to order only 10, 20, or 30, for example.</li>
+<li>A buyer user without elevated permissions cannot cancel their completed orders. (๑•̀ㅂ•́)و</li>
+</ul>
+<h3>Mandrill Integration</h3>
+<ul>
+<li>We've fixed an issue with the Date Submitted variable for Orders not getting pulled into Mandrill email templates properly.</li>
+</ul>
+<h3>Authorize.net</h3>
+<ul>
+<li>We've fixed the partial UpdateCreditCard to stop overwriting the CardholderName with <code>null</code>. </li>
+</ul>
+<h2>Client Libraries</h2>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+      <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+      <li><a href="http://getpelican.com/">Pelican</a></li>
+      <li><a href="">OrderCloud.io Twitter</a></li>
+      <li><a href="">OrderCloud.io Community Support Slack</a></li>
+  </ul>
+
+
+
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul class="blank">
+    <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+    <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="./theme/js/libs/gumby.min.js"></script>
+  <script src="./theme/js/plugins.js"></script>
+</body>
+</html>

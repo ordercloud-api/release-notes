@@ -1,0 +1,9 @@
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = https://github.com/getpelican/pelican-plugins
+[submodule "pelican-bootstrapify"]
+	path = pelican-bootstrapify
+	url = https://github.com/ingwinlu/pelican-bootstrapify/
+[submodule "pelican-themes"]
+	path = pelican-themes
+	url = https://github.com/getpelican/pelican-themes

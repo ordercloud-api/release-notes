@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+
+        <title>API v1.0.30.0 Release Notes</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+
+        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="./">OrderCloud API Release Notes <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="./">Home</a></li>
+
+                <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="">OrderCloud.io Twitter</a></li>
+                <li><a href="">OrderCloud.io Community Support Slack</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="./1.0.30.0-release-notes.html" rel="bookmark"
+                   title="Permalink to API v1.0.30.0 Release Notes">API v1.0.30.0 Release Notes</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2016-10-28T00:00:00-05:00">
+                Fri 28 October 2016
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <p>Released to Prod on Friday, October 28th, 2016 at 8 PM CST.</p>
+<h2>New Features:</h2>
+<ul>
+<li>
+<p><strong>Shared Catalogs</strong>: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you'll need to add the catalog ID to your API routes, and as a parameter in your SDK calls. Me Category endpoints are not affected, except in that you can optionally filter by catalog. Please check out the <a href="http://qa-documentation.ordercloud.io/guides/base-use-cases/implement-shared-catalogs">Api Documentation</a>.</p>
+</li>
+<li>
+<p>A single client ID for an app can be used by different buyers. This is our first step towards an exciting feature on our roadmap, <strong>Buyer Networks</strong>.</p>
+</li>
+<li>
+<p>You can now reference Product Names in your Mailchimp/Mandrill message templates! Previously, you could use Product Description and Product ID, now you can add Product Name as well. </p>
+</li>
+</ul>
+<h2>Bug Fixes:</h2>
+<ul>
+<li>We updated <strong>Spending Accounts</strong> to be decremented when an order is submitted, rather then when a payment is applied to an unsubmitted order. (Clearing an order will refund any payments applied, even if the order is unsubmitted-- deleting the order will not do so automatically.)</li>
+</ul>
+<h2>SDK Release Notes:</h2>
+<p>The SDK that will be going out with the API release will be <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a>.</p>
+<p>After the API is released, if anyone runs a <code>bower update</code> with <em>lastest</em> in their bower.json for ordercloud-ng-sdk they will be updated to <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a></p>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+      <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+      <li><a href="http://getpelican.com/">Pelican</a></li>
+      <li><a href="">OrderCloud.io Twitter</a></li>
+      <li><a href="">OrderCloud.io Community Support Slack</a></li>
+  </ul>
+
+
+
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul class="blank">
+    <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+    <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="./theme/js/libs/gumby.min.js"></script>
+  <script src="./theme/js/plugins.js"></script>
+</body>
+</html>

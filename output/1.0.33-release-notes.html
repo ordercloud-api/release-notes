@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+
+        <title>API v1.0.33 Release Notes</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+
+        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="./">OrderCloud API Release Notes <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="./">Home</a></li>
+
+                <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="">OrderCloud.io Twitter</a></li>
+                <li><a href="">OrderCloud.io Community Support Slack</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="./1.0.33-release-notes.html" rel="bookmark"
+                   title="Permalink to API v1.0.33 Release Notes">API v1.0.33 Release Notes</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2016-12-06T00:00:00-06:00">
+                Tue 06 December 2016
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <p>Released to Prod Tuesday, December 6th, 2016 at 8:00 PM CDT. </p>
+<h2>New Features</h2>
+<ul>
+<li>We added a new User Prespective endpoint for returning a user's spending accounts. <a href="https://documentation.ordercloud.io/api-reference#MeSpendingAccounts">Me/ListSpendingAccounts</a></li>
+<li>We've improved the information in our documentation about searchable/sortable properties and the order of precedence that these are applied in. <a href="https://documentation.ordercloud.io/api-reference#MeAddresses">An example is the API Documentation around Addresses</a></li>
+<li>We've added some performance enhacements around Products, particularly listing all products for a buyer. </li>
+<li>We now allow you to delete a product that is being used in an unsubmitted order. In submitted orders, the product information is retained, even after deletion.</li>
+<li>You can now use categories in the Rules Engine! For example, if you'd like to make a promotion that applies to products in only one category, you can use the following for a value expression: <code>items.any(product.incategory('xxx'))</code></li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>When you update a buyer company's default catalog, it actually updates now!</li>
+<li>We fixed an issue where, if you were authenticating as a user with claims other than <code>FullAccess</code>, the authentication performance was very poor.</li>
+</ul>
+<h2>Client Libraries</h2>
+<ul>
+<li><a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.25-prerelease">Angular SDK</a></li>
+</ul>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+      <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+      <li><a href="http://getpelican.com/">Pelican</a></li>
+      <li><a href="">OrderCloud.io Twitter</a></li>
+      <li><a href="">OrderCloud.io Community Support Slack</a></li>
+  </ul>
+
+
+
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul class="blank">
+    <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+    <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="./theme/js/libs/gumby.min.js"></script>
+  <script src="./theme/js/plugins.js"></script>
+</body>
+</html>
