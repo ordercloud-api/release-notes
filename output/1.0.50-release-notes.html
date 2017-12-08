@@ -88,26 +88,24 @@
 <li><code>OrderApproval</code> now contains nested <code>Approver</code> object containing all details of the approving user. Example:</li>
 </ul>
 <div class="highlight"><pre><span></span>{
-    &quot;ApprovalRuleID&quot;: &quot;...&quot;,
-    &quot;ApprovingGroupID&quot;: &quot;...&quot;,
-    &quot;Status&quot;: &quot;Pending&quot;,
-    &quot;DateCreated&quot;: &quot;...&quot;,
-    &quot;DateCompleted&quot;: &quot;...&quot;,
-    &quot;Approver&quot;:
+    "ApprovalRuleID": "...",
+    "ApprovingGroupID": "...",
+    "Status": "Pending",
+    "DateCreated": "...",
+    "DateCompleted": "...",
+    "Approver":
     {
-        &quot;ID&quot;: &quot;...&quot;,
-        &quot;FirstName&quot;: &quot;...&quot;,
-        &quot;LastName&quot;: &quot;...&quot;,
-        &quot;UserName&quot;: &quot;...&quot;,
-        &quot;Email&quot;: &quot;...&quot;,
-        &quot;Active&quot;: &quot;...&quot;,
-        &quot;xp&quot; : { ... }
+        "ID": "...",
+        "FirstName": "...",
+        "LastName": "...",
+        "UserName": "...",
+        "Email": "...",
+        "Active": "...",
+        "xp" : { ... }
     },
-    &quot;Comments&quot;: &quot;...&quot;
+    "Comments": "..."
 }
 </pre></div>
-
-
 <ul>
 <li>We have also moved approval comments out of the URL query string and into the request body. There is a maximum length of 2000 characters.</li>
 <li>We have added new roles around the administration of Admin Addresses: <code>AdminAddressReader</code> and <code>AdminAddressAdmin</code>.</li>
@@ -117,7 +115,7 @@
 <li>Inventory-related data points on <code>Product</code> are being moved into a nested <code>Inventory</code> object.</li>
 </ul>
 <h4>Summary of Inventory Object Changes:</h4>
-<table>
+<table class="table table-striped table-hover">
 <thead>
 <tr>
 <th>Old</th>
@@ -192,7 +190,7 @@
 <li>Shipment IDs are now seller-unique.</li>
 <li>All new fields listed below derive their values from corresponding LineItems, helping to avoid additional lookups when working with shipments.</li>
 </ul>
-<table>
+<table class="table table-striped table-hover">
 <thead>
 <tr>
 <th>New Shipment Field</th>
@@ -246,7 +244,7 @@
 </tr>
 </tbody>
 </table>
-<table>
+<table class="table table-striped table-hover">
 <thead>
 <tr>
 <th>Old Endpoint</th>
@@ -281,7 +279,7 @@
 </tbody>
 </table>
 <h3>Simplified Product and Category Assignments</h3>
-<table>
+<table class="table table-striped table-hover">
 <thead>
 <tr>
 <th>New Properties</th>

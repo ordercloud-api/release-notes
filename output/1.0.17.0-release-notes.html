@@ -40,7 +40,7 @@
 <h2>Changelog</h2>
 <ul>
 <li>Approval rules have been updated significantly in this release. This release includes the new ApprovalRule data model (with full admin-side CRUD endpoints), support for a wide variety of expressions, and support for the actual buyer-side flow, including (legacy) email messaging. <em>There will be an approval rules blog post in the near future that will cover this more in-depth.</em></li>
-<li>The API route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the query string. For example:<br>
+<li>The API route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the query string. For example:<br/>
 <code>v1/orders/incoming</code> 
       This does NOT apply to <code>me/orders</code> - outgoing is always assumed there. It only applies to admin routes, such as incoming orders for sellers and outgoing orders for approving buyer users. Apps will need to be updated accordingly, and make sure you're using the latest version of the SDK</li>
 <li><code>IsReportingGroup</code> and <code>IsApprovingGroup</code> have been removed from the UserGroup object.</li>

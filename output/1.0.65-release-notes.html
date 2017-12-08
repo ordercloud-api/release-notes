@@ -46,38 +46,34 @@
 <p><em>Request:</em></p>
 <div class="highlight"><pre><span></span>GET https://api.ordercloud.io/v1/me/categories?ProductID=SuperAwesomeProduct
 </pre></div>
-
-
 <p><em>Response:</em></p>
 <div class="highlight"><pre><span></span>Status Code = 200
 
 {
-  &quot;Meta&quot;: {
-    &quot;Page&quot;: 1,
-    &quot;PageSize&quot;: 20,
-    &quot;TotalCount&quot;: 25,
-    &quot;TotalPages&quot;: 2,
-    &quot;ItemRange&quot;: [
+  "Meta": {
+    "Page": 1,
+    "PageSize": 20,
+    "TotalCount": 25,
+    "TotalPages": 2,
+    "ItemRange": [
       1,
       20
     ]
   },
-  &quot;Items&quot;: [
+  "Items": [
     {
-      &quot;ID&quot;: &quot;SuperAwesomeCategory&quot;,
-      &quot;Name&quot;: &quot;I Contain the SuperAwesomeProduct&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;ListOrder&quot;: 1,
-      &quot;Active&quot;: true,
-      &quot;ParentID&quot;: &quot;&quot;,
-      &quot;ChildCount&quot;: 0,
-      &quot;xp&quot;: {}
+      "ID": "SuperAwesomeCategory",
+      "Name": "I Contain the SuperAwesomeProduct",
+      "Description": "",
+      "ListOrder": 1,
+      "Active": true,
+      "ParentID": "",
+      "ChildCount": 0,
+      "xp": {}
     }
   ]
 }
 </pre></div>
-
-
 <ul>
 <li>
 <p>We also added a Me route for <code>GET</code>ing a single category! <a href="http://documentation.ordercloud.io/api-reference#MeCategories_GetCategory">DOCS</a></p>

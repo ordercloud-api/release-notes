@@ -36,11 +36,16 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 
 # plugins
 
-PLUGIN_PATHS = ['pelican-plugins']
+PLUGIN_PATHS = ['pelican-plugins', 'pelican-bootstrapify']
 PLUGINS = {
 					'assets',
 					'sitemap',
-					'touch'
+					'touch',
+          'pelican-bootstrapify',
+          'neighbors',
+          'post-stats'
+          #yuicompressor #enable after theming
+
 					#'filetime_from_git'
 					#'ace_editor'
 					}
