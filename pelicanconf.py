@@ -20,6 +20,12 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
+
+DISPLAY_PAGES_ON_MENU = False
+DISPLAY_LINKS_ON_MENU = False
+DISPLAY_SOCIAL_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
+
 LINKS = (
 	       ('OrderCloud.io', 'https://ordercloud.io'),
          ('OrderCloud Documentation', 'https://documentation.ordercloud.io/'),
@@ -28,7 +34,7 @@ LINKS = (
 
 # Social widget
 SOCIAL = (('OrderCloud.io Twitter', 'https://twitter.com/ordercloudapi'),
-          ('OrderCloud.io Community Support Slack', 'http://community.ordercloud.io/'),)
+          ('OrderCloud.io Community Support Slack', 'http://community.ordercloud.io/'))
 
 DEFAULT_PAGINATION = 10
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
@@ -80,3 +86,7 @@ SUMMARY_MAX_LENGTH = 50
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
+
+# themes
+
+THEME = "pelican-themes/gum"
