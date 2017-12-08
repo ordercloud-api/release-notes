@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.36 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.36-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.36 Release Notes">API v1.0.36 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-17T00:00:00-06:00">
+                Published: Tue 17 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+
+</footer><!-- /.post-info -->      <p>Released to Production on January 17th, 2017 at 7:30 PM Central.</p>
+<h2>New Features</h2>
+<ul>
+<li>We've added a new sub-object to the LineItem object. Now, when you list LineItems, you'll see the products that are on the lineitem too. This currently does not include the full price break information.
+    <em>New Line Item Object Example</em>:
+    <code>{
+      "ID": "6-Ap0yfJ6k2kDxEJhPA4432vjA",
+      "ProductID": "Test01",
+      "Quantity": 5,
+      "DateAdded": "2016-05-19T17:51:46.127+00:00",
+      "QuantityShipped": 0,
+      "UnitPrice": null,
+      "LineTotal": 0,
+      "CostCenter": null,
+      "DateNeeded": null,
+      "ShippingAccount": null,
+      "ShippingAddressID": "2WRMZMDcakaVaoJ6Hf_r1w",
+      "ShipFromAddressID": null,
+      "Product": {
+        "ID": "Test01",
+        "Name": "Test01",
+        "Description": "Test01 Lorem Ipsum",
+        "QuantityMultiplier": 1,
+        "ShipWeight": 1,
+        "ShipHeight": null,
+        "ShipWidth": null,
+        "ShipLength": null,
+        "xp": {
+          "test": false
+        }
+      }</code></li>
+</ul>
+<h3>Shipping Rates Integration</h3>
+<ul>
+<li>We've added UPS account configuration options to the Shipping Rates integration.</li>
+<li>We've added the option to adjust (as an admin) rates that are displayed to users by either a percentage or a flat rate, either at a global or carrier level.</li>
+<li>You can now add a manual shipper as well, to account for another kind of shipper than USPS or UPS.</li>
+</ul>
+<h3>Authorize.net</h3>
+<ul>
+<li>We're storing the partial card number for single use card payments in the Payment object's XP, so it can be used in the refund transaction.</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>You can't see expired Spending Accounts in the User Perspective Spending Account list, and you can't use one to make a new payment either.</li>
+<li>You can create a payment that exceeds the Spending Account balance if and only if the Spending Account Assignment for the relevant party has <code>AllowExceed</code> set to <code>true</code>.</li>
+<li>Speaking of price schedules, you can now set a minimum quantity, even when the quantity is not restricted to particular breaks. So, you can now say someone has to order <em>at least</em> 5 products, but they don't have to order only 10, 20, or 30, for example.</li>
+<li>A buyer user without elevated permissions cannot cancel their completed orders. (๑•̀ㅂ•́)و</li>
+</ul>
+<h3>Mandrill Integration</h3>
+<ul>
+<li>We've fixed an issue with the Date Submitted variable for Orders not getting pulled into Mandrill email templates properly.</li>
+</ul>
+<h3>Authorize.net</h3>
+<ul>
+<li>We've fixed the partial UpdateCreditCard to stop overwriting the CardholderName with <code>null</code>. </li>
+</ul>
+<h2>Client Libraries</h2>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

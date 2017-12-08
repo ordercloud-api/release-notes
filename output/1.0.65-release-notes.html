@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.65 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.65-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.65 Release Notes">API v1.0.65 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-11-21T00:00:00-06:00">
+                Published: Tue 21 November 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+
+</footer><!-- /.post-info -->      <blockquote>
+<p>Released to Production on Tuesday, November 21st, 2017</p>
+</blockquote>
+<h2>New Features</h2>
+<ul>
+<li>The <a href="https://documentation.ordercloud.io/api-reference#MeCategories">Me endpoint for categories</a> now has an optional <code>ProductID</code> filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the <code>CategoryReader</code> role to accomplish this.   </li>
+</ul>
+<p><em>Request:</em></p>
+<div class="highlight"><pre><span></span>GET https://api.ordercloud.io/v1/me/categories?ProductID=SuperAwesomeProduct
+</pre></div>
+
+
+<p><em>Response:</em></p>
+<div class="highlight"><pre><span></span>Status Code = 200
+
+{
+  &quot;Meta&quot;: {
+    &quot;Page&quot;: 1,
+    &quot;PageSize&quot;: 20,
+    &quot;TotalCount&quot;: 25,
+    &quot;TotalPages&quot;: 2,
+    &quot;ItemRange&quot;: [
+      1,
+      20
+    ]
+  },
+  &quot;Items&quot;: [
+    {
+      &quot;ID&quot;: &quot;SuperAwesomeCategory&quot;,
+      &quot;Name&quot;: &quot;I Contain the SuperAwesomeProduct&quot;,
+      &quot;Description&quot;: &quot;&quot;,
+      &quot;ListOrder&quot;: 1,
+      &quot;Active&quot;: true,
+      &quot;ParentID&quot;: &quot;&quot;,
+      &quot;ChildCount&quot;: 0,
+      &quot;xp&quot;: {}
+    }
+  ]
+}
+</pre></div>
+
+
+<ul>
+<li>
+<p>We also added a Me route for <code>GET</code>ing a single category! <a href="http://documentation.ordercloud.io/api-reference#MeCategories_GetCategory">DOCS</a></p>
+<p><code>GET</code> <code>https://api.ordercloud.io/v1/me/categories/{categoryID}</code></p>
+</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Previously, if you attempted to submit an order that had a lineitem with a product that had specs <em>and</em> options, it would fail. Fixed now!<ul>
+<li><a href="https://documentation.ordercloud.io/use-case-guides/product-catalog-management/cpq-configure-price-quote">need a refresher on product specs and spec options?</a></li>
+<li><a href="https://documentation.ordercloud.io/api-reference#Specs">api reference for product specs</a></li>
+</ul>
+</li>
+<li>On <code>OrderSubmitted</code> <a href="https://github.com/ordercloud-api/mailchimp-email-templates">Message Sender Mandrill Templates</a>, the order total merge variable was not accurately reflecting order total, leaving out promotion discount. This is now fixed. (The API model was never affected, only the Message Sender merge variable.)</li>
+<li>We fixed a bad index that was causing massive performance problems for <code>DELETE</code>ing a Security Profile <em>assignment</em>. You should be able to go forth and delete to your hearts content now with no fear of the angry spinner!</li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

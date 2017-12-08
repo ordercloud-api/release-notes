@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.17.0 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.17.0-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.17.0 Release Notes">API v1.0.17.0 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-20T00:00:00-05:00">
+                Published: Fri 20 May 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+
+</footer><!-- /.post-info -->      <p>Released to Prod on Friday, May 20th, 2016 at 9 PM CST.</p>
+<h2>Changelog</h2>
+<ul>
+<li>Approval rules have been updated significantly in this release. This release includes the new ApprovalRule data model (with full admin-side CRUD endpoints), support for a wide variety of expressions, and support for the actual buyer-side flow, including (legacy) email messaging. <em>There will be an approval rules blog post in the near future that will cover this more in-depth.</em></li>
+<li>The API route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the query string. For example:<br>
+<code>v1/orders/incoming</code> 
+      This does NOT apply to <code>me/orders</code> - outgoing is always assumed there. It only applies to admin routes, such as incoming orders for sellers and outgoing orders for approving buyer users. Apps will need to be updated accordingly, and make sure you're using the latest version of the SDK</li>
+<li><code>IsReportingGroup</code> and <code>IsApprovingGroup</code> have been removed from the UserGroup object.</li>
+<li>This release also contains several bug fixes.</li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

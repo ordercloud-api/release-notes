@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.63 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.63-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.63 Release Notes">API v1.0.63 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-10-18T00:00:00-05:00">
+                Published: Wed 18 October 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+
+</footer><!-- /.post-info -->      <p><em>Released to Production on Wednesday, October 18th, 2017</em></p>
+<h2>Bugs</h2>
+<ul>
+<li>Payments: Payment with Type <code>SpendingAccount</code> must have <code>SpendingAccountID</code></li>
+<li>Unable to use <code>PUT</code> to create new <code>UserGroup</code></li>
+<li>Orders: <code>order.Total</code> not updated when <code>ShippingCost</code> is updated via <code>PATCH</code></li>
+</ul>
+<h2>New Features</h2>
+<ul>
+<li>Added transactional email support for guest checkout (<a href="http://qa-documentation.ordercloud.io/api-reference#Orders_PatchFromUser">documentation</a>)</li>
+</ul>
+<div class="highlight"><pre><span></span>`PATCH` `v1/orders/{direction}/{orderID}/fromuser`
+{&quot;FirstName&quot;: &quot;&quot;, &quot;LastName&quot;: &quot;&quot;, &quot;Email&quot;: &quot;&quot;}
+</pre></div>
+
+
+<ul>
+<li>Products: Allow negation of all filters on admin Product List (<code>catalogID</code>, <code>categoryID</code>, <code>supplierID</code>)</li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

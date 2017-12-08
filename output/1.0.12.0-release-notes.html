@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.12.0 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.12.0-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.12.0 Release Notes">API v1.0.12.0 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-03-03T00:00:00-06:00">
+                Published: Thu 03 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+<p>tags: <a href="./tag/payment-types.html">Payment Types</a> <a href="./tag/product-variants.html">Product Variants</a> </p>
+</footer><!-- /.post-info -->      <p>Released to Prod on Thursday, March 3rd, 2016 at 8 PM CST.</p>
+<h2>New Features:</h2>
+<ul>
+<li><strong>Payment Types</strong> allow using multiple payment types on a single order</li>
+<li><a href="#generating-variants"><strong>Generate Variants</strong></a></li>
+</ul>
+<h2>Breaking Changes:</h2>
+<ul>
+<li>DefinesVariant has been moved from the Spec model to the Product-Spec Assignment model</li>
+</ul>
+<h4>Generating Variants</h4>
+<p>There are 4 things needed to create a product with variants
+Spec(s)
+Spec options
+a spec product relationship that sets Defines variant = true
+an explicit call to 
+<code>POST {productID}/variants/generate</code></p>
+<p>it's pretty simple once they're initally set up. Take the ubiquitous shirt example
+Specs 
+<em>size small, large</em>
+<em>color red, black</em></p>
+<p>spec - product = size/shirt/definesvariant = true
+spec - product = color/shirt/definesvariant = true</p>
+<p>a call to POST
+<code>{productID}/variants/generate</code>
+will generate 4 variants
+- small red
+- small black
+- large red
+- large black</p>
+<p>Adding specs is pretty simple
+add color:blue
+and a call to 
+<code>POST {productID}/variants/generate</code>
+will ADD the missing variants 
+1   small blue
+2   large blue</p>
+<p>The tricky bit starts when a spec is removed. if color is deleted, all the varaints are not relevant because color is built into all of them. Delete color and add logo to our shirt. So that this is the config of shirt:
+    size: small,large
+    logo:   logoA,logoB</p>
+<p>and a call to 
+<code>POST {productID}/variants/generate</code>
+will only ADD new variants and you'll have 8. Even with the spec deleted, the dependant variant can still exist, it's just not tied to the deleted spec. This is important if that variant is already on an order.
+- small logoA
+- small logoB
+- large logoA
+- large logoB
+- small red
+- small black
+- large red
+- large black</p>
+<p>if your intention is to start over and reset the variants, there is the spec nuclear option:</p>
+<p><code>POST {productID}/variants/generate?overwriteExisting=true</code></p>
+<p>This will DELETE ALL variants and regenerate them based on the current spec configurations. If a variant is on a lineitem, it will be removed. The previous example deletes color and adds logo. calling overwriteExisting=true will result in 
+- small logoA
+- small logoB
+- large logoA
+- large logoB</p>
+<p>The key to overwriteExisting=true is that it will always delete all variaints and regenerate regardless of the change to the spec configuration.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

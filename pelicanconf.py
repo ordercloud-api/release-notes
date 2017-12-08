@@ -27,8 +27,8 @@ LINKS = (
          )
 
 # Social widget
-SOCIAL = (('OrderCloud.io Twitter', '#'),
-          ('OrderCloud.io Community Slack', '#'),)
+SOCIAL = (('OrderCloud.io Twitter', 'https://twitter.com/ordercloudapi'),
+          ('OrderCloud.io Community Support Slack', 'http://community.ordercloud.io/'),)
 
 DEFAULT_PAGINATION = 10
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
@@ -37,10 +37,13 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 # plugins
 
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = [
-					#'assets',
-					#'sitemap',
-					'filetime_from_git']
+PLUGINS = {
+					'assets',
+					'sitemap',
+					'touch'
+					#'filetime_from_git'
+					#'ace_editor'
+					}
 
 # filetime_from_git
 
@@ -50,7 +53,21 @@ PLUGINS = [
 
 #GIT_SHA_METADATA = True
 
-GIT_FILETIME_FROM_GIT = True
+#GIT_FILETIME_FROM_GIT = True
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+    'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
 
 
 SUMMARY_MAX_LENGTH = 50

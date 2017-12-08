@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.18.0 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.18.0-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.18.0 Release Notes">API v1.0.18.0 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-25T00:00:00-05:00">
+                Published: Wed 25 May 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+
+</footer><!-- /.post-info -->      <p>Released to Prod on Wednesday, May 25th, 2016 at 8 PM CST.</p>
+<h2>Changelog</h2>
+<ul>
+<li>The API now has elevated security integration. 3rd party systems now have the ability to perform elevated security operations. This means that we can grant them specific access that is not accessible by the (buyer) client.</li>
+<li>The Rules Engine has been updated to replace the <code>item</code> object with <code>items</code> aggregate function. The <code>item</code> object has been replaced with <code>items</code> that contains aggregate functions allowing you do this: <code>items.any(CostCenter = 'XYZ')</code> instead of this: <code>item.CostCenter = 'XYZ'</code> This supports four such aggregate functions: <ul>
+<li><code>items.any(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
+<li><code>items.all(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
+<li><code>items.quantity(subexpression)</code> - returns total quantity of items matching subexpression</li>
+<li><code>items.total(subexpression)</code> - returns price total of all items matching subexpression</li>
+</ul>
+</li>
+<li>Upon sending a webhook, an access token is now appended to the outbound web hook call. If a web hook receiver needs to perform actions on behalf of that user with elevated claims, they can now use this token to do so. A nullable field has been added to webhooks called ElevatedClaimsList containing a comma separated list of Claims. </li>
+<li>Several improvements have been made to the Dev Center to allow management of the webhooks from with the Dev Center UI. </li>
+<li>Several bug fixes were also deployed with this release.</li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

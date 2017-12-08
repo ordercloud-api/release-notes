@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.43 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.43-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.43 Release Notes">API v1.0.43 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-04-05T00:00:00-05:00">
+                Published: Wed 05 April 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+
+</footer><!-- /.post-info -->      <p>Released to Production on Wednesday, April 5th, 2017 at 7:30 PM Central. </p>
+<h2>Bug Fixes</h2>
+<ul>
+<li>We now round the following to two decimal places:<ul>
+<li><code>OrderPromotion.Amount</code></li>
+<li><code>LineItem.LineTotal</code></li>
+<li><code>Order.Subtotal</code></li>
+<li><code>Order.ShippingCost</code></li>
+<li><code>Order.TaxCost</code></li>
+<li><code>Order.PromotionDiscount</code></li>
+<li><code>SpendingAccount.Balance</code></li>
+<li><code>Shipment.Cost</code></li>
+<li><code>Payment.Amount</code></li>
+<li><code>PaymentTransaction.Amount</code></li>
+</ul>
+</li>
+<li>We now return a useful and informative error message if you try to list <code>CatalogAssignments</code> without required parameters.</li>
+<li>We now return a useful and informative error message if you try to delete a user who has an open order outstanding.</li>
+<li>We now decrement <code>SpendingAccounts</code> on delete of a payment and not if it's just routed for approval. </li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

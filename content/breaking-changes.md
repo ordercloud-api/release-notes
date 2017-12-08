@@ -1,5 +1,9 @@
-[All Releases](../../README.md) / [2017](../README.md) / [May](README.md) / v50
-
-# API v1.0.50 Release Candidate Notes 
-
-These are now available at  [v1.0.50 Release Notes](../May/v50.md)
+---
+Title: Breaking Changes Release Notes
+Category: release-notes
+Tags: breaking-changes
+Slug: breaking-changes-release-notes
+Authors: Kate Reeher
+Date: 5/4/2017
+---
+These are now available at the [v1.0.50 Release Notes](v50.md).

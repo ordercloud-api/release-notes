@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <title>API v1.0.50 Release Notes</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">OrderCloud API Release Notes </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./1.0.50-release-notes.html" rel="bookmark"
+           title="Permalink to API v1.0.50 Release Notes">API v1.0.50 Release Notes</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-04T00:00:00-05:00">
+                Published: Thu 04 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/kate-reeher.html">Kate Reeher</a>
+        </address>
+<p>In <a href="./category/release-notes.html">release-notes</a>.</p>
+
+</footer><!-- /.post-info -->      <p>A public staging environment will be available starting on Sunday, April 2nd. The 1.0.50 version will be released to Production on May 4th at 8:00 PM Central.</p>
+<p>You can access the staging environment using your production data and the following:</p>
+<p>api: <code>https://stagingapi.ordercloud.io</code></p>
+<p>auth: <code>https://stagingauth.ordercloud.io</code></p>
+<p>devcenter: <a href="https://staging-account.ordercloud.io">https://staging-account.ordercloud.io</a></p>
+<p>Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production ASAP. On the production release, no staging data will be transfered to production.</p>
+<p>This was released to Production on May 4th at 8:00 PM Central. </p>
+<h2>New Features</h2>
+<ul>
+<li>Payments have a new boolean field, <code>Accepted</code>. <code>PUT</code> has been removed from Payments, and <code>PATCH</code> can never edit <code>Type</code>, <code>CreditCardID</code>, and <code>SpendingAccountID</code>.<ul>
+<li>Only users with OrderAdmin or FullAccess roles will be able to create or update the <code>Accepted</code> property.</li>
+<li>If the <code>Accepted</code> property is true AND the order has been submited, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess can.</li>
+<li>If the <code>Accepted</code> property is true AND the payment type is a credit card, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess can.</li>
+<li>If the <code>Accepted</code> property is true, the order has not been submitted, and the payment type is not a credit card, either a Shopper or OrderAdmin CAN patch the payment.</li>
+<li>If <code>Accepted</code> is false, any user with either role can patch all other fields except the 3 listed above.</li>
+</ul>
+</li>
+<li>As part of the data conversion for existing payments, <code>Accepted</code> will be set to true for the following:<ul>
+<li>All non-credit card payments (spending accounts, POs)</li>
+<li>All orders that were ever submitted (open, completed, seller-canceled)</li>
+<li>All payments containing a successful PaymentTransaction</li>
+</ul>
+</li>
+<li><code>PUT</code> has been removed from payments. <code>PATCH</code> is allowed, but only to patch the <code>Accepted</code> property, and only if the user has <code>OrderAdmin</code> or <code>FullAccess</code>.</li>
+<li>Order submit logic will validate Payment.Accepted=true and an error will be thrown if an order with an unaccepted payment is submitted.</li>
+<li>Previously, any admin user could impersonate any buyer user. Going forward, an admin user must have the <code>BuyerImpersonation</code> role in their security profile to impersonate buyer users and request the role when impersonating a user.</li>
+<li>Due to refactoring around our password hash algorithm, and since we do not store users' passwords ourselves, but simply a hash of the password, <strong>users will need to reset their passwords before they can log into the OrderCloud DevCenter or any OrderCloud apps</strong>. When you authenticate to the Ordercloud API initially after this release, the only role your user will have is the <code>PasswordReset</code> role, and after you've reset your password, you'll need to re-authenticate to get your full array of roles. <ul>
+<li>If you provide an application to users, we recommend have the application redirect any user who authenticates and only has the <code>PasswordReset</code> role to be redirected to a different view, where their password can be reset using the new <code>/me/password</code> endpoint.</li>
+<li>Alternately, any user can trigger an email-based password reset, using the <a href="https://staging-documentation.herokuapp.com/api-reference#PasswordResets">Forgotten Password</a> endpoint. </li>
+</ul>
+</li>
+<li>Due to the aforementioned password changes, DevCenter users will need to reset their DevCenter passwords by going to the "Forgot Password" link in DevCenter. Users will need to do this in the Staging Environment <em>and</em> in Prod after the production release. </li>
+<li>Added roles that control who can list or edit shipments. Now users with <code>ShipmentAdmin</code> <em>or</em> <code>OrderAdmin</code> can create or edit shipments. Users with <code>ShipmentReader</code> or <code>OrderReader</code> can get/list shipments.</li>
+<li>Seller-side product lists (<code>v1/products</code>) can now be filtered on <code>CatalogID</code> and <code>CategoryID</code> (<code>CategoryID</code> is unique only within a Catalog, so you must specify both in order to filter on Category.)</li>
+<li>Buyer-side product lists (<code>v1/me/products</code>) that specify <code>CategoryID</code> can also specify <code>depth</code>, which can be an integer 1 or greater (<code>depth=1</code> means products directly assigned to category) or <code>all</code>. Default is <code>all</code>. </li>
+<li>An order that requires approval can now be sent back to the submitting user by the approver user for editing and re-submission. See <a href="https://staging-documentation.herokuapp.com/api-reference#Orders_Decline">Decline Orders</a> for more details. </li>
+<li>We are changing the route to register an anonymous user (previously called "Create From Temp User") to <code>PUT</code> <code>v1/me/register</code>. This will help make our Swagger spec more flexible.</li>
+<li>Any buyer user can now list shipments for their own orders in a User Perspective route, <code>me/shipments</code>. No more need for elevated permissions!</li>
+<li>In order to encourage best practices, only group-level and buyer-level assignments will be allowed for the following resources:<ul>
+<li>Products</li>
+<li>Categories</li>
+<li>Promotions</li>
+<li>Cost Centers</li>
+<li>Message Config</li>
+</ul>
+</li>
+</ul>
+<p><strong>If there are existing user-level assignments for any of the above, you must convert them to group- or buyer-level before the production release date</strong>.</p>
+<ul>
+<li><code>OrderApproval</code> now contains nested <code>Approver</code> object containing all details of the approving user. Example:</li>
+</ul>
+<div class="highlight"><pre><span></span>{
+    &quot;ApprovalRuleID&quot;: &quot;...&quot;,
+    &quot;ApprovingGroupID&quot;: &quot;...&quot;,
+    &quot;Status&quot;: &quot;Pending&quot;,
+    &quot;DateCreated&quot;: &quot;...&quot;,
+    &quot;DateCompleted&quot;: &quot;...&quot;,
+    &quot;Approver&quot;:
+    {
+        &quot;ID&quot;: &quot;...&quot;,
+        &quot;FirstName&quot;: &quot;...&quot;,
+        &quot;LastName&quot;: &quot;...&quot;,
+        &quot;UserName&quot;: &quot;...&quot;,
+        &quot;Email&quot;: &quot;...&quot;,
+        &quot;Active&quot;: &quot;...&quot;,
+        &quot;xp&quot; : { ... }
+    },
+    &quot;Comments&quot;: &quot;...&quot;
+}
+</pre></div>
+
+
+<ul>
+<li>We have also moved approval comments out of the URL query string and into the request body. There is a maximum length of 2000 characters.</li>
+<li>We have added new roles around the administration of Admin Addresses: <code>AdminAddressReader</code> and <code>AdminAddressAdmin</code>.</li>
+</ul>
+<h3>Inventory Revamp</h3>
+<ul>
+<li>Inventory-related data points on <code>Product</code> are being moved into a nested <code>Inventory</code> object.</li>
+</ul>
+<h4>Summary of Inventory Object Changes:</h4>
+<table>
+<thead>
+<tr>
+<th>Old</th>
+<th>New</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product.InventoryEnabled</td>
+<td>Product.Inventory.Enabled</td>
+</tr>
+<tr>
+<td>Product.InventoryNotificationPoint</td>
+<td>Product.Inventory.NotificationPoint</td>
+</tr>
+<tr>
+<td>Product.VarientLevelInventory</td>
+<td>Product.Inventory.VariantLevelTracking</td>
+</tr>
+<tr>
+<td>Product.AllowOrderExceedInventory</td>
+<td>Product.Inventory.OrderCanExceed</td>
+</tr>
+<tr>
+<td>Product.InventoryVisible</td>
+<td><em>removed</em></td>
+</tr>
+<tr>
+<td><code>/products/:id/inventory</code> resource</td>
+<td><em>removed</em></td>
+</tr>
+<tr>
+<td>Inventory.Available</td>
+<td>Product.Inventory.QuantityAvailable</td>
+</tr>
+<tr>
+<td>Inventory.LastUpdated</td>
+<td>Product.Inventory.LastUpdated</td>
+</tr>
+<tr>
+<td>Inventory.ID</td>
+<td><em>removed</em></td>
+</tr>
+<tr>
+<td>Inventory.Name</td>
+<td><em>removed</em></td>
+</tr>
+<tr>
+<td>Inventory.Reserved</td>
+<td><em>removed</em></td>
+</tr>
+<tr>
+<td><code>/products/:id/inventory</code></td>
+<td><em>removed</em></td>
+</tr>
+</tbody>
+</table>
+<h4>Summary of Inventory Behavioral Changes:</h4>
+<ul>
+<li><code>Product.Inventory.QuantityAvailable</code> is writable.</li>
+<li><code>PATCH v1/products/:id { "Inventory": { "QuantityAvailable": 999 } }</code> is the preferred way to manually set inventory.</li>
+<li><code>QuantityAvailable</code> is deducted on order submit or final order approval (whichever point order status changes to <code>Open</code>).</li>
+<li><code>QuantityAvailable</code> is adjusted when quantity changes are made to line items on <code>Open</code> orders.</li>
+<li><code>QuantityAvailable</code> is validated, but not adjusted, when items are added or quantities change on <code>Unsubmitted</code> orders. A 400 error occurs if item quantity exceeds available inventory and <code>Product.Inventory.OrderCanExceed</code> is false.</li>
+<li><code>QuantityAvailable</code> is always re-validated per the rules above on order submit.</li>
+</ul>
+<h3>Shipment Changes</h3>
+<ul>
+<li>The nested <code>Shipment.Items</code> collection has been removed, and shipment items are instead retrieved or saved via new endpoints, much like line items. </li>
+<li>To compensate for the above, there is a new <code>me/shipmentitems</code> endpoint.</li>
+<li><code>BuyerID</code> has been removed from routes, meaning you can list shipments across multiple buyers. </li>
+<li>Shipment IDs are now seller-unique.</li>
+<li>All new fields listed below derive their values from corresponding LineItems, helping to avoid additional lookups when working with shipments.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>New Shipment Field</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shipment.Account</td>
+<td>writeable</td>
+</tr>
+<tr>
+<td>Shipment.FromAddressID</td>
+<td>writeable</td>
+</tr>
+<tr>
+<td>Shipment.ToAddressID</td>
+<td>writeable</td>
+</tr>
+<tr>
+<td>Shipment.FromAddress</td>
+<td>nested object, read-only</td>
+</tr>
+<tr>
+<td>Shipment.ToAddress</td>
+<td>nested object, read-only</td>
+</tr>
+<tr>
+<td>ShipmentItem.UnitPrice</td>
+<td>read-only</td>
+</tr>
+<tr>
+<td>ShipmentItem.CostCenter</td>
+<td>read-only</td>
+</tr>
+<tr>
+<td>ShipmentItem.DateNeeded</td>
+<td>nested object, read-only</td>
+</tr>
+<tr>
+<td>ShipmentItem.Product</td>
+<td>nested object, read-only</td>
+</tr>
+<tr>
+<td>ShipmentItem.Specs</td>
+<td>nested collection, read-only</td>
+</tr>
+<tr>
+<td>ShipmentItem.xp</td>
+<td>read-only</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Old Endpoint</th>
+<th>New Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET v1/:BuyerID/shipments</code></td>
+<td><code>GET v1/shipments</code></td>
+</tr>
+<tr>
+<td><code>GET v1/:BuyerID/shipments/:id</code></td>
+<td><code>GET v1/shipments/:id</code></td>
+</tr>
+<tr>
+<td>N/A</td>
+<td><code>GET v1/shipments/:id/items</code></td>
+</tr>
+<tr>
+<td>N/A</td>
+<td><code>GET v1/shipments/:id/items/:orderID/:lineItemID</code></td>
+</tr>
+<tr>
+<td>N/A</td>
+<td><code>POST v1/shipments/:id/items</code></td>
+</tr>
+<tr>
+<td>N/A</td>
+<td><code>PATCH v1/shipments/:id/items/:orderID/:lineItemID</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Simplified Product and Category Assignments</h3>
+<table>
+<thead>
+<tr>
+<th>New Properties</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catalog.Active</td>
+<td></td>
+</tr>
+<tr>
+<td>CatalogAssignment.ViewAllCategories</td>
+<td></td>
+</tr>
+<tr>
+<td>CatalogAssignment.ViewAllProducts</td>
+<td></td>
+</tr>
+<tr>
+<td>CategoryAssignment.Visible</td>
+<td>Nullable, inherited from parent or catalog</td>
+</tr>
+<tr>
+<td>CategoryAssignment.ViewAllProducts</td>
+<td>Nullable, inherited from parent or catalog</td>
+</tr>
+<tr>
+<td>Product.DefaultPriceScheduleId</td>
+<td>Optional, but encouraged.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>For a Buyer User to see a Product in the User Perspective (<code>GET v1/me/products</code>), <em>all</em> of the following must be true:</p>
+<ul>
+<li><code>Product.Active</code> is <code>true</code></li>
+<li>Product belongs to a Catalog where <code>Catalog.Active</code> is <code>true</code></li>
+<li>Buyer is assigned to this Catalog</li>
+</ul>
+</li>
+<li>
+<p>In addition, <em>one</em> of the following must be true:</p>
+<ul>
+<li>In Buyer assignment to Catalog, <code>CatalogAssignment.ViewAllProducts</code> is <code>true</code>, <strong>OR</strong></li>
+<li>Product belongs to active Category in the catalog, Category is assigned to Buyer (or any Group the user is in), and <code>CategoryAssignment.ViewAllProducts</code> is <code>true</code>, <strong>OR</strong></li>
+<li>Product is assigned directly to Buyer (or any Group the user is in).</li>
+</ul>
+</li>
+</ul>
+<p>We recommend checking out the [Catalog Visibility Guide]</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+                            <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+                            <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
