@@ -1,6 +1,7 @@
 # OrderCloud API Releases for 2017
 | Released | Versions |
 |---|---|
+| [December](December/README.md) | [1.0.66](/December/v66.md)  |
 | [November](November/README.md) | [1.0.65](/November/v65.md)  |
 | [October](October/README.md) | [1.0.63](/October/v63.md)  [1.0.64](/October/v64.md)  |
 | [September](September/README.md) | [1.0.61](/September/v61.md)  [1.0.62](/September/v62.md)  |
