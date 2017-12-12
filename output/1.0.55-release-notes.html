@@ -1,73 +1,124 @@
-<!DOCTYPE html>
-<html lang="english">
-<head>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>API v1.0.55 Release Notes</title>
-        <meta charset="utf-8" />
+		<title>OrderCloud API Release Notes</title>
+		<meta name="description" content="">
+		<meta name="author" content="OrderCloud">
 
+		<link rel="stylesheet" href="./theme/css/foundation.css" />
+		<link rel="stylesheet" href="./theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="./theme/css/custom.css" />
 
-        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+		<!-- GOOGLE WEB FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="./theme/css/alt-fonts.css" />
 
-        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+		<script src="./theme/js/modernizr.js"></script>
 
-        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
-
-
-
-
-</head>
-
-<body id="index" class="home">
+		<!-- Feeds -->
 
 
-    <div class="container">
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
 
-        <div class="row">
+					<section class="middle tab-bar-section">
+						<h1 class="title">OrderCloud&nbsp;API&nbsp;Release&nbsp;Notes</h1>
+					</section>
+				</nav>
 
-          <header id="banner" class="body">
-                  <h1><a href="./">OrderCloud API Release Notes <strong></strong></a></h1>
-          </header><!-- /#banner -->
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href=".">Home</a></li>
+						<li><label>Categories</label></li>
+							<li class="active"><a href="./category/release-notes.html">release-notes</a></li>
 
-            <div id="navigation" class="navbar row">
-              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
-             
-              <ul class="columns">
-                <li><a href="./">Home</a></li>
-
-                <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-                <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-                <li><a href="http://getpelican.com/">Pelican</a></li>
-                <li><a href="">OrderCloud.io Twitter</a></li>
-                <li><a href="">OrderCloud.io Community Support Slack</a></li>
-
-              </ul>
-            </div>
-
-<section id="content" class="body">
-
-   <div class="row">
-        <div class="eleven columns">
+						<li><label>Links</label></li>
+							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+							<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+							<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
 
 
-            <header>
-              <h2 class="entry-title">
-                <a href="./1.0.55-release-notes.html" rel="bookmark"
-                   title="Permalink to API v1.0.55 Release Notes">API v1.0.55 Release Notes</a></h2>
-           
-            </header>
-            <footer class="post-info">
-              <abbr class="published" title="2017-06-13T00:00:00-05:00">
-                Tue 13 June 2017
-              </abbr>
-              <address class="vcard author">By 
-                <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-              </address>
-            </footer><!-- /.post-info -->
-            <div class="entry-content">
-              <p>Released to Prod on Tuesday, June 13th, 2017 at 8 PM CST.</p>
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+									<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+									<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+									<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+									<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+									<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+									<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+									<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+									<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="./">OrderCloud API Release Notes</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li class="active"><a href="./category/release-notes.html">release-notes</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>API v1.0.55 Release Notes</h2>
+	<p>Released to Prod on Tuesday, June 13th, 2017 at 8 PM CST.</p>
 <h2>New Features</h2>
 <ul>
 <li>We added two new Mandrill template variables: <code>ShipmentItems</code> and <code>DateShipped</code></li>
@@ -77,77 +128,85 @@
 <li>We fixed an issue where some list endpoints would fail intermittently with a 409 error. This included Me Categories, and Me Products, among others.</li>
 <li>We fixed an issue where the Rules Engine was throwing a 500 if you tried to create a rule with <code>order.xp</code> in either of the expressions.</li>
 </ul>
-            </div><!-- /.entry-content -->
+	<hr/>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Tue 13 June 2017.</h6>
+</article>
 
+<hr/>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+									<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+									<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+								</ul>
+							</div>
 
-        </div><!-- /.eleven.columns -->
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
 
-<div class="three columns">
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+											<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+											<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+											<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+											<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+											<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+											<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+											<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+											<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+								</ul>
+							</div>
 
-<h4>Pages</h4>
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
 
- <ul>
-      <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-      <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-      <li><a href="http://getpelican.com/">Pelican</a></li>
-      <li><a href="">OrderCloud.io Twitter</a></li>
-      <li><a href="">OrderCloud.io Community Support Slack</a></li>
-  </ul>
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
 
-
-
-
-
-<nav class="widget">
-  <h4>Social</h4>
-  <ul class="blank">
-    <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-    <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
-  </ul>
-</nav>
-
-</div> </div><!-- /.row -->
-
-
-</section>
-
-       </div><!-- /.row -->
-    </div><!-- /.container -->
-
-
-       <div class="container.nopad bg">
-
-    
-        <footer id="credits" class="row">
-          <div class="seven columns left-center">
-
-                   <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                    which takes great advantage of <a href="http://python.org">Python</a>.
-                    <br />
-                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
-                    </address>
-          </div>
-
-
-          <div class="seven columns">
-            <div class="row">
-              <ul class="socbtns">
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-        </footer>
-
-    </div>
-
-
-  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
-  <script src="./theme/js/libs/gumby.min.js"></script>
-  <script src="./theme/js/plugins.js"></script>
-</body>
+		<script src="./theme/js/jquery.js"></script>
+		<script src="./theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

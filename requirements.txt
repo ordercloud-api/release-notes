@@ -3,3 +3,4 @@ Markdown
 beautifulsoup4
 gitpython
 webassets
+yuicompressor

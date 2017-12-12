@@ -23,7 +23,7 @@ To add a new release note, create a markdown-formatted version and put it in [th
 
 When the commit with the new release note is in the `master` branch of the release-notes repo, [Travis CI](https://travis-ci.org/ordercloud-api/release-notes.svg?branch=master) will build the Pelican site, generating the html site. The generated output will be placed in the `gh-pages` branch, where the site will be published with [Github Pages](https://help.github.com/categories/github-pages-basics/).
 
-Currently, we are using the [Gum](https://github.com/getpelican/pelican-themes/tree/master/gum) theme for Pelican. 
+Currently, we are using the [foundation-default-colours](https://github.com/getpelican/pelican-themes/tree/master/foundation-default-colours) theme for Pelican. 
 
 Ideally, I'd like to get the [Filetime from Git](https://github.com/getpelican/pelican-plugins/tree/master/filetime_from_git) plugin working, so that the date/datemodified meta doesn't need to be set manually. 
 

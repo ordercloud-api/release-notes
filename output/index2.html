@@ -1,399 +1,297 @@
-<!DOCTYPE html>
-<html lang="english">
-<head>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>OrderCloud API Release Notes</title>
-        <meta charset="utf-8" />
+		<title>OrderCloud API Release Notes</title>
+		<meta name="description" content="">
+		<meta name="author" content="OrderCloud">
 
+		<link rel="stylesheet" href="./theme/css/foundation.css" />
+		<link rel="stylesheet" href="./theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="./theme/css/custom.css" />
 
-        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+		<!-- GOOGLE WEB FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="./theme/css/alt-fonts.css" />
 
-        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+		<script src="./theme/js/modernizr.js"></script>
 
-        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
-
-
-
-
-</head>
-
-<body id="index" class="home">
+		<!-- Feeds -->
 
 
-    <div class="container">
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
 
-        <div class="row">
+					<section class="middle tab-bar-section">
+						<h1 class="title">OrderCloud&nbsp;API&nbsp;Release&nbsp;Notes</h1>
+					</section>
+				</nav>
 
-          <header id="banner" class="body">
-                  <h1><a href="./">OrderCloud API Release Notes <strong></strong></a></h1>
-          </header><!-- /#banner -->
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href=".">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="./category/release-notes.html">release-notes</a></li>
 
-            <div id="navigation" class="navbar row">
-              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
-             
-              <ul class="columns">
-                <li><a href="./">Home</a></li>
-
-                <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-                <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-                <li><a href="http://getpelican.com/">Pelican</a></li>
-                <li><a href="">OrderCloud.io Twitter</a></li>
-                <li><a href="">OrderCloud.io Community Support Slack</a></li>
-
-              </ul>
-            </div>
-
-<section id="content">
+						<li><label>Links</label></li>
+							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+							<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+							<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
 
 
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+									<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+									<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+									<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+									<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+									<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+									<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+									<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+									<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 
-   <div class="row">
+						<li><label>Social</label></li>
+							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+					</ul>	
+				</aside>
 
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="./">OrderCloud API Release Notes</a></h1>
+						</li>
+					</ul>
 
-        <div class="eleven columns">
-                 <ol id="post-list">
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.56-release-notes.html" rel="bookmark" title="Permalink to API v1.0.56 Release Notes">API v1.0.56 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-06-16T00:00:00-05:00"> Fri 16 June 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Planned to be released to Prod on Friday, June 16th, 2017 at 7:30 PM CST.</p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Fixed an issue where a second approval or decline of an order would return a 409 error</li>
-</ul>
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="./category/release-notes.html">release-notes</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+
+<article>
+	<h3><a href="./1.0.61-release-notes.html">API v1.0.61 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 07 September 2017.</h6>
+	<p><em>Released to Production on Thursday, September 7th, 2017</em></p>
 <h2>New Features</h2>
 <ul>
-<li>If a default <code>ShipFrom</code> address exists on a product, the <code>shipFromAddress</code> on a …</li></ul> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.56-release-notes.html" rel="bookmark" title="Permalink to API v1.0.56 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.55-release-notes.html" rel="bookmark" title="Permalink to API v1.0.55 Release Notes">API v1.0.55 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-06-13T00:00:00-05:00"> Tue 13 June 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Released to Prod on Tuesday, June 13th, 2017 at 8 PM CST.</p>
-<h2>New Features</h2>
-<ul>
-<li>We added two new Mandrill template variables: <code>ShipmentItems</code> and <code>DateShipped</code></li>
-</ul>
-<h2>Bug Fixes</h2>
-<ul>
-<li>We fixed an issue where some list endpoints would fail intermittently with a 409 error. This included Me Categories, and Me Products, among others …</li></ul> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.55-release-notes.html" rel="bookmark" title="Permalink to API v1.0.55 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.54-release-notes.html" rel="bookmark" title="Permalink to API v1.0.54 Release Notes">API v1.0.54 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-05-26T00:00:00-05:00"> Fri 26 May 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Released to Production on Friday, May 26th, 2017 at 7:30pm CST.</p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Now when you <code>PATCH</code> the LineItem.UnitPrice, the LineItem Total will update as well!</li>
-<li>We've improved our error handling for invalid rules engine expressions, so you find out if it's an invalid rule when you try …</li></ul> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.54-release-notes.html" rel="bookmark" title="Permalink to API v1.0.54 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.53-release-notes.html" rel="bookmark" title="Permalink to API v1.0.53 Release Notes">API v1.0.53 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-05-15T00:00:00-05:00"> Mon 15 May 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Released to Production on Monday, May 15th, 2017 at 7:30pm CST.</p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Buyer Users with the <code>ShipmentAdmin</code> role can now properly create shipments.</li>
-<li>We now properly throw a 409 error if you try to delete an admin user who is being used as the <code>DefaultUserContextID</code> for an org …</li></ul> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.53-release-notes.html" rel="bookmark" title="Permalink to API v1.0.53 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.52-release-notes.html" rel="bookmark" title="Permalink to API v1.0.52 Release Notes">API v1.0.52 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-05-10T00:00:00-05:00"> Wed 10 May 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Released to Production on Wednesday May 10th, 2017 at 7:00pm CST.</p>
-<h2>New Features</h2>
-<ul>
-<li>Improved performance for seller-side <code>/orders</code> lists</li>
+<li>Several tweaks to improve API logging and Documentation generation.</li>
 </ul>
 <h2>Bug Fixes</h2>
 <ul>
-<li>Now, a buyer user with <code>CatalogAdmin</code> should be able to:<ul>
-<li>Patch any catalog assigned to their buyer</li>
-<li>Update any catalog assigned to their buyer</li>
-<li>SaveProductAssignments for any catalog …</li></ul></li></ul> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.52-release-notes.html" rel="bookmark" title="Permalink to API v1.0.52 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.51-release-notes.html" rel="bookmark" title="Permalink to API v1.0.51 Release Notes">API v1.0.51 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-05-07T00:00:00-05:00"> Sun 07 May 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Released to Prod on Sunday, May 7th, 2017.</p>
+<li>Previously, if you transfered an anon user's order to a profiled user, the prices would not update to reflect the profiled user's price assignments. This is now fixed.</li>
+</ul>
+		<p class="continue"><a href="./1.0.61-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.60-release-notes.html">API v1.0.60 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Tue 18 July 2017.</h6>
+	<p>Released to Prod on Tuesday, July 18th, 2017 at 7:30 PM CST.</p>
 <h2>New Features</h2>
 <ul>
-<li>Improved performance for <code>me/categories</code> and <code>me/product</code> lists.</li>
-<li>We've added some more debug information to OpenConnectID errors.</li>
-</ul>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Previously, we required <code>CatalogAdmin</code> and <code>ProductAdmin</code> to list Catalog and Product assignments, respectively. This is now changed to be consistant …</li></ul> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.51-release-notes.html" rel="bookmark" title="Permalink to API v1.0.51 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.50-release-notes.html" rel="bookmark" title="Permalink to API v1.0.50 Release Notes">API v1.0.50 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-05-04T00:00:00-05:00"> Thu 04 May 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>A public staging environment will be available starting on Sunday, April 2nd. The 1.0.50 version will be released to Production on May 4th at 8:00 PM Central.</p>
-<p>You can access the staging environment using your production data and the following:</p>
-<p>api: <code>https://stagingapi.ordercloud.io</code></p>
-<p>auth: <code>https …</code></p> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.50-release-notes.html" rel="bookmark" title="Permalink to API v1.0.50 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./breaking-changes-release-notes.html" rel="bookmark" title="Permalink to Breaking Changes Release Notes">Breaking Changes Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-05-04T00:00:00-05:00"> Thu 04 May 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>These are now available at the <a href="v50.md">v1.0.50 Release Notes</a>.</p> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./breaking-changes-release-notes.html" rel="bookmark" title="Permalink to Breaking Changes Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                        <span>Tagged as : </span>
-                                            <a class="danger label" href="./tag/breaking-changes.html">breaking-changes</a>
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.44-release-notes.html" rel="bookmark" title="Permalink to API v1.0.44 Release Notes">API v1.0.44 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-04-17T00:00:00-05:00"> Mon 17 April 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Released to Production on Monday, April 17th, 2017 at 8 PM CST. </p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Fixed a bug where, in some particular cases, a user who submitted an order could also approve it.</li>
-</ul> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="./1.0.44-release-notes.html" rel="bookmark" title="Permalink to API v1.0.44 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="./1.0.43-release-notes.html" rel="bookmark" title="Permalink to API v1.0.43 Release Notes">API v1.0.43 Release Notes</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2017-04-05T00:00:00-05:00"> Wed 05 April 2017 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="./author/kate-reeher.html"> Kate Reeher</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>Released to Production on Wednesday, April 5th, 2017 at 7:30 PM Central. </p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>We now round the following to two decimal places:<ul>
-<li><code>OrderPromotion.Amount</code></li>
-<li><code>LineItem.LineTotal</code></li>
-<li><code>Order.Subtotal</code></li>
-<li><code>Order.ShippingCost</code></li>
-<li><code>Order.TaxCost</code></li>
-<li><code>Order.PromotionDiscount</code></li>
-<li><code>SpendingAccount.Balance</code></li>
-<li><code>Shipment.Cost</code></li>
-<li><code>Payment.Amount</code></li>
-<li><code>PaymentTransaction.Amount</code></li>
+<li>We've added a description field to Message Senders. </li>
+<li>We moved the platform Message Sender code to a public repo, so that developers can use it to create custom Message Senders. <a href="https://github.com/ordercloud-api/MessageSender">Message Sender on GitHub</a><ul>
+<li>Please note, <strong>we have not yet enabled custom message senders in DevCenter</strong>. You can start to develop one but can't configure one just yet to be used. This will be available in DevCenter in the near future.</li>
 </ul>
 </li>
-<li>We now return a useful and …</li></ul> </div><!-- /.entry-content -->
+<li>We've improved logging around Message Senders.</li>
+</ul>
+<h2>Bugs Fixed</h2>
+<ul>
+<li>We fixed an issue that was …</li></ul>
+		<p class="continue"><a href="./1.0.60-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.59-release-notes.html">API v1.0.59 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 13 July 2017.</h6>
+	<p>Released to Prod on Thursday, July 13th, 2017 at 7:30 PM CST.</p>
+<h2>New Features</h2>
+<ul>
+<li>We've added the Billing Information Name to Customer Profile on our Authorize.Net integration.</li>
+</ul>
+<h2>Bugs Fixed</h2>
+<ul>
+<li>We have added better error handling for API calls that include .NET reserved keywords in the route (typically in a buyer ID, etc.) </li>
+<li>You should no longer ever receive a 409 duplicate error on a <code>GET</code> call. Instead this will properly return a 500 error, as this is a bug.</li>
+</ul>
+		<p class="continue"><a href="./1.0.59-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.58-release-notes.html">API v1.0.58 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 29 June 2017.</h6>
+	<p>Released to Prod on Thursday, June 29th, 2017 at 7:30 PM CST.</p>
+<h2>New Features</h2>
+<ul>
+<li>Various performance improvements</li>
+</ul>
+		<p class="continue"><a href="./1.0.58-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.57-release-notes.html">API v1.0.57 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Fri 23 June 2017.</h6>
+	<p>Released to Prod on Friday, June 23rd, 2017 at 7:30 PM CST.</p>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Previously, if you created or patched a Shipment's <code>ToAddressId</code>, the response body would show <code>NULL</code>. This is now fixed.</li>
+<li>If you had a Shipment's <code>ToAddressId</code> set to <code>NULL</code>, and attempted to trigger a shipment notification through Message Senders, it would not get sent.</li>
+</ul>
+<h2>New Features</h2>
+<ul>
+<li>When you add a new xp value to be indexed, previous xp with that value will now be retroactively indexed.</li>
+<li>Performance improvement around logging.</li>
+</ul>
+		<p class="continue"><a href="./1.0.57-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
 
-                                <div class="medium primary btn"><a href="./1.0.43-release-notes.html" rel="bookmark" title="Permalink to API v1.0.43 Release Notes">Read more <i class="icon-arrow-right"></i></a></div>
+<div class="row" style="margin-bottom: -1.25em;">
+	<div class="small-12 columns text-center">
+		<div class="pagination-centered">
+			<ul class="pagination">
+				<li class="arrow"><a href="./index.html">&larr; Previous</a></li>
+				<li class=""><a href="./index.html">1</a></li>
+				<li class="current"><a href="./index2.html">2</a></li>
+				<li class=""><a href="./index3.html">3</a></li>
+				<li class=""><a href="./index4.html">4</a></li>
+				<li class=""><a href="./index5.html">5</a></li>
+				<li class=""><a href="./index6.html">6</a></li>
+				<li class=""><a href="./index7.html">7</a></li>
+				<li class=""><a href="./index8.html">8</a></li>
+				<li class=""><a href="./index9.html">9</a></li>
+				<li class=""><a href="./index10.html">10</a></li>
+				<li class=""><a href="./index11.html">11</a></li>
+				<li class="arrow"><a href="./index3.html">Next &rarr;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+									<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+									<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+								</ul>
+							</div>
 
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
 
-                                <div class="row tag-row">
-                                </div>
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+											<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+											<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+											<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+											<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+											<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+											<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+											<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+											<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+								</ul>
+							</div>
 
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
 
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
 
-                        </article></li>
-                </ol><!-- /#posts-list -->
-
-        </div><!-- /.eleven.columns -->
-        
-<div class="three columns">
-
-<h4>Pages</h4>
-
- <ul>
-      <li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-      <li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-      <li><a href="http://getpelican.com/">Pelican</a></li>
-      <li><a href="">OrderCloud.io Twitter</a></li>
-      <li><a href="">OrderCloud.io Community Support Slack</a></li>
-  </ul>
-
-
-
-
-
-<nav class="widget">
-  <h4>Social</h4>
-  <ul class="blank">
-    <li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-    <li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
-  </ul>
-</nav>
-
-</div> </div><!-- /.row -->
-
-<p class="paginator">
-            <a href="./index.html"><i class="icon-arrow-left"></i></a>
-    Page 2 / 6
-        <a href="./index3.html"><i class="icon-arrow-right"></i></a>
-</p>
-</section><!-- /#content -->
-
-       </div><!-- /.row -->
-    </div><!-- /.container -->
-
-
-       <div class="container.nopad bg">
-
-    
-        <footer id="credits" class="row">
-          <div class="seven columns left-center">
-
-                   <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                    which takes great advantage of <a href="http://python.org">Python</a>.
-                    <br />
-                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
-                    </address>
-          </div>
-
-
-          <div class="seven columns">
-            <div class="row">
-              <ul class="socbtns">
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-        </footer>
-
-    </div>
-
-
-  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
-  <script src="./theme/js/libs/gumby.min.js"></script>
-  <script src="./theme/js/plugins.js"></script>
-</body>
+		<script src="./theme/js/jquery.js"></script>
+		<script src="./theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

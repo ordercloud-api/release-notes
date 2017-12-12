@@ -1,0 +1,285 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>OrderCloud API Release Notes</title>
+		<meta name="description" content="">
+		<meta name="author" content="OrderCloud">
+
+		<link rel="stylesheet" href="./theme/css/foundation.css" />
+		<link rel="stylesheet" href="./theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="./theme/css/custom.css" />
+
+		<!-- GOOGLE WEB FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="./theme/css/alt-fonts.css" />
+
+		<script src="./theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">OrderCloud&nbsp;API&nbsp;Release&nbsp;Notes</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href=".">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="./category/release-notes.html">release-notes</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+							<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+							<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+									<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+									<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+									<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+									<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+									<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+									<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+									<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+									<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="./">OrderCloud API Release Notes</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="./category/release-notes.html">release-notes</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+
+<article>
+	<h3><a href="./1.0.23.0-release-notes.html">API v1.0.23.0 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Sat 23 July 2016.</h6>
+	<p>Released to Prod on Saturday, July 23rd, 2016 at 8 PM CST.</p>
+<h2>Changelog</h2>
+<ul>
+<li>A new Promotions feature has been added to the platform. Now you can set up promotions, using the same Rules Engine logic as <a href="https://devcenter.ordercloud.io/blog/rules-have-arrived">Approval Rules</a>. This new functionality allows buyers to get a limited time discount, free shipping, etc. These Promotions can now be added to orders. Promotions are assignable to buyer parties. But like products, they are admin owned and can be shared between multiple buyers.</li>
+<li>An existing user can now start off as a temp user and then log in as an existing user. This …</li></ul>
+		<p class="continue"><a href="./1.0.23.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.22.0-release-notes.html">API v1.0.22.0 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Fri 08 July 2016.</h6>
+	<p>Released to Prod on Friday, July 8th, 2016 at 8 PM CST.</p>
+<h2>Changelog</h2>
+<ul>
+<li>You can now list the pending approvals, for an order, by passing in the Order ID. This will primarily be used for email integrations. Notifications can now be sent to the approving group of users for each step, as the order gets passed along.</li>
+<li>The ability to set a ship-from address on a line item has been added, this will be useful for calculating shipping rates</li>
+<li>Endpoints have been created for seller addresses</li>
+<li>XP is now available for Approval Rules</li>
+<li>A Description field is now available for …</li></ul>
+		<p class="continue"><a href="./1.0.22.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.21.0-release-notes.html">API v1.0.21.0 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Wed 22 June 2016.</h6>
+	<p>Released to Prod on Wednesday, June 22nd, 2016 at 8 PM CST.</p>
+<h2>Changelog</h2>
+<ul>
+<li>Endpoint arguments that exist in the model, which the endpoint returns, and that have listArgs, have been removed. Example:<ul>
+<li><code>v1/buyers/{buyerID}/categories/assignments</code> This endpoint accepts buyerID, categoryID, userID, userGroupID, level, and listArgs. buyerID is required because it is part of the route. level should also be included because it is not part of the CategoryAssignment model. However, categoryID, userID, and userGroupID are all part of the CategoryAssignment model and can therefore be added to the Filters field within listArgs (since in both cases they will …</li></ul></li></ul>
+		<p class="continue"><a href="./1.0.21.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.20.0-release-notes.html">API v1.0.20.0 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Fri 10 June 2016.</h6>
+	<p>Released to Prod on Friday, June 10th, 2016 at 8 PM CST.</p>
+<h2>Changelog</h2>
+<ul>
+<li>XP has been added to Cost Center endpoints. </li>
+<li>List routes for /me order will now mirror admin order routes with respect to requiring incoming/outgoing. Further, the rules of visibility have changed with the four order list routes in the interest of simplicity: <ul>
+<li><strong>orders/outgoing</strong> orders from my company (submitted only unless UnsubmittedOrderReader role) </li>
+<li><strong>orders/incoming</strong> orders to my company (submitted only unless UnsubmittedOrderReader role)</li>
+<li><strong>me/orders/outgoing</strong> orders created, approved, or declined by me</li>
+<li><strong>me/orders/incoming</strong> orders awaiting my approval </li>
+</ul>
+</li>
+<li>For Approval Rules, approved(ruleid …</li></ul>
+		<p class="continue"><a href="./1.0.20.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.19.0-release-notes.html">API v1.0.19.0 Release Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Tue 31 May 2016.</h6>
+	<p>Released to Prod on Tuesday, May 31st, 2016 at 8 PM CST.</p>
+<h2>Changelog</h2>
+<ul>
+<li>Route params have been added to webhooks. An object has been added that contains the values from the routeparams. </li>
+<li>A small number of bug fixes also went out with this release.</li>
+</ul>
+		<p class="continue"><a href="./1.0.19.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+<div class="row" style="margin-bottom: -1.25em;">
+	<div class="small-12 columns text-center">
+		<div class="pagination-centered">
+			<ul class="pagination">
+				<li class="arrow"><a href="./index8.html">&larr; Previous</a></li>
+				<li class=""><a href="./index.html">1</a></li>
+				<li class=""><a href="./index2.html">2</a></li>
+				<li class=""><a href="./index3.html">3</a></li>
+				<li class=""><a href="./index4.html">4</a></li>
+				<li class=""><a href="./index5.html">5</a></li>
+				<li class=""><a href="./index6.html">6</a></li>
+				<li class=""><a href="./index7.html">7</a></li>
+				<li class=""><a href="./index8.html">8</a></li>
+				<li class="current"><a href="./index9.html">9</a></li>
+				<li class=""><a href="./index10.html">10</a></li>
+				<li class=""><a href="./index11.html">11</a></li>
+				<li class="arrow"><a href="./index10.html">Next &rarr;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+									<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+									<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+											<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+											<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+											<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+											<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+											<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+											<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+											<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+											<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="./theme/js/jquery.js"></script>
+		<script src="./theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>
