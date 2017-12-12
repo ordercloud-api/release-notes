@@ -1,0 +1,263 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>OrderCloud API Release Notes</title>
+		<meta name="description" content="">
+		<meta name="author" content="OrderCloud">
+
+		<link rel="stylesheet" href="./theme/css/foundation.css" />
+		<link rel="stylesheet" href="./theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="./theme/css/custom.css" />
+
+		<!-- GOOGLE WEB FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="./theme/css/alt-fonts.css" />
+
+		<script src="./theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">OrderCloud&nbsp;API&nbsp;Release&nbsp;Notes</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href=".">Home</a></li>
+						<li><label>Categories</label></li>
+							<li class="active"><a href="./category/blog-posts.html">blog-posts</a></li>
+							<li ><a href="./category/release-notes.html">release-notes</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+							<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+							<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+									<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+									<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+									<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+									<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+									<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+									<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+									<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+									<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="./">OrderCloud API Release Notes</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li class="active"><a href="./category/blog-posts.html">blog-posts</a></li>
+								<li ><a href="./category/release-notes.html">release-notes</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>Four Reasons You Should Stop Using <span class="caps">PUT</span> For&nbsp;Updates</h2>
+	<p>Here’s a question we hear often: </p>
+<blockquote>
+<p>To update an existing resource, when should I use <code>PUT</code> and when should I use <code>PATCH</code>?</p>
+</blockquote>
+<h1><span class="caps">TL</span>;<span class="caps">DR</span> Always use <code>PATCH</code>.</h1>
+<p><code>PATCH</code> has several distinct advantages over <code>PUT</code> when it comes to updating things:</p>
+<ol>
+<li><code>PUT</code> requires sending the entire object, hence a larger payload over the network. With <code>PATCH</code>, if you only want to change one or a few fields, you only need to send those fields.</li>
+<li>You often do not have the entire object available to send, in which case <code>PUT</code> requires that you first do a <span class="caps">GET</span>. With <code>PATCH</code>, all you need is the object’s <span class="caps">ID</span>, and you can often avoid the extra <span class="caps">API</span> call.</li>
+<li>In some cases, <code>PUT</code> can have unintended side-effects related to properties you don’t want to change. For example, some properties have default values, often inherited from some parent object, that can be overwritten. When you do a <span class="caps">GET</span> on such a resource, you’ll get the default if it hasn’t been overwritten. If you then change some other property and do a <code>PUT</code>, you’re unintentionally overriding the inherited value with an explicit one. Now if the default value on the parent changes, that change won’t flow to the child as expected.</li>
+<li>If multiple users can modify the same resources, you could run into concurrency issues with <code>PUT</code>. For example, suppose user A wants to modify a product’s quantity multiplier while user B wants to modify the same product’s description. Both users have done a <span class="caps">GET</span> and have the product’s <span class="caps">JSON</span> representation and modify it. If user A <code>PUT</code>s their change first, then user B will inadvertently revert the quantity multiplier change when they send their <code>PUT</code>. With <code>PATCH</code>, user A can send only the quantity multiplier change and user B can send just the updated description, and they are at no risk of a conflict.</li>
+</ol>
+<p>All these warnings of great peril beg the question: When <em>should</em> you use <code>PUT</code>? </p>
+<p>These are the situations where using <code>PUT</code> makes sense:</p>
+<ol>
+<li>You want to create a new resource, and you are providing the <span class="caps">ID</span>. Note that you need only provide that <span class="caps">ID</span> in the <span class="caps">URI</span>. In <span class="caps">REST</span> terms, you’re basically saying “I have this new object and I know where I want to put it.” </li>
+</ol>
+<p>Conversely, use <code>POST</code> when you want the <span class="caps">ID</span> to be auto-generated by the platform, i.e. you want us to decide where to “put” it.)</p>
+<ol>
+<li>You want to completely <em>replace</em> an object with another. In other words, an object has the same <span class="caps">ID</span> (location), but in real world terms it is a different thing. This is a rare case.</li>
+<li>The object does not have an <span class="caps">ID</span>, rather its identity is comprised of other values. These objects typically represent relationships; assignments are a good example. You usually don’t even have to remember this rule because <code>PUT</code> is often the only verb available for writing to such endpoints.</li>
+</ol>
+<p><code>PUT</code> actually has a few nice qualities when used in the above scenarios:</p>
+<ol>
+<li><code>PUT</code> is idempotent, i.e. you shouldn’t need to check if it has already been called, because calling it a second time will leave the resource in exactly the same state as calling it the first time. (<code>POST</code>, on the other hand, generally creates a new resource with each successive call.)</li>
+<li>You generally don’t have to worry about checking for existence. For example, if you want to assign a user to a group, you don’t need to worry about creating a duplicate assignment - just <code>PUT</code> the assignment and it will either create a new one or overwrite the existing one.</li>
+</ol>
+<h1>Summary</h1>
+<table class="table-striped table table-hover">
+<thead>
+<tr>
+<th>Use <code>POST</code> when…</th>
+<th>Use <code>PUT</code> when…</th>
+<th>Use <code>PATCH</code> when…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- You want to create a new resource where <span class="caps">WE</span> (the platform) are generating the <span class="caps">ID</span>. The new <span class="caps">ID</span> will be returned in the response body (as part of the full object), and the <span class="caps">URI</span> of the new resource will be returned in the Location response header.</td>
+<td>- You want to create a new resource where <span class="caps">YOU</span> are providing the <span class="caps">ID</span>, use <code>PUT</code>. (No need to include the <span class="caps">ID</span> in the request body; it’s in the <span class="caps">URI</span>.)</td>
+<td>- You want to update an existing resource.</td>
+</tr>
+<tr>
+<td></td>
+<td>- You want to completely replace a resource with another (same <span class="caps">ID</span>), use <code>PUT</code>. This is not common. - You want to update an existing resource.</td>
+<td>- You want to “move” a resource. The old <span class="caps">ID</span> goes in the <span class="caps">URI</span>; the new one in the request body.</td>
+</tr>
+</tbody>
+</table>
+<p>In case you are a more visual thinker, here is an infographic that can help you make the right decision: </p>
+<p><img alt="Decision Diagram for when to use PUT, POST, or PATCH" class="img-responsive" src="../images/post-patch-put.png"/></p>
+	<hr/>
+	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">blog-posts</a> on Fri 20 May 2016. Tags: <a href="./tag/put-patch.html">PUT PATCH</a>, </h6>
+</article>
+
+<hr/>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+									<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+									<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+											<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+											<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+											<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+											<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+											<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+											<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+											<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+											<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="./theme/js/jquery.js"></script>
+		<script src="./theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>

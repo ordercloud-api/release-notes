@@ -1,0 +1,293 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>OrderCloud API Release Notes</title>
+		<meta name="description" content="">
+		<meta name="author" content="OrderCloud">
+
+		<link rel="stylesheet" href="./theme/css/foundation.css" />
+		<link rel="stylesheet" href="./theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="./theme/css/custom.css" />
+
+		<!-- GOOGLE WEB FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="./theme/css/alt-fonts.css" />
+
+		<script src="./theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">OrderCloud&nbsp;API&nbsp;Release&nbsp;Notes</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href=".">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="./category/blog-posts.html">blog-posts</a></li>
+							<li ><a href="./category/release-notes.html">release-notes</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+							<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+							<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+									<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+									<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+									<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+									<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+									<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+									<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+									<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+									<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+									<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="./">OrderCloud API Release Notes</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="./category/blog-posts.html">blog-posts</a></li>
+								<li ><a href="./category/release-notes.html">release-notes</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+
+<article>
+	<h3><a href="./1.0.26.0-release-notes.html"><span class="caps">API</span> v1.0.26.0 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Wed 21 September 2016.</h6>
+	<p>Released to Prod on Monday, September 21st, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Line Items: Date Needed cannot be in the past</li>
+<li>Category: SaveCategoryAssignmentAsync Assigning to usergroup also assigns at company level</li>
+<li>Category: Client.Me.ListCategoriesAsync not returning expected result</li>
+<li><span class="dquo">“</span>Sequence contains no elements” exceptions in BaseApiController</li>
+</ul>
+		<p class="continue"><a href="./1.0.26.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.25.1-release-notes.html"><span class="caps">API</span> v1.0.25.1 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 08 September 2016.</h6>
+	<p>Released to Prod on Thursday, September 8th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Line Items: Attempt to patch product id should throw error</li>
+<li>Credit Cards: should validate on creating</li>
+<li>Performance issues - <code>order/{orderid}/submit</code> endpoint - time out error</li>
+<li>Specs: <code>/productassignments</code> returns 500 if no specID</li>
+</ul>
+		<p class="continue"><a href="./1.0.25.1-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.25.0-release-notes.html"><span class="caps">API</span> v1.0.25.0 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Sat 03 September 2016.</h6>
+	<p>Released to Prod on Saturday, September 3rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Promotions - Patching order incorrectly updates PromotionDiscount</li>
+<li>Resolved Deadlock/Timeout issue on product search with xp filter</li>
+</ul>
+		<p class="continue"><a href="./1.0.25.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.24.1-release-notes.html"><span class="caps">API</span> v1.0.24.1 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 25 August 2016.</h6>
+	<p>Released to Prod on Thursday, August 25th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>New Features</h2>
+<ul>
+<li>Add Dimensions to Product Object</li>
+</ul>
+		<p class="continue"><a href="./1.0.24.1-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.24.0-release-notes.html"><span class="caps">API</span> v1.0.24.0 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Tue 09 August 2016.</h6>
+	<p>Released to Prod on Tuesday, August 9th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>New Features</h2>
+<ul>
+<li>Security Profiles can now be assigned at the party level. (Buyer, User Group, User) These Security Profiles will be inherited, so a user’s total roles will actually be the total sum of these inherited profiles. In order to see what roles a user actually has, <code>user.AvailableRoles</code> is an array listing all the roles that user has.</li>
+<li>Because security profiles can be assigned at the Buyer level, apps can now use self-signup of users more easily. </li>
+<li>Administration of Admin Users is more granular now with …</li></ul>
+		<p class="continue"><a href="./1.0.24.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+<div class="row" style="margin-bottom: -1.25em;">
+	<div class="small-12 columns text-center">
+		<div class="pagination-centered">
+			<ul class="pagination">
+				<li class="arrow"><a href="./index7.html">&larr; Previous</a></li>
+				<li class=""><a href="./index.html">1</a></li>
+				<li class=""><a href="./index2.html">2</a></li>
+				<li class=""><a href="./index3.html">3</a></li>
+				<li class=""><a href="./index4.html">4</a></li>
+				<li class=""><a href="./index5.html">5</a></li>
+				<li class=""><a href="./index6.html">6</a></li>
+				<li class=""><a href="./index7.html">7</a></li>
+				<li class="current"><a href="./index8.html">8</a></li>
+				<li class=""><a href="./index9.html">9</a></li>
+				<li class=""><a href="./index10.html">10</a></li>
+				<li class=""><a href="./index11.html">11</a></li>
+				<li class=""><a href="./index12.html">12</a></li>
+				<li class="arrow"><a href="./index9.html">Next &rarr;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
+									<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
+									<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
+											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
+											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
+											<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
+											<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
+											<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
+											<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
+											<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
+											<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
+											<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
+											<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
+											<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
+											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
+											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
+									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="./theme/js/jquery.js"></script>
+		<script src="./theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>
