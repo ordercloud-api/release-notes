@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>localhost:8000/</loc>
-<lastmod>2017-12-12T10:49:26-00:00</lastmod>
+<lastmod>2017-12-12T14:08:13-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>localhost:8000/archives.html</loc>
-<lastmod>2017-12-12T10:49:26-00:00</lastmod>
+<lastmod>2017-12-12T14:08:13-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>localhost:8000/tags.html</loc>
-<lastmod>2017-12-12T10:49:26-00:00</lastmod>
+<lastmod>2017-12-12T14:08:13-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>localhost:8000/categories.html</loc>
-<lastmod>2017-12-12T10:49:26-00:00</lastmod>
+<lastmod>2017-12-12T14:08:13-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -361,6 +361,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>localhost:8000/using-put-for-updates.html</loc>
+<lastmod>2016-05-20T00:00:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>localhost:8000/1.0.16.0-release-notes.html</loc>
 <lastmod>2016-05-04T00:00:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -377,6 +384,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>localhost:8000/1.0.14.1-release-notes.html</loc>
 <lastmod>2016-04-11T00:00:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>localhost:8000/flexibility-over-features.html</loc>
+<lastmod>2016-04-07T00:00:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>localhost:8000/so-you-think-you-know-xp.html</loc>
+<lastmod>2016-04-07T00:00:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -403,6 +424,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>localhost:8000/category/blog-posts.html</loc>
+<lastmod>2016-05-20T00:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>localhost:8000/category/release-notes.html</loc>
 <lastmod>2017-12-07T00:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
@@ -412,6 +440,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>localhost:8000/tag/breaking-changes.html</loc>
 <lastmod>2017-05-04T00:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>localhost:8000/tag/put-patch.html</loc>
+<lastmod>2016-05-20T00:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>localhost:8000/tag/integrations.html</loc>
+<lastmod>2016-04-07T00:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>localhost:8000/tag/xp.html</loc>
+<lastmod>2016-04-07T00:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -440,6 +489,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>localhost:8000/author/kate-reeher.html</loc>
 <lastmod>2017-12-07T00:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>localhost:8000/author/todd-menier.html</loc>
+<lastmod>2016-05-20T00:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -56,6 +56,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="..">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 							<li ><a href="../category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
@@ -103,6 +104,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 								<li ><a href="../category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -118,28 +120,28 @@
 						<div class="medium-9 small-12 columns" role="content">
 
 <article>
-	<h3><a href="../1.0.66-release-notes.html">API v1.0.66 Release Notes</a></h3>
+	<h3><a href="../1.0.66-release-notes.html"><span class="caps">API</span> v1.0.66 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 07 December 2017.</h6>
 	<blockquote>
-<p>Released to Production on December 7th, 2017</p>
+<p>Released to Production on December 7th, 2017</p>
 </blockquote>
-<h2>New Features</h2>
-<h3>Customized Platform Object ID Generation</h3>
-<p>A big question we get from clients a lot is "How can I make the OrderCloud API IDs work nicely with the IDs from my ERP or other internal systems?". </p>
-<p>Prior to API 1.0.66, you could either set the ID manually (which is a pain if you want incrementation to work well) or you could settle for the default platform random GUID, and keep track of your ERP integration ID in an <code>xp</code>, or some other work around.</p>
-<p>We've added a new feature that …</p>
+<h2>New Features</h2>
+<h3>Customized Platform Object <span class="caps">ID</span> Generation</h3>
+<p>A big question we get from clients a lot is “How can I make the OrderCloud <span class="caps">API</span> IDs work nicely with the IDs from my <span class="caps">ERP</span> or other internal systems?”. </p>
+<p>Prior to <span class="caps">API</span> 1.0.66, you could either set the <span class="caps">ID</span> manually (which is a pain if you want incrementation to work well) or you could settle for the default platform random <span class="caps">GUID</span>, and keep track of your <span class="caps">ERP</span> integration <span class="caps">ID</span> in an <code>xp</code>, or some other work around.</p>
+<p>We’ve added a new feature …</p>
 		<p class="continue"><a href="../1.0.66-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.65-release-notes.html">API v1.0.65 Release Notes</a></h3>
+	<h3><a href="../1.0.65-release-notes.html"><span class="caps">API</span> v1.0.65 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Tue 21 November 2017.</h6>
 	<blockquote>
-<p>Released to Production on Tuesday, November 21st, 2017</p>
+<p>Released to Production on Tuesday, November 21st, 2017</p>
 </blockquote>
-<h2>New Features</h2>
+<h2>New Features</h2>
 <ul>
-<li>The <a href="https://documentation.ordercloud.io/api-reference#MeCategories">Me endpoint for categories</a> now has an optional <code>ProductID</code> filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the <code>CategoryReader</code> role to accomplish this.   </li>
+<li>The <a href="https://documentation.ordercloud.io/api-reference#MeCategories">Me endpoint for categories</a> now has an optional <code>ProductID</code> filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the <code>CategoryReader</code> role to accomplish this.   </li>
 </ul>
 <p><em>Request:</em></p>
 <div class="highlight"><pre><span></span>GET https://api.ordercloud.io/v1/me/categories?ProductID=SuperAwesomeProduct
@@ -179,29 +181,29 @@
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.64-release-notes.html">API v1.0.64 Release Notes</a></h3>
+	<h3><a href="../1.0.64-release-notes.html"><span class="caps">API</span> v1.0.64 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Mon 30 October 2017.</h6>
-	<p><em>Released to Production on Monday, October 30th, 2017</em></p>
-<h2>New Features</h2>
+	<p><em>Released to Production on Monday, October 30th, 2017</em></p>
+<h2>New Features</h2>
 <ul>
 <li>We now allow <code>lineitems</code> of <em>unsubmitted</em> <code>Orders</code> to be added to a <code>Shipment</code>. This does not apply to the <a href="http://qa-documentation.ordercloud.io/api-reference#Orders_Ship"><code>ship all</code> endpoint</a>.</li>
-<li>There is a new endpoint that allows a <code>buyer user</code> to be transfered from one buyer to another, within the same organization. Please check out the <a href="http://qa-documentation.ordercloud.io/api-reference#Users_Move">documentation</a> for further details.</li>
-<li>please note, this should only be attempted by an <code>admin user</code> in a seller application. If a buyer user, even one with <code>Full Access</code>, tries this, it will not work as expected. </li>
+<li>There is a new endpoint that allows a <code>buyer user</code> to be transfered from one buyer to another, within the same organization. Please check out the <a href="http://qa-documentation.ordercloud.io/api-reference#Users_Move">documentation</a> for further details.</li>
+<li>please note, this should only be attempted by an <code>admin user</code> in a seller application. If a buyer user, even one with <code>Full Access</code>, tries this, it will not work as expected. </li>
 </ul>
 		<p class="continue"><a href="../1.0.64-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.63-release-notes.html">API v1.0.63 Release Notes</a></h3>
+	<h3><a href="../1.0.63-release-notes.html"><span class="caps">API</span> v1.0.63 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Wed 18 October 2017.</h6>
-	<p><em>Released to Production on Wednesday, October 18th, 2017</em></p>
+	<p><em>Released to Production on Wednesday, October 18th, 2017</em></p>
 <h2>Bugs</h2>
 <ul>
 <li>Payments: Payment with Type <code>SpendingAccount</code> must have <code>SpendingAccountID</code></li>
 <li>Unable to use <code>PUT</code> to create new <code>UserGroup</code></li>
 <li>Orders: <code>order.Total</code> not updated when <code>ShippingCost</code> is updated via <code>PATCH</code></li>
 </ul>
-<h2>New Features</h2>
+<h2>New Features</h2>
 <ul>
 <li>Added transactional email support for guest checkout (<a href="http://qa-documentation.ordercloud.io/api-reference#Orders_PatchFromUser">documentation</a>)</li>
 </ul>
@@ -215,10 +217,10 @@
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.62-release-notes.html">API v1.0.62 Release Notes</a></h3>
+	<h3><a href="../1.0.62-release-notes.html"><span class="caps">API</span> v1.0.62 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 28 September 2017.</h6>
-	<p><em>Released to Production on Thursday, September 28th, 2017</em></p>
-<h2>New Features</h2>
+	<p><em>Released to Production on Thursday, September 28th, 2017</em></p>
+<h2>New Features</h2>
 <ul>
 <li>Upgraded to latest <a href="">Flurl</a></li>
 </ul>
@@ -264,6 +266,13 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
 								</ul>
 							</div>
 

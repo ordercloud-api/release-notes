@@ -56,6 +56,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="..">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 							<li ><a href="../category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
@@ -103,6 +104,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 								<li ><a href="../category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -118,56 +120,56 @@
 						<div class="medium-9 small-12 columns" role="content">
 
 <article>
-	<h3><a href="../1.0.14.0-release-notes.html">API v1.0.14.0 Release Notes</a></h3>
+	<h3><a href="../1.0.14.0-release-notes.html"><span class="caps">API</span> v1.0.14.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Tue 05 April 2016. Tags: <a href="../tag/payment-types.html">Payment Types</a>, <a href="../tag/orders.html">Orders</a>, </h6>
-	<p>Released to Prod on Tuesday, April 5th, 2016 at 8 PM CST.</p>
+	<p>Released to Prod on Tuesday, April 5th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>Changelog</h2>
 <ul>
-<li>We've added some new functionality around how we store credit card and other payment transactions. If your app uses our credit card processing, you'll probably want to check out the <a href="https://devcenter.ordercloud.io/docs#Payments">documentation</a> on Payments, and make sure everything is working the way you expect.</li>
-<li>You can now use partial updates ( <code>PATCH</code> calls) to update fields on any model to NULL instead of having to overwrite with some other value!</li>
-<li>We've changed how you can check if all the line items on an Order are being shipped to the …</li></ul>
+<li>We’ve added some new functionality around how we store credit card and other payment transactions. If your app uses our credit card processing, you’ll probably want to check out the <a href="https://devcenter.ordercloud.io/docs#Payments">documentation</a> on Payments, and make sure everything is working the way you expect.</li>
+<li>You can now use partial updates ( <code>PATCH</code> calls) to update fields on any model to <span class="caps">NULL</span> instead of having to overwrite with some other value!</li>
+<li>We’ve changed how you can check if all the line items on an Order are being …</li></ul>
 		<p class="continue"><a href="../1.0.14.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.13.0-release-notes.html">API v1.0.13.0 Release Notes</a></h3>
+	<h3><a href="../1.0.13.0-release-notes.html"><span class="caps">API</span> v1.0.13.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Wed 16 March 2016.</h6>
-	<p>Released to Prod on Wednesday, March 16th, 2016 at 8 PM CST.</p>
-<h2>Bug Fixes:</h2>
+	<p>Released to Prod on Wednesday, March 16th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Bug Fixes:</h2>
 <ul>
-<li>Payments: Unable to create, states order is already fully paid</li>
-<li>Products: Generating variants throws 500 error</li>
-<li>CostCenterID cannot be set on an ApprovalRule</li>
-<li>Specs: After variants are generated for a product, the <code>definesVariant</code> is set to false</li>
+<li>Payments: Unable to create, states order is already fully paid</li>
+<li>Products: Generating variants throws 500 error</li>
+<li>CostCenterID cannot be set on an ApprovalRule</li>
+<li>Specs: After variants are generated for a product, the <code>definesVariant</code> is set to false</li>
 </ul>
 		<p class="continue"><a href="../1.0.13.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.12.0-release-notes.html">API v1.0.12.0 Release Notes</a></h3>
+	<h3><a href="../1.0.12.0-release-notes.html"><span class="caps">API</span> v1.0.12.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 03 March 2016. Tags: <a href="../tag/payment-types.html">Payment Types</a>, <a href="../tag/product-variants.html">Product Variants</a>, </h6>
-	<p>Released to Prod on Thursday, March 3rd, 2016 at 8 PM CST.</p>
-<h2>New Features:</h2>
+	<p>Released to Prod on Thursday, March 3rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>New Features:</h2>
 <ul>
-<li><strong>Payment Types</strong> allow using multiple payment types on a single order</li>
-<li><a href="#generating-variants"><strong>Generate Variants</strong></a></li>
+<li><strong>Payment Types</strong> allow using multiple payment types on a single order</li>
+<li><a href="#generating-variants"><strong>Generate Variants</strong></a></li>
 </ul>
-<h2>Breaking Changes:</h2>
+<h2>Breaking Changes:</h2>
 <ul>
-<li>DefinesVariant has been moved from the Spec model to the Product-Spec Assignment model</li>
+<li>DefinesVariant has been moved from the Spec model to the Product-Spec Assignment model</li>
 </ul>
-<h4>Generating Variants</h4>
+<h4>Generating Variants</h4>
 <p>There are 4 things needed to create a product with variants
 Spec(s)
 Spec options
 a spec product relationship that sets Defines variant = true
 an explicit call to 
 <code>POST {productID}/variants/generate</code></p>
-<p>it's pretty simple once they're initally set up. Take the ubiquitous shirt example
+<p>it’s pretty simple once they’re initally set up. Take the ubiquitous shirt example
 Specs 
 <em>size small, large</em>
-<em>color red, black</em></p>
-<p>spec - product = size/shirt …</p>
+<em>color red, black</em></p>
+<p>spec - product …</p>
 		<p class="continue"><a href="../1.0.12.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
@@ -210,6 +212,13 @@ Specs
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
 								</ul>
 							</div>
 

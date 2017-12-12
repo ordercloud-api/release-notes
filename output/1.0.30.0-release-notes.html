@@ -56,6 +56,7 @@
 					<ul class="off-canvas-list">
 						<li><a href=".">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="./category/blog-posts.html">blog-posts</a></li>
 							<li class="active"><a href="./category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
@@ -83,8 +84,8 @@
 									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
-									<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
-									<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 
 						<li><label>Social</label></li>
@@ -103,6 +104,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="./category/blog-posts.html">blog-posts</a></li>
 								<li class="active"><a href="./category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -117,27 +119,27 @@
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
 <article>
-	<h2>API v1.0.30.0 Release Notes</h2>
-	<p>Released to Prod on Friday, October 28th, 2016 at 8 PM CST.</p>
-<h2>New Features:</h2>
+	<h2><span class="caps">API</span> v1.0.30.0 Release&nbsp;Notes</h2>
+	<p>Released to Prod on Friday, October 28th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>New Features:</h2>
 <ul>
 <li>
-<p><strong>Shared Catalogs</strong>: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you'll need to add the catalog ID to your API routes, and as a parameter in your SDK calls. Me Category endpoints are not affected, except in that you can optionally filter by catalog. Please check out the <a href="http://qa-documentation.ordercloud.io/guides/base-use-cases/implement-shared-catalogs">Api Documentation</a>.</p>
+<p><strong>Shared Catalogs</strong>: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you’ll need to add the catalog <span class="caps">ID</span> to your <span class="caps">API</span> routes, and as a parameter in your <span class="caps">SDK</span> calls. Me Category endpoints are not affected, except in that you can optionally filter by catalog. Please check out the <a href="http://qa-documentation.ordercloud.io/guides/base-use-cases/implement-shared-catalogs">Api Documentation</a>.</p>
 </li>
 <li>
-<p>A single client ID for an app can be used by different buyers. This is our first step towards an exciting feature on our roadmap, <strong>Buyer Networks</strong>.</p>
+<p>A single client <span class="caps">ID</span> for an app can be used by different buyers. This is our first step towards an exciting feature on our roadmap, <strong>Buyer Networks</strong>.</p>
 </li>
 <li>
-<p>You can now reference Product Names in your Mailchimp/Mandrill message templates! Previously, you could use Product Description and Product ID, now you can add Product Name as well. </p>
+<p>You can now reference Product Names in your Mailchimp/Mandrill message templates! Previously, you could use Product Description and Product <span class="caps">ID</span>, now you can add Product Name as well. </p>
 </li>
 </ul>
-<h2>Bug Fixes:</h2>
+<h2>Bug Fixes:</h2>
 <ul>
-<li>We updated <strong>Spending Accounts</strong> to be decremented when an order is submitted, rather then when a payment is applied to an unsubmitted order. (Clearing an order will refund any payments applied, even if the order is unsubmitted-- deleting the order will not do so automatically.)</li>
+<li>We updated <strong>Spending Accounts</strong> to be decremented when an order is submitted, rather then when a payment is applied to an unsubmitted order. (Clearing an order will refund any payments applied, even if the order is unsubmitted— deleting the order will not do so automatically.)</li>
 </ul>
-<h2>SDK Release Notes:</h2>
-<p>The SDK that will be going out with the API release will be <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a>.</p>
-<p>After the API is released, if anyone runs a <code>bower update</code> with <em>lastest</em> in their bower.json for ordercloud-ng-sdk they will be updated to <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a></p>
+<h2><span class="caps">SDK</span> Release Notes:</h2>
+<p>The <span class="caps">SDK</span> that will be going out with the <span class="caps">API</span> release will be <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a>.</p>
+<p>After the <span class="caps">API</span> is released, if anyone runs a <code>bower update</code> with <em>lastest</em> in their bower.json for ordercloud-ng-sdk they will be updated to <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a></p>
 	<hr/>
 	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Fri 28 October 2016.</h6>
 </article>
@@ -159,6 +161,13 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
 								</ul>
 							</div>
 
@@ -183,8 +192,8 @@
 											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
-											<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
-											<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
 											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 								</ul>
 							</div>

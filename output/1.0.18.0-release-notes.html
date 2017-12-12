@@ -56,6 +56,7 @@
 					<ul class="off-canvas-list">
 						<li><a href=".">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="./category/blog-posts.html">blog-posts</a></li>
 							<li class="active"><a href="./category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
@@ -83,8 +84,8 @@
 									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
-									<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
-									<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 
 						<li><label>Social</label></li>
@@ -103,6 +104,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="./category/blog-posts.html">blog-posts</a></li>
 								<li class="active"><a href="./category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -117,21 +119,21 @@
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
 <article>
-	<h2>API v1.0.18.0 Release Notes</h2>
-	<p>Released to Prod on Wednesday, May 25th, 2016 at 8 PM CST.</p>
+	<h2><span class="caps">API</span> v1.0.18.0 Release&nbsp;Notes</h2>
+	<p>Released to Prod on Wednesday, May 25th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>Changelog</h2>
 <ul>
-<li>The API now has elevated security integration. 3rd party systems now have the ability to perform elevated security operations. This means that we can grant them specific access that is not accessible by the (buyer) client.</li>
+<li>The <span class="caps">API</span> now has elevated security integration. 3rd party systems now have the ability to perform elevated security operations. This means that we can grant them specific access that is not accessible by the (buyer) client.</li>
 <li>The Rules Engine has been updated to replace the <code>item</code> object with <code>items</code> aggregate function. The <code>item</code> object has been replaced with <code>items</code> that contains aggregate functions allowing you do this: <code>items.any(CostCenter = 'XYZ')</code> instead of this: <code>item.CostCenter = 'XYZ'</code> This supports four such aggregate functions: <ul>
-<li><code>items.any(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
-<li><code>items.all(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
-<li><code>items.quantity(subexpression)</code> - returns total quantity of items matching subexpression</li>
-<li><code>items.total(subexpression)</code> - returns price total of all items matching subexpression</li>
+<li><code>items.any(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
+<li><code>items.all(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
+<li><code>items.quantity(subexpression)</code> - returns total quantity of items matching subexpression</li>
+<li><code>items.total(subexpression)</code> - returns price total of all items matching subexpression</li>
 </ul>
 </li>
-<li>Upon sending a webhook, an access token is now appended to the outbound web hook call. If a web hook receiver needs to perform actions on behalf of that user with elevated claims, they can now use this token to do so. A nullable field has been added to webhooks called ElevatedClaimsList containing a comma separated list of Claims. </li>
-<li>Several improvements have been made to the Dev Center to allow management of the webhooks from with the Dev Center UI. </li>
-<li>Several bug fixes were also deployed with this release.</li>
+<li>Upon sending a webhook, an access token is now appended to the outbound web hook call. If a web hook receiver needs to perform actions on behalf of that user with elevated claims, they can now use this token to do so. A nullable field has been added to webhooks called ElevatedClaimsList containing a comma separated list of Claims. </li>
+<li>Several improvements have been made to the Dev Center to allow management of the webhooks from with the Dev Center <span class="caps">UI</span>. </li>
+<li>Several bug fixes were also deployed with this release.</li>
 </ul>
 	<hr/>
 	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Wed 25 May 2016.</h6>
@@ -154,6 +156,13 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
 								</ul>
 							</div>
 
@@ -178,8 +187,8 @@
 											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
-											<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
-											<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
 											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 								</ul>
 							</div>

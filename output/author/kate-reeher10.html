@@ -56,6 +56,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="..">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 							<li ><a href="../category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
@@ -103,6 +104,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 								<li ><a href="../category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -118,61 +120,61 @@
 						<div class="medium-9 small-12 columns" role="content">
 
 <article>
-	<h3><a href="../1.0.18.0-release-notes.html">API v1.0.18.0 Release Notes</a></h3>
+	<h3><a href="../1.0.18.0-release-notes.html"><span class="caps">API</span> v1.0.18.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Wed 25 May 2016.</h6>
-	<p>Released to Prod on Wednesday, May 25th, 2016 at 8 PM CST.</p>
+	<p>Released to Prod on Wednesday, May 25th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>Changelog</h2>
 <ul>
-<li>The API now has elevated security integration. 3rd party systems now have the ability to perform elevated security operations. This means that we can grant them specific access that is not accessible by the (buyer) client.</li>
+<li>The <span class="caps">API</span> now has elevated security integration. 3rd party systems now have the ability to perform elevated security operations. This means that we can grant them specific access that is not accessible by the (buyer) client.</li>
 <li>The Rules Engine has been updated to replace the <code>item</code> object with <code>items</code> aggregate function. The <code>item</code> object has been replaced with <code>items</code> that contains aggregate functions allowing you do this: <code>items.any(CostCenter = 'XYZ')</code> instead of this: <code>item.CostCenter = 'XYZ'</code> This supports four such aggregate functions: <ul>
 <li><code>items.any(subexpression)</code> - returns …</li></ul></li></ul>
 		<p class="continue"><a href="../1.0.18.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.17.0-release-notes.html">API v1.0.17.0 Release Notes</a></h3>
+	<h3><a href="../1.0.17.0-release-notes.html"><span class="caps">API</span> v1.0.17.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Fri 20 May 2016.</h6>
-	<p>Released to Prod on Friday, May 20th, 2016 at 9 PM CST.</p>
+	<p>Released to Prod on Friday, May 20th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>Changelog</h2>
 <ul>
-<li>Approval rules have been updated significantly in this release. This release includes the new ApprovalRule data model (with full admin-side CRUD endpoints), support for a wide variety of expressions, and support for the actual buyer-side flow, including (legacy) email messaging. <em>There will be an approval rules blog post in the near future that will cover this more in-depth.</em></li>
-<li>The API route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the …</li></ul>
+<li>Approval rules have been updated significantly in this release. This release includes the new ApprovalRule data model (with full admin-side <span class="caps">CRUD</span> endpoints), support for a wide variety of expressions, and support for the actual buyer-side flow, including (legacy) email messaging. <em>There will be an approval rules blog post in the near future that will cover this more in-depth.</em></li>
+<li>The <span class="caps">API</span> route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the …</li></ul>
 		<p class="continue"><a href="../1.0.17.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.16.0-release-notes.html">API v1.0.16.0 Release Notes</a></h3>
+	<h3><a href="../1.0.16.0-release-notes.html"><span class="caps">API</span> v1.0.16.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Wed 04 May 2016.</h6>
-	<p>Released to Prod on Wednesday, May 4th, 2016 at 9 PM CST.</p>
+	<p>Released to Prod on Wednesday, May 4th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>Changelog</h2>
 <ul>
-<li>Buyer users can now can get a list of the products assigned to themselves. This used to require multiple API calls.This is now a single call.</li>
-<li>There is now the ability to list security profiles in the API itself and not just in DevCenter (as before).</li>
-<li>When logged in as a buyer user you can now list their assigned security profiles</li>
-<li>There is now the ability to create personal addresses (billing and shipping) outside the organization.</li>
+<li>Buyer users can now can get a list of the products assigned to themselves. This used to require multiple <span class="caps">API</span> calls.This is now a single call.</li>
+<li>There is now the ability to list security profiles in the <span class="caps">API</span> itself and not just in DevCenter (as before).</li>
+<li>When logged in as a buyer user you can now list their assigned security profiles</li>
+<li>There is now the ability to create personal addresses (billing and shipping) outside the organization.</li>
 <li>There is now the ability to create a personal list …</li></ul>
 		<p class="continue"><a href="../1.0.16.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.15.0-release-notes.html">API v1.0.15.0 Release Notes</a></h3>
+	<h3><a href="../1.0.15.0-release-notes.html"><span class="caps">API</span> v1.0.15.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Fri 15 April 2016.</h6>
-	<p>Released to Prod on Friday, April 15th, 2016 at 8 PM CST.</p>
+	<p>Released to Prod on Friday, April 15th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>Changelog</h2>
 <ul>
-<li>We've fixed a bug where, if you <a href="https://devcenter.ordercloud.io/docs#XP">searched a list</a> on XP, you sometimes got duplicate results.</li>
-<li>We've fixed a bug where, if you are an Admin User, you couldn't update the line items on an order for a Buyer User. This is an uncommon scenario, as generally an Admin user would impersonate a Buyer User to make an order on behalf of the Buyer user, but some integrations use an Admin User directly.</li>
+<li>We’ve fixed a bug where, if you <a href="https://devcenter.ordercloud.io/docs#XP">searched a list</a> on <span class="caps">XP</span>, you sometimes got duplicate results.</li>
+<li>We’ve fixed a bug where, if you are an Admin User, you couldn’t update the line items on an order for a Buyer User. This is an uncommon scenario, as generally an Admin user would impersonate a Buyer User to make an order on behalf of the Buyer user, but some integrations use an Admin User directly.</li>
 </ul>
 		<p class="continue"><a href="../1.0.15.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.14.1-release-notes.html">API v1.0.14.1 Release Notes</a></h3>
+	<h3><a href="../1.0.14.1-release-notes.html"><span class="caps">API</span> v1.0.14.1 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Mon 11 April 2016.</h6>
-	<p>Released to Prod on Monday, April 11th, 2016 at 8 PM CST.</p>
-<h2>Bug Fixes</h2>
+	<p>Released to Prod on Monday, April 11th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Bug Fixes</h2>
 <ul>
-<li>Duplicate error when creating categories in different buyers</li>
+<li>Duplicate error when creating categories in different buyers</li>
 </ul>
 		<p class="continue"><a href="../1.0.14.1-release-notes.html">Continue reading &raquo;</a></p>
 </article>
@@ -216,6 +218,13 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
 								</ul>
 							</div>
 

@@ -56,6 +56,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="..">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 							<li ><a href="../category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
@@ -83,6 +84,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="../category/blog-posts.html">blog-posts</a></li>
 								<li ><a href="../category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -103,30 +105,30 @@
 							</div>
 
 <article>
-	<h3><a href="../1.0.12.0-release-notes.html">API v1.0.12.0 Release Notes</a></h3>
+	<h3><a href="../1.0.12.0-release-notes.html"><span class="caps">API</span> v1.0.12.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 03 March 2016. Tags: <a href="../tag/payment-types.html">Payment Types</a>, <a href="../tag/product-variants.html">Product Variants</a>, </h6>
-	<p>Released to Prod on Thursday, March 3rd, 2016 at 8 PM CST.</p>
-<h2>New Features:</h2>
+	<p>Released to Prod on Thursday, March 3rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>New Features:</h2>
 <ul>
-<li><strong>Payment Types</strong> allow using multiple payment types on a single order</li>
-<li><a href="#generating-variants"><strong>Generate Variants</strong></a></li>
+<li><strong>Payment Types</strong> allow using multiple payment types on a single order</li>
+<li><a href="#generating-variants"><strong>Generate Variants</strong></a></li>
 </ul>
-<h2>Breaking Changes:</h2>
+<h2>Breaking Changes:</h2>
 <ul>
-<li>DefinesVariant has been moved from the Spec model to the Product-Spec Assignment model</li>
+<li>DefinesVariant has been moved from the Spec model to the Product-Spec Assignment model</li>
 </ul>
-<h4>Generating Variants</h4>
+<h4>Generating Variants</h4>
 <p>There are 4 things needed to create a product with variants
 Spec(s)
 Spec options
 a spec product relationship that sets Defines variant = true
 an explicit call to 
 <code>POST {productID}/variants/generate</code></p>
-<p>it's pretty simple once they're initally set up. Take the ubiquitous shirt example
+<p>it’s pretty simple once they’re initally set up. Take the ubiquitous shirt example
 Specs 
 <em>size small, large</em>
-<em>color red, black</em></p>
-<p>spec - product = size/shirt …</p>
+<em>color red, black</em></p>
+<p>spec - product …</p>
 		<p class="continue"><a href="../1.0.12.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
@@ -148,6 +150,13 @@ Specs
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
 								</ul>
 							</div>
 

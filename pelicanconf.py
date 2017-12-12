@@ -48,19 +48,26 @@ SOCIAL = (
 
 # plugins
 
-PLUGIN_PATHS = ['pelican-plugins', 'pelican-bootstrapify']
+PLUGIN_PATHS = ['pelican-plugins', 'pelican-bootstrapify', 'plugins']
+
 PLUGINS = {
 					'assets',
 					'sitemap',
 					'touch',
           'pelican-bootstrapify',
           'neighbors',
+          'representative_image',
+          'tag_cloud'
           #'post-stats',
-          'yuicompressor' #enable after theming
+          #'yuicompressor' #enable after theming
 
 					#'filetime_from_git'
 					#'ace_editor'
 					}
+
+DEFAULT_DATE = 'fs'
+
+TYPOGRIFY = True
 
 # filetime_from_git
 

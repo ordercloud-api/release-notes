@@ -56,6 +56,7 @@
 					<ul class="off-canvas-list">
 						<li><a href=".">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="./category/blog-posts.html">blog-posts</a></li>
 							<li ><a href="./category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
@@ -83,8 +84,8 @@
 									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
-									<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
-									<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 
 						<li><label>Social</label></li>
@@ -103,6 +104,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="./category/blog-posts.html">blog-posts</a></li>
 								<li ><a href="./category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -118,57 +120,64 @@
 						<div class="medium-9 small-12 columns" role="content">
 
 <article>
-	<h3><a href="./1.0.14.0-release-notes.html">API v1.0.14.0 Release Notes</a></h3>
+	<h3><a href="./1.0.14.1-release-notes.html"><span class="caps">API</span> v1.0.14.1 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Mon 11 April 2016.</h6>
+	<p>Released to Prod on Monday, April 11th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Duplicate error when creating categories in different buyers</li>
+</ul>
+		<p class="continue"><a href="./1.0.14.1-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./flexibility-over-features.html">Flexibility Over&nbsp;Features</a></h3>
+	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">blog-posts</a> on Thu 07 April 2016. Tags: <a href="./tag/integrations.html">integrations</a>, </h6>
+	<p><span class="dquo">“</span>That’s an integration concern.”</p>
+<p>It’s a phrase I utter often when new platform features are suggested. Although I try not to utter it on days I need to leave early. Some might question my motives.</p>
+<p>When I think about Four51’s transformation from a SaaS company to a PaaS company, I’m often reminded of why we embarked on this journey in the first place. I think I can sum it up in 3 words: too many checkboxes. (You thought I was going to say flexibility over features. I’ll get to it.) Our SaaS app simply couldn …</p>
+		<p class="continue"><a href="./flexibility-over-features.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./so-you-think-you-know-xp.html">So You Think You Know Your <span class="caps">XP</span></a></h3>
+	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">Blog Posts</a> on Thu 07 April 2016. Tags: <a href="./tag/xp.html">XP</a>, </h6>
+	<p>This is not intended to be an introductory post. It’s less about learning something you don’t know and more about un-learning something you think you know. Let’s start with a pop quiz.</p>
+<h2>What is <span class="caps">XP</span>?</h2>
+<ol>
+<li>An operating system recommended by 4 out of 5 OrderCloud.io developers.</li>
+<li>An arbitrary <span class="caps">JSON</span> object that can be attached to any OrderCloud.io model.</li>
+<li>Something you gain 20 of by throwing a curveball in Pokémon Go.</li>
+<li>None of the above.</li>
+</ol>
+<p>The correct answer of course is <strong>4</strong>. If you thought it was <strong>1</strong> or <strong>3</strong>, that’s understandable. (It’s only …</p>
+		<p class="continue"><a href="./so-you-think-you-know-xp.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.14.0-release-notes.html"><span class="caps">API</span> v1.0.14.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Tue 05 April 2016. Tags: <a href="./tag/payment-types.html">Payment Types</a>, <a href="./tag/orders.html">Orders</a>, </h6>
-	<p>Released to Prod on Tuesday, April 5th, 2016 at 8 PM CST.</p>
+	<p>Released to Prod on Tuesday, April 5th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>Changelog</h2>
 <ul>
-<li>We've added some new functionality around how we store credit card and other payment transactions. If your app uses our credit card processing, you'll probably want to check out the <a href="https://devcenter.ordercloud.io/docs#Payments">documentation</a> on Payments, and make sure everything is working the way you expect.</li>
-<li>You can now use partial updates ( <code>PATCH</code> calls) to update fields on any model to NULL instead of having to overwrite with some other value!</li>
-<li>We've changed how you can check if all the line items on an Order are being shipped to the …</li></ul>
+<li>We’ve added some new functionality around how we store credit card and other payment transactions. If your app uses our credit card processing, you’ll probably want to check out the <a href="https://devcenter.ordercloud.io/docs#Payments">documentation</a> on Payments, and make sure everything is working the way you expect.</li>
+<li>You can now use partial updates ( <code>PATCH</code> calls) to update fields on any model to <span class="caps">NULL</span> instead of having to overwrite with some other value!</li>
+<li>We’ve changed how you can check if all the line items on an Order are being …</li></ul>
 		<p class="continue"><a href="./1.0.14.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="./1.0.13.0-release-notes.html">API v1.0.13.0 Release Notes</a></h3>
+	<h3><a href="./1.0.13.0-release-notes.html"><span class="caps">API</span> v1.0.13.0 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Wed 16 March 2016.</h6>
-	<p>Released to Prod on Wednesday, March 16th, 2016 at 8 PM CST.</p>
-<h2>Bug Fixes:</h2>
+	<p>Released to Prod on Wednesday, March 16th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Bug Fixes:</h2>
 <ul>
-<li>Payments: Unable to create, states order is already fully paid</li>
-<li>Products: Generating variants throws 500 error</li>
-<li>CostCenterID cannot be set on an ApprovalRule</li>
-<li>Specs: After variants are generated for a product, the <code>definesVariant</code> is set to false</li>
+<li>Payments: Unable to create, states order is already fully paid</li>
+<li>Products: Generating variants throws 500 error</li>
+<li>CostCenterID cannot be set on an ApprovalRule</li>
+<li>Specs: After variants are generated for a product, the <code>definesVariant</code> is set to false</li>
 </ul>
 		<p class="continue"><a href="./1.0.13.0-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="./1.0.12.0-release-notes.html">API v1.0.12.0 Release Notes</a></h3>
-	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 03 March 2016. Tags: <a href="./tag/payment-types.html">Payment Types</a>, <a href="./tag/product-variants.html">Product Variants</a>, </h6>
-	<p>Released to Prod on Thursday, March 3rd, 2016 at 8 PM CST.</p>
-<h2>New Features:</h2>
-<ul>
-<li><strong>Payment Types</strong> allow using multiple payment types on a single order</li>
-<li><a href="#generating-variants"><strong>Generate Variants</strong></a></li>
-</ul>
-<h2>Breaking Changes:</h2>
-<ul>
-<li>DefinesVariant has been moved from the Spec model to the Product-Spec Assignment model</li>
-</ul>
-<h4>Generating Variants</h4>
-<p>There are 4 things needed to create a product with variants
-Spec(s)
-Spec options
-a spec product relationship that sets Defines variant = true
-an explicit call to 
-<code>POST {productID}/variants/generate</code></p>
-<p>it's pretty simple once they're initally set up. Take the ubiquitous shirt example
-Specs 
-<em>size small, large</em>
-<em>color red, black</em></p>
-<p>spec - product = size/shirt …</p>
-		<p class="continue"><a href="./1.0.12.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -188,7 +197,8 @@ Specs
 				<li class=""><a href="./index9.html">9</a></li>
 				<li class=""><a href="./index10.html">10</a></li>
 				<li class="current"><a href="./index11.html">11</a></li>
-				<li class="arrow unavailable"><a href="#">&rarr; Next</a></li>
+				<li class=""><a href="./index12.html">12</a></li>
+				<li class="arrow"><a href="./index12.html">Next &rarr;</a></li>
 			</ul>
 		</div>
 	</div>
@@ -210,6 +220,13 @@ Specs
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
 								</ul>
 							</div>
 
@@ -234,8 +251,8 @@ Specs
 											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
-											<li><a href="/posts/2016/May/index.html">May 2016 (4)</a></li>
-											<li><a href="/posts/2016/Apr/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
+											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
 											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 								</ul>
 							</div>
