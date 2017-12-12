@@ -50,7 +50,7 @@ PLUGINS = {
           'pelican-bootstrapify',
           'neighbors',
           'post-stats'
-          #yuicompressor #enable after theming
+          'yuicompressor' #enable after theming
 
 					#'filetime_from_git'
 					#'ace_editor'
