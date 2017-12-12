@@ -115,3 +115,5 @@ FOUNDATION_PYGMENT_THEME = 'monokai'
 DEFAULT_PAGINATION = 5
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
+
+GOOGLE_ANALYTICS = 'UA-82258138-2'
