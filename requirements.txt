@@ -4,3 +4,4 @@ beautifulsoup4
 gitpython
 webassets
 yuicompressor
+typogrify
