@@ -9,7 +9,7 @@ Release Notes for the [OrderCloud API]().
 The release notes site can be found at [https://ordercloud-api.github.io/release-notes/](https://ordercloud-api.github.io/release-notes/)
 
 
-> If you are just looking for the simple markdown version of an OrderCloud.io release note, look to [the content folder](/content). They are organized by release version number.
+> If you are just looking for the simple **markdown** version of an OrderCloud.io release note, look to [the content folder](/content). They are organized by release version number.
 
 
 
@@ -21,7 +21,15 @@ This github.io site is generated using a [Pelican](https://blog.getpelican.com/)
 
 To add a new release note, create a markdown-formatted version and put it in [the content folder](/content). Follow the established metadata formatting, so that Pelican will correctly generate it. 
 
-When the commit with the new release note is in the `master` branch of the release-notes repo, [Travis CI](https://travis-ci.org/ordercloud-api/release-notes.svg?branch=master) will build the Pelican site, generating the html site. The generated output will be placed in the `gh-pages` branch, where the site will be published with [Github Pages](https://help.github.com/categories/github-pages-basics/).
+To add a new blog article,create a markdown-formatted version and put it in [the blogs folder](/content/blogs). 
+
+To build locally, see [the Pelican documentation](http://docs.getpelican.com/en/stable/publish.html#). This will require [installing Pelican](http://docs.getpelican.com/en/stable/install.html) locally. See required python packages in the [requirements](requirements.txt). You may also need to [initiate the submodules](https://stackoverflow.com/a/3796947/173416) before the build works.
+
+Please note that the `Output` folder is listed in the .gitignore file. This is to keep the source code uncluttered with the generated files from local builds. The site is generated during the Travis.ci process, as outlined below, and the static site output is avaible in the `gh-pages` branch.
+
+The [2016](/2016) and [2017](/2017) folders and their content are historical release notes, kept to avoid link rot.
+
+When you're ready to publish the content you've created, merge this content into the `master` branch of the release-notes repo. On any push to `master`, [Travis CI](https://travis-ci.org/ordercloud-api/release-notes.svg?branch=master) will build the Pelican site, generating the html site. The generated output will be placed in the `gh-pages` branch, where the site will be published with [Github Pages](https://help.github.com/categories/github-pages-basics/).
 
 Currently, we are using the [foundation-default-colours](https://github.com/getpelican/pelican-themes/tree/master/foundation-default-colours) theme for Pelican. 
 
