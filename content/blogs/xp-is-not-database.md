@@ -21,7 +21,7 @@ The correct answer of course is **4**. If you thought it was **1** or **3**, tha
 
 Ok, so technically speaking **2** is technically true, technically. But that definition will cloud your thinking during the all-important data modeling phase of your app’s development. First off, saying it’s a JSON object is like saying `Order.Status` is a JSON property. Sure, that’s how it’s represented in the API, but it tells you nothing about what it is conceptually. Recall that `XP` stands for “e*X*tended Properties”. So let’s try this definition:
 
-> A mechanism for adding properties to an object that my conceptual model needs but are not natively supported in OrderCloud.io.
+    A mechanism for adding properties to an object that my conceptual model needs but are not natively supported in OrderCloud.io.
 
 That’s much better. It gets to the essence of what `XP` is and, perhaps more importantly, what it isn’t. Our `User` model has `FirstName`, `LastName`, and `Email`, but it doesn’t have `FavoriteColor`. If that’s an important data point for your app, just add it: `user.xp.FavoriteColor = “purple”`. We’ll store it and even index it, so later you can ask for a list of all users whose favorite color is purple, and we’ll send it to you faster than you can say “Skol Vikings”. But `XP` isn’t a dumping ground for large, deeply nested objects. It’s highly optimized for the “add a few extra data points” scenario and nothing more.
 
@@ -55,7 +55,7 @@ Virtually all apps have some sort of global config data. Ask yourself: do you re
 
 ## **Never, *ever* store highly sensitive data**. 
 
-Don’t put passwords in `XP`. As for credit card numbers, it’s not only a bad idea, it’s a violation of our terms & conditions.
+Don’t put passwords in `XP`. As for credit card numbers, it’s not only a bad idea, it’s a violation of our terms and conditions.
 
 ## Remember that OrderCloud.io is not a complete solution. 
 
@@ -65,5 +65,5 @@ You wouldn’t tell an end-customer that our API alone is their new commerce sol
 
 We want nothing more than for the apps you build on OrderCloud.io to be a smashing success. To that end, we’re here to help. We have both free and paid support options available. Use them if you feel you don’t have all the answers you need, especially in the critical early stages of development.
 
-We like to tout `XP` as the poster child of our [“Flexibility over Features“]({filename}flexibility-over-features.md) matra. But like any tool, it is important to recognize its purpose, as well as its limitations.
+We like to tout `XP` as the poster child of our [“Flexibility over Features“]({filename}flexibility-over-features.md) mantra. But like any tool, it is important to recognize its purpose, as well as its limitations.
 

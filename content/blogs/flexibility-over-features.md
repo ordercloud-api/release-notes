@@ -1,14 +1,14 @@
 ---
 Title: Flexibility Over Features
 Category: blog-posts
-Tags: integrations
+Tags: Integrations
 Slug: flexibility-over-features
 Authors: Todd Menier
 Date: 4/7/2016
 --- 
 
 
-"That's an integration concern."
+    "That's an integration concern."
 
 It's a phrase I utter often when new platform features are suggested. Although I try not to utter it on days I need to leave early. Some might question my motives.
 

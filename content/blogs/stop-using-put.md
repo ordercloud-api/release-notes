@@ -1,7 +1,7 @@
 ---
 Title: Four Reasons You Should Stop Using PUT For Updates
 Category: blog-posts
-Tags: PUT PATCH
+Tags: PUT, PATCH
 Slug: using-put-for-updates
 Authors: Todd Menier
 Date: 5/20/2016
@@ -10,7 +10,8 @@ Summary: To update an existing resource, when should you use `PUT` and when shou
 
 
 Here’s a question we hear often: 
-> To update an existing resource, when should I use `PUT` and when should I use ``PATCH``?
+
+    To update an existing resource, when should I use `PUT` and when should I use ``PATCH``?
 
 # TL;DR Always use ``PATCH``.
 
