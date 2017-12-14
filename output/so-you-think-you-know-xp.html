@@ -57,8 +57,8 @@
 					<ul class="off-canvas-list">
 						<li><a href=".">Home</a></li>
 						<li><label>Categories</label></li>
-							<li class="active"><a href="./category/blog-posts.html">blog-posts</a></li>
-							<li ><a href="./category/release-notes.html">release-notes</a></li>
+							<li class="active"><a href="./category/blog-posts.html">Blog Posts</a></li>
+							<li ><a href="./category/release-notes.html">Release Notes</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
@@ -67,7 +67,7 @@
 
 
 						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
@@ -84,10 +84,10 @@
 									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
 									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
 									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
 									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
@@ -105,8 +105,8 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li class="active"><a href="./category/blog-posts.html">blog-posts</a></li>
-								<li ><a href="./category/release-notes.html">release-notes</a></li>
+								<li class="active"><a href="./category/blog-posts.html">Blog Posts</a></li>
+								<li ><a href="./category/release-notes.html">Release Notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -131,9 +131,8 @@
 </ol>
 <p>The correct answer of course is <strong>4</strong>. If you thought it was <strong>1</strong> or <strong>3</strong>, that’s understandable. (It’s only 3 out of 5, and a curveball is only good for 10.) If you answered <strong>2</strong>, welcome to your un-learning session.</p>
 <p>Ok, so technically speaking <strong>2</strong> is technically true, technically. But that definition will cloud your thinking during the all-important data modeling phase of your app’s development. First off, saying it’s a <span class="caps">JSON</span> object is like saying <code>Order.Status</code> is a <span class="caps">JSON</span> property. Sure, that’s how it’s represented in the <span class="caps">API</span>, but it tells you nothing about what it is conceptually. Recall that <code>XP</code> stands for “e<em>X</em>tended Properties”. So let’s try this definition:</p>
-<blockquote>
-<p>A mechanism for adding properties to an object that my conceptual model needs but are not natively supported in OrderCloud.io.</p>
-</blockquote>
+<div class="highlight"><pre><span></span>A mechanism for adding properties to an object that my conceptual model needs but are not natively supported in OrderCloud.io.
+</pre></div>
 <p>That’s much better. It gets to the essence of what <code>XP</code> is and, perhaps more importantly, what it isn’t. Our <code>User</code> model has <code>FirstName</code>, <code>LastName</code>, and <code>Email</code>, but it doesn’t have <code>FavoriteColor</code>. If that’s an important data point for your app, just add it: <code>user.xp.FavoriteColor = “purple”</code>. We’ll store it and even index it, so later you can ask for a list of all users whose favorite color is purple, and we’ll send it to you faster than you can say “Skol Vikings”. But <code>XP</code> isn’t a dumping ground for large, deeply nested objects. It’s highly optimized for the “add a few extra data points” scenario and nothing more.</p>
 <p><img alt="Bart Simpson standing in front of a chalkboard where he's written &quot;XP is not a database&quot; over and over." class="img-responsive" src="../images/xp-is-not-database.gif"/></p>
 <p>With that in mind, let’s go over some basic guidelines and best practices associated with <span class="caps">XP</span>.</p>
@@ -150,12 +149,12 @@
 <h2>Avoid storing global configuration data.</h2>
 <p>Virtually all apps have some sort of global config data. Ask yourself: do you really need the <span class="caps">API</span> to store that for you? Assuming it rarely changes and you don’t need to build any sort of <span class="caps">UI</span> around changing it, it’s perfectly fine to store this along side your front-end code, such as in a <span class="caps">JSON</span> object in a js file.</p>
 <h2><strong>Never, <em>ever</em> store highly sensitive data</strong>.</h2>
-<p>Don’t put passwords in <code>XP</code>. As for credit card numbers, it’s not only a bad idea, it’s a violation of our terms <span class="amp">&amp;</span> conditions.</p>
+<p>Don’t put passwords in <code>XP</code>. As for credit card numbers, it’s not only a bad idea, it’s a violation of our terms and conditions.</p>
 <h2>Remember that OrderCloud.io is not a complete solution.</h2>
 <p>You wouldn’t tell an end-customer that our <span class="caps">API</span> alone is their new commerce solution, point them to <a href="https://www.getpostman.com/">Postman</a> or <a href="https://www.telerik.com/fiddler">Fiddler</a> and be on your way. But just as a custom front-end needs to be built in order to have something useful, it’s quite possible that a great solution will require some additional back-end pieces as well. Fortunately for you, we live in an age of microservices, and if your custom data needs grow beyond bolting a few extra properties onto existing objects, you have a number of great options available in the Cloud. Google’s <a href="https://firebase.google.com/">Firebase</a>, Amazon’s <a href="https://aws.amazon.com/dynamodb/">DynamoDB</a>, and Microsoft’s <a href="https://azure.microsoft.com/en-us/services/documentdb/">DocumentDB</a> are just a few. </p>
 <h2>When it doubt, ask.</h2>
 <p>We want nothing more than for the apps you build on OrderCloud.io to be a smashing success. To that end, we’re here to help. We have both free and paid support options available. Use them if you feel you don’t have all the answers you need, especially in the critical early stages of development.</p>
-<p>We like to tout <code>XP</code> as the poster child of our <a href="./flexibility-over-features.html">“Flexibility over Features“</a> matra. But like any tool, it is important to recognize its purpose, as well as its limitations.</p>
+<p>We like to tout <code>XP</code> as the poster child of our <a href="./flexibility-over-features.html">“Flexibility over Features“</a> mantra. But like any tool, it is important to recognize its purpose, as well as its limitations.</p>
 	<hr/>
 	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">Blog Posts</a> on Thu 07 April 2016. Tags: <a href="./tag/xp.html">XP</a>, </h6>
 </article>
@@ -177,20 +176,24 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
-									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
+									<li><a href="/tag/rules-engine.html" class="tag-4">Rules Engine</a></li>
 									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
-									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
-									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 								</ul>
 							</div>
 
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
-											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
@@ -207,10 +210,10 @@
 											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
 											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
 											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
 											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 								</ul>
 							</div>
 

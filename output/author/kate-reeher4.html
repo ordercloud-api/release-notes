@@ -57,8 +57,8 @@
 					<ul class="off-canvas-list">
 						<li><a href="..">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="../category/blog-posts.html">blog-posts</a></li>
-							<li ><a href="../category/release-notes.html">release-notes</a></li>
+							<li ><a href="../category/blog-posts.html">Blog Posts</a></li>
+							<li ><a href="../category/release-notes.html">Release Notes</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
@@ -67,7 +67,7 @@
 
 
 						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
@@ -105,8 +105,8 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="../category/blog-posts.html">blog-posts</a></li>
-								<li ><a href="../category/release-notes.html">release-notes</a></li>
+								<li ><a href="../category/blog-posts.html">Blog Posts</a></li>
+								<li ><a href="../category/release-notes.html">Release Notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -120,6 +120,48 @@
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
 
+<article>
+	<h3><a href="../1.0.53-release-notes.html"><span class="caps">API</span> v1.0.53 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Mon 15 May 2017.</h6>
+	<p>Released to Production on Monday, May 15th, 2017 at 7:30pm <span class="caps">CST</span>.</p>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Buyer Users with the <code>ShipmentAdmin</code> role can now properly create shipments.</li>
+<li>We now properly throw a 409 error if you try to delete an admin user who is being used as the <code>DefaultUserContextID</code> for an org.</li>
+<li>Listing me/Shipments performance should be noticeably improved on large lists.</li>
+<li>Initial emails for Approvals message senders were not being sent.</li>
+</ul>
+<h2>New Features</h2>
+<ul>
+<li>Developers who use the <span class="caps">OIDC</span> flow for authentication will now be able to dynamically route their users to specific parts of their app after authentication. To do …</li></ul>
+		<p class="continue"><a href="../1.0.53-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="../1.0.52-release-notes.html"><span class="caps">API</span> v1.0.52 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Wed 10 May 2017.</h6>
+	<p>Released to Production on Wednesday May 10th, 2017 at 7:00pm <span class="caps">CST</span>.</p>
+<h2>New Features</h2>
+<ul>
+<li>Improved performance for seller-side <code>/orders</code> lists</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Now, a buyer user with <code>CatalogAdmin</code> should be able to:<ul>
+<li>Patch any catalog assigned to their buyer</li>
+<li>Update any catalog assigned to their buyer</li>
+<li>SaveProductAssignments for any catalog assigned to their buyer</li>
+<li>ListProductAssignments for any catalog assigned to their buyer</li>
+<li>DeleteProductAssignments for any catalog assigned to their buyer</li>
+</ul>
+</li>
+<li>A buyer user with <code>CatalogAdmin</code> should not have the ability to:<ul>
+<li>Assign catalogs to other buyers</li>
+<li>List catalog assignments of other buyers</li>
+<li>Delete catalog assignments (even those for their own …</li></ul></li></ul>
+		<p class="continue"><a href="../1.0.52-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
 <article>
 	<h3><a href="../1.0.51-release-notes.html"><span class="caps">API</span> v1.0.51 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Sun 07 May 2017.</h6>
@@ -155,42 +197,6 @@
 	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">Release Notes</a> on Thu 04 May 2017. Tags: <a href="../tag/breaking-changes.html">Breaking Changes</a>, </h6>
 	<p>These are now available at the <a href="../1.0.50-release-notes.html">v1.0.50 Release Notes</a>.</p>
 		<p class="continue"><a href="../breaking-changes-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="../1.0.44-release-notes.html"><span class="caps">API</span> v1.0.44 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Mon 17 April 2017.</h6>
-	<p>Released to Production on Monday, April 17th, 2017 at 8 <span class="caps">PM</span> <span class="caps">CST</span>. </p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Fixed a bug where, in some particular cases, a user who submitted an order could also approve it.</li>
-</ul>
-		<p class="continue"><a href="../1.0.44-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="../1.0.43-release-notes.html"><span class="caps">API</span> v1.0.43 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Wed 05 April 2017.</h6>
-	<p>Released to Production on Wednesday, April 5th, 2017 at 7:30 <span class="caps">PM</span> Central. </p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>We now round the following to two decimal places:<ul>
-<li><code>OrderPromotion.Amount</code></li>
-<li><code>LineItem.LineTotal</code></li>
-<li><code>Order.Subtotal</code></li>
-<li><code>Order.ShippingCost</code></li>
-<li><code>Order.TaxCost</code></li>
-<li><code>Order.PromotionDiscount</code></li>
-<li><code>SpendingAccount.Balance</code></li>
-<li><code>Shipment.Cost</code></li>
-<li><code>Payment.Amount</code></li>
-<li><code>PaymentTransaction.Amount</code></li>
-</ul>
-</li>
-<li>We now return a useful and informative error message if you try to list <code>CatalogAssignments</code> without required parameters.</li>
-<li>We now return a useful and informative error message if you try to delete a user who has an open order outstanding.</li>
-<li>We now decrement <code>SpendingAccounts</code> on delete of a payment and not if it’s just routed …</li></ul>
-		<p class="continue"><a href="../1.0.43-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -232,20 +238,24 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
-									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
+									<li><a href="/tag/rules-engine.html" class="tag-4">Rules Engine</a></li>
 									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
-									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
-									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 								</ul>
 							</div>
 
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
-											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>

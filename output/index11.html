@@ -57,8 +57,8 @@
 					<ul class="off-canvas-list">
 						<li><a href=".">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="./category/blog-posts.html">blog-posts</a></li>
-							<li ><a href="./category/release-notes.html">release-notes</a></li>
+							<li ><a href="./category/blog-posts.html">Blog Posts</a></li>
+							<li ><a href="./category/release-notes.html">Release Notes</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
@@ -67,7 +67,7 @@
 
 
 						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
@@ -84,10 +84,10 @@
 									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
 									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
 									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
 									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
@@ -105,8 +105,8 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="./category/blog-posts.html">blog-posts</a></li>
-								<li ><a href="./category/release-notes.html">release-notes</a></li>
+								<li ><a href="./category/blog-posts.html">Blog Posts</a></li>
+								<li ><a href="./category/release-notes.html">Release Notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -121,6 +121,39 @@
 						<div class="medium-9 small-12 columns" role="content">
 
 <article>
+	<h3><a href="./using-put-for-updates.html">Four Reasons You Should Stop Using <span class="caps">PUT</span> For&nbsp;Updates</a></h3>
+	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">blog-posts</a> on Fri 20 May 2016. Tags: <a href="./tag/put.html">PUT</a>, <a href="./tag/patch.html">PATCH</a>, </h6>
+	<p>To update an existing resource, when should you use <code>PUT</code> and when should you use <code>PATCH</code>? Here are 4 reasons why you should stop using <code>PUT</code> for&nbsp;updates.</p>
+		<p class="continue"><a href="./using-put-for-updates.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.16.0-release-notes.html"><span class="caps">API</span> v1.0.16.0 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Wed 04 May 2016.</h6>
+	<p>Released to Prod on Wednesday, May 4th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Changelog</h2>
+<ul>
+<li>Buyer users can now can get a list of the products assigned to themselves. This used to require multiple <span class="caps">API</span> calls.This is now a single call.</li>
+<li>There is now the ability to list security profiles in the <span class="caps">API</span> itself and not just in DevCenter (as before).</li>
+<li>When logged in as a buyer user you can now list their assigned security profiles</li>
+<li>There is now the ability to create personal addresses (billing and shipping) outside the organization.</li>
+<li>There is now the ability to create a personal list …</li></ul>
+		<p class="continue"><a href="./1.0.16.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.15.0-release-notes.html"><span class="caps">API</span> v1.0.15.0 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Fri 15 April 2016.</h6>
+	<p>Released to Prod on Friday, April 15th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+<h2>Changelog</h2>
+<ul>
+<li>We’ve fixed a bug where, if you <a href="https://devcenter.ordercloud.io/docs#XP">searched a list</a> on <span class="caps">XP</span>, you sometimes got duplicate results.</li>
+<li>We’ve fixed a bug where, if you are an Admin User, you couldn’t update the line items on an order for a Buyer User. This is an uncommon scenario, as generally an Admin user would impersonate a Buyer User to make an order on behalf of the Buyer user, but some integrations use an Admin User directly.</li>
+</ul>
+		<p class="continue"><a href="./1.0.15.0-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
 	<h3><a href="./1.0.14.1-release-notes.html"><span class="caps">API</span> v1.0.14.1 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Mon 11 April 2016.</h6>
 	<p>Released to Prod on Monday, April 11th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
@@ -133,52 +166,12 @@
 <hr />
 <article>
 	<h3><a href="./flexibility-over-features.html">Flexibility Over&nbsp;Features</a></h3>
-	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">blog-posts</a> on Thu 07 April 2016. Tags: <a href="./tag/integrations.html">integrations</a>, </h6>
-	<p><span class="dquo">“</span>That’s an integration concern.”</p>
+	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">blog-posts</a> on Thu 07 April 2016. Tags: <a href="./tag/integrations.html">Integrations</a>, </h6>
+	<div class="highlight"><pre><span></span>"That's an integration concern."
+</pre></div>
 <p>It’s a phrase I utter often when new platform features are suggested. Although I try not to utter it on days I need to leave early. Some might question my motives.</p>
-<p>When I think about Four51’s transformation from a SaaS company to a PaaS company, I’m often reminded of why we embarked on this journey in the first place. I think I can sum it up in 3 words: too many checkboxes. (You thought I was going to say flexibility over features. I’ll get to it.) Our SaaS app simply couldn …</p>
+<p>When I think about Four51’s transformation from a SaaS company to a PaaS company, I’m often reminded of why we embarked on this journey in the first place. I think I can sum it up in 3 words: too many checkboxes. (You thought I was going to say flexibility over features. I’ll get to it.) Our SaaS app simply couldn’t …</p>
 		<p class="continue"><a href="./flexibility-over-features.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="./so-you-think-you-know-xp.html">So You Think You Know Your <span class="caps">XP</span></a></h3>
-	<h6>Written by <a href="./author/todd-menier.html">Todd Menier</a> in <a href="./category/blog-posts.html">Blog Posts</a> on Thu 07 April 2016. Tags: <a href="./tag/xp.html">XP</a>, </h6>
-	<p>This is not intended to be an introductory post. It’s less about learning something you don’t know and more about un-learning something you think you know. Let’s start with a pop quiz.</p>
-<h2>What is <span class="caps">XP</span>?</h2>
-<ol>
-<li>An operating system recommended by 4 out of 5 OrderCloud.io developers.</li>
-<li>An arbitrary <span class="caps">JSON</span> object that can be attached to any OrderCloud.io model.</li>
-<li>Something you gain 20 of by throwing a curveball in Pokémon Go.</li>
-<li>None of the above.</li>
-</ol>
-<p>The correct answer of course is <strong>4</strong>. If you thought it was <strong>1</strong> or <strong>3</strong>, that’s understandable. (It’s only …</p>
-		<p class="continue"><a href="./so-you-think-you-know-xp.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="./1.0.14.0-release-notes.html"><span class="caps">API</span> v1.0.14.0 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Tue 05 April 2016. Tags: <a href="./tag/payment-types.html">Payment Types</a>, <a href="./tag/orders.html">Orders</a>, </h6>
-	<p>Released to Prod on Tuesday, April 5th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
-<h2>Changelog</h2>
-<ul>
-<li>We’ve added some new functionality around how we store credit card and other payment transactions. If your app uses our credit card processing, you’ll probably want to check out the <a href="https://devcenter.ordercloud.io/docs#Payments">documentation</a> on Payments, and make sure everything is working the way you expect.</li>
-<li>You can now use partial updates ( <code>PATCH</code> calls) to update fields on any model to <span class="caps">NULL</span> instead of having to overwrite with some other value!</li>
-<li>We’ve changed how you can check if all the line items on an Order are being …</li></ul>
-		<p class="continue"><a href="./1.0.14.0-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="./1.0.13.0-release-notes.html"><span class="caps">API</span> v1.0.13.0 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Wed 16 March 2016.</h6>
-	<p>Released to Prod on Wednesday, March 16th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
-<h2>Bug Fixes:</h2>
-<ul>
-<li>Payments: Unable to create, states order is already fully paid</li>
-<li>Products: Generating variants throws 500 error</li>
-<li>CostCenterID cannot be set on an ApprovalRule</li>
-<li>Specs: After variants are generated for a product, the <code>definesVariant</code> is set to false</li>
-</ul>
-		<p class="continue"><a href="./1.0.13.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -221,20 +214,24 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
-									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
+									<li><a href="/tag/rules-engine.html" class="tag-4">Rules Engine</a></li>
 									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
-									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
-									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 								</ul>
 							</div>
 
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
-											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
@@ -251,10 +248,10 @@
 											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
 											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
 											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
 											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 								</ul>
 							</div>
 

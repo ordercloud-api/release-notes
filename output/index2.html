@@ -57,8 +57,8 @@
 					<ul class="off-canvas-list">
 						<li><a href=".">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="./category/blog-posts.html">blog-posts</a></li>
-							<li ><a href="./category/release-notes.html">release-notes</a></li>
+							<li ><a href="./category/blog-posts.html">Blog Posts</a></li>
+							<li ><a href="./category/release-notes.html">Release Notes</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
@@ -67,7 +67,7 @@
 
 
 						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+									<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
@@ -84,10 +84,10 @@
 									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
 									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-									<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+									<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
 									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
 									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
@@ -105,8 +105,8 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="./category/blog-posts.html">blog-posts</a></li>
-								<li ><a href="./category/release-notes.html">release-notes</a></li>
+								<li ><a href="./category/blog-posts.html">Blog Posts</a></li>
+								<li ><a href="./category/release-notes.html">Release Notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -120,6 +120,40 @@
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
 
+<article>
+	<h3><a href="./1.0.63-release-notes.html"><span class="caps">API</span> v1.0.63 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Wed 18 October 2017.</h6>
+	<p><em>Released to Production on Wednesday, October 18th, 2017</em></p>
+<h2>Bugs</h2>
+<ul>
+<li>Payments: Payment with Type <code>SpendingAccount</code> must have <code>SpendingAccountID</code></li>
+<li>Unable to use <code>PUT</code> to create new <code>UserGroup</code></li>
+<li>Orders: <code>order.Total</code> not updated when <code>ShippingCost</code> is updated via <code>PATCH</code></li>
+</ul>
+<h2>New Features</h2>
+<ul>
+<li>Added transactional email support for guest checkout (<a href="http://qa-documentation.ordercloud.io/api-reference#Orders_PatchFromUser">documentation</a>)</li>
+</ul>
+<div class="highlight"><pre><span></span>`PATCH` `v1/orders/{direction}/{orderID}/fromuser`
+{"FirstName": "", "LastName": "", "Email": ""}
+</pre></div>
+<ul>
+<li>Products: Allow negation of all filters on admin Product List (<code>catalogID</code>, <code>categoryID</code>, <code>supplierID</code>)</li>
+</ul>
+		<p class="continue"><a href="./1.0.63-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="./1.0.62-release-notes.html"><span class="caps">API</span> v1.0.62 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 28 September 2017.</h6>
+	<p><em>Released to Production on Thursday, September 28th, 2017</em></p>
+<h2>New Features</h2>
+<ul>
+<li>Upgraded to latest <a href="">Flurl</a></li>
+</ul>
+		<p class="continue"><a href="./1.0.62-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
 <article>
 	<h3><a href="./1.0.61-release-notes.html"><span class="caps">API</span> v1.0.61 Release&nbsp;Notes</a></h3>
 	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 07 September 2017.</h6>
@@ -170,34 +204,6 @@
 		<p class="continue"><a href="./1.0.59-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
-<article>
-	<h3><a href="./1.0.58-release-notes.html"><span class="caps">API</span> v1.0.58 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Thu 29 June 2017.</h6>
-	<p>Released to Prod on Thursday, June 29th, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
-<h2>New Features</h2>
-<ul>
-<li>Various performance improvements</li>
-</ul>
-		<p class="continue"><a href="./1.0.58-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="./1.0.57-release-notes.html"><span class="caps">API</span> v1.0.57 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="./author/kate-reeher.html">Kate Reeher</a> in <a href="./category/release-notes.html">release-notes</a> on Fri 23 June 2017.</h6>
-	<p>Released to Prod on Friday, June 23rd, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Previously, if you created or patched a Shipment’s <code>ToAddressId</code>, the response body would show <code>NULL</code>. This is now fixed.</li>
-<li>If you had a Shipment’s <code>ToAddressId</code> set to <code>NULL</code>, and attempted to trigger a shipment notification through Message Senders, it would not get sent.</li>
-</ul>
-<h2>New Features</h2>
-<ul>
-<li>When you add a new xp value to be indexed, previous xp with that value will now be retroactively indexed.</li>
-<li>Performance improvement around logging.</li>
-</ul>
-		<p class="continue"><a href="./1.0.57-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
 
 <div class="row" style="margin-bottom: -1.25em;">
 	<div class="small-12 columns text-center">
@@ -238,20 +244,24 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/xp.html" class="tag-4">XP</a></li>
-									<li><a href="/tag/orders.html" class="tag-4">Orders</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
+									<li><a href="/tag/rules-engine.html" class="tag-4">Rules Engine</a></li>
 									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/integrations.html" class="tag-4">integrations</a></li>
-									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
-									<li><a href="/tag/put-patch.html" class="tag-4">PUT PATCH</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 								</ul>
 							</div>
 
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
-											<li><a href="/posts/2017/Dec/index.html">December 2017 (1)</a></li>
+											<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
 											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
@@ -268,10 +278,10 @@
 											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
 											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
 											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-											<li><a href="/posts/2016/Jun/index.html">June 2016 (2)</a></li>
+											<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
 											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
 											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-											<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
+											<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 								</ul>
 							</div>
 
