@@ -23,6 +23,10 @@ To add a new release note, create a markdown-formatted version and put it in [th
 
 To add a new blog article,create a markdown-formatted version and put it in [the blogs folder](/content/blogs). 
 
+> To keep an article as a draft, add the `Status:Draft` line to your post metadata.
+
+> To set a future publish date, set the `Date:` line in the metadata to the desired future date. 
+
 To build locally, see [the Pelican documentation](http://docs.getpelican.com/en/stable/publish.html#). This will require [installing Pelican](http://docs.getpelican.com/en/stable/install.html) locally. See required python packages in the [requirements](requirements.txt). You may also need to [initiate the submodules](https://stackoverflow.com/a/3796947/173416) before the build works.
 
 Please note that the `Output` folder is listed in the .gitignore file. This is to keep the source code uncluttered with the generated files from local builds. The site is generated during the Travis.ci process, as outlined below, and the static site output is avaible in the `gh-pages` branch.
