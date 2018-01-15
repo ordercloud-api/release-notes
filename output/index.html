@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +99,9 @@
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -132,11 +140,12 @@
 <ul>
 <li>
 <p>Previously, we had some inconsistent logic about when we evaluated <a href="https://documentation.ordercloud.io/api-reference#Promotions">Promotions</a> on an order. Sometimes, this would lead to a submitted order suddenly having an invalid promotion, potentially changing the order total. 
-As we want to allow a historical record of promotions at the time of order submit, we have now limited promotion evaluation to only orders whose status is <strong>unsubmitted</strong> or <strong>awaiting approval</strong>. </p>
+As we want to allow a historical record of promotions at the time of order submit, we have now limited promotion evaluation to only orders whose statuses are <strong>unsubmitted</strong> or <strong>awaiting approval</strong>. </p>
 </li>
 <li>
-<p>We also fixed a bug around <a href="https://ordercloud-api.github.io/release-notes/rules-engine-has-arrived.html">the rules engine</a> for  <a href="https://documentation.ordercloud.io/api-reference#ApprovalRules">Order Approvals</a>. If a User is in the approving group for an …</p></li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.69.html">Continue reading &raquo;</a></p>
+<p>We also fixed a bug around <a href="https://ordercloud-api.github.io/release-notes/rules-engine-has-arrived.html">the rules engine</a> for  <a href="https://documentation.ordercloud.io/api-reference#ApprovalRules">Order Approvals</a>. If a User is in the approving group for an approval rule, any order submitted by that User that meets the approval rule should be auto-approved. Or, stated another way, because the User is an Approving User, their order does not need separate approval. </p>
+</li>
+</ul>
 </article>
 <hr />
 <article>
@@ -150,7 +159,6 @@ As we want to allow a historical record of promotions at the time of order submi
 <li>Fixed an issue with the <code>Incrementation Config</code> on object <code>PATCH</code></li>
 <li>Fixed an issue where an <code>Anonymous User</code> would lose access to an order if an <code>Admin User</code> changed that order.</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.68-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -160,7 +168,6 @@ As we want to allow a historical record of promotions at the time of order submi
 <p>Released to Production on December 8th, 2017</p>
 </blockquote>
 <p>Fixed some performance issues that cropped up in Production after <a href="https://ordercloud-api.github.io/release-notes/1.0.66-release-notes.html"><span class="caps">API</span> 1.0.66</a> was released.</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.67-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -173,8 +180,76 @@ As we want to allow a historical record of promotions at the time of order submi
 <h3>Customized Platform Object <span class="caps">ID</span> Generation</h3>
 <p>A big question we get from clients a lot is “How can I make the OrderCloud <span class="caps">API</span> IDs work nicely with the IDs from my <span class="caps">ERP</span> or other internal systems?”. </p>
 <p>Prior to <span class="caps">API</span> 1.0.66, you could either set the <span class="caps">ID</span> manually (which is a pain if you want incrementation to work well) or you could settle for the default platform random <span class="caps">GUID</span>, and keep track of your <span class="caps">ERP</span> integration <span class="caps">ID</span> in an <code>xp</code>, or some other work around.</p>
-<p>We’ve added a new feature …</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.66-release-notes.html">Continue reading &raquo;</a></p>
+<p>We’ve added a new feature that aims to make this process much, much simpler! <code>Incrementation Config</code> allows you to create a customized pattern for <span class="caps">ID</span> generation. </p>
+<p><code>Incrementation Config</code></p>
+<div class="highlight"><pre><span></span>{
+  "ID": "",
+  "Name": "",
+  "LastNumber": 0,
+  "LeftPaddingCount": 0
+}
+</pre></div>
+<p>The important parts here are the <code>LastNumber</code> and the <code>LeftPaddingCount</code>. </p>
+<h4>Examples:</h4>
+<p><em>Objective:</em> Every order from a buyer should start with the buyer company’s name, TestCorp, so that it can be differentiated easily by the supplier. The total number of characters for an <span class="caps">ID</span> can only be 20 characters long. (ex: <code>TestCorp-00000000001</code>)</p>
+<ol>
+<li>Create the Incrementor Config </li>
+</ol>
+<p><code>POST /v1/incrementors/</code></p>
+<div class="highlight"><pre><span></span>{
+  "ID": "config01",
+  "Name": "Bob",
+  "LastNumber": 0,
+  "LeftPaddingCount": 10 
+}
+</pre></div>
+<ol>
+<li>Create the order using the Incrementor Config</li>
+</ol>
+<p><code>POST /v1/orders/outgoing</code></p>
+<div class="highlight"><pre><span></span>{
+    "ID":"TestCorp-{config01}"
+}
+</pre></div>
+<p>returns as:</p>
+<div class="highlight"><pre><span></span>{
+  "ID": "TestCorp-00000000001",
+...
+}
+</pre></div>
+<p>If you make another order with this Incrementor Config, you’ll get <code>TestCorp-00000000002</code> and so on. </p>
+<p>This Incrementor Config can be used for both object creation, and <code>PATCH</code>/<code>PUT</code> updates. Additionally, once created, the Incrementor Config’s <code>LastNumber</code> reflects the last number incremented to. So, if the last <span class="caps">ID</span> generated by <code>config01</code> was <code>TestCorp-00000000011</code>, the <code>LastNumber</code> for <code>config01</code> would be <code>11</code> at that moment.</p>
+<h4>Caveats:</h4>
+<p>1 - Left-padding does not represent a <em>maximum</em> value for the <span class="caps">ID</span>. If you have</p>
+<div class="highlight"><pre><span></span>{
+  "ID": "config01",
+  "Name": "Bob",
+  "LastNumber": 0,
+  "LeftPaddingCount": 1 
+}
+</pre></div>
+<p>when you get to 99, the <span class="caps">ID</span> will continue incrementing. If you’re using it as in the above example, where your <span class="caps">ERP</span> expects <span class="caps">ONLY</span> x number of characters, this is going to cause some problems. </p>
+<p>2 - While you <em>can</em> reuse the same incrementator on different endpoints — such as using <code>config01</code> for both products and orders, for some reason — the incrementation will be across <em>both</em> endpoints.</p>
+<p><em><span class="caps">EX</span>:</em></p>
+<div class="highlight"><pre><span></span>Order 1 with `config01` - `Order-00000000001`
+Product 1 with `config01` - `Product-00000000002`
+Order 1 with `config01` - `Order-00000000003`
+Order 1 with `config01` - `Order-00000000004`
+Order 1 with `config01` - `Order-00000000005`
+Product 1 with `config01` - `Product-00000000006`
+</pre></div>
+<p>3 - If you’re not careful about how you handle your asynchronous <span class="caps">API</span> calls, it’s much easier to accidentally try to create duplicate IDs. So be hygienic with your async calls! </p>
+<p>4 - If you decide to reset the incrementor’s <code>LastNumber</code>, you can end up trying to create duplicate IDs again. Be careful!</p>
+<h3>Allowing a Buyer User to impersonate a Buyer User from a different company</h3>
+<p>Now, instead of a Buyer User only being able to <a href="https://documentation.ordercloud.io/platform-guides/authentication/impersonation">impersonate</a> a Buyer User within the same Buyer, a Buyer User can impersonate a Buyer User in a different Buyer, as long as they’re within the same Seller organization. </p>
+<p>This is useful if you have a customer user that works for multiple of your customers. This allows them to interact within those buyers uniquely, but maintain their user account easily.</p>
+<h2>Bug Fixes</h2>
+<h3>Duplicate Products returned in <code>ME</code> Product Lists</h3>
+<p>We’ve fixed a problem where, sometimes in very large catalogs with complicated category structures, a user using a <a href=""><code>GET me/products</code> list</a> would return some duplicate products. This fix should also show some minor performance improvements for very large catalog list calls.</p>
+<h3>Post-Submit Order Changes Triggered Promotion Evaluation</h3>
+<p>Previously, if you tried to alter an order with a promotion after it had been submitted, and the promotion had expired, your alteration would throw an error. We’ve fixed this so that promotions are never evaluated after order submit now.</p>
+<h3>Various performance improvements and other small bug fixes.</h3>
+<p>What it says on the tin. </p>
 </article>
 <hr />
 <article>
@@ -220,8 +295,20 @@ As we want to allow a historical record of promotions at the time of order submi
 </pre></div>
 <ul>
 <li>
-<p>We also added a …</p></li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.65-release-notes.html">Continue reading &raquo;</a></p>
+<p>We also added a Me route for <code>GET</code>ing a single category! <a href="http://documentation.ordercloud.io/api-reference#MeCategories_GetCategory"><span class="caps">DOCS</span></a></p>
+<p><code>GET</code> <code>https://api.ordercloud.io/v1/me/categories/{categoryID}</code></p>
+</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Previously, if you attempted to submit an order that had a lineitem with a product that had specs <em>and</em> options, it would fail. Fixed now!<ul>
+<li><a href="https://documentation.ordercloud.io/use-case-guides/product-catalog-management/cpq-configure-price-quote">need a refresher on product specs and spec options?</a></li>
+<li><a href="https://documentation.ordercloud.io/api-reference#Specs">api reference for product specs</a></li>
+</ul>
+</li>
+<li>On <code>OrderSubmitted</code> <a href="https://github.com/ordercloud-api/mailchimp-email-templates">Message Sender Mandrill Templates</a>, the order total merge variable was not accurately reflecting order total, leaving out promotion discount. This is now fixed. (The <span class="caps">API</span> model was never affected, only the Message Sender merge variable.)</li>
+<li>We fixed a bad index that was causing massive performance problems for <code>DELETE</code>ing a Security Profile <em>assignment</em>. You should be able to go forth and delete to your hearts content now with no fear of the angry spinner!</li>
+</ul>
 </article>
 <hr />
 
@@ -265,20 +352,20 @@ As we want to allow a historical record of promotions at the time of order submi
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -313,8 +400,9 @@ As we want to allow a historical record of promotions at the time of order submi
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>

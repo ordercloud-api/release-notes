@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +99,9 @@
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -128,8 +136,16 @@
 	<div class="highlight"><pre><span></span>"That's an integration concern."
 </pre></div>
 <p>It’s a phrase I utter often when new platform features are suggested. Although I try not to utter it on days I need to leave early. Some might question my motives.</p>
-<p>When I think about Four51’s transformation from a SaaS company to a PaaS company, I’m often reminded of why we embarked on this journey in the first place. I think I can sum it up in 3 words: too many checkboxes. (You thought I was going to say flexibility over features. I’ll get to it.) Our SaaS app simply couldn’t …</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/flexibility-over-features.html">Continue reading &raquo;</a></p>
+<p>When I think about Four51’s transformation from a SaaS company to a PaaS company, I’m often reminded of why we embarked on this journey in the first place. I think I can sum it up in 3 words: too many checkboxes. (You thought I was going to say flexibility over features. I’ll get to it.) Our SaaS app simply couldn’t do enough things so satisfy everyone’s needs. Custom themes on the buyer side weren’t enough. Long lists of configuration options on the admin side (those pesky checkboxes) became daunting, and still didn’t provide all the custom behavior needed. Simply put,  <span class="caps">B2B</span> is hard. Much harder than <span class="caps">B2C</span>, because there is much greater variability in requirements from customer to customer. We needed a better way, but without abandoning our commitment to the single-instance, multi-tenant, cloud-hosted architecture that’s served us (and our customers) so well since before The Cloud was even a thing.</p>
+<p>So the decision was made to chop the head off the SaaS product and expose the entire data model and its behavior via a RESTful <span class="caps">API</span>. We now offer what we believe is the “sweet spot” between SasS and custom development. Now, we didn’t simply kick the old <span class="caps">UI</span> to the curb and say “here ya go world, go figure it out.” We actually ramped up our development team and invested heavily in <span class="caps">UI</span> components, integration components, SDKs in multiple languages, “seed” applications, extensive documentation and tutorials, and a suite of tools under our Dev Center umbrella to enable things like GitHub integration and one-click app deployments. Custom apps in record time, all built atop of a proven, time-tested platform.</p>
+<p>But going down this path required a change in mindset, especially as it applies to the core platform. We’re no longer a car; we’re an engine. If you want top-of-the-line headlights, you can have them, but there there others who specialize in them and make them better than we ever could. (Besides, how deep under the hood do you want go to change a bulb?) What we do well is <span class="caps">B2B</span> eCommerce and order management. This has been our core competency for over 15 years. We’ve discovered countless nuances and solved them via constant evolution of our data model. Anything outside that domain is subject to re-evaluation. Take a seemingly simple example: email. Sure, we can build and send off an email directly from the platform in a few lines of code (and we did that for years). But can we offer a template management system or maintain a whitelist status (there’s more to this stuff than you might imagine) to rival MailChimp? No. MailChimp does email better than we ever could, and they offer their services via their own RESTful <span class="caps">API</span>. Four51’s integration engineers work tirelessly to select the best experts in their respective domains and provide out-of-the-box integration components to our customers.</p>
+<p>Do all these newfound “integration concerns” mean the core platform is “done”? Not by a long shot. Mature, yes. Done, no. We’ve simply redefined how we prioritize enhancements to it. Which brings us to Flexibility Over Features. It’s a mantra that guides our platform roadmap and keeps us focused on what we do best. As flexible as our data model is, we still encounter situations where it’s too rigid to solve certain problems elegantly. Removing constraints and broadening the possibilities of how our data model can be utilized receive top priority on our platform agenda.</p>
+<p>Enough with mantras and buzzwords and other abstract rantings. What are some real-world examples where we’ve put this idea to work? Extended Properties, <span class="caps">A.K.A.</span>“xp”, is a perfect example. Most objects in the data model now include some core set of attributes, along with an extension attribute called xp. For example, a User object contains <span class="caps">ID</span>, FirstName, LastName, Email, and about a half dozen other attributes. But it doesn’t include Gender, because presumably that’s not a useful datapoint in the vast majority of <span class="caps">B2B</span> scenarios. If it’s relevant in yours, no problem - just add it:</p>
+<p><code>user.xp.Gender = “female”</code></p>
+<p>Of course, the platform has no inherent knowledge of what “Gender” means, so it provides no special behavior around it, but it’s happy to accept this conjured-up attribute, store it, index it, and make it searchable/sortable when you get a list of Users. Need specialized behavior around it? That’s an integra….you get the idea.</p>
+<p>Our roadmap is loaded with ideas that fit the Flexibility Over Features mantra. Currently in the works is a robust new system of Webhooks, which will provide a powerful new way to integrate with external systems via <span class="caps">HTTP</span>. Essentially, these systems will be able to subscribe to events that occur within the platform (order submitted, product created, etc.) and respond to them in near real time. You can already “pull” data from the platform by calling the <span class="caps">API</span>; think of this as a “push” mechanism, where you get what you want from the platform when it occurs, avoiding the need to periodically poll the <span class="caps">API</span>.</p>
+<p>Another major project in the works is a new Rules Engine. Its first application will be a massive overhaul of Order Approvals, adding a greater degree of robustness and flexibility to this core feature than we’ve ever dreamed up in the past. It’ll support text-based logic expressions (no CompSci degree required), arbitrary approval workflows, time-based rules against aggregated totals, and much more. Look for it in the coming months.</p>
+<p>OrderCloud is constantly evolving. But we’ve learned that we don’t need to be experts at everything. We believe the best <span class="caps">B2B</span> solutions on the planet will not be built from scratch nor offered out-of-the box via SaaS. Rather, they’ll be assembled out of distributed, best-in-breed components. We’re the engine. We don’t make tires or steering wheels or leather-upholstered bucket seats. But we can help you assemble all the best parts, and we think the result will be the shiniest, fastest car on the block.</p>
 </article>
 <hr />
 <article>
@@ -143,8 +159,32 @@
 <li>Something you gain 20 of by throwing a curveball in Pokémon Go.</li>
 <li>None of the above.</li>
 </ol>
-<p>The correct answer of course is <strong>4</strong>. If you thought it was <strong>1</strong> or <strong>3</strong>, that’s understandable. (It’s only …</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/so-you-think-you-know-xp.html">Continue reading &raquo;</a></p>
+<p>The correct answer of course is <strong>4</strong>. If you thought it was <strong>1</strong> or <strong>3</strong>, that’s understandable. (It’s only 3 out of 5, and a curveball is only good for 10.) If you answered <strong>2</strong>, welcome to your un-learning session.</p>
+<p>Ok, so technically speaking <strong>2</strong> is technically true, technically. But that definition will cloud your thinking during the all-important data modeling phase of your app’s development. First off, saying it’s a <span class="caps">JSON</span> object is like saying <code>Order.Status</code> is a <span class="caps">JSON</span> property. Sure, that’s how it’s represented in the <span class="caps">API</span>, but it tells you nothing about what it is conceptually. Recall that <code>XP</code> stands for “e<em>X</em>tended Properties”. So let’s try this definition:</p>
+<div class="highlight"><pre><span></span>A mechanism for adding properties to an object that my conceptual model needs but are not natively supported in OrderCloud.io.
+</pre></div>
+<p>That’s much better. It gets to the essence of what <code>XP</code> is and, perhaps more importantly, what it isn’t. Our <code>User</code> model has <code>FirstName</code>, <code>LastName</code>, and <code>Email</code>, but it doesn’t have <code>FavoriteColor</code>. If that’s an important data point for your app, just add it: <code>user.xp.FavoriteColor = “purple”</code>. We’ll store it and even index it, so later you can ask for a list of all users whose favorite color is purple, and we’ll send it to you faster than you can say “Skol Vikings”. But <code>XP</code> isn’t a dumping ground for large, deeply nested objects. It’s highly optimized for the “add a few extra data points” scenario and nothing more.</p>
+<p><img alt="Bart Simpson standing in front of a chalkboard where he's written &quot;XP is not a database&quot; over and over." class="img-responsive" src="../images/xp-is-not-database.gif"/></p>
+<p>With that in mind, let’s go over some basic guidelines and best practices associated with <span class="caps">XP</span>.</p>
+<h2>Know the data model, and use <span class="caps">XP</span> as a last resort.</h2>
+<p>If you think <code>XP</code> properties are second-class citizens to native properties, well, they sort of are. They’re actually rather dumb. There’s no validation, no behavior, no referential integrity. Just data in, data out. Are you familiar with all the existing properties of the model you want to extend? Do you know their purpose and behavior? Are you aware that <strong>IDs are writable</strong>? That is perhaps one of the most underrated features of the <span class="caps">API</span>. If you’re using some back-office system as the master record for orders, you don’t need to add <code>order.xp.MyBackOfficeMasterRecordID</code>. Just write it to <code>order.ID</code>.</p>
+<h2>Avoid storing big, text-y data.</h2>
+<p>In the coming weeks we’ll be imposing some new size limits on <span class="caps">XP</span>. Don’t use it to store a blog. Also, <code>XP</code> is not optimized for full-text or natural language search. Things like <code>Product.Description</code> and <code>Order.Comment</code>s are better suited for this. Think smallish data points for <span class="caps">XP</span>.</p>
+<h2>Avoid storing deeply nested objects.</h2>
+<p>Think in terms of simple name/value pairs. You are allowed to store arbitrarily deep objects, but do so sparingly. A good example might be a Geocoordinates property on an <code>Address</code>. You might want to represent that with Latitude/Longitude sub-properties.</p>
+<h2>Be careful with lists.</h2>
+<p>Lists are dangerous, especially if it’s hard to say how long they could get. Something like <code>user.xp.NamesOfPets</code> should be ok. Avoid lists of objects. This again touches on the importance of knowing the data model. Are you sure the object doesn’t already have a list of child objects that might fit your needs?</p>
+<h2>Avoid storing repeated “lookup” data.</h2>
+<p>We recently discovered that a client had been storing objects like this in <code>XP</code> of every Order submitted through their app: <code>“MyNestedObject”: { “ID”: “xyz123”, “name”: “my thing name”, “description”: “my lengthy description” }</code>. In their thousands of processed orders, guess what was true about all orders with the same <code>xp.MyNestedObject.ID</code>? Yep, they all had the same name and description too. Not only does this make DBAs cry, but it’s potentially bad for the end user as well. What if a misspelling was discovered in the description? It would need to be updated in thousands of places. This can be avoided by storing just <code>MyNestedObjectID</code> in <code>order.xp</code>, and storing the lookup data associated with that <span class="caps">ID</span> elsewhere.</p>
+<h2>Avoid storing global configuration data.</h2>
+<p>Virtually all apps have some sort of global config data. Ask yourself: do you really need the <span class="caps">API</span> to store that for you? Assuming it rarely changes and you don’t need to build any sort of <span class="caps">UI</span> around changing it, it’s perfectly fine to store this along side your front-end code, such as in a <span class="caps">JSON</span> object in a js file.</p>
+<h2><strong>Never, <em>ever</em> store highly sensitive data</strong>.</h2>
+<p>Don’t put passwords in <code>XP</code>. As for credit card numbers, it’s not only a bad idea, it’s a violation of our terms and conditions.</p>
+<h2>Remember that OrderCloud.io is not a complete solution.</h2>
+<p>You wouldn’t tell an end-customer that our <span class="caps">API</span> alone is their new commerce solution, point them to <a href="https://www.getpostman.com/">Postman</a> or <a href="https://www.telerik.com/fiddler">Fiddler</a> and be on your way. But just as a custom front-end needs to be built in order to have something useful, it’s quite possible that a great solution will require some additional back-end pieces as well. Fortunately for you, we live in an age of microservices, and if your custom data needs grow beyond bolting a few extra properties onto existing objects, you have a number of great options available in the Cloud. Google’s <a href="https://firebase.google.com/">Firebase</a>, Amazon’s <a href="https://aws.amazon.com/dynamodb/">DynamoDB</a>, and Microsoft’s <a href="https://azure.microsoft.com/en-us/services/documentdb/">DocumentDB</a> are just a few. </p>
+<h2>When it doubt, ask.</h2>
+<p>We want nothing more than for the apps you build on OrderCloud.io to be a smashing success. To that end, we’re here to help. We have both free and paid support options available. Use them if you feel you don’t have all the answers you need, especially in the critical early stages of development.</p>
+<p>We like to tout <code>XP</code> as the poster child of our <a href="https://ordercloud-api.github.io/release-notes/flexibility-over-features.html">“Flexibility over Features“</a> mantra. But like any tool, it is important to recognize its purpose, as well as its limitations.</p>
 </article>
 <hr />
 <article>
@@ -155,8 +195,10 @@
 <ul>
 <li>We’ve added some new functionality around how we store credit card and other payment transactions. If your app uses our credit card processing, you’ll probably want to check out the <a href="https://devcenter.ordercloud.io/docs#Payments">documentation</a> on Payments, and make sure everything is working the way you expect.</li>
 <li>You can now use partial updates ( <code>PATCH</code> calls) to update fields on any model to <span class="caps">NULL</span> instead of having to overwrite with some other value!</li>
-<li>We’ve changed how you can check if all the line items on an Order are being …</li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.14.0-release-notes.html">Continue reading &raquo;</a></p>
+<li>We’ve changed how you can check if all the line items on an Order are being shipped to the same place. While you could previously set all the line items on an order to the same address by writing to <code>Order.ShippingAddressID</code> , the value was write-only. Now <code>Order.ShippingAddressID</code>  will return a non-null value if and only if all the line items on that order have the same shipping address. Check out the <a href="https://devcenter.ordercloud.io/docs#Orders_Update">documentation</a> for more on this.</li>
+<li>To go along with the above, if Order.ShippingAddressID is non-null (that is, all the line items are being shipped to the same place), newly added line items will inherit that shipping address. </li>
+<li>Some performance improvements were made around working with line-items. If your app has a lot of <code>PATCH</code>ing  of line items, you’ll hopefully notice those improvements.</li>
+</ul>
 </article>
 <hr />
 <article>
@@ -170,14 +212,20 @@
 <li>CostCenterID cannot be set on an ApprovalRule</li>
 <li>Specs: After variants are generated for a product, the <code>definesVariant</code> is set to false</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.13.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
 	<h3><a href="https://ordercloud-api.github.io/release-notes/leverage-xp.html">Leveraging Extended Properties in the Development of Custom eCommerce&nbsp;Apps</a></h3>
 	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/steve-davis.html">Steve Davis</a> in <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a> on Wed 09 March 2016. Tags: <a href="https://ordercloud-api.github.io/release-notes/tag/xp.html">XP</a>, </h6>
-	<p>Recently I came across a post from one of my favorite developers and technology thought leaders that centered on how to work with some architecture patterns that drive so much of the development work that occurs today. His name is <a href="https://twitter.com/robconery">Rob Conery</a>, and he posts to his <a href="http://rob.conery.io/">blog</a> frequently. I never miss a post, and listen to so much of what he publishes through his terrific podcast, <a href="http://thisdeveloperslife.com/">This Developer’s Life</a>. In his most recent post, <a href="http://rob.conery.io/2016/02/27/jsonb-and-postgresql/"><span class="caps">JSONB</span> and PostreSQL: Work Faster By Ditching Migrations</a> he touched on a subject that resonated with our OrderCloud.io <span class="caps">API</span> strategy. In particular, how …</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/leverage-xp.html">Continue reading &raquo;</a></p>
+	<p>Recently I came across a post from one of my favorite developers and technology thought leaders that centered on how to work with some architecture patterns that drive so much of the development work that occurs today. His name is <a href="https://twitter.com/robconery">Rob Conery</a>, and he posts to his <a href="http://rob.conery.io/">blog</a> frequently. I never miss a post, and listen to so much of what he publishes through his terrific podcast, <a href="http://thisdeveloperslife.com/">This Developer’s Life</a>. In his most recent post, <a href="http://rob.conery.io/2016/02/27/jsonb-and-postgresql/"><span class="caps">JSONB</span> and PostreSQL: Work Faster By Ditching Migrations</a> he touched on a subject that resonated with our OrderCloud.io <span class="caps">API</span> strategy. In particular, how we manage our Extended Properties (<code>XP</code>) strategy, and ways to leverage it in the development of custom solutions.</p>
+<p>Conery touches on the difficulties in choosing <span class="caps">ORM</span> patterns and his dislike of them, his love for <span class="caps">SQL</span>, and the choice to use good <span class="caps">SQL</span> project management, especially when the database begins to grow into a robust and production ready system. His answer, as he’s approaching in his latest project, is to work with <span class="caps">JSONB</span> at the top level. In doing so he’s able to use a schema-less approach to reduce friction and “nail the idea first”. I found his thought process enlightening.</p>
+<p>With OrderCloud.io, we’ve actually enabled this very development process. Our data model is the product of over 16 years worth of intellectual property in <span class="caps">B2B</span> Commerce and Order Management. Add to that 100% exposure via our <a href="https://devcenter.ordercloud.io/docs/api"><span class="caps">REST</span> <span class="caps">API</span></a>, and we believe we have the most robust and flexible <span class="caps">B2B</span> solution in the industry.</p>
+<p>Still, we recognize that it can’t cover every conceivable scenario. We can’t predict every column in every table that your hypothetical database might need. That’s why we created our own schema-less solution with Extended Properties (<span class="caps">XP</span>) and exposed it on every <span class="caps">API</span> resource. We might not have <code>Product.YourSpecialDataPoint</code>, but we certainly do have <code>Product.xp.YourSpecialDataPoint</code>.</p>
+<p>In your development projects you will encounter needs to customize the data model. With more rigid platforms like Magento you’re going to face challenges that require extensive work and timely development efforts.</p>
+<div class="highlight"><pre><span></span>Our Extended Properties strategy allows you to overcome those obstacles and continue to create and develop fast.
+</pre></div>
+<p>Additionally, leveraging the tools in the <a href="https://devcenter.ordercloud.io/">OrderCloud.io Dev Center</a> enables you to collaborate with our Architects and Developers to enhance the data model through suggestions. Developers are now a first-class customer. We seek out and encourage suggestions and so many of those suggestions will be born out of the usage of <span class="caps">XP</span> and the power it provides.</p>
+<p>Learn more about <a href="https://devcenter.ordercloud.io/docs/guides/basic-api-features/extended-properties">OrderCloud.io Extended Properties</a> here, or get started building on the OrderCloud.io Dev Center for free <a href="https://devcenter.ordercloud.io/about">here</a>.</p>
 </article>
 <hr />
 
@@ -221,20 +269,20 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -269,8 +317,9 @@
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>

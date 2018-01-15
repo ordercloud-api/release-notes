@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +99,9 @@
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -129,8 +137,11 @@
 <h2>Changelog</h2>
 <ul>
 <li>Endpoint arguments that exist in the model, which the endpoint returns, and that have listArgs, have been removed. Example:<ul>
-<li><code>v1/buyers/{buyerID}/categories/assignments</code> This endpoint accepts buyerID, categoryID, userID, userGroupID, level, and listArgs. buyerID is required because it is part of the route. level should also be included because it is not part of the CategoryAssignment model. However, categoryID, userID, and userGroupID are all part of the CategoryAssignment model and can therefore be added to the Filters field within listArgs (since in both cases they will …</li></ul></li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.21.0-release-notes.html">Continue reading &raquo;</a></p>
+<li><code>v1/buyers/{buyerID}/categories/assignments</code> This endpoint accepts buyerID, categoryID, userID, userGroupID, level, and listArgs. buyerID is required because it is part of the route. level should also be included because it is not part of the CategoryAssignment model. However, categoryID, userID, and userGroupID are all part of the CategoryAssignment model and can therefore be added to the Filters field within listArgs (since in both cases they will be included as query string parameters).</li>
+</ul>
+</li>
+<li>The State and Zipcode validation has been updated. For Addresses with <span class="caps">US</span> country code, it is now required to have a State and Zipcode. For non-<span class="caps">US</span> addresses, it is not required.</li>
+</ul>
 </article>
 <hr />
 <article>
@@ -140,8 +151,52 @@
 <h2>What’s a rules engine?</h2>
 <p>Simply put, it’s a system that executes rules. </p>
 <p>Okay… so what’s a rule? </p>
-<p>In its simplest form, it’s an if-then statement that is provided from the outside, rather than being “baked into” the engine itself. In the case of OrderCloud.io, we’ll define the “thens” (starting with “order requires approval”) and allow you to define the “if”s via custom logic expressions. Effectively, we’re going …</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/rules-engine-has-arrived.html">Continue reading &raquo;</a></p>
+<p>In its simplest form, it’s an if-then statement that is provided from the outside, rather than being “baked into” the engine itself. In the case of OrderCloud.io, we’ll define the “thens” (starting with “order requires approval”) and allow you to define the “if”s via custom logic expressions. Effectively, we’re going to allow you to extend platform behavior in much the same way <code>XP</code> allows you to extend the data model.</p>
+<h2>Let’s see an example.</h2>
+<p>Say you want every order over $200 with some specific <code>XP</code> value to require approval from a manager. You would first create a <code>UserGroup</code> containing all approving managers, then create a new <code>ApprovalRule</code>, setting the <code>ApprovingGroupID</code> to the <span class="caps">ID</span> of the new <code>UserGroup</code>, and setting <code>ApprovalRule.Expression</code> to this:</p>
+<p><code>order.Total &gt; 200 and order.xp.MyCustomProperty = 'XYZ'</code></p>
+<p>A couple things to note:</p>
+<ul>
+<li><code>order</code> supports the same properties as the Order model returned from /orders <span class="caps">API</span> endpoints, including <code>XP</code>.</li>
+<li><code>=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&lt;&gt;</code> comparison operators are supported.</li>
+<li><code>and</code>, <code>or</code>, and <code>not</code> logical operators are supported.</li>
+<li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> mathematical operators are supported.</li>
+<li>String values must be enclosed in straight single quotes.</li>
+<li>Date values must be enclosed in # symbols, e.g. <code>#6/15/2016#</code></li>
+<li>Parentheses may be used to enclose sub-expressions and control order of execution.</li>
+</ul>
+<h2>What about line items?</h2>
+<p>Glad you asked, because which products are being purchased, in what quantities, charged against which cost centers, etc, are very common in the world of approval rules. But line items are a collection, so we use <strong>aggregate functions</strong> to inspect them. </p>
+<p>Here’s how you would require approval on all orders over $200 charged to cost center <span class="caps">ABC</span>:
+<code>order.Total &gt; 200 and items.any(CostCenter = 'ABC')</code></p>
+<p>That’s pretty powerful, but it’s more likely that you only care about the subtotal of just the line items matching your CostCenter condition. 
+For this you can use the items.total function:</p>
+<p><code>items.total(CostCenter = 'ABC') &gt; 200</code></p>
+<p>The condition inside the function (called a filter) can be more complex and contain and, or, etc. just like other parts of the expression:</p>
+<p><code>items.quantity(ProductID = 'P1' or ProductID = 'P2') &gt; 5</code></p>
+<p><code>items</code> supports a total of 4 functions:
+- <code>items.any</code> (true if any item matches filter)
+- <code>items.all</code> (true if all items match filter)
+- <code>items.quantity</code> (compare result to a number)
+- <code>items.total</code> (compare result to a dollar amount)</p>
+<p>Speaking of functions, there is one defined on order:</p>
+<p><code>order.approved('id_of_some_other_rule')</code></p>
+<p>This one’s powerful, because it allows you to set up multi-level approval workflows by chaining rules together. For example, in a larger organization, getting the approval from a department manager might not be enough, and a higher-level <span class="caps">VP</span> must also sign off.</p>
+<p>There’s nothing to stop you from using <code>and</code> or <code>or</code> in conjunction with multiple order.approved checks, if that’s what’s needed to support your flow. In fact, all valid elements of rule expressions can be mixed <span class="amp">&amp;</span> matched as needed, allowing for very sophisticated rules to be supported:</p>
+<p><code>(order.Total &gt; 20 and order.approved('rule_id_1')) or (not item.any(ProductID = 'QQQ') and approved('rule_id_2'))</code></p>
+<h2>A word of caution:</h2>
+<p>Rules are easy to write and very powerful, but can be tricky to debug when they don’t work quite like you thought they would. While you can write very complex expressions, don’t get more fancy with them than you need to. In some cases it might make sense to break a complex rule into 2 or more simpler rules. As always, we’re here to help if you need guidance.</p>
+<h2>What else can I do with this?</h2>
+<p>Now that you have a better understanding of the power of rules, you might be wondering what other areas of the platform might we apply them to. Here are a few ideas currently being kicked around:</p>
+<ul>
+<li>Custom validation (upon creating/editing things)</li>
+<li>Time-based approval rules (aggregated totals over past week/month/quarter, etc.)</li>
+<li>Applying discounts/markups</li>
+<li>Determining coupon eligibility</li>
+<li>Replenish inventory</li>
+<li>Fire off a notification via <a href="https://documentation.ordercloud.io/integration-services/overview/your-first-webhook">Webhooks</a></li>
+</ul>
+<p>In short, order approvals are just the beginning. We envision this new rules engine playing a key role in our <a href="https://ordercloud-api.github.io/release-notes/flexibility-over-features.html">“Flexibility over Features“</a> platform strategy. Stay tuned!</p>
 </article>
 <hr />
 <article>
@@ -158,8 +213,9 @@
 <li><strong>me/orders/incoming</strong> orders awaiting my approval </li>
 </ul>
 </li>
-<li>For Approval Rules, approved(ruleid …</li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.20.0-release-notes.html">Continue reading &raquo;</a></p>
+<li>For Approval Rules, approved(ruleid) has been changed to order.approved(ruleid) </li>
+<li>Previously, admin address routes allowed you to see all addresses assigned to the buyer company <span class="caps">AND</span> your own private addresses. In order to simplify the visibility rules for admin routes (like with orders), private addresses are now only visible through /me routes.</li>
+</ul>
 </article>
 <hr />
 <article>
@@ -171,7 +227,6 @@
 <li>Route params have been added to webhooks. An object has been added that contains the values from the routeparams. </li>
 <li>A small number of bug fixes also went out with this release.</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.19.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -182,8 +237,16 @@
 <ul>
 <li>The <span class="caps">API</span> now has elevated security integration. 3rd party systems now have the ability to perform elevated security operations. This means that we can grant them specific access that is not accessible by the (buyer) client.</li>
 <li>The Rules Engine has been updated to replace the <code>item</code> object with <code>items</code> aggregate function. The <code>item</code> object has been replaced with <code>items</code> that contains aggregate functions allowing you do this: <code>items.any(CostCenter = 'XYZ')</code> instead of this: <code>item.CostCenter = 'XYZ'</code> This supports four such aggregate functions: <ul>
-<li><code>items.any(subexpression)</code> - returns …</li></ul></li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.18.0-release-notes.html">Continue reading &raquo;</a></p>
+<li><code>items.any(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
+<li><code>items.all(subexpression)</code> - returns true/false indicating whether any items match subexpression </li>
+<li><code>items.quantity(subexpression)</code> - returns total quantity of items matching subexpression</li>
+<li><code>items.total(subexpression)</code> - returns price total of all items matching subexpression</li>
+</ul>
+</li>
+<li>Upon sending a webhook, an access token is now appended to the outbound web hook call. If a web hook receiver needs to perform actions on behalf of that user with elevated claims, they can now use this token to do so. A nullable field has been added to webhooks called ElevatedClaimsList containing a comma separated list of Claims. </li>
+<li>Several improvements have been made to the Dev Center to allow management of the webhooks from with the Dev Center <span class="caps">UI</span>. </li>
+<li>Several bug fixes were also deployed with this release.</li>
+</ul>
 </article>
 <hr />
 
@@ -227,20 +290,20 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -275,8 +338,9 @@
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>

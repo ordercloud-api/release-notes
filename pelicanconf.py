@@ -35,12 +35,13 @@ LINKS = (
 
 # Social widget
 TWITTER = ('OrderCloud.io Twitter', 'https://twitter.com/ordercloudapi')
-RSS_FEED = ('Release Notes RSS', 'https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml')
-
+RSS_FEED = ('Full Site RSS', SITEURL+'/release-notes/feeds/all.atom.xml')
+CAT_RSS_FEED = ('Release Notes RSS', SITEURL+'/release-notes/feeds/release-notes.atom.xml')
 
 SOCIAL = (
           TWITTER,
-          RSS_FEED
+          RSS_FEED,
+          CAT_RSS_FEED
          )
 
 
@@ -105,7 +106,9 @@ RELATIVE_URLS = True
 
 THEME = "pelican-themes/foundation-default-colours"
 
-FOUNDATION_FRONT_PAGE_FULL_ARTICLES = False
+GOOGLE_ANALYTICS = 'UA-82258138-2'
+
+FOUNDATION_FRONT_PAGE_FULL_ARTICLES = True
 FOUNDATION_ALTERNATE_FONTS = True
 FOUNDATION_TAGS_IN_MOBILE_SIDEBAR = False
 FOUNDATION_NEW_ANALYTICS = True
@@ -117,4 +120,4 @@ DEFAULT_PAGINATION = 5
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 
-GOOGLE_ANALYTICS = 'UA-82258138-2'
+

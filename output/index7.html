@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +99,9 @@
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -136,8 +144,17 @@
 <li>Prior Approver</li>
 </ul>
 </li>
-<li>You can use any Order <span class="caps">XP</span> in your Mandrill templates, including subobjects. <span class="caps">EX</span>: <code>orderxp_xpKey</code>, nested objects: <code>orderxp_xpKey_xpKey2</code>, and xp arrays indexes are accessed like this: <code>orderxp_xpKey_0</code> (with zero being the index of choice …</li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.35-release-notes.html">Continue reading &raquo;</a></p>
+<li>You can use any Order <span class="caps">XP</span> in your Mandrill templates, including subobjects. <span class="caps">EX</span>: <code>orderxp_xpKey</code>, nested objects: <code>orderxp_xpKey_xpKey2</code>, and xp arrays indexes are accessed like this: <code>orderxp_xpKey_0</code> (with zero being the index of choice).</li>
+<li>The Shipping Rate integration will now also calcuate shipping rates based off of the Line Item level ship from address, not just the product ship from address. Line Item-level shipping will take priority over product-level.</li>
+<li>You can now use just a username, not an email, to trigger a forgotten password email!</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>We fixed a bug where the Product Delete webhook trigger wasn’t firing correctly.</li>
+<li>We fixed a display issue in the documentation around sorting priority.</li>
+</ul>
+<h2>Client Libraries</h2>
+<p>(potentially link to all of our current client libraries)</p>
 </article>
 <hr />
 <article>
@@ -149,8 +166,18 @@
 <li>We added a new User Prespective endpoint for returning a user’s spending accounts. <a href="https://documentation.ordercloud.io/api-reference#MeSpendingAccounts">Me/ListSpendingAccounts</a></li>
 <li>We’ve improved the information in our documentation about searchable/sortable properties and the order of precedence that these are applied in. <a href="https://documentation.ordercloud.io/api-reference#MeAddresses">An example is the <span class="caps">API</span> Documentation around Addresses</a></li>
 <li>We’ve added some performance enhacements around Products, particularly listing all products for a buyer. </li>
-<li>We now allow you to delete a product that is being used in an unsubmitted order. In submitted orders, the product information is retained, even …</li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.33-release-notes.html">Continue reading &raquo;</a></p>
+<li>We now allow you to delete a product that is being used in an unsubmitted order. In submitted orders, the product information is retained, even after deletion.</li>
+<li>You can now use categories in the Rules Engine! For example, if you’d like to make a promotion that applies to products in only one category, you can use the following for a value expression: <code>items.any(product.incategory('xxx'))</code></li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>When you update a buyer company’s default catalog, it actually updates now!</li>
+<li>We fixed an issue where, if you were authenticating as a user with claims other than <code>FullAccess</code>, the authentication performance was very poor.</li>
+</ul>
+<h2>Client Libraries</h2>
+<ul>
+<li><a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.25-prerelease">Angular <span class="caps">SDK</span></a></li>
+</ul>
 </article>
 <hr />
 <article>
@@ -161,8 +188,24 @@
 <ul>
 <li>You can now filter list Order queries on the BillingAddress and ShippingAddress subobjects. This works on both Order and Me.Order lists. <span class="caps">EX</span>:  <code>/orders?ShippingAddress.Street1=xyz</code></li>
 <li>We’ve added true order-level shipping addresses. If a shipping address is set at the order level, all line items on the order will inherit that shipping address.<ul>
-<li><strong><span class="caps">PLEASE</span> <span class="caps">NOTE</span></strong>: Previously, if all your line items had the same shipping address, any new line item would have the same shipping address. This is no longer true. Line items will <em><span class="caps">ONLY</span></em> inherit …</li></ul></li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.32-release-notes.html">Continue reading &raquo;</a></p>
+<li><strong><span class="caps">PLEASE</span> <span class="caps">NOTE</span></strong>: Previously, if all your line items had the same shipping address, any new line item would have the same shipping address. This is no longer true. Line items will <em><span class="caps">ONLY</span></em> inherit a shipping address when it is explicitly set at the order level.</li>
+<li>There are no longer write-only address IDs on Order or Line Items; all of the following are now read/write:<ul>
+<li>Order.BillingAddressID</li>
+<li>Order.ShippingAddressID</li>
+<li>LineItem.ShippingAddressID</li>
+<li>LineItem.ShipFromAddressID</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>We’ve made several performance improvements around product history. </li>
+</ul>
+<h2>Bug Fixes:</h2>
+<ul>
+<li>You can again list and delete security profile assignments for admin users. </li>
+<li>Search results will now be accurate when listing categories using a depth parameter.</li>
+<li>You can no longer assign an invalid spec to a product; you will get an error on assignment.</li>
+</ul>
 </article>
 <hr />
 <article>
@@ -173,7 +216,6 @@
 <ul>
 <li>The Authorize.net integration was updated to return more information in a more uniform response body. You can view updated Authorize.Net documentation <a href="">here</a>.</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.31-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -188,7 +230,6 @@
 <ul>
 <li>several fixes around <strong>Buyer Networks</strong></li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.30.1-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -232,20 +273,20 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -280,8 +321,9 @@
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>

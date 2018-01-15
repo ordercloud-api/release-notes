@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +99,9 @@
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -135,7 +143,6 @@
 <li>We have added better error handling for <span class="caps">API</span> calls that include .<span class="caps">NET</span> reserved keywords in the route (typically in a buyer <span class="caps">ID</span>, etc.) </li>
 <li>You should no longer ever receive a 409 duplicate error on a <code>GET</code> call. Instead this will properly return a 500 error, as this is a bug.</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.59-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -146,7 +153,6 @@
 <ul>
 <li>Various performance improvements</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.58-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -163,7 +169,6 @@
 <li>When you add a new xp value to be indexed, previous xp with that value will now be retroactively indexed.</li>
 <li>Performance improvement around logging.</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.57-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -178,8 +183,8 @@
 <ul>
 <li>If a default <code>ShipFrom</code> address exists on a product, the <code>shipFromAddress</code> on a line item containing that product is now inherited on line item create, not order submit. This allows shipping to be more easily calculated.</li>
 <li>You can now filter lists with comparative operands <code>&gt;=</code> and <code>=&lt;</code>, as well as <code>&gt;</code>, <code>&lt;</code>, <code>=</code>, and <code>!</code></li>
-<li>All approvals are now listed in an order’s approval history, not just the …</li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.56-release-notes.html">Continue reading &raquo;</a></p>
+<li>All approvals are now listed in an order’s approval history, not just the final one.</li>
+</ul>
 </article>
 <hr />
 <article>
@@ -195,7 +200,6 @@
 <li>We fixed an issue where some list endpoints would fail intermittently with a 409 error. This included Me Categories, and Me Products, among others.</li>
 <li>We fixed an issue where the Rules Engine was throwing a 500 if you tried to create a rule with <code>order.xp</code> in either of the expressions.</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.55-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -238,20 +242,20 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -286,8 +290,9 @@
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>

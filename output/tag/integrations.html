@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -71,8 +78,9 @@
 									<li><a href="/posts/2016/Apr/index.html">April 2016 (1)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -112,8 +120,16 @@
 	<div class="highlight"><pre><span></span>"That's an integration concern."
 </pre></div>
 <p>It’s a phrase I utter often when new platform features are suggested. Although I try not to utter it on days I need to leave early. Some might question my motives.</p>
-<p>When I think about Four51’s transformation from a SaaS company to a PaaS company, I’m often reminded of why we embarked on this journey in the first place. I think I can sum it up in 3 words: too many checkboxes. (You thought I was going to say flexibility over features. I’ll get to it.) Our SaaS app simply couldn’t …</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/flexibility-over-features.html">Continue reading &raquo;</a></p>
+<p>When I think about Four51’s transformation from a SaaS company to a PaaS company, I’m often reminded of why we embarked on this journey in the first place. I think I can sum it up in 3 words: too many checkboxes. (You thought I was going to say flexibility over features. I’ll get to it.) Our SaaS app simply couldn’t do enough things so satisfy everyone’s needs. Custom themes on the buyer side weren’t enough. Long lists of configuration options on the admin side (those pesky checkboxes) became daunting, and still didn’t provide all the custom behavior needed. Simply put,  <span class="caps">B2B</span> is hard. Much harder than <span class="caps">B2C</span>, because there is much greater variability in requirements from customer to customer. We needed a better way, but without abandoning our commitment to the single-instance, multi-tenant, cloud-hosted architecture that’s served us (and our customers) so well since before The Cloud was even a thing.</p>
+<p>So the decision was made to chop the head off the SaaS product and expose the entire data model and its behavior via a RESTful <span class="caps">API</span>. We now offer what we believe is the “sweet spot” between SasS and custom development. Now, we didn’t simply kick the old <span class="caps">UI</span> to the curb and say “here ya go world, go figure it out.” We actually ramped up our development team and invested heavily in <span class="caps">UI</span> components, integration components, SDKs in multiple languages, “seed” applications, extensive documentation and tutorials, and a suite of tools under our Dev Center umbrella to enable things like GitHub integration and one-click app deployments. Custom apps in record time, all built atop of a proven, time-tested platform.</p>
+<p>But going down this path required a change in mindset, especially as it applies to the core platform. We’re no longer a car; we’re an engine. If you want top-of-the-line headlights, you can have them, but there there others who specialize in them and make them better than we ever could. (Besides, how deep under the hood do you want go to change a bulb?) What we do well is <span class="caps">B2B</span> eCommerce and order management. This has been our core competency for over 15 years. We’ve discovered countless nuances and solved them via constant evolution of our data model. Anything outside that domain is subject to re-evaluation. Take a seemingly simple example: email. Sure, we can build and send off an email directly from the platform in a few lines of code (and we did that for years). But can we offer a template management system or maintain a whitelist status (there’s more to this stuff than you might imagine) to rival MailChimp? No. MailChimp does email better than we ever could, and they offer their services via their own RESTful <span class="caps">API</span>. Four51’s integration engineers work tirelessly to select the best experts in their respective domains and provide out-of-the-box integration components to our customers.</p>
+<p>Do all these newfound “integration concerns” mean the core platform is “done”? Not by a long shot. Mature, yes. Done, no. We’ve simply redefined how we prioritize enhancements to it. Which brings us to Flexibility Over Features. It’s a mantra that guides our platform roadmap and keeps us focused on what we do best. As flexible as our data model is, we still encounter situations where it’s too rigid to solve certain problems elegantly. Removing constraints and broadening the possibilities of how our data model can be utilized receive top priority on our platform agenda.</p>
+<p>Enough with mantras and buzzwords and other abstract rantings. What are some real-world examples where we’ve put this idea to work? Extended Properties, <span class="caps">A.K.A.</span>“xp”, is a perfect example. Most objects in the data model now include some core set of attributes, along with an extension attribute called xp. For example, a User object contains <span class="caps">ID</span>, FirstName, LastName, Email, and about a half dozen other attributes. But it doesn’t include Gender, because presumably that’s not a useful datapoint in the vast majority of <span class="caps">B2B</span> scenarios. If it’s relevant in yours, no problem - just add it:</p>
+<p><code>user.xp.Gender = “female”</code></p>
+<p>Of course, the platform has no inherent knowledge of what “Gender” means, so it provides no special behavior around it, but it’s happy to accept this conjured-up attribute, store it, index it, and make it searchable/sortable when you get a list of Users. Need specialized behavior around it? That’s an integra….you get the idea.</p>
+<p>Our roadmap is loaded with ideas that fit the Flexibility Over Features mantra. Currently in the works is a robust new system of Webhooks, which will provide a powerful new way to integrate with external systems via <span class="caps">HTTP</span>. Essentially, these systems will be able to subscribe to events that occur within the platform (order submitted, product created, etc.) and respond to them in near real time. You can already “pull” data from the platform by calling the <span class="caps">API</span>; think of this as a “push” mechanism, where you get what you want from the platform when it occurs, avoiding the need to periodically poll the <span class="caps">API</span>.</p>
+<p>Another major project in the works is a new Rules Engine. Its first application will be a massive overhaul of Order Approvals, adding a greater degree of robustness and flexibility to this core feature than we’ve ever dreamed up in the past. It’ll support text-based logic expressions (no CompSci degree required), arbitrary approval workflows, time-based rules against aggregated totals, and much more. Look for it in the coming months.</p>
+<p>OrderCloud is constantly evolving. But we’ve learned that we don’t need to be experts at everything. We believe the best <span class="caps">B2B</span> solutions on the planet will not be built from scratch nor offered out-of-the box via SaaS. Rather, they’ll be assembled out of distributed, best-in-breed components. We’re the engine. We don’t make tires or steering wheels or leather-upholstered bucket seats. But we can help you assemble all the best parts, and we think the result will be the shiniest, fastest car on the block.</p>
 </article>
 <hr />
 
@@ -134,20 +150,20 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -161,8 +177,9 @@
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>

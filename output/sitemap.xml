@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/</loc>
-<lastmod>2018-01-15T10:25:04-00:00</lastmod>
+<lastmod>2018-01-15T12:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/archives.html</loc>
-<lastmod>2018-01-15T10:25:04-00:00</lastmod>
+<lastmod>2018-01-15T12:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/tags.html</loc>
-<lastmod>2018-01-15T10:25:04-00:00</lastmod>
+<lastmod>2018-01-15T12:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/categories.html</loc>
-<lastmod>2018-01-15T10:25:04-00:00</lastmod>
+<lastmod>2018-01-15T12:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.69.html</loc>
-<lastmod>2018-01-15T10:24:52-06:00</lastmod>
+<lastmod>2018-01-15T10:55:21-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -467,35 +467,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/category/release-notes.html</loc>
-<lastmod>2018-01-15T10:24:52-05:51</lastmod>
+<lastmod>2018-01-15T10:55:21-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/tag/ordercloud-api.html</loc>
-<lastmod>2018-01-15T10:24:52-05:51</lastmod>
+<lastmod>2018-01-15T10:55:21-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/tag/promotion-rules.html</loc>
-<lastmod>2018-01-15T10:24:52-05:51</lastmod>
+<lastmod>2018-01-15T10:55:21-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/tag/approval-rules.html</loc>
-<lastmod>2018-01-15T10:24:52-05:51</lastmod>
+<lastmod>2018-01-15T10:55:21-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/tag/rules-engine.html</loc>
-<lastmod>2018-01-15T10:24:52-05:51</lastmod>
+<lastmod>2018-01-15T10:55:21-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -572,7 +572,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://ordercloud-api.github.io/release-notes/author/kate-reeher.html</loc>
-<lastmod>2018-01-15T10:24:52-05:51</lastmod>
+<lastmod>2018-01-15T10:55:21-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

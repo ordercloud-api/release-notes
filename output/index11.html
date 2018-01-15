@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +99,9 @@
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -129,15 +137,67 @@
 <h2>Changelog</h2>
 <ul>
 <li>Approval rules have been updated significantly in this release. This release includes the new ApprovalRule data model (with full admin-side <span class="caps">CRUD</span> endpoints), support for a wide variety of expressions, and support for the actual buyer-side flow, including (legacy) email messaging. <em>There will be an approval rules blog post in the near future that will cover this more in-depth.</em></li>
-<li>The <span class="caps">API</span> route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the …</li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.17.0-release-notes.html">Continue reading &raquo;</a></p>
+<li>The <span class="caps">API</span> route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the query string. For example:<br/>
+<code>v1/orders/incoming</code> 
+      This does <span class="caps">NOT</span> apply to <code>me/orders</code> - outgoing is always assumed there. It only applies to admin routes, such as incoming orders for sellers and outgoing orders for approving buyer users. Apps will need to be updated accordingly, and make sure you’re using the latest version of the <span class="caps">SDK</span></li>
+<li><code>IsReportingGroup</code> and <code>IsApprovingGroup</code> have been removed from the UserGroup object.</li>
+<li>This release also contains several bug fixes.</li>
+</ul>
 </article>
 <hr />
 <article>
 	<h3><a href="https://ordercloud-api.github.io/release-notes/using-put-for-updates.html">Four Reasons You Should Stop Using <span class="caps">PUT</span> For&nbsp;Updates</a></h3>
 	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/todd-menier.html">Todd Menier</a> in <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">blog-posts</a> on Fri 20 May 2016. Tags: <a href="https://ordercloud-api.github.io/release-notes/tag/put.html">PUT</a>, <a href="https://ordercloud-api.github.io/release-notes/tag/patch.html">PATCH</a>, </h6>
-	<p>To update an existing resource, when should you use <code>PUT</code> and when should you use <code>PATCH</code>? Here are 4 reasons why you should stop using <code>PUT</code> for&nbsp;updates.</p>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/using-put-for-updates.html">Continue reading &raquo;</a></p>
+	<p>Here’s a question we hear often: </p>
+<div class="highlight"><pre><span></span>To update an existing resource, when should I use `PUT` and when should I use ``PATCH``?
+</pre></div>
+<h1><span class="caps">TL</span>;<span class="caps">DR</span> Always use <code>PATCH</code>.</h1>
+<p><code>PATCH</code> has several distinct advantages over <code>PUT</code> when it comes to updating things:</p>
+<ol>
+<li><code>PUT</code> requires sending the entire object, hence a larger payload over the network. With <code>PATCH</code>, if you only want to change one or a few fields, you only need to send those fields.</li>
+<li>You often do not have the entire object available to send, in which case <code>PUT</code> requires that you first do a <span class="caps">GET</span>. With <code>PATCH</code>, all you need is the object’s <span class="caps">ID</span>, and you can often avoid the extra <span class="caps">API</span> call.</li>
+<li>In some cases, <code>PUT</code> can have unintended side-effects related to properties you don’t want to change. For example, some properties have default values, often inherited from some parent object, that can be overwritten. When you do a <span class="caps">GET</span> on such a resource, you’ll get the default if it hasn’t been overwritten. If you then change some other property and do a <code>PUT</code>, you’re unintentionally overriding the inherited value with an explicit one. Now if the default value on the parent changes, that change won’t flow to the child as expected.</li>
+<li>If multiple users can modify the same resources, you could run into concurrency issues with <code>PUT</code>. For example, suppose user A wants to modify a product’s quantity multiplier while user B wants to modify the same product’s description. Both users have done a <span class="caps">GET</span> and have the product’s <span class="caps">JSON</span> representation and modify it. If user A <code>PUT</code>s their change first, then user B will inadvertently revert the quantity multiplier change when they send their <code>PUT</code>. With <code>PATCH</code>, user A can send only the quantity multiplier change and user B can send just the updated description, and they are at no risk of a conflict.</li>
+</ol>
+<p>All these warnings of great peril beg the question: When <em>should</em> you use <code>PUT</code>? </p>
+<p>These are the situations where using <code>PUT</code> makes sense:</p>
+<ol>
+<li>You want to create a new resource, and you are providing the <span class="caps">ID</span>. Note that you need only provide that <span class="caps">ID</span> in the <span class="caps">URI</span>. In <span class="caps">REST</span> terms, you’re basically saying “I have this new object and I know where I want to put it.” </li>
+</ol>
+<p>Conversely, use <code>POST</code> when you want the <span class="caps">ID</span> to be auto-generated by the platform, i.e. you want us to decide where to “put” it.)</p>
+<ol>
+<li>You want to completely <em>replace</em> an object with another. In other words, an object has the same <span class="caps">ID</span> (location), but in real world terms it is a different thing. This is a rare case.</li>
+<li>The object does not have an <span class="caps">ID</span>, rather its identity is comprised of other values. These objects typically represent relationships; assignments are a good example. You usually don’t even have to remember this rule because <code>PUT</code> is often the only verb available for writing to such endpoints.</li>
+</ol>
+<p><code>PUT</code> actually has a few nice qualities when used in the above scenarios:</p>
+<ol>
+<li><code>PUT</code> is idempotent, i.e. you shouldn’t need to check if it has already been called, because calling it a second time will leave the resource in exactly the same state as calling it the first time. (<code>POST</code>, on the other hand, generally creates a new resource with each successive call.)</li>
+<li>You generally don’t have to worry about checking for existence. For example, if you want to assign a user to a group, you don’t need to worry about creating a duplicate assignment - just <code>PUT</code> the assignment and it will either create a new one or overwrite the existing one.</li>
+</ol>
+<h1>Summary</h1>
+<table class="table table-hover table-striped">
+<thead>
+<tr>
+<th>Use <code>POST</code> when…</th>
+<th>Use <code>PUT</code> when…</th>
+<th>Use <code>PATCH</code> when…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- You want to create a new resource where <span class="caps">WE</span> (the platform) are generating the <span class="caps">ID</span>. The new <span class="caps">ID</span> will be returned in the response body (as part of the full object), and the <span class="caps">URI</span> of the new resource will be returned in the Location response header.</td>
+<td>- You want to create a new resource where <span class="caps">YOU</span> are providing the <span class="caps">ID</span>, use <code>PUT</code>. (No need to include the <span class="caps">ID</span> in the request body; it’s in the <span class="caps">URI</span>.)</td>
+<td>- You want to update an existing resource.</td>
+</tr>
+<tr>
+<td></td>
+<td>- You want to completely replace a resource with another (same <span class="caps">ID</span>), use <code>PUT</code>. This is not common. - You want to update an existing resource.</td>
+<td>- You want to “move” a resource. The old <span class="caps">ID</span> goes in the <span class="caps">URI</span>; the new one in the request body.</td>
+</tr>
+</tbody>
+</table>
+<p>In case you are a more visual thinker, here is an infographic that can help you make the right decision: </p>
+<p><img alt="Decision Diagram for when to use PUT, POST, or PATCH" class="img-responsive" src="../images/post-patch-put.png"/></p>
 </article>
 <hr />
 <article>
@@ -150,8 +210,20 @@
 <li>There is now the ability to list security profiles in the <span class="caps">API</span> itself and not just in DevCenter (as before).</li>
 <li>When logged in as a buyer user you can now list their assigned security profiles</li>
 <li>There is now the ability to create personal addresses (billing and shipping) outside the organization.</li>
-<li>There is now the ability to create a personal list …</li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.16.0-release-notes.html">Continue reading &raquo;</a></p>
+<li>There is now the ability to create a personal list of saved credit cards outside the organization. Users can now add, update, and delete personal credit cards.</li>
+<li>Shipment <span class="caps">XP</span> - <span class="caps">XP</span> can now be used on Shipments</li>
+<li>Address <span class="caps">XP</span> - <span class="caps">XP</span> can now be used on Addresses.</li>
+<li><span class="caps">API</span> Client <span class="caps">XP</span> - <span class="caps">XP</span> can now be used on a client organization.</li>
+<li>There are now more advanced search and filtering capabilities available on Addresses, Credit Cards, Specs, and Buyer Categories. This new search capability allows for more advanced filtering and fuzzy searches on lists. Take a look at the new, searchable attributes here: https://testdevcenter.ordercloud.io/docs#Categories_List </li>
+<li>The <span class="caps">API</span> has been updated to allow for Anonymous Shopping within the OrderCloud platform. This update allows for much more flexibility in the buyer user workflow. In the past, buyer users had to be registered in order to purchase products. Now, they can go through the entire shopping workflow without signing in.</li>
+<li>Spec Options can now be designated as the Default Spec Option for a Spec.</li>
+<li>There is now the ability to create registration off of a temp user. A user can start with a temp user session and when they choose to profile themselves, a new user based on the template is created.</li>
+<li>Temp users can create an order but nothing else on Me. It is now impossible for a temp user to create Me data outside of an order.</li>
+<li>A <code>SpecCount</code> can now be shown to designate how many options are set up for a particular Spec.</li>
+<li>The Docs section of Devcenter has been reorganized to better reflect how people are actually using the <span class="caps">API</span>.</li>
+<li>We fixed a bug so that users can now filter on <span class="caps">XP</span> in the /me endpoint lists.</li>
+<li>Multiple bug fixes were also included in this release.</li>
+</ul>
 </article>
 <hr />
 <article>
@@ -163,7 +235,6 @@
 <li>We’ve fixed a bug where, if you <a href="https://devcenter.ordercloud.io/docs#XP">searched a list</a> on <span class="caps">XP</span>, you sometimes got duplicate results.</li>
 <li>We’ve fixed a bug where, if you are an Admin User, you couldn’t update the line items on an order for a Buyer User. This is an uncommon scenario, as generally an Admin user would impersonate a Buyer User to make an order on behalf of the Buyer user, but some integrations use an Admin User directly.</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.15.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -174,7 +245,6 @@
 <ul>
 <li>Duplicate error when creating categories in different buyers</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.14.1-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -218,20 +288,20 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -266,8 +336,9 @@
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>

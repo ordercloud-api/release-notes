@@ -21,7 +21,14 @@
 		<!-- Feeds -->
 		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82258138-2', 'UA-82258138-2');
+  ga('send', 'pageview');
+</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +99,9 @@
 									<li><a href="/posts/2016/Mar/index.html">March 2016 (2)</a></li>
 
 						<li><label>Social</label></li>
+							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 					</ul>	
 				</aside>
 
@@ -129,8 +137,22 @@
 <h2>New Features:</h2>
 <ul>
 <li>
-<p><strong>Shared Catalogs</strong>: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you’ll need to add the catalog <span class="caps">ID</span> to your <span class="caps">API</span> routes, and as a parameter in your <span class="caps">SDK</span> calls. Me Category endpoints are …</p></li></ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.30.0-release-notes.html">Continue reading &raquo;</a></p>
+<p><strong>Shared Catalogs</strong>: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you’ll need to add the catalog <span class="caps">ID</span> to your <span class="caps">API</span> routes, and as a parameter in your <span class="caps">SDK</span> calls. Me Category endpoints are not affected, except in that you can optionally filter by catalog. Please check out the <a href="http://qa-documentation.ordercloud.io/guides/base-use-cases/implement-shared-catalogs">Api Documentation</a>.</p>
+</li>
+<li>
+<p>A single client <span class="caps">ID</span> for an app can be used by different buyers. This is our first step towards an exciting feature on our roadmap, <strong>Buyer Networks</strong>.</p>
+</li>
+<li>
+<p>You can now reference Product Names in your Mailchimp/Mandrill message templates! Previously, you could use Product Description and Product <span class="caps">ID</span>, now you can add Product Name as well. </p>
+</li>
+</ul>
+<h2>Bug Fixes:</h2>
+<ul>
+<li>We updated <strong>Spending Accounts</strong> to be decremented when an order is submitted, rather then when a payment is applied to an unsubmitted order. (Clearing an order will refund any payments applied, even if the order is unsubmitted— deleting the order will not do so automatically.)</li>
+</ul>
+<h2><span class="caps">SDK</span> Release Notes:</h2>
+<p>The <span class="caps">SDK</span> that will be going out with the <span class="caps">API</span> release will be <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a>.</p>
+<p>After the <span class="caps">API</span> is released, if anyone runs a <code>bower update</code> with <em>lastest</em> in their bower.json for ordercloud-ng-sdk they will be updated to <a href="https://github.com/ordercloud-api/angular-sdk/releases/tag/v1.0.24">v1.0.24</a></p>
 </article>
 <hr />
 <article>
@@ -142,7 +164,6 @@
 <li>Integration Proxies and Assignments - see the Integrations guides in documentation.ordercloud.io</li>
 <li>Webhook assignments - see Webhooks in the Dashboard guide in documentation.ordercloud.io</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.29.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -157,7 +178,6 @@
 <ul>
 <li>Preserve InteropID in Buyer Delete</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.28.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -171,7 +191,6 @@
 <li>Category: Client.Me.ListCategoriesAsync not returning expected result</li>
 <li><span class="dquo">“</span>Sequence contains no elements” exceptions in BaseApiController</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.26.0-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -185,7 +204,6 @@
 <li>Performance issues - <code>order/{orderid}/submit</code> endpoint - time out error</li>
 <li>Specs: <code>/productassignments</code> returns 500 if no specID</li>
 </ul>
-		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.25.1-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -228,20 +246,20 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
 									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
 									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
+									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
+									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
 									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
+									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
 								</ul>
 							</div>
 
@@ -276,8 +294,9 @@
 							<div class="panel">
 								<h5>Social</h5>
 								<ul class="side-nav">
+									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
 									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml">Release Notes RSS</a></li>
+									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
 								</ul>
 							</div>
 						</aside>
