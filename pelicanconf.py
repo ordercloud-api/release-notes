@@ -108,8 +108,8 @@ THEME = "pelican-themes/foundation-default-colours"
 FOUNDATION_FRONT_PAGE_FULL_ARTICLES = False
 FOUNDATION_ALTERNATE_FONTS = True
 FOUNDATION_TAGS_IN_MOBILE_SIDEBAR = False
-FOUNDATION_NEW_ANALYTICS = False
-FOUNDATION_ANALYTICS_DOMAIN = ''
+FOUNDATION_NEW_ANALYTICS = True
+FOUNDATION_ANALYTICS_DOMAIN = GOOGLE_ANALYTICS
 FOUNDATION_FOOTER_TEXT = 'Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.'
 FOUNDATION_PYGMENT_THEME = 'monokai'
 
