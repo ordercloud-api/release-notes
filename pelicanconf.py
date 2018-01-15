@@ -95,6 +95,7 @@ SITEMAP = {
 
 
 SUMMARY_MAX_LENGTH = 100
+USE_FOLDER_AS_CATEGORY = True
 
 
 # Uncomment following line if you want document-relative URLs when developing

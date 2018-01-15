@@ -8,17 +8,18 @@
 		<meta name="description" content="">
 		<meta name="author" content="OrderCloud">
 
-		<link rel="stylesheet" href="../theme/css/foundation.css" />
-		<link rel="stylesheet" href="../theme/css/pygment/monokai.css" />
-		<link rel="stylesheet" href="../theme/css/custom.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/foundation.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/custom.css" />
 
 		<!-- GOOGLE WEB FONTS -->
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="../theme/css/alt-fonts.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/alt-fonts.css" />
 
-		<script src="../theme/js/modernizr.js"></script>
+		<script src="https://ordercloud-api.github.io/release-notes/theme/js/modernizr.js"></script>
 
 		<!-- Feeds -->
+		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
 <script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 
@@ -55,10 +56,10 @@
 				<!-- mobile side bar nav -->
 				<aside class="left-off-canvas-menu">
 					<ul class="off-canvas-list">
-						<li><a href="..">Home</a></li>
+						<li><a href="https://ordercloud-api.github.io/release-notes">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="../category/blog-posts.html">Blog Posts</a></li>
-							<li class="active"><a href="../category/release-notes.html">Release Notes</a></li>
+							<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
+							<li class="active"><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
@@ -67,6 +68,7 @@
 
 
 						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2018/Jan/index.html">January 2018 (1)</a></li>
 									<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
@@ -99,14 +101,14 @@
 				<nav class="top-bar hide-for-small-only" data-topbar>
 					<ul class="title-area">
 						<li class="name">
-							<h1><a href="../">OrderCloud API Release Notes</a></h1>
+							<h1><a href="https://ordercloud-api.github.io/release-notes/">OrderCloud API Release Notes</a></h1>
 						</li>
 					</ul>
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="../category/blog-posts.html">Blog Posts</a></li>
-								<li class="active"><a href="../category/release-notes.html">Release Notes</a></li>
+								<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
+								<li class="active"><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -121,13 +123,26 @@
 						<div class="medium-9 small-12 columns" role="content">
 							<div class="row">
 								<div class="small-12 columns">
-									<h2>Category: Release Notes</h2>
+									<h2>Category: release-notes</h2>
 								</div>
 							</div>
 
 <article>
-	<h3><a href="../1.0.63-release-notes.html"><span class="caps">API</span> v1.0.63 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Wed 18 October 2017.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.64-release-notes.html"><span class="caps">API</span> v1.0.64 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Mon 30 October 2017.</h6>
+	<p><em>Released to Production on Monday, October 30th, 2017</em></p>
+<h2>New Features</h2>
+<ul>
+<li>We now allow <code>lineitems</code> of <em>unsubmitted</em> <code>Orders</code> to be added to a <code>Shipment</code>. This does not apply to the <a href="http://qa-documentation.ordercloud.io/api-reference#Orders_Ship"><code>ship all</code> endpoint</a>.</li>
+<li>There is a new endpoint that allows a <code>buyer user</code> to be transfered from one buyer to another, within the same organization. Please check out the <a href="http://qa-documentation.ordercloud.io/api-reference#Users_Move">documentation</a> for further details.</li>
+<li>please note, this should only be attempted by an <code>admin user</code> in a seller application. If a buyer user, even one with <code>Full Access</code>, tries this, it will not work as expected. </li>
+</ul>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.64-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.63-release-notes.html"><span class="caps">API</span> v1.0.63 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Wed 18 October 2017.</h6>
 	<p><em>Released to Production on Wednesday, October 18th, 2017</em></p>
 <h2>Bugs</h2>
 <ul>
@@ -145,23 +160,23 @@
 <ul>
 <li>Products: Allow negation of all filters on admin Product List (<code>catalogID</code>, <code>categoryID</code>, <code>supplierID</code>)</li>
 </ul>
-		<p class="continue"><a href="../1.0.63-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.63-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.62-release-notes.html"><span class="caps">API</span> v1.0.62 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 28 September 2017.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.62-release-notes.html"><span class="caps">API</span> v1.0.62 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Thu 28 September 2017.</h6>
 	<p><em>Released to Production on Thursday, September 28th, 2017</em></p>
 <h2>New Features</h2>
 <ul>
 <li>Upgraded to latest <a href="">Flurl</a></li>
 </ul>
-		<p class="continue"><a href="../1.0.62-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.62-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.61-release-notes.html"><span class="caps">API</span> v1.0.61 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 07 September 2017.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.61-release-notes.html"><span class="caps">API</span> v1.0.61 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Thu 07 September 2017.</h6>
 	<p><em>Released to Production on Thursday, September 7th, 2017</em></p>
 <h2>New Features</h2>
 <ul>
@@ -171,12 +186,12 @@
 <ul>
 <li>Previously, if you transfered an anon user’s order to a profiled user, the prices would not update to reflect the profiled user’s price assignments. This is now fixed.</li>
 </ul>
-		<p class="continue"><a href="../1.0.61-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.61-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.60-release-notes.html"><span class="caps">API</span> v1.0.60 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Tue 18 July 2017.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.60-release-notes.html"><span class="caps">API</span> v1.0.60 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Tue 18 July 2017.</h6>
 	<p>Released to Prod on Tuesday, July 18th, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>New Features</h2>
 <ul>
@@ -190,23 +205,7 @@
 <h2>Bugs Fixed</h2>
 <ul>
 <li>We fixed an …</li></ul>
-		<p class="continue"><a href="../1.0.60-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="../1.0.59-release-notes.html"><span class="caps">API</span> v1.0.59 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 13 July 2017.</h6>
-	<p>Released to Prod on Thursday, July 13th, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
-<h2>New Features</h2>
-<ul>
-<li>We’ve added the Billing Information Name to Customer Profile on our Authorize.Net integration.</li>
-</ul>
-<h2>Bugs Fixed</h2>
-<ul>
-<li>We have added better error handling for <span class="caps">API</span> calls that include .<span class="caps">NET</span> reserved keywords in the route (typically in a buyer <span class="caps">ID</span>, etc.) </li>
-<li>You should no longer ever receive a 409 duplicate error on a <code>GET</code> call. Instead this will properly return a 500 error, as this is a bug.</li>
-</ul>
-		<p class="continue"><a href="../1.0.59-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.60-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -214,19 +213,20 @@
 	<div class="small-12 columns text-center">
 		<div class="pagination-centered">
 			<ul class="pagination">
-				<li class="arrow"><a href="../category/release-notes.html">&larr; Previous</a></li>
-				<li class=""><a href="../category/release-notes.html">1</a></li>
-				<li class="current"><a href="../category/release-notes2.html">2</a></li>
-				<li class=""><a href="../category/release-notes3.html">3</a></li>
-				<li class=""><a href="../category/release-notes4.html">4</a></li>
-				<li class=""><a href="../category/release-notes5.html">5</a></li>
-				<li class=""><a href="../category/release-notes6.html">6</a></li>
-				<li class=""><a href="../category/release-notes7.html">7</a></li>
-				<li class=""><a href="../category/release-notes8.html">8</a></li>
-				<li class=""><a href="../category/release-notes9.html">9</a></li>
-				<li class=""><a href="../category/release-notes10.html">10</a></li>
-				<li class=""><a href="../category/release-notes11.html">11</a></li>
-				<li class="arrow"><a href="../category/release-notes3.html">Next &rarr;</a></li>
+				<li class="arrow"><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">&larr; Previous</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">1</a></li>
+				<li class="current"><a href="https://ordercloud-api.github.io/release-notes/category/release-notes2.html">2</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes3.html">3</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes4.html">4</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes5.html">5</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes6.html">6</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes7.html">7</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes8.html">8</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes9.html">9</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes10.html">10</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes11.html">11</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/category/release-notes12.html">12</a></li>
+				<li class="arrow"><a href="https://ordercloud-api.github.io/release-notes/category/release-notes3.html">Next &rarr;</a></li>
 			</ul>
 		</div>
 	</div>
@@ -248,23 +248,27 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
 									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/rules-engine.html" class="tag-4">Rules Engine</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
 									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
 									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
 									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
 									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
+									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
 								</ul>
 							</div>
 
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
+											<li><a href="/posts/2018/Jan/index.html">January 2018 (1)</a></li>
 											<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
@@ -313,8 +317,8 @@
 			</div><!--off-canvas inner-->
 		</div><!--off-canvas wrap-->
 
-		<script src="../theme/js/jquery.js"></script>
-		<script src="../theme/js/foundation.min.js"></script>
+		<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.js"></script>
+		<script src="https://ordercloud-api.github.io/release-notes/theme/js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
 		</script>

@@ -8,17 +8,18 @@
 		<meta name="description" content="">
 		<meta name="author" content="OrderCloud">
 
-		<link rel="stylesheet" href="../theme/css/foundation.css" />
-		<link rel="stylesheet" href="../theme/css/pygment/monokai.css" />
-		<link rel="stylesheet" href="../theme/css/custom.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/foundation.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/custom.css" />
 
 		<!-- GOOGLE WEB FONTS -->
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="../theme/css/alt-fonts.css" />
+		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/alt-fonts.css" />
 
-		<script src="../theme/js/modernizr.js"></script>
+		<script src="https://ordercloud-api.github.io/release-notes/theme/js/modernizr.js"></script>
 
 		<!-- Feeds -->
+		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
 
 <script>var _gaq=[['_setAccount','UA-82258138-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 
@@ -55,10 +56,10 @@
 				<!-- mobile side bar nav -->
 				<aside class="left-off-canvas-menu">
 					<ul class="off-canvas-list">
-						<li><a href="..">Home</a></li>
+						<li><a href="https://ordercloud-api.github.io/release-notes">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="../category/blog-posts.html">Blog Posts</a></li>
-							<li ><a href="../category/release-notes.html">Release Notes</a></li>
+							<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
+							<li ><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
@@ -67,6 +68,7 @@
 
 
 						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2018/Jan/index.html">January 2018 (1)</a></li>
 									<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
@@ -99,14 +101,14 @@
 				<nav class="top-bar hide-for-small-only" data-topbar>
 					<ul class="title-area">
 						<li class="name">
-							<h1><a href="../">OrderCloud API Release Notes</a></h1>
+							<h1><a href="https://ordercloud-api.github.io/release-notes/">OrderCloud API Release Notes</a></h1>
 						</li>
 					</ul>
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="../category/blog-posts.html">Blog Posts</a></li>
-								<li ><a href="../category/release-notes.html">Release Notes</a></li>
+								<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
+								<li ><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -121,8 +123,26 @@
 						<div class="medium-9 small-12 columns" role="content">
 
 <article>
-	<h3><a href="../1.0.33-release-notes.html"><span class="caps">API</span> v1.0.33 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Tue 06 December 2016.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.35-release-notes.html"><span class="caps">API</span> v1.0.35 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Thu 15 December 2016.</h6>
+	<p>Planned to be released to Production Thursday, December 15th, 2016 at 7 <span class="caps">PM</span> <span class="caps">CST</span>. <em>This date is subject to change</em></p>
+<h2>New Features</h2>
+<ul>
+<li>We’ve expanded how you can use categories in the Rules Engine. You can now use <code>items.total</code> in your value expressions. </li>
+<li>We’ve added some new Mandrill variables that can be used in your Mandrill integrations:<ul>
+<li>Line Item Count</li>
+<li><span class="caps">PO</span>#</li>
+<li>Ship To</li>
+<li>Prior Approver</li>
+</ul>
+</li>
+<li>You can use any Order <span class="caps">XP</span> in your Mandrill templates, including subobjects. <span class="caps">EX</span>: <code>orderxp_xpKey</code>, nested objects: <code>orderxp_xpKey_xpKey2</code>, and xp arrays indexes are accessed like this: <code>orderxp_xpKey_0</code> (with zero being the index of choice …</li></ul>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.35-release-notes.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.33-release-notes.html"><span class="caps">API</span> v1.0.33 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Tue 06 December 2016.</h6>
 	<p>Released to Prod Tuesday, December 6th, 2016 at 8:00 <span class="caps">PM</span> <span class="caps">CDT</span>. </p>
 <h2>New Features</h2>
 <ul>
@@ -130,35 +150,35 @@
 <li>We’ve improved the information in our documentation about searchable/sortable properties and the order of precedence that these are applied in. <a href="https://documentation.ordercloud.io/api-reference#MeAddresses">An example is the <span class="caps">API</span> Documentation around Addresses</a></li>
 <li>We’ve added some performance enhacements around Products, particularly listing all products for a buyer. </li>
 <li>We now allow you to delete a product that is being used in an unsubmitted order. In submitted orders, the product information is retained, even …</li></ul>
-		<p class="continue"><a href="../1.0.33-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.33-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.32-release-notes.html"><span class="caps">API</span> v1.0.32 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Mon 21 November 2016.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.32-release-notes.html"><span class="caps">API</span> v1.0.32 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Mon 21 November 2016.</h6>
 	<p>Release Date: November 21st, 2016 at 8:00 <span class="caps">PM</span> Central.</p>
 <h2>New Features:</h2>
 <ul>
 <li>You can now filter list Order queries on the BillingAddress and ShippingAddress subobjects. This works on both Order and Me.Order lists. <span class="caps">EX</span>:  <code>/orders?ShippingAddress.Street1=xyz</code></li>
 <li>We’ve added true order-level shipping addresses. If a shipping address is set at the order level, all line items on the order will inherit that shipping address.<ul>
 <li><strong><span class="caps">PLEASE</span> <span class="caps">NOTE</span></strong>: Previously, if all your line items had the same shipping address, any new line item would have the same shipping address. This is no longer true. Line items will <em><span class="caps">ONLY</span></em> inherit …</li></ul></li></ul>
-		<p class="continue"><a href="../1.0.32-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.32-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.31-release-notes.html"><span class="caps">API</span> v1.0.31 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Thu 10 November 2016.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.31-release-notes.html"><span class="caps">API</span> v1.0.31 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Thu 10 November 2016.</h6>
 	<p>Released to Prod Thursday, November 10th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>New Features:</h2>
 <ul>
 <li>The Authorize.net integration was updated to return more information in a more uniform response body. You can view updated Authorize.Net documentation <a href="">here</a>.</li>
 </ul>
-		<p class="continue"><a href="../1.0.31-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.31-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
-	<h3><a href="../1.0.30.1-release-notes.html"><span class="caps">API</span> v1.0.30.1 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Fri 04 November 2016.</h6>
+	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.30.1-release-notes.html"><span class="caps">API</span> v1.0.30.1 Release&nbsp;Notes</a></h3>
+	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Fri 04 November 2016.</h6>
 	<p>Released to Prod Friday, November 4th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>New Features:</h2>
 <ul>
@@ -168,18 +188,7 @@
 <ul>
 <li>several fixes around <strong>Buyer Networks</strong></li>
 </ul>
-		<p class="continue"><a href="../1.0.30.1-release-notes.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="../1.0.30.0-release-notes.html"><span class="caps">API</span> v1.0.30.0 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="../author/kate-reeher.html">Kate Reeher</a> in <a href="../category/release-notes.html">release-notes</a> on Fri 28 October 2016.</h6>
-	<p>Released to Prod on Friday, October 28th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
-<h2>New Features:</h2>
-<ul>
-<li>
-<p><strong>Shared Catalogs</strong>: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you’ll need to add the catalog <span class="caps">ID</span> to your <span class="caps">API</span> routes, and as a parameter in your <span class="caps">SDK</span> calls. Me Category endpoints are …</p></li></ul>
-		<p class="continue"><a href="../1.0.30.0-release-notes.html">Continue reading &raquo;</a></p>
+		<p class="continue"><a href="https://ordercloud-api.github.io/release-notes/1.0.30.1-release-notes.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 
@@ -187,19 +196,20 @@
 	<div class="small-12 columns text-center">
 		<div class="pagination-centered">
 			<ul class="pagination">
-				<li class="arrow"><a href="../author/kate-reeher6.html">&larr; Previous</a></li>
-				<li class=""><a href="../author/kate-reeher.html">1</a></li>
-				<li class=""><a href="../author/kate-reeher2.html">2</a></li>
-				<li class=""><a href="../author/kate-reeher3.html">3</a></li>
-				<li class=""><a href="../author/kate-reeher4.html">4</a></li>
-				<li class=""><a href="../author/kate-reeher5.html">5</a></li>
-				<li class=""><a href="../author/kate-reeher6.html">6</a></li>
-				<li class="current"><a href="../author/kate-reeher7.html">7</a></li>
-				<li class=""><a href="../author/kate-reeher8.html">8</a></li>
-				<li class=""><a href="../author/kate-reeher9.html">9</a></li>
-				<li class=""><a href="../author/kate-reeher10.html">10</a></li>
-				<li class=""><a href="../author/kate-reeher11.html">11</a></li>
-				<li class="arrow"><a href="../author/kate-reeher8.html">Next &rarr;</a></li>
+				<li class="arrow"><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher6.html">&larr; Previous</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">1</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher2.html">2</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher3.html">3</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher4.html">4</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher5.html">5</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher6.html">6</a></li>
+				<li class="current"><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher7.html">7</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher8.html">8</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher9.html">9</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher10.html">10</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher11.html">11</a></li>
+				<li class=""><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher12.html">12</a></li>
+				<li class="arrow"><a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher8.html">Next &rarr;</a></li>
 			</ul>
 		</div>
 	</div>
@@ -221,23 +231,27 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
 									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-									<li><a href="/tag/rules-engine.html" class="tag-4">Rules Engine</a></li>
+									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
+									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
 									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
 									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
+									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
 									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
+									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
+									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
 									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
 									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
+									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
+									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
+									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
 								</ul>
 							</div>
 
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
+											<li><a href="/posts/2018/Jan/index.html">January 2018 (1)</a></li>
 											<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
 											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
 											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
@@ -286,8 +300,8 @@
 			</div><!--off-canvas inner-->
 		</div><!--off-canvas wrap-->
 
-		<script src="../theme/js/jquery.js"></script>
-		<script src="../theme/js/foundation.min.js"></script>
+		<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.js"></script>
+		<script src="https://ordercloud-api.github.io/release-notes/theme/js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
 		</script>
