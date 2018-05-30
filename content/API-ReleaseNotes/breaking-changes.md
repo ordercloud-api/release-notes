@@ -1,6 +1,6 @@
 ---
 Title: Breaking Changes Release Notes
-Category: Release Notes
+Category: API Release Notes
 Tags: Breaking Changes
 Slug: breaking-changes-release-notes
 Authors: Kate Reeher

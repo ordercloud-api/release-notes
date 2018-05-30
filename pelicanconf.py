@@ -21,10 +21,10 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 
-DISPLAY_PAGES_ON_MENU = True
-DISPLAY_LINKS_ON_MENU = False
-DISPLAY_SOCIAL_ON_MENU = False
-DISPLAY_CATEGORIES_ON_MENU = False
+#DISPLAY_PAGES_ON_MENU = True
+#DISPLAY_LINKS_ON_MENU = False
+#DISPLAY_SOCIAL_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = True
 
 LINKS = (
 	       ('OrderCloud.io', 'https://ordercloud.io'),
@@ -58,7 +58,9 @@ PLUGINS = {
           'pelican-bootstrapify',
           'neighbors',
           'representative_image',
-          'tag_cloud'
+          'tag_cloud',
+          'tipue_search',
+          'i18n_subsites'
           #'post-stats',
           #'yuicompressor' #enable after theming
 
@@ -69,16 +71,6 @@ PLUGINS = {
 DEFAULT_DATE = 'fs'
 
 TYPOGRIFY = True
-
-# filetime_from_git
-
-#GIT_HISTORY_FOLLOWS_RENAME = True
-
-#GIT_GENERATE_PERMALINK = True
-
-#GIT_SHA_METADATA = True
-
-#GIT_FILETIME_FROM_GIT = True
 
 SITEMAP = {
     'format': 'xml',
@@ -104,17 +96,26 @@ RELATIVE_URLS = True
 
 # themes
 
-THEME = "pelican-themes/foundation-default-colours"
+THEME = "pelican-themes/pelican-bootstrap3"
 
-GOOGLE_ANALYTICS = 'UA-82258138-2'
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+SHOW_ARTICLE_AUTHOR =  False
+SHOW_ARTICLE_CATEGORY = True
+SHOW_DATE_MODIFIED = True
+DISPLAY_TAGS_ON_SIDEBAR = False
+PYGMENTS_STYLE = 'monokai'
+#BOOTSTRAP_FLUID= True
+DISPLAY_CATEGORY_IN_BREADCRUMBS = True
+BOOTSTRAP_THEME = 'lumen'
+DISPLAY_ARCHIVE_ON_SIDEBAR = True
+BOOTSTRAP_NAVBAR_INVERSE = True
+#FAVICON = 
+DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')
 
-FOUNDATION_FRONT_PAGE_FULL_ARTICLES = True
-FOUNDATION_ALTERNATE_FONTS = True
-FOUNDATION_TAGS_IN_MOBILE_SIDEBAR = False
-FOUNDATION_NEW_ANALYTICS = True
-FOUNDATION_ANALYTICS_DOMAIN = GOOGLE_ANALYTICS
-FOUNDATION_FOOTER_TEXT = 'Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.'
-FOUNDATION_PYGMENT_THEME = 'monokai'
+GOOGLE_ANALYTICS_UNIVERSAL = 'UA-82258138-2'
+
+
+
 
 DEFAULT_PAGINATION = 5
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'

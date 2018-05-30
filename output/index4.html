@@ -1,638 +1,411 @@
-<!doctype html>
-<html class="no-js" lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<title>OrderCloud API Release Notes</title>
-		<meta name="description" content="">
-		<meta name="author" content="OrderCloud">
-
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/foundation.css" />
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/pygment/monokai.css" />
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/custom.css" />
-
-		<!-- GOOGLE WEB FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/alt-fonts.css" />
-
-		<script src="https://ordercloud-api.github.io/release-notes/theme/js/modernizr.js"></script>
-
-		<!-- Feeds -->
-		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-82258138-2', 'UA-82258138-2');
-  ga('send', 'pageview');
-</script>
-
-		<!-- mathjax config similar to math.stackexchange -->
-		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
-			jax: ["input/TeX", "output/HTML-CSS"],
-			tex2jax: {
-				inlineMath: [ ['$', '$'] ],
-				displayMath: [ ['$$', '$$']],
-				processEscapes: true,
-				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-			},
-			messageStyle: "none",
-			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-		});
-		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	</head>
-	<body>
-		<div class="off-canvas-wrap">
-			<div class="inner-wrap">
-				<!-- mobile top bar to activate nav -->
-				<nav class="tab-bar show-for-small">
-					<section class="left-small">
-						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-					</section>
-
-					<section class="middle tab-bar-section">
-						<h1 class="title">OrderCloud&nbsp;API&nbsp;Release&nbsp;Notes</h1>
-					</section>
-				</nav>
-
-				<!-- mobile side bar nav -->
-				<aside class="left-off-canvas-menu">
-					<ul class="off-canvas-list">
-						<li><a href="https://ordercloud-api.github.io/release-notes">Home</a></li>
-						<li><label>Categories</label></li>
-							<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
-							<li ><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
-
-						<li><label>Links</label></li>
-							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-							<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-							<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2018/Jan/index.html">January 2018 (1)</a></li>
-									<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
-									<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
-									<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
-									<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
-									<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
-									<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
-									<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
-									<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
-									<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
-									<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
-									<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
-									<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
-									<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
-									<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
-									<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
-									<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
-									<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-									<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
-									<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
-									<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-									<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
 
-						<li><label>Social</label></li>
-							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
-							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
-					</ul>	
-				</aside>
+<link rel="canonical" href=".">
+        <meta name="author" content="OrderCloud" />
 
-				<!-- top bar nav -->
-				<nav class="top-bar hide-for-small-only" data-topbar>
-					<ul class="title-area">
-						<li class="name">
-							<h1><a href="https://ordercloud-api.github.io/release-notes/">OrderCloud API Release Notes</a></h1>
-						</li>
-					</ul>
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="OrderCloud API Release Notes"/>
+        <meta property="og:url" content="."/>
+        <meta property="og:description" content="OrderCloud API Release Notes"/>
 
-					<section class="top-bar-section">
-						<ul class="left">
-								<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
-								<li ><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
-						</ul>
-                        <ul class="right">                                                                                                                                           
-                                                                                                                                             
-                        </ul>  
-					</section>
-				</nav>
 
-				<!-- Main Page Content and Sidebar -->
-				<section class="main-section">
-					<div class="row">
-						<!-- Main Content -->
-						<div class="medium-9 small-12 columns" role="content">
 
-<article>
-	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.54-release-notes.html"><span class="caps">API</span> v1.0.54 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Fri 26 May 2017.</h6>
-	<p>Released to Production on Friday, May 26th, 2017 at 7:30pm <span class="caps">CST</span>.</p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Now when you <code>PATCH</code> the LineItem.UnitPrice, the LineItem Total will update as well!</li>
-<li>We’ve improved our error handling for invalid rules engine expressions, so you find out if it’s an invalid rule when you try to create it, not when you try to submit an order.</li>
-<li>Fixed a race condition where adding the same product to multiple categories sometimes resulted in a 409 error.</li>
-</ul>
-<h2>New Feature</h2>
-<ul>
-<li>We improved performance for admin category lists substantially.</li>
-<li>We now return a <code>Buyer</code> subobject on the me/user model</li>
-</ul>
-</article>
-<hr />
-<article>
-	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.53-release-notes.html"><span class="caps">API</span> v1.0.53 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Mon 15 May 2017.</h6>
-	<p>Released to Production on Monday, May 15th, 2017 at 7:30pm <span class="caps">CST</span>.</p>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Buyer Users with the <code>ShipmentAdmin</code> role can now properly create shipments.</li>
-<li>We now properly throw a 409 error if you try to delete an admin user who is being used as the <code>DefaultUserContextID</code> for an org.</li>
-<li>Listing me/Shipments performance should be noticeably improved on large lists.</li>
-<li>Initial emails for Approvals message senders were not being sent.</li>
-</ul>
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="./theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+        <link href="./theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="./category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="./category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="./category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="./1.0.65-release-notes.html"><span class="caps">API</span> v1.0.65 Release&nbsp;Notes</a></h2>
+                <div class="summary"><blockquote>
+<p>Released to Production on Tuesday, November 21st, 2017</p>
+</blockquote>
 <h2>New Features</h2>
 <ul>
-<li>Developers who use the <span class="caps">OIDC</span> flow for authentication will now be able to dynamically route their users to specific parts of their app after authentication. To do so, add <code>appstartpath=&lt;extrapath&gt;</code> to the query on ocrplogin.<ul>
-<li>Example: <code>https://nodomain.com/myapp{2}?token={0}&amp;idt={1}</code></li>
-<li>The {2} can go anywhere in the appstart url.</li>
+<li>The <a href="https://documentation.ordercloud.io/api-reference#MeCategories">Me endpoint for categories</a> now has an optional <code>ProductID</code> filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the <code>CategoryReader</code> role to accomplish this.   </li>
 </ul>
-</li>
-</ul>
-</article>
-<hr />
-<article>
-	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.52-release-notes.html"><span class="caps">API</span> v1.0.52 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Wed 10 May 2017.</h6>
-	<p>Released to Production on Wednesday May 10th, 2017 at 7:00pm <span class="caps">CST</span>.</p>
-<h2>New Features</h2>
-<ul>
-<li>Improved performance for seller-side <code>/orders</code> lists</li>
-</ul>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Now, a buyer user with <code>CatalogAdmin</code> should be able to:<ul>
-<li>Patch any catalog assigned to their buyer</li>
-<li>Update any catalog assigned to their buyer</li>
-<li>SaveProductAssignments for any catalog assigned to their buyer</li>
-<li>ListProductAssignments for any catalog assigned to their buyer</li>
-<li>DeleteProductAssignments for any catalog assigned to their buyer</li>
-</ul>
-</li>
-<li>A buyer user with <code>CatalogAdmin</code> should not have the ability to:<ul>
-<li>Assign catalogs to other buyers</li>
-<li>List catalog assignments of other buyers</li>
-<li>Delete catalog assignments (even those for their own buyer)</li>
-<li>Delete catalogs (even those assigned to their buyer)</li>
-</ul>
-</li>
-<li>Removed invalid parameters previously documented on list endpoints</li>
-</ul>
-</article>
-<hr />
-<article>
-	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.51-release-notes.html"><span class="caps">API</span> v1.0.51 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Sun 07 May 2017.</h6>
-	<p>Released to Prod on Sunday, May 7th, 2017.</p>
-<h2>New Features</h2>
-<ul>
-<li>Improved performance for <code>me/categories</code> and <code>me/product</code> lists.</li>
-<li>We’ve added some more debug information to OpenConnectID errors.</li>
-</ul>
-<h2>Bug Fixes</h2>
-<ul>
-<li>Previously, we required <code>CatalogAdmin</code> and <code>ProductAdmin</code> to list Catalog and Product assignments, respectively. This is now changed to be consistant with other assignment listing role checks so that the user only needs <code>CatalogReader</code> / <code>ProductReader</code>.</li>
-<li>Now, if you patch a line item unit price with either <code>null</code> or an empty string, the price will be recalculated.</li>
-<li>No more 500 error when you try to delete a category with children.</li>
-<li>Generating variant IDs for Spec Option IDs that have blank spaces in their values will no longer result in IDs with spaces. Now all spaces are translated as -.</li>
-<li>Trying to patch <code>ShipWeight</code>/<code>Height</code>/<code>Width</code>/<code>Length</code> with a string no longer throws an error.</li>
-<li>Trying to patch a spec option with an invalid <span class="caps">ID</span> returns a 404 now.</li>
-</ul>
-</article>
-<hr />
-<article>
-	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.50-release-notes.html"><span class="caps">API</span> v1.0.50 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">Release Notes</a> on Thu 04 May 2017. Tags: <a href="https://ordercloud-api.github.io/release-notes/tag/breaking-changes.html">Breaking Changes</a>, </h6>
-	<p>A public staging environment will be available starting on Sunday, April 2nd. The 1.0.50 version will be released to Production on May 4th at 8:00 <span class="caps">PM</span> Central.</p>
-<p>You can access the staging environment using your production data and the following:</p>
-<p>api: <code>https://stagingapi.ordercloud.io</code></p>
-<p>auth: <code>https://stagingauth.ordercloud.io</code></p>
-<p>devcenter: <a href="https://staging-account.ordercloud.io">https://staging-account.ordercloud.io</a></p>
-<p>Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production <span class="caps">ASAP</span>. On the production release, no staging data will be transfered to production.</p>
-<p>This was released to Production on May 4th at 8:00 <span class="caps">PM</span> Central. </p>
-<h2>New Features</h2>
-<ul>
-<li>Payments have a new boolean field, <code>Accepted</code>. <code>PUT</code> has been removed from Payments, and <code>PATCH</code> can never edit <code>Type</code>, <code>CreditCardID</code>, and <code>SpendingAccountID</code>.<ul>
-<li>Only users with OrderAdmin or FullAccess roles will be able to create or update the <code>Accepted</code> property.</li>
-<li>If the <code>Accepted</code> property is true <span class="caps">AND</span> the order has been submited, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess can.</li>
-<li>If the <code>Accepted</code> property is true <span class="caps">AND</span> the payment type is a credit card, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess can.</li>
-<li>If the <code>Accepted</code> property is true, the order has not been submitted, and the payment type is not a credit card, either a Shopper or OrderAdmin <span class="caps">CAN</span> patch the payment.</li>
-<li>If <code>Accepted</code> is false, any user with either role can patch all other fields except the 3 listed above.</li>
-</ul>
-</li>
-<li>As part of the data conversion for existing payments, <code>Accepted</code> will be set to true for the following:<ul>
-<li>All non-credit card payments (spending accounts, POs)</li>
-<li>All orders that were ever submitted (open, completed, seller-canceled)</li>
-<li>All payments containing a successful PaymentTransaction</li>
-</ul>
-</li>
-<li><code>PUT</code> has been removed from payments. <code>PATCH</code> is allowed, but only to patch the <code>Accepted</code> property, and only if the user has <code>OrderAdmin</code> or <code>FullAccess</code>.</li>
-<li>Order submit logic will validate Payment.Accepted=true and an error will be thrown if an order with an unaccepted payment is submitted.</li>
-<li>Previously, any admin user could impersonate any buyer user. Going forward, an admin user must have the <code>BuyerImpersonation</code> role in their security profile to impersonate buyer users and request the role when impersonating a user.</li>
-<li>Due to refactoring around our password hash algorithm, and since we do not store users’ passwords ourselves, but simply a hash of the password, <strong>users will need to reset their passwords before they can log into the OrderCloud DevCenter or any OrderCloud apps</strong>. When you authenticate to the Ordercloud <span class="caps">API</span> initially after this release, the only role your user will have is the <code>PasswordReset</code> role, and after you’ve reset your password, you’ll need to re-authenticate to get your full array of roles. <ul>
-<li>If you provide an application to users, we recommend have the application redirect any user who authenticates and only has the <code>PasswordReset</code> role to be redirected to a different view, where their password can be reset using the new <code>/me/password</code> endpoint.</li>
-<li>Alternately, any user can trigger an email-based password reset, using the <a href="https://staging-documentation.herokuapp.com/api-reference#PasswordResets">Forgotten Password</a> endpoint. </li>
-</ul>
-</li>
-<li>Due to the aforementioned password changes, DevCenter users will need to reset their DevCenter passwords by going to the “Forgot Password” link in DevCenter. Users will need to do this in the Staging Environment <em>and</em> in Prod after the production release. </li>
-<li>Added roles that control who can list or edit shipments. Now users with <code>ShipmentAdmin</code> <em>or</em> <code>OrderAdmin</code> can create or edit shipments. Users with <code>ShipmentReader</code> or <code>OrderReader</code> can get/list shipments.</li>
-<li>Seller-side product lists (<code>v1/products</code>) can now be filtered on <code>CatalogID</code> and <code>CategoryID</code> (<code>CategoryID</code> is unique only within a Catalog, so you must specify both in order to filter on Category.)</li>
-<li>Buyer-side product lists (<code>v1/me/products</code>) that specify <code>CategoryID</code> can also specify <code>depth</code>, which can be an integer 1 or greater (<code>depth=1</code> means products directly assigned to category) or <code>all</code>. Default is <code>all</code>. </li>
-<li>An order that requires approval can now be sent back to the submitting user by the approver user for editing and re-submission. See <a href="https://staging-documentation.herokuapp.com/api-reference#Orders_Decline">Decline Orders</a> for more details. </li>
-<li>We are changing the route to register an anonymous user (previously called “Create From Temp User”) to <code>PUT</code> <code>v1/me/register</code>. This will help make our Swagger spec more flexible.</li>
-<li>Any buyer user can now list shipments for their own orders in a User Perspective route, <code>me/shipments</code>. No more need for elevated permissions!</li>
-<li>In order to encourage best practices, only group-level and buyer-level assignments will be allowed for the following resources:<ul>
-<li>Products</li>
-<li>Categories</li>
-<li>Promotions</li>
-<li>Cost Centers</li>
-<li>Message Config</li>
-</ul>
-</li>
-</ul>
-<p><strong>If there are existing user-level assignments for any of the above, you must convert them to group- or buyer-level before the production release date</strong>.</p>
-<ul>
-<li><code>OrderApproval</code> now contains nested <code>Approver</code> object containing all details of the approving user. Example:</li>
-</ul>
-<div class="highlight"><pre><span></span>{
-    "ApprovalRuleID": "...",
-    "ApprovingGroupID": "...",
-    "Status": "Pending",
-    "DateCreated": "...",
-    "DateCompleted": "...",
-    "Approver":
+<p><em>Request:</em></p>
+<div class="highlight"><pre><span></span>GET https://api.ordercloud.io/v1/me/categories?ProductID=SuperAwesomeProduct
+</pre></div>
+<p><em>Response:</em></p>
+<div class="highlight"><pre><span></span>Status Code = 200
+
+{
+  "Meta": {
+    "Page": 1,
+    "PageSize": 20,
+    "TotalCount": 25,
+    "TotalPages": 2,
+    "ItemRange": [
+      1,
+      20
+    ]
+  },
+  "Items": [
     {
-        "ID": "...",
-        "FirstName": "...",
-        "LastName": "...",
-        "UserName": "...",
-        "Email": "...",
-        "Active": "...",
-        "xp" : { ... }
-    },
-    "Comments": "..."
+      "ID": "SuperAwesomeCategory",
+      "Name": "I Contain the SuperAwesomeProduct",
+      "Description": "",
+      "ListOrder": 1,
+      "Active": true,
+      "ParentID": "",
+      "ChildCount": 0,
+      "xp": {}
+    }
+  ]
 }
 </pre></div>
 <ul>
-<li>We have also moved approval comments out of the <span class="caps">URL</span> query string and into the request body. There is a maximum length of 2000 characters.</li>
-<li>We have added new roles around the administration of Admin Addresses: <code>AdminAddressReader</code> and <code>AdminAddressAdmin</code>.</li>
-</ul>
-<h3>Inventory Revamp</h3>
-<ul>
-<li>Inventory-related data points on <code>Product</code> are being moved into a nested <code>Inventory</code> object.</li>
-</ul>
-<h4>Summary of Inventory Object Changes:</h4>
-<table class="table table-hover table-striped">
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Product.InventoryEnabled</td>
-<td>Product.Inventory.Enabled</td>
-</tr>
-<tr>
-<td>Product.InventoryNotificationPoint</td>
-<td>Product.Inventory.NotificationPoint</td>
-</tr>
-<tr>
-<td>Product.VarientLevelInventory</td>
-<td>Product.Inventory.VariantLevelTracking</td>
-</tr>
-<tr>
-<td>Product.AllowOrderExceedInventory</td>
-<td>Product.Inventory.OrderCanExceed</td>
-</tr>
-<tr>
-<td>Product.InventoryVisible</td>
-<td><em>removed</em></td>
-</tr>
-<tr>
-<td><code>/products/:id/inventory</code> resource</td>
-<td><em>removed</em></td>
-</tr>
-<tr>
-<td>Inventory.Available</td>
-<td>Product.Inventory.QuantityAvailable</td>
-</tr>
-<tr>
-<td>Inventory.LastUpdated</td>
-<td>Product.Inventory.LastUpdated</td>
-</tr>
-<tr>
-<td>Inventory.<span class="caps">ID</span></td>
-<td><em>removed</em></td>
-</tr>
-<tr>
-<td>Inventory.Name</td>
-<td><em>removed</em></td>
-</tr>
-<tr>
-<td>Inventory.Reserved</td>
-<td><em>removed</em></td>
-</tr>
-<tr>
-<td><code>/products/:id/inventory</code></td>
-<td><em>removed</em></td>
-</tr>
-</tbody>
-</table>
-<h4>Summary of Inventory Behavioral Changes:</h4>
-<ul>
-<li><code>Product.Inventory.QuantityAvailable</code> is writable.</li>
-<li><code>PATCH v1/products/:id { "Inventory": { "QuantityAvailable": 999 } }</code> is the preferred way to manually set inventory.</li>
-<li><code>QuantityAvailable</code> is deducted on order submit or final order approval (whichever point order status changes to <code>Open</code>).</li>
-<li><code>QuantityAvailable</code> is adjusted when quantity changes are made to line items on <code>Open</code> orders.</li>
-<li><code>QuantityAvailable</code> is validated, but not adjusted, when items are added or quantities change on <code>Unsubmitted</code> orders. A 400 error occurs if item quantity exceeds available inventory and <code>Product.Inventory.OrderCanExceed</code> is false.</li>
-<li><code>QuantityAvailable</code> is always re-validated per the rules above on order submit.</li>
-</ul>
-<h3>Shipment Changes</h3>
-<ul>
-<li>The nested <code>Shipment.Items</code> collection has been removed, and shipment items are instead retrieved or saved via new endpoints, much like line items. </li>
-<li>To compensate for the above, there is a new <code>me/shipmentitems</code> endpoint.</li>
-<li><code>BuyerID</code> has been removed from routes, meaning you can list shipments across multiple buyers. </li>
-<li>Shipment IDs are now seller-unique.</li>
-<li>All new fields listed below derive their values from corresponding LineItems, helping to avoid additional lookups when working with shipments.</li>
-</ul>
-<table class="table table-hover table-striped">
-<thead>
-<tr>
-<th>New Shipment Field</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Shipment.Account</td>
-<td>writeable</td>
-</tr>
-<tr>
-<td>Shipment.FromAddressID</td>
-<td>writeable</td>
-</tr>
-<tr>
-<td>Shipment.ToAddressID</td>
-<td>writeable</td>
-</tr>
-<tr>
-<td>Shipment.FromAddress</td>
-<td>nested object, read-only</td>
-</tr>
-<tr>
-<td>Shipment.ToAddress</td>
-<td>nested object, read-only</td>
-</tr>
-<tr>
-<td>ShipmentItem.UnitPrice</td>
-<td>read-only</td>
-</tr>
-<tr>
-<td>ShipmentItem.CostCenter</td>
-<td>read-only</td>
-</tr>
-<tr>
-<td>ShipmentItem.DateNeeded</td>
-<td>nested object, read-only</td>
-</tr>
-<tr>
-<td>ShipmentItem.Product</td>
-<td>nested object, read-only</td>
-</tr>
-<tr>
-<td>ShipmentItem.Specs</td>
-<td>nested collection, read-only</td>
-</tr>
-<tr>
-<td>ShipmentItem.xp</td>
-<td>read-only</td>
-</tr>
-</tbody>
-</table>
-<table class="table table-hover table-striped">
-<thead>
-<tr>
-<th>Old Endpoint</th>
-<th>New Endpoint</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GET v1/:BuyerID/shipments</code></td>
-<td><code>GET v1/shipments</code></td>
-</tr>
-<tr>
-<td><code>GET v1/:BuyerID/shipments/:id</code></td>
-<td><code>GET v1/shipments/:id</code></td>
-</tr>
-<tr>
-<td>N/A</td>
-<td><code>GET v1/shipments/:id/items</code></td>
-</tr>
-<tr>
-<td>N/A</td>
-<td><code>GET v1/shipments/:id/items/:orderID/:lineItemID</code></td>
-</tr>
-<tr>
-<td>N/A</td>
-<td><code>POST v1/shipments/:id/items</code></td>
-</tr>
-<tr>
-<td>N/A</td>
-<td><code>PATCH v1/shipments/:id/items/:orderID/:lineItemID</code></td>
-</tr>
-</tbody>
-</table>
-<h3>Simplified Product and Category Assignments</h3>
-<table class="table table-hover table-striped">
-<thead>
-<tr>
-<th>New Properties</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Catalog.Active</td>
-<td></td>
-</tr>
-<tr>
-<td>CatalogAssignment.ViewAllCategories</td>
-<td></td>
-</tr>
-<tr>
-<td>CatalogAssignment.ViewAllProducts</td>
-<td></td>
-</tr>
-<tr>
-<td>CategoryAssignment.Visible</td>
-<td>Nullable, inherited from parent or catalog</td>
-</tr>
-<tr>
-<td>CategoryAssignment.ViewAllProducts</td>
-<td>Nullable, inherited from parent or catalog</td>
-</tr>
-<tr>
-<td>Product.DefaultPriceScheduleId</td>
-<td>Optional, but encouraged.</td>
-</tr>
-</tbody>
-</table>
-<ul>
 <li>
-<p>For a Buyer User to see a Product in the User Perspective (<code>GET v1/me/products</code>), <em>all</em> of the following must be true:</p>
+<p>We also added a …</p></li></ul>
+                    <a class="btn btn-default btn-xs" href="./1.0.65-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./1.0.64-release-notes.html"><span class="caps">API</span> v1.0.64 Release&nbsp;Notes</a></h2>
+                <div class="summary"><p><em>Released to Production on Monday, October 30th, 2017</em></p>
+<h2>New Features</h2>
 <ul>
-<li><code>Product.Active</code> is <code>true</code></li>
-<li>Product belongs to a Catalog where <code>Catalog.Active</code> is <code>true</code></li>
-<li>Buyer is assigned to this Catalog</li>
+<li>We now allow <code>lineitems</code> of <em>unsubmitted</em> <code>Orders</code> to be added to a <code>Shipment</code>. This does not apply to the <a href="http://qa-documentation.ordercloud.io/api-reference#Orders_Ship"><code>ship all</code> endpoint</a>.</li>
+<li>There is a new endpoint that allows a <code>buyer user</code> to be transfered from one buyer to another, within the same organization. Please check out the <a href="http://qa-documentation.ordercloud.io/api-reference#Users_Move">documentation</a> for further details.</li>
+<li>please note, this should only be attempted by an <code>admin user</code> in a seller application. If a buyer user, even one with <code>Full Access</code>, tries this, it will not work as expected. </li>
 </ul>
-</li>
-<li>
-<p>In addition, <em>one</em> of the following must be true:</p>
+                    <a class="btn btn-default btn-xs" href="./1.0.64-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./1.0.63-release-notes.html"><span class="caps">API</span> v1.0.63 Release&nbsp;Notes</a></h2>
+                <div class="summary"><p><em>Released to Production on Wednesday, October 18th, 2017</em></p>
+<h2>Bugs</h2>
 <ul>
-<li>In Buyer assignment to Catalog, <code>CatalogAssignment.ViewAllProducts</code> is <code>true</code>, <strong><span class="caps">OR</span></strong></li>
-<li>Product belongs to active Category in the catalog, Category is assigned to Buyer (or any Group the user is in), and <code>CategoryAssignment.ViewAllProducts</code> is <code>true</code>, <strong><span class="caps">OR</span></strong></li>
-<li>Product is assigned directly to Buyer (or any Group the user is in).</li>
+<li>Payments: Payment with Type <code>SpendingAccount</code> must have <code>SpendingAccountID</code></li>
+<li>Unable to use <code>PUT</code> to create new <code>UserGroup</code></li>
+<li>Orders: <code>order.Total</code> not updated when <code>ShippingCost</code> is updated via <code>PATCH</code></li>
 </ul>
-</li>
+<h2>New Features</h2>
+<ul>
+<li>Added transactional email support for guest checkout (<a href="http://qa-documentation.ordercloud.io/api-reference#Orders_PatchFromUser">documentation</a>)</li>
 </ul>
-<p>We recommend checking out the [Catalog Visibility Guide]</p>
-</article>
-<hr />
+<div class="highlight"><pre><span></span>`PATCH` `v1/orders/{direction}/{orderID}/fromuser`
+{"FirstName": "", "LastName": "", "Email": ""}
+</pre></div>
+<ul>
+<li>Products: Allow negation of all filters on admin Product List (<code>catalogID</code>, <code>categoryID</code>, <code>supplierID</code>)</li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="./1.0.63-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./1.0.62-release-notes.html"><span class="caps">API</span> v1.0.62 Release&nbsp;Notes</a></h2>
+                <div class="summary"><p><em>Released to Production on Thursday, September 28th, 2017</em></p>
+<h2>New Features</h2>
+<ul>
+<li>Upgraded to latest <a href="">Flurl</a></li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="./1.0.62-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./1.0.61-release-notes.html"><span class="caps">API</span> v1.0.61 Release&nbsp;Notes</a></h2>
+                <div class="summary"><p><em>Released to Production on Thursday, September 7th, 2017</em></p>
+<h2>New Features</h2>
+<ul>
+<li>Several tweaks to improve <span class="caps">API</span> logging and Documentation generation.</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Previously, if you transfered an anon user’s order to a profiled user, the prices would not update to reflect the profiled user’s price assignments. This is now fixed.</li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="./1.0.61-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
 
-<div class="row" style="margin-bottom: -1.25em;">
-	<div class="small-12 columns text-center">
-		<div class="pagination-centered">
-			<ul class="pagination">
-				<li class="arrow"><a href="https://ordercloud-api.github.io/release-notes/index3.html">&larr; Previous</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index.html">1</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index2.html">2</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index3.html">3</a></li>
-				<li class="current"><a href="https://ordercloud-api.github.io/release-notes/index4.html">4</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index5.html">5</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index6.html">6</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index7.html">7</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index8.html">8</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index9.html">9</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index10.html">10</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index11.html">11</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index12.html">12</a></li>
-				<li class=""><a href="https://ordercloud-api.github.io/release-notes/index13.html">13</a></li>
-				<li class="arrow"><a href="https://ordercloud-api.github.io/release-notes/index5.html">Next &rarr;</a></li>
-			</ul>
-		</div>
-	</div>
+        <ul class="pagination">
+                <li class="prev"><a href="./index3.html">&laquo;</a>
+                </li>
+                    <li class=""><a
+                            href="./index.html">1</a></li>
+                    <li class=""><a
+                            href="./index2.html">2</a></li>
+                    <li class=""><a
+                            href="./index3.html">3</a></li>
+                    <li class="active"><a
+                            href="./index4.html">4</a></li>
+                    <li class=""><a
+                            href="./index5.html">5</a></li>
+                    <li class=""><a
+                            href="./index6.html">6</a></li>
+                    <li class=""><a
+                            href="./index7.html">7</a></li>
+                    <li class=""><a
+                            href="./index8.html">8</a></li>
+                    <li class=""><a
+                            href="./index9.html">9</a></li>
+                    <li class=""><a
+                            href="./index10.html">10</a></li>
+                    <li class=""><a
+                            href="./index11.html">11</a></li>
+                    <li class=""><a
+                            href="./index12.html">12</a></li>
+                    <li class=""><a
+                            href="./index13.html">13</a></li>
+                    <li class=""><a
+                            href="./index14.html">14</a></li>
+                    <li class=""><a
+                            href="./index15.html">15</a></li>
+                <li class="next"><a
+                        href="./index5.html">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/ordercloudapi"><i class="fa fa-ordercloud.io-twitter-square fa-lg"></i> OrderCloud.io Twitter</a></li>
+    <li class="list-group-item"><a href="localhost:8000/release-notes/feeds/all.atom.xml"><i class="fa fa-full-site-rss-square fa-lg"></i> Full Site RSS</a></li>
+    <li class="list-group-item"><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml"><i class="fa fa-release-notes-rss-square fa-lg"></i> Release Notes RSS</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+
+<!-- Sidebar/Archive -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Archive</span></h4>
+  <ul class="list-group" id="archive">
+        <li class="list-group-item">
+          <a href="./posts/2018/Apr/index.html"><i class="fa fa-calendar fa-lg"></i>April 2018 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2018/Mar/index.html"><i class="fa fa-calendar fa-lg"></i>March 2018 (4)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2018/Feb/index.html"><i class="fa fa-calendar fa-lg"></i>February 2018 (4)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2018/Jan/index.html"><i class="fa fa-calendar fa-lg"></i>January 2018 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Dec/index.html"><i class="fa fa-calendar fa-lg"></i>December 2017 (3)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Nov/index.html"><i class="fa fa-calendar fa-lg"></i>November 2017 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Oct/index.html"><i class="fa fa-calendar fa-lg"></i>October 2017 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Sep/index.html"><i class="fa fa-calendar fa-lg"></i>September 2017 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Jul/index.html"><i class="fa fa-calendar fa-lg"></i>July 2017 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Jun/index.html"><i class="fa fa-calendar fa-lg"></i>June 2017 (4)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/May/index.html"><i class="fa fa-calendar fa-lg"></i>May 2017 (6)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Apr/index.html"><i class="fa fa-calendar fa-lg"></i>April 2017 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Mar/index.html"><i class="fa fa-calendar fa-lg"></i>March 2017 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Feb/index.html"><i class="fa fa-calendar fa-lg"></i>February 2017 (3)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2017/Jan/index.html"><i class="fa fa-calendar fa-lg"></i>January 2017 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Dec/index.html"><i class="fa fa-calendar fa-lg"></i>December 2016 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Nov/index.html"><i class="fa fa-calendar fa-lg"></i>November 2016 (3)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Oct/index.html"><i class="fa fa-calendar fa-lg"></i>October 2016 (3)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Sep/index.html"><i class="fa fa-calendar fa-lg"></i>September 2016 (3)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Aug/index.html"><i class="fa fa-calendar fa-lg"></i>August 2016 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Jul/index.html"><i class="fa fa-calendar fa-lg"></i>July 2016 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Jun/index.html"><i class="fa fa-calendar fa-lg"></i>June 2016 (3)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/May/index.html"><i class="fa fa-calendar fa-lg"></i>May 2016 (5)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Apr/index.html"><i class="fa fa-calendar fa-lg"></i>April 2016 (5)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./posts/2016/Mar/index.html"><i class="fa fa-calendar fa-lg"></i>March 2016 (3)
+          </a>
+        </li>
+  </ul>
+</li>
+<!-- End Sidebar/Archive -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
 </div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
 
-						</div>
-						<!-- End Main Content -->
-						<!-- Sidebar -->
-						<aside class="medium-3 hide-for-small-only columns">
-							<div class="panel">
-								<h5>Links</h5>
-								<ul class="side-nav">
-									<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-									<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-									<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
-								</ul>
-							</div>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
 
-							<div class="panel">
-								<h5>Tags</h5>
-								<ul class="tag-cloud">
-									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
-									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
-									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
-									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-								</ul>
-							</div>
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
 
-							<div class="panel">
-								<h5>Monthly Archives</h5>
-								<ul class="side-nav">
-											<li><a href="/posts/2018/Jan/index.html">January 2018 (1)</a></li>
-											<li><a href="/posts/2017/Dec/index.html">December 2017 (3)</a></li>
-											<li><a href="/posts/2017/Nov/index.html">November 2017 (1)</a></li>
-											<li><a href="/posts/2017/Oct/index.html">October 2017 (2)</a></li>
-											<li><a href="/posts/2017/Sep/index.html">September 2017 (2)</a></li>
-											<li><a href="/posts/2017/Jul/index.html">July 2017 (2)</a></li>
-											<li><a href="/posts/2017/Jun/index.html">June 2017 (4)</a></li>
-											<li><a href="/posts/2017/May/index.html">May 2017 (6)</a></li>
-											<li><a href="/posts/2017/Apr/index.html">April 2017 (2)</a></li>
-											<li><a href="/posts/2017/Mar/index.html">March 2017 (2)</a></li>
-											<li><a href="/posts/2017/Feb/index.html">February 2017 (3)</a></li>
-											<li><a href="/posts/2017/Jan/index.html">January 2017 (2)</a></li>
-											<li><a href="/posts/2016/Dec/index.html">December 2016 (2)</a></li>
-											<li><a href="/posts/2016/Nov/index.html">November 2016 (3)</a></li>
-											<li><a href="/posts/2016/Oct/index.html">October 2016 (3)</a></li>
-											<li><a href="/posts/2016/Sep/index.html">September 2016 (3)</a></li>
-											<li><a href="/posts/2016/Aug/index.html">August 2016 (2)</a></li>
-											<li><a href="/posts/2016/Jul/index.html">July 2016 (2)</a></li>
-											<li><a href="/posts/2016/Jun/index.html">June 2016 (3)</a></li>
-											<li><a href="/posts/2016/May/index.html">May 2016 (5)</a></li>
-											<li><a href="/posts/2016/Apr/index.html">April 2016 (5)</a></li>
-											<li><a href="/posts/2016/Mar/index.html">March 2016 (3)</a></li>
-								</ul>
-							</div>
 
-							<div class="panel">
-								<h5>Social</h5>
-								<ul class="side-nav">
-									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
-									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
-								</ul>
-							</div>
-						</aside>
-						<!-- End Sidebar -->
-					</div>
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-					<!-- Footer -->
-					<footer class="row">
-						<div class="medium-9 small-12">
-							<hr/>
-							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
-						</div>
-					</footer>
-					<!-- End Footer -->
-				</section>
-				<a class="exit-off-canvas"></a>
-			</div><!--off-canvas inner-->
-		</div><!--off-canvas wrap-->
+        ga('create', 'UA-82258138-2', '');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
 
-		<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.js"></script>
-		<script src="https://ordercloud-api.github.io/release-notes/theme/js/foundation.min.js"></script>
-		<script>
-			$(document).foundation();
-		</script>
-	</body>
+
+</body>
 </html>

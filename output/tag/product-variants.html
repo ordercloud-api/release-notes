@@ -1,123 +1,88 @@
-<!doctype html>
-<html class="no-js" lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<title>OrderCloud API Release Notes</title>
-		<meta name="description" content="">
-		<meta name="author" content="OrderCloud">
-
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/foundation.css" />
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/pygment/monokai.css" />
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/custom.css" />
-
-		<!-- GOOGLE WEB FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/alt-fonts.css" />
-
-		<script src="https://ordercloud-api.github.io/release-notes/theme/js/modernizr.js"></script>
-
-		<!-- Feeds -->
-		<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="OrderCloud API Release Notes Atom Feed" />
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-82258138-2', 'UA-82258138-2');
-  ga('send', 'pageview');
-</script>
-
-		<!-- mathjax config similar to math.stackexchange -->
-		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
-			jax: ["input/TeX", "output/HTML-CSS"],
-			tex2jax: {
-				inlineMath: [ ['$', '$'] ],
-				displayMath: [ ['$$', '$$']],
-				processEscapes: true,
-				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-			},
-			messageStyle: "none",
-			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-		});
-		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	</head>
-	<body>
-		<div class="off-canvas-wrap">
-			<div class="inner-wrap">
-				<!-- mobile top bar to activate nav -->
-				<nav class="tab-bar show-for-small">
-					<section class="left-small">
-						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-					</section>
-
-					<section class="middle tab-bar-section">
-						<h1 class="title">OrderCloud&nbsp;API&nbsp;Release&nbsp;Notes</h1>
-					</section>
-				</nav>
-
-				<!-- mobile side bar nav -->
-				<aside class="left-off-canvas-menu">
-					<ul class="off-canvas-list">
-						<li><a href="https://ordercloud-api.github.io/release-notes">Home</a></li>
-						<li><label>Categories</label></li>
-							<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
-							<li ><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
-
-						<li><label>Links</label></li>
-							<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-							<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-							<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Product Variants - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2016/Mar/index.html">March 2016 (1)</a></li>
 
-						<li><label>Social</label></li>
-							<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
-							<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-							<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
-					</ul>	
-				</aside>
 
-				<!-- top bar nav -->
-				<nav class="top-bar hide-for-small-only" data-topbar>
-					<ul class="title-area">
-						<li class="name">
-							<h1><a href="https://ordercloud-api.github.io/release-notes/">OrderCloud API Release Notes</a></h1>
-						</li>
-					</ul>
+    <meta name="author" content="OrderCloud" />
+    <meta name="keywords" content="Product Variants" />
 
-					<section class="top-bar-section">
-						<ul class="left">
-								<li ><a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog Posts</a></li>
-								<li ><a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a></li>
-						</ul>
-                        <ul class="right">                                                                                                                                           
-                                                                                                                                             
-                        </ul>  
-					</section>
-				</nav>
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="OrderCloud API Release Notes"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="OrderCloud API Release Notes"/>
 
-				<!-- Main Page Content and Sidebar -->
-				<section class="main-section">
-					<div class="row">
-						<!-- Main Content -->
-						<div class="medium-9 small-12 columns" role="content">
-							<div class="row">
-								<div class="small-12 columns">
-									<h2>Posts Tagged With 'Product Variants'</h2>
-								</div>
-							</div>
 
-<article>
-	<h3><a href="https://ordercloud-api.github.io/release-notes/1.0.12.0-release-notes.html"><span class="caps">API</span> v1.0.12.0 Release&nbsp;Notes</a></h3>
-	<h6>Written by <a href="https://ordercloud-api.github.io/release-notes/author/kate-reeher.html">Kate Reeher</a> in <a href="https://ordercloud-api.github.io/release-notes/category/release-notes.html">release-notes</a> on Thu 03 March 2016. Tags: <a href="https://ordercloud-api.github.io/release-notes/tag/payment-types.html">Payment Types</a>, <a href="https://ordercloud-api.github.io/release-notes/tag/product-variants.html">Product Variants</a>, </h6>
-	<p>Released to Prod on Thursday, March 3rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="../theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+        <link href="../theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="../category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="../category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="../category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../1.0.12.0-release-notes.html"><span class="caps">API</span> v1.0.12.0 Release&nbsp;Notes</a></h2>
+                <div class="summary"><p>Released to Prod on Thursday, March 3rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>
 <h2>New Features:</h2>
 <ul>
 <li><strong>Payment Types</strong> allow using multiple payment types on a single order</li>
@@ -138,117 +103,97 @@ an explicit call to
 Specs 
 <em>size small, large</em>
 <em>color red, black</em></p>
-<p>spec - product = size/shirt/definesvariant = true
-spec - product = color/shirt/definesvariant = true</p>
-<p>a call to <span class="caps">POST</span>
-<code>{productID}/variants/generate</code>
-will generate 4 variants
-- small red
-- small black
-- large red
-- large black</p>
-<p>Adding specs is pretty simple
-add color:blue
-and a call to 
-<code>POST {productID}/variants/generate</code>
-will <span class="caps">ADD</span> the missing variants 
-1   small blue
-2   large blue</p>
-<p>The tricky bit starts when a spec is removed. if color is deleted, all the varaints are not relevant because color is built into all of them. Delete color and add logo to our shirt. So that this is the config of shirt:
-    size: small,large
-    logo: logoA,logoB</p>
-<p>and a call to 
-<code>POST {productID}/variants/generate</code>
-will only <span class="caps">ADD</span> new variants and you’ll have 8. Even with the spec deleted, the dependant variant can still exist, it’s just not tied to the deleted spec. This is important if that variant is already on an order.
-- small logoA
-- small logoB
-- large logoA
-- large logoB
-- small red
-- small black
-- large red
-- large black</p>
-<p>if your intention is to start over and reset the variants, there is the spec nuclear option:</p>
-<p><code>POST {productID}/variants/generate?overwriteExisting=true</code></p>
-<p>This will <span class="caps">DELETE</span> <span class="caps">ALL</span> variants and regenerate them based on the current spec configurations. If a variant is on a lineitem, it will be removed. The previous example deletes color and adds logo. calling overwriteExisting=true will result in 
-- small logoA
-- small logoB
-- large logoA
-- large logoB</p>
-<p>The key to overwriteExisting=true is that it will always delete all variaints and regenerate regardless of the change to the spec configuration.</p>
-</article>
-<hr />
+<p>spec - product …</p>
+                    <a class="btn btn-default btn-xs" href="../1.0.12.0-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/ordercloudapi"><i class="fa fa-ordercloud.io-twitter-square fa-lg"></i> OrderCloud.io Twitter</a></li>
+    <li class="list-group-item"><a href="localhost:8000/release-notes/feeds/all.atom.xml"><i class="fa fa-full-site-rss-square fa-lg"></i> Full Site RSS</a></li>
+    <li class="list-group-item"><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml"><i class="fa fa-release-notes-rss-square fa-lg"></i> Release Notes RSS</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+
+<!-- Sidebar/Archive -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Archive</span></h4>
+  <ul class="list-group" id="archive">
+        <li class="list-group-item">
+          <a href="../posts/2016/Mar/index.html"><i class="fa fa-calendar fa-lg"></i>March 2016 (1)
+          </a>
+        </li>
+  </ul>
+</li>
+<!-- End Sidebar/Archive -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
 
 
-						</div>
-						<!-- End Main Content -->
-						<!-- Sidebar -->
-						<aside class="medium-3 hide-for-small-only columns">
-							<div class="panel">
-								<h5>Links</h5>
-								<ul class="side-nav">
-									<li><a href="https://ordercloud.io">OrderCloud.io</a></li>
-									<li><a href="https://documentation.ordercloud.io/">OrderCloud Documentation</a></li>
-									<li><a href="http://community.ordercloud.io/">OrderCloud.io Community Support Slack</a></li>
-								</ul>
-							</div>
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-							<div class="panel">
-								<h5>Tags</h5>
-								<ul class="tag-cloud">
-									<li><a href="/tag/product-variants.html" class="tag-4">Product Variants</a></li>
-									<li><a href="/tag/orders.html" class="tag-1">Orders</a></li>
-									<li><a href="/tag/rules-engine.html" class="tag-1">Rules Engine</a></li>
-									<li><a href="/tag/ordercloud-api.html" class="tag-4">OrderCloud API</a></li>
-									<li><a href="/tag/order-approvals.html" class="tag-4">Order Approvals</a></li>
-									<li><a href="/tag/promotion-rules.html" class="tag-4">Promotion Rules</a></li>
-									<li><a href="/tag/put.html" class="tag-4">PUT</a></li>
-									<li><a href="/tag/payment-types.html" class="tag-1">Payment Types</a></li>
-									<li><a href="/tag/development.html" class="tag-4">Development</a></li>
-									<li><a href="/tag/breaking-changes.html" class="tag-1">Breaking Changes</a></li>
-									<li><a href="/tag/xp.html" class="tag-1">XP</a></li>
-									<li><a href="/tag/patch.html" class="tag-4">PATCH</a></li>
-									<li><a href="/tag/approval-rules.html" class="tag-4">Approval Rules</a></li>
-									<li><a href="/tag/integrations.html" class="tag-4">Integrations</a></li>
-								</ul>
-							</div>
+        ga('create', 'UA-82258138-2', '');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
 
-							<div class="panel">
-								<h5>Monthly Archives</h5>
-								<ul class="side-nav">
-											<li><a href="/posts/2016/Mar/index.html">March 2016 (1)</a></li>
-								</ul>
-							</div>
 
-							<div class="panel">
-								<h5>Social</h5>
-								<ul class="side-nav">
-									<li><a href="localhost:8000/release-notes/feeds/all.atom.xml">Full Site RSS</a></li>
-									<li><a href="https://twitter.com/ordercloudapi">OrderCloud.io Twitter</a></li>
-									<li><a href="localhost:8000/release-notes/feeds/release-notes.atom.xml">Release Notes RSS</a></li>
-								</ul>
-							</div>
-						</aside>
-						<!-- End Sidebar -->
-					</div>
-
-					<!-- Footer -->
-					<footer class="row">
-						<div class="medium-9 small-12">
-							<hr/>
-							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
-						</div>
-					</footer>
-					<!-- End Footer -->
-				</section>
-				<a class="exit-off-canvas"></a>
-			</div><!--off-canvas inner-->
-		</div><!--off-canvas wrap-->
-
-		<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.js"></script>
-		<script src="https://ordercloud-api.github.io/release-notes/theme/js/foundation.min.js"></script>
-		<script>
-			$(document).foundation();
-		</script>
-	</body>
+</body>
 </html>
