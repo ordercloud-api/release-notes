@@ -109,6 +109,7 @@ DISPLAY_CATEGORY_IN_BREADCRUMBS = True
 BOOTSTRAP_THEME = 'lumen'
 DISPLAY_ARCHIVE_ON_SIDEBAR = True
 BOOTSTRAP_NAVBAR_INVERSE = True
+SEARCH_URL = 'search.html'
 #FAVICON = 
 DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')
 
