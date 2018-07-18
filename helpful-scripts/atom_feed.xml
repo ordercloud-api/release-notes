@@ -1,0 +1,159 @@
+<feed xmlns="">
+<title>OrderCloud API Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/" rel="alternate"/>
+<link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" rel="self"/>
+<id>https://ordercloud-api.github.io/release-notes/</id>
+<updated>2018-07-10T00:00:00-05:00</updated>
+<entry>
+<title>OrderCloud API v1.0.80 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.80.html" rel="alternate"/>
+<published>2018-07-10T00:00:00-05:00</published>
+<updated>2018-07-10T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-07-10:/release-notes/ordercloud-api-v1.0.80.html
+</id>
+<summary type="html">
+<p>Released to Production on July 18, 2018 at 8:00 <span class="caps">PM</span> <span class="caps">CST</span>.</p> <h2>Changelog</h2> <ul> <li>Infrastructure improvements</li> </ul>
+</summary>
+<content type="html">
+<p>Released to Production on July 18, 2018 at 8:00 <span class="caps">PM</span> <span class="caps">CST</span>.</p> <h2>Changelog</h2> <ul> <li>Infrastructure improvements</li> </ul>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+<entry>
+<title>OrderCloud API v1.0.79 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.79.html" rel="alternate"/>
+<published>2018-06-26T00:00:00-05:00</published>
+<updated>2018-06-26T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-06-26:/release-notes/ordercloud-api-v1.0.79.html
+</id>
+<summary type="html">
+<p>Release Scheduled for Tuesday, June 26th, 2018 at 7:<span class="caps">30PM</span> Central.</p> <p>Release contains a bug fix addressing an admin-visibility issue with buyer user private credit card objects. </p> <p>If a buyer user created a credit card that only they can access, and then used that card in a payment on an order, admin users were unable to update the payment at all. Instead, the <span class="caps">API</span> would respond with a 404 not found error, because the admin user did not have visibility into that private credit card. This is a particular problem as admin users are generally the ones to update a …</p>
+</summary>
+<content type="html">
+<p>Release Scheduled for Tuesday, June 26th, 2018 at 7:<span class="caps">30PM</span> Central.</p> <p>Release contains a bug fix addressing an admin-visibility issue with buyer user private credit card objects. </p> <p>If a buyer user created a credit card that only they can access, and then used that card in a payment on an order, admin users were unable to update the payment at all. Instead, the <span class="caps">API</span> would respond with a 404 not found error, because the admin user did not have visibility into that private credit card. This is a particular problem as admin users are generally the ones to update a payment’s <code>accepted</code> bool to true once a card payment clears. </p> <p>This is now fixed. While an admin user cannot get or otherwise retrieve the buyer user’s private card object, the admin user is now able to update the payment that references the private card. </p>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+<entry>
+<title>OrderCloud API v1.0.77 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.77.html" rel="alternate"/>
+<published>2018-05-31T00:00:00-05:00</published>
+<updated>2018-05-31T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-05-31:/release-notes/ordercloud-api-v1.0.77.html
+</id>
+<summary type="html">
+<blockquote> <p>Planned To Be Released To Prod at 7pm Central on May 31, 2018</p> </blockquote> <p>Release contains a fix around hash headers in Message Senders. No application using Message Senders should be affected.</p>
+</summary>
+<content type="html">
+<blockquote> <p>Planned To Be Released To Prod at 7pm Central on May 31, 2018</p> </blockquote> <p>Release contains a fix around hash headers in Message Senders. No application using Message Senders should be affected.</p>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+<entry>
+<title>OrderCloud API v1.0.76 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.76.html" rel="alternate"/>
+<published>2018-05-04T00:00:00-05:00</published>
+<updated>2018-05-04T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-05-04:/release-notes/ordercloud-api-v1.0.76.html
+</id>
+<summary type="html">
+<p>Release consisted of a performance improvement around Spec Assignment listing.</p>
+</summary>
+<content type="html">
+<p>Release consisted of a performance improvement around Spec Assignment listing.</p>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+<entry>
+<title>OrderCloud API v1.0.75 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.75.html" rel="alternate"/>
+<published>2018-04-30T00:00:00-05:00</published>
+<updated>2018-04-30T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-04-30:/release-notes/ordercloud-api-v1.0.75.html
+</id>
+<summary type="html">
+<blockquote> <p>Planned to be released to Production on Tuesday, May 1st, 2018 at 7:<span class="caps">30PM</span> Central.</p> </blockquote> <ul> <li>Fixed a very specific issue in Me Product listing. Previously, if you were getting a list of <span class="caps">ME</span> products with a <code>categoryID</code> <span class="caps">AND</span> <code>depth=1</code> <span class="caps">AND</span> an <code>xp</code> filter, it would throw an error. This is now fixed.</li> </ul>
+</summary>
+<content type="html">
+<blockquote> <p>Planned to be released to Production on Tuesday, May 1st, 2018 at 7:<span class="caps">30PM</span> Central.</p> </blockquote> <ul> <li>Fixed a very specific issue in Me Product listing. Previously, if you were getting a list of <span class="caps">ME</span> products with a <code>categoryID</code> <span class="caps">AND</span> <code>depth=1</code> <span class="caps">AND</span> an <code>xp</code> filter, it would throw an error. This is now fixed.</li> </ul>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+<entry>
+<title>OrderCloud API v1.0.74 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.74.html" rel="alternate"/>
+<published>2018-04-02T00:00:00-05:00</published>
+<updated>2018-04-02T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-04-02:/release-notes/ordercloud-api-v1.0.74.html
+</id>
+<summary type="html">
+<blockquote> <p>Released to Production on Monday, April 2nd, 2018 at 7:<span class="caps">30PM</span> Central.</p> </blockquote> <p>Release contains a bug fix for <code>me/categories</code>. Previously, a call to <code>me/categories</code> with a <code>CatalogID</code> and a <code>ProductID</code> would throw an error. This now works correctly.</p>
+</summary>
+<content type="html">
+<blockquote> <p>Released to Production on Monday, April 2nd, 2018 at 7:<span class="caps">30PM</span> Central.</p> </blockquote> <p>Release contains a bug fix for <code>me/categories</code>. Previously, a call to <code>me/categories</code> with a <code>CatalogID</code> and a <code>ProductID</code> would throw an error. This now works correctly.</p>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+<entry>
+<title>OrderCloud API v1.0.73 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.73.html" rel="alternate"/>
+<published>2018-03-21T00:00:00-05:00</published>
+<updated>2018-03-21T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-03-21:/release-notes/ordercloud-api-v1.0.73.html
+</id>
+<summary type="html">
+<blockquote> <p>Released to Production on Wednesday, March 21st, 2018 at 6:<span class="caps">00PM</span> Central.</p> </blockquote> <p>Release consisted of minor bug fixes and enhancements.</p>
+</summary>
+<content type="html">
+<blockquote> <p>Released to Production on Wednesday, March 21st, 2018 at 6:<span class="caps">00PM</span> Central.</p> </blockquote> <p>Release consisted of minor bug fixes and enhancements.</p>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+<entry>
+<title>OrderCloud API v1.0.72 Release Notes</title>
+<link href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.72.html" rel="alternate"/>
+<published>2018-03-14T00:00:00-05:00</published>
+<updated>2018-03-14T00:00:00-05:00</updated>
+<author>
+<name>Kate Reeher</name>
+</author>
+<id>
+tag:ordercloud-api.github.io,2018-03-14:/release-notes/ordercloud-api-v1.0.72.html
+</id>
+<summary type="html">
+<blockquote> <p>Released to Production on Monday, March 19th, 2018 at 7:<span class="caps">30PM</span> Central.</p> </blockquote> <h2>New Features</h2> <p>Previously, if you filtered a list by an xp, it only cared about items in that list that had that xp. This meant that negative filters, such as <code>xp.Color=!Blue</code>, for example, would only return other items <em>with</em> <code>xp.Color</code> but where <code>xp.Color</code> was not blue. If an item didn’t have <code>xp.Color</code> at all, it would not be returned in the filtered list.</p> <p>Now, xp filters don’t just look for the specified xp and filter down from there. Instead, a filter …</p>
+</summary>
+<content type="html">
+<blockquote> <p>Released to Production on Monday, March 19th, 2018 at 7:<span class="caps">30PM</span> Central.</p> </blockquote> <h2>New Features</h2> <p>Previously, if you filtered a list by an xp, it only cared about items in that list that had that xp. This meant that negative filters, such as <code>xp.Color=!Blue</code>, for example, would only return other items <em>with</em> <code>xp.Color</code> but where <code>xp.Color</code> was not blue. If an item didn’t have <code>xp.Color</code> at all, it would not be returned in the filtered list.</p> <p>Now, xp filters don’t just look for the specified xp and filter down from there. Instead, a filter of <code>xp.Color=!Blue</code> will return all items with <code>xp.Color</code> where the color isn’t blue, <em>but also</em> any items without <code>xp.Color</code> at all.</p>
+</content>
+<category term="OrderCloud API"/>
+</entry>
+</feed>

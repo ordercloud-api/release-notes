@@ -12,27 +12,22 @@ from datetime import datetime
 
 def get_json():
 
-	jsonLoc = 'Timeline-Massage.json'
+	#jsonLoc = 'Timeline-Massage.json'
+	jsonLoc = 'Timeline.json'
 
 
 	jsonFile = {}
-
+	versions = []
 	with open(jsonLoc, 'r') as f:
 
-		jsonFile = json.load(f)['Data']
+		jsonFile = json.load(f)
+		print(type(jsonFile))
+		versions=(jsonFile)
 
-	#print(jsonFile)
-	versions = []
 
-	for item in jsonFile:
-		if (item['Meta']['Version Number']) != 'breaking-changes':
-			versions.append((float(item['Meta']['Version Number'][5:]), datetime.strptime(item['Meta']['Released to Production'][:-4], '%Y-%m-%d %H:%M')))
-		
+	#versions = sorted(versions, key=itemgetter(1))
 
-	versions = sorted(versions, key=itemgetter(1))
-
-	#print(versions)
-	return (versions, jsonFile)
+	return (versions)
 
 
 
@@ -42,26 +37,34 @@ def fill_document(doc):
 	:param doc: the document
 	:type doc: :class:`pylatex.document.Document` instance
 	"""
-	versions = get_json()[0]
-	jsonFile = get_json()[1]
+	versions = get_json()
 
-	#print(versions)
+	print(type(versions))
 	#print(len(jsonFile))
+	print(versions.keys())
+
+	for item in versions.items():
+		print(item[1].keys())
+		with doc.create(Section(item[1]['title'], numbering=False, label=False)):
+			with doc.create(Paragraph(title= '', numbering=False, label=False)):
+				doc.append(item[1]['summary'])
+			with doc.create(Paragraph(title= '', numbering=False, label=False)):
+				doc.append(item[1]['changelog'])
 
 
-
+'''
 	for i in versions: # sorted by time rn
 		#print(i)
 		for item in jsonFile:
 			#print(item['Meta']['Version Number'])
-			if item['Meta']['Version Number'] == 'v1.0.'+str(i[0]):
+		#if item['Meta']['Version Number'] == 'v1.0.'+str(i[0]):
 				with doc.create(Section('Release '+item['Meta']['Version Number'], numbering=False, label=False)):
 					with doc.create(Paragraph(title= '', numbering=False, label=False)):
 						doc.append('Released to Production: ' + item['Meta']['Released to Production'])
 					with doc.create(Paragraph(title= '', numbering=False, label=False)):
 						doc.append(item['Meta']['Summary'])
 
-					
+'''					
 
 if __name__ == '__main__':
 

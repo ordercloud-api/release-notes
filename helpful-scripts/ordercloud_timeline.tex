@@ -12,205 +12,1611 @@
 \begin{document}%
 \normalsize%
 \maketitle%
-\section*{Release v1.0.12.0}%
+\section*{OrderCloud API v1.0.80 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}03{-}03 20:00 CST
 
 %
 \paragraph*{}%
-In API 1.0.12, OrderCloud Platform added variant generation, and the ability to use multiple Payment types on an Order.
+<p>Released to Production on July 18, 2018 at 8:00 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>Infrastructure~improvements</li>\newline%
+</ul>
 
 %
-\section*{Release v1.0.13.0}%
+\section*{OrderCloud API v1.0.79 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}03{-}16 20:00 CST
-
-%
-\paragraph*{}%
-Bug fix release.
-
-%
-\section*{Release v1.0.14.0}%
-\paragraph*{}%
-Released to Production: 2016{-}04{-}05 20:00 CST
 
 %
 \paragraph*{}%
-New functionality added to the OrderCloud Platform to allow easier management of Order and Lineitem shipment. Can now verify if an order has been entirely shipped more easily, and can ship all lineitems on an order, among other tweaks. Performance improvements around `PATCH`ing lineitems.
+<p>Release Scheduled for Tuesday, June 26th, 2018 at 7:<span class="caps">30PM</span>~Central.</p>\newline%
+<p>Release contains a bug fix addressing an admin{-}visibility issue with buyer user private credit card~objects. </p>\newline%
+<p>If a buyer user created a credit card that only they can access, and then used that card in a payment on an order, admin users were unable to update the payment at all. Instead, the <span class="caps">API</span> would respond with a 404 not found error, because the admin user did not have visibility into that private credit card. This is a particular problem as admin users are generally the ones to update a payment’s <code>accepted</code> bool to true once a card payment~clears. </p>\newline%
+<p>This is now fixed. While an admin user cannot get or otherwise retrieve the buyer user’s private card object, the admin user is now able to update the payment that references the private~card. </p>
 
 %
-\section*{Release v1.0.14.1}%
+\section*{OrderCloud API v1.0.77 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}04{-}11 20:00 CST
-
-%
-\paragraph*{}%
-Bug fix release.
-
-%
-\section*{Release v1.0.15.0}%
-\paragraph*{}%
-Released to Production: 2016{-}04{-}15 20:00 CST
 
 %
 \paragraph*{}%
-Bug fix release.
+<blockquote>\newline%
+<p>Planned To Be Released To Prod at 7pm Central on May 31,~2018</p>\newline%
+</blockquote>\newline%
+<p>Release contains a fix around hash headers in Message Senders. No application using Message Senders should be~affected.</p>
 
 %
-\section*{Release v1.0.16.0}%
+\section*{OrderCloud API v1.0.76 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}05{-}04 21:00 CST
-
-%
-\paragraph*{}%
-OrderCloud Platform gains 'Me' endpoints, allowing buyer users to interact with their own buying experience more easily. This includes listing all Products assigned to them in one API call, and the addition of personal Buyer User shipping and billing addresses, and personal Credit Card payment options. Additionally, XP were added to Shipments, Addresses, API clients. Filtering and advanced searching capabilities (including fuzzy searching) were also added to Addresses, Credit Cards, Specs, and Buyer Categories. Anonymous Shopping was added to the Platform in this release as well. Finally, SpecCount was added to the Spec model, making it very easy for developers to find how many options are set up for a particular Spec. There were also various bug fixes in this release.
-
-%
-\section*{Release v1.0.17.0}%
-\paragraph*{}%
-Released to Production: 2016{-}05{-}20 21:00 CST
 
 %
 \paragraph*{}%
-This release significantly expanded and improved Approval Rules, including introducing the first iteration of the Rules Engine. This release additionally added the 'incoming'/'outgoing' distinction to orders.
+<p>Release consisted of a performance improvement around Spec Assignment~listing.</p>
 
 %
-\section*{Release v1.0.18.0}%
+\section*{OrderCloud API v1.0.75 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}05{-}25 20:00 CST
-
-%
-\paragraph*{}%
-This release added the option to give integrations elevated security permissions. This allows for more secure, powerful backend integrations. Webhooks can now also perform actions using security permissions as well, using an access token appended to the outbound web hook call. Finally, the Rules Engine was improved, and various bug fixes were also released.
-
-%
-\section*{Release v1.0.19.0}%
-\paragraph*{}%
-Released to Production: 2016{-}05{-}31 20:00 CST
 
 %
 \paragraph*{}%
-This relase added route parameters to webhook calls, and a small number of bug fixes.
+<blockquote>\newline%
+<p>Planned to be released to Production on Tuesday, May 1st, 2018 at 7:<span class="caps">30PM</span>~Central.</p>\newline%
+</blockquote>\newline%
+<ul>\newline%
+<li>Fixed a very specific issue in Me Product listing. Previously, if you were getting a list of <span class="caps">ME</span> products with a <code>categoryID</code> <span class="caps">AND</span> <code>depth=1</code> <span class="caps">AND</span> an <code>xp</code> filter, it would throw an error. This is now~fixed.</li>\newline%
+</ul>
 
 %
-\section*{Release v1.0.20.0}%
+\section*{OrderCloud API v1.0.74 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}06{-}10 20:00 CST
-
-%
-\paragraph*{}%
-Several enhancements were made to the `Me` endpoints, including more detailed order routes. Additionally, admin address routes no longer list a user's personal addresses as well {-}{-} they are only available through the `Me` endpoint. In the Rules Engine, `approved(ruleid)` is now `order.approved(ruleid)`. Finally, XP have been added to Cost Center endpoints.
-
-%
-\section*{Release v1.0.21.0}%
-\paragraph*{}%
-Released to Production: 2016{-}6{-}22 20:00 CST
 
 %
 \paragraph*{}%
-Duplicate information that is conveyed in both the route and the request's parameters has been simplified. If the information is already in the route, it's no longer needed in the request parameters. Additionally, address validation has been updated {-}{-} for addresses with a US country code, it is now required to have a State and Zipcode. However for non{-}US addresses, it is not required.
+<blockquote>\newline%
+<p>Released to Production on Monday, April 2nd, 2018 at 7:<span class="caps">30PM</span>~Central.</p>\newline%
+</blockquote>\newline%
+<p>Release contains a bug fix for <code>me/categories</code>. Previously, a call to <code>me/categories</code> with a <code>CatalogID</code> and a <code>ProductID</code> would throw an error. This now works~correctly.</p>
 
 %
-\section*{Release v1.0.23.0}%
+\section*{OrderCloud API v1.0.73 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}07{-}23 20:00 CST
-
-%
-\paragraph*{}%
-In this release, Promotions were added to the OrderCloud platform, using the same Rules Engine as Approvals. Anonymous Shoppers can now register during the checkout process, and keep their carts. Order approvals now have comments, and can be sorted chronologically. The ability to list pending order approvals has also been improved{-}{-} an endpoint has been added that allows the listing of all eligable approvers for an order. Finally, bug fixes, and the ability to filter on Order.Total.
-
-%
-\section*{Release v1.0.22.0}%
-\paragraph*{}%
-Released to Production: 2016{-}08{-}08 20:00 CST
 
 %
 \paragraph*{}%
-This release adds the ability to list pending approvals for an Order. Additionally, order approvals now include a description of why an order was or was not approved. Message Senders can now send emails to the approving group of users for each order approval needed. Additionally, there is now the ability to set the address each lineitem is shipped from, enabling easier shipping rate calculation, among other things. Finally, XP was added to Approval Rules and Variants. Also, bug fixes.
+<blockquote>\newline%
+<p>Released to Production on Wednesday, March 21st, 2018 at 6:<span class="caps">00PM</span>~Central.</p>\newline%
+</blockquote>\newline%
+<p>Release consisted of minor bug fixes and~enhancements.</p>
 
 %
-\section*{Release v1.0.24.0}%
+\section*{OrderCloud API v1.0.72 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}08{-}09 20:00 CDT
-
-%
-\paragraph*{}%
-As of this release, Security Profiles can be assigned at the party level. This means easier control of self{-}registered users when using Anonymous Shopping. More granular administration of Admin Users is possible with new `AdminUserReader` and `AdminUserAdmin` roles. Admin users can also now be organized into Admin User Groups, as well. Promotions can be set to only be able to be used once per user. Additionally, Promotion objects now have a `RedemptionCount`, which allows easier reporting of promotion usage. Finally, XP was added to Approval Rules. \newline%
- The OrderCloud Platform changed how it stores refresh tokens in this release, improving platform security.\newline%
- The OrderCloud platform's integration proxy base URL changed from `api.ordercloud.io/v1/nativeintegrationproxy/:service` to `api.ordercloud.io/v1/integrationproxy/:service`\newline%
- Finally, Username is required to be unique within a Seller network as of this release. 
-
-%
-\section*{Release v1.0.24.1}%
-\paragraph*{}%
-Released to Production: 2016{-}08{-}25 20:00 CST
 
 %
 \paragraph*{}%
-Dimensions were added to Product models.
+<blockquote>\newline%
+<p>Released to Production on Monday, March 19th, 2018 at 7:<span class="caps">30PM</span>~Central.</p>\newline%
+</blockquote>\newline%
+<h2>New~Features</h2>\newline%
+<p>Previously, if you filtered a list by an xp, it only cared about items in that list that had that xp. This meant that negative filters, such as <code>xp.Color=!Blue</code>, for example, would only return other items <em>with</em> <code>xp.Color</code> but where <code>xp.Color</code> was not blue. If an item didn’t have <code>xp.Color</code> at all, it would not be returned in the filtered~list.</p>\newline%
+<p>Now, xp filters don’t just look for the specified xp and filter down from there. Instead, a filter of <code>xp.Color=!Blue</code> will return all items with <code>xp.Color</code> where the color isn’t blue, <em>but also</em> any items without <code>xp.Color</code> at~all.</p>
 
 %
-\section*{Release v1.0.25.0}%
+\section*{OrderCloud API v1.0.71 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}09{-}03 20:00 CST
-
-%
-\paragraph*{}%
-Several bug fixes, and a resolved deadlock issue on a product search with an XP filter.
-
-%
-\section*{Release v1.0.25.1}%
-\paragraph*{}%
-Released to Production: 2016{-}09{-}08 20:00 CST
 
 %
 \paragraph*{}%
-Bug fixes and performance improvements on Order Submit.
+<blockquote>\newline%
+<p>Released to Production on Thursday, March 1st, 2018 at 7:<span class="caps">30PM</span>~Central.</p>\newline%
+</blockquote>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>We fixed an issue where Admin Address <span class="caps">XP</span> were not being correctly indexed~retroactively.</li>\newline%
+<li>We fixed an issue with filtering a list of Products by the <code>SpecCount</code> field — the list will now be correctly returned if the <code>SpecCount</code> is~0.</li>\newline%
+<li>We have solved an issue with Spending Accounts where duplicate Redemption Codes could be created on different Spending Accounts in the same Buyer. Now Spending Accounts cannot be made with any Redemption Code that is already in use within the Buyer. (Don’t worry about existing applications you may have; there were no dupes in our databases at time of the~fix.)</li>\newline%
+</ul>
 
 %
-\section*{Release v1.0.26.0}%
+\section*{OrderCloud API v1.0.70 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}09{-}21 20:00 CST
-
-%
-\paragraph*{}%
-Bug fix release.
-
-%
-\section*{Release v1.0.28.0}%
-\paragraph*{}%
-Released to Production: 2016{-}10{-}05 20:00 CDT
-
-%
-\paragraph*{}%
-Several Product Spec enhancements
-
-%
-\section*{Release v1.0.29.0}%
-\paragraph*{}%
-Released to Production: 2016{-}10{-}26 20:00 CST
 
 %
 \paragraph*{}%
-Integration proxy and assignment enhancements.
+<blockquote>\newline%
+<p>Released to Production February 13th, 2018 at 7:30 <span class="caps">PM</span>~Central.</p>\newline%
+</blockquote>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>You can no longer accidentally delete a buyer’s default catalog! If you attempt to delete a catalog that happens to be the default catalog for one or more buyers, you’ll get an error and a list of~buyers.</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed some character lengths around DevCenter User’s Account information. Everything should now politely error should you attempt to insert a small poem rather than your company~name.</li>\newline%
+<li>We’ve also improved some of the error handling around object creation with bad datetime~strings.</li>\newline%
+<li>Minor error handling improvements around attempts at <span class="caps">URL</span> unfriendly object~IDs.</li>\newline%
+<li>We’ve made some enhancements around our indexing~performance.</li>\newline%
+</ul>
 
 %
-\section*{Release v1.0.30.0}%
+\section*{OrderCloud API v1.0.69 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}10{-}28 20:00 CST
 
 %
 \paragraph*{}%
-Introduction of Shared Catalogs to the OrderCloud platform. Spending Accounts are now decremented when an order is submitted, rather than when a payment is applied to an unsubmitted order. Message Sender variable added for Product Name.
+<blockquote>\newline%
+<p>Released to Production January 15th, 2018 at 7:30 <span class="caps">PM</span>~Central.</p>\newline%
+</blockquote>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>\newline%
+<p>Previously, we had some inconsistent logic about when we evaluated <a href="https://documentation.ordercloud.io/api{-}reference\#Promotions">Promotions</a> on an order. Sometimes, this would lead to a submitted order suddenly having an invalid promotion, potentially changing the order total. \newline%
+As we want to allow a historical record of promotions at the time of order submit, we have now limited promotion evaluation to only orders whose statuses are <strong>unsubmitted</strong> or <strong>awaiting approval</strong>.</p>\newline%
+</li>\newline%
+<li>\newline%
+<p>We also fixed a bug around <a href="https://ordercloud{-}api.github.io/release{-}notes/rules{-}engine{-}has{-}arrived.html">the rules engine</a> for  <a href="https://documentation.ordercloud.io/api{-}reference\#ApprovalRules">Order Approvals</a>. If a User is in the approving group for an approval rule, any order submitted by that User that meets the approval rule should be auto{-}approved. Or, stated another way, because the User is an Approving User, their order does not need separate~approval.</p>\newline%
+</li>\newline%
+</ul>
 
 %
-\section*{Release v1.0.30.1}%
+\section*{API v1.0.68 Release~Notes}%
 \paragraph*{}%
-Released to Production: 2016{-}11{-}04 21:00 CST
 
 %
 \paragraph*{}%
-Delivery date added to the Shipment model, and several bug networks around Buyer Networks.
+<blockquote>\newline%
+<p>Released to Production on 12/15/2017 at 7:30 <span class="caps">PM</span>~(Central).</p>\newline%
+</blockquote>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed an issue with the <code>Incrementation Config</code> on object <code>PATCH</code></li>\newline%
+<li>Fixed an issue where an <code>Anonymous User</code> would lose access to an order if an <code>Admin User</code> changed that~order.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.67 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<blockquote>\newline%
+<p>Released to Production on December 8th,~2017</p>\newline%
+</blockquote>\newline%
+<p>Fixed some performance issues that cropped up in Production after <a href="https://ordercloud{-}api.github.io/release{-}notes/1.0.66{-}release{-}notes.html"><span class="caps">API</span> 1.0.66</a> was~released.</p>
+
+%
+\section*{API v1.0.66 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<blockquote>\newline%
+<p>Released to Production on December 7th,~2017</p>\newline%
+</blockquote>\newline%
+<h2>New~Features</h2>\newline%
+<h3>Customized Platform Object <span class="caps">ID</span>~Generation</h3>\newline%
+<p>A big question we get from clients a lot is “How can I make the OrderCloud <span class="caps">API</span> IDs work nicely with the IDs from my <span class="caps">ERP</span> or other internal~systems?”. </p>\newline%
+<p>Prior to <span class="caps">API</span> 1.0.66, you could either set the <span class="caps">ID</span> manually (which is a pain if you want incrementation to work well) or you could settle for the default platform random <span class="caps">GUID</span>, and keep track of your <span class="caps">ERP</span> integration <span class="caps">ID</span> in an <code>xp</code>, or some other work~around.</p>\newline%
+<p>We’ve added a new feature that aims to make this process much, much simpler! <code>Incrementation Config</code> allows you to create a customized pattern for <span class="caps">ID</span>~generation. </p>\newline%
+<p><code>Incrementation Config</code></p>\newline%
+<div class="highlight"><pre><span></span>\{\newline%
+  "ID": "",\newline%
+  "Name": "",\newline%
+  "LastNumber": 0,\newline%
+  "LeftPaddingCount": 0\newline%
+\}\newline%
+</pre></div>\newline%
+<p>The important parts here are the <code>LastNumber</code> and the <code>LeftPaddingCount</code>. </p>\newline%
+<h4>Examples:</h4>\newline%
+<p><em>Objective:</em> Every order from a buyer should start with the buyer company’s name, TestCorp, so that it can be differentiated easily by the supplier. The total number of characters for an <span class="caps">ID</span> can only be 20 characters long. (ex: <code>TestCorp{-}00000000001</code>)</p>\newline%
+<ol>\newline%
+<li>Create the Incrementor~Config </li>\newline%
+</ol>\newline%
+<p><code>POST /v1/incrementors/</code></p>\newline%
+<div class="highlight"><pre><span></span>\{\newline%
+  "ID": "config01",\newline%
+  "Name": "Bob",\newline%
+  "LastNumber": 0,\newline%
+  "LeftPaddingCount": 10 \newline%
+\}\newline%
+</pre></div>\newline%
+<ol>\newline%
+<li>Create the order using the Incrementor~Config</li>\newline%
+</ol>\newline%
+<p><code>POST /v1/orders/outgoing</code></p>\newline%
+<div class="highlight"><pre><span></span>\{\newline%
+    "ID":"TestCorp{-}\{config01\}"\newline%
+\}\newline%
+</pre></div>\newline%
+<p>returns~as:</p>\newline%
+<div class="highlight"><pre><span></span>\{\newline%
+  "ID": "TestCorp{-}00000000001",\newline%
+...\newline%
+\}\newline%
+</pre></div>\newline%
+<p>If you make another order with this Incrementor Config, you’ll get <code>TestCorp{-}00000000002</code> and so~on. </p>\newline%
+<p>This Incrementor Config can be used for both object creation, and <code>PATCH</code>/<code>PUT</code> updates. Additionally, once created, the Incrementor Config’s <code>LastNumber</code> reflects the last number incremented to. So, if the last <span class="caps">ID</span> generated by <code>config01</code> was <code>TestCorp{-}00000000011</code>, the <code>LastNumber</code> for <code>config01</code> would be <code>11</code> at that~moment.</p>\newline%
+<h4>Caveats:</h4>\newline%
+<p>1 {-} Left{-}padding does not represent a <em>maximum</em> value for the <span class="caps">ID</span>. If you~have</p>\newline%
+<div class="highlight"><pre><span></span>\{\newline%
+  "ID": "config01",\newline%
+  "Name": "Bob",\newline%
+  "LastNumber": 0,\newline%
+  "LeftPaddingCount": 1 \newline%
+\}\newline%
+</pre></div>\newline%
+<p>when you get to 99, the <span class="caps">ID</span> will continue incrementing. If you’re using it as in the above example, where your <span class="caps">ERP</span> expects <span class="caps">ONLY</span> x number of characters, this is going to cause some~problems. </p>\newline%
+<p>2 {-} While you <em>can</em> reuse the same incrementator on different endpoints — such as using <code>config01</code> for both products and orders, for some reason — the incrementation will be across <em>both</em>~endpoints.</p>\newline%
+<p><em><span class="caps">EX</span>:</em></p>\newline%
+<div class="highlight"><pre><span></span>Order 1 with `config01` {-} `Order{-}00000000001`\newline%
+Product 1 with `config01` {-} `Product{-}00000000002`\newline%
+Order 1 with `config01` {-} `Order{-}00000000003`\newline%
+Order 1 with `config01` {-} `Order{-}00000000004`\newline%
+Order 1 with `config01` {-} `Order{-}00000000005`\newline%
+Product 1 with `config01` {-} `Product{-}00000000006`\newline%
+</pre></div>\newline%
+<p>3 {-} If you’re not careful about how you handle your asynchronous <span class="caps">API</span> calls, it’s much easier to accidentally try to create duplicate IDs. So be hygienic with your async~calls! </p>\newline%
+<p>4 {-} If you decide to reset the incrementor’s <code>LastNumber</code>, you can end up trying to create duplicate IDs again. Be~careful!</p>\newline%
+<h3>Allowing a Buyer User to impersonate a Buyer User from a different~company</h3>\newline%
+<p>Now, instead of a Buyer User only being able to <a href="https://documentation.ordercloud.io/platform{-}guides/authentication/impersonation">impersonate</a> a Buyer User within the same Buyer, a Buyer User can impersonate a Buyer User in a different Buyer, as long as they’re within the same Seller~organization. </p>\newline%
+<p>This is useful if you have a customer user that works for multiple of your customers. This allows them to interact within those buyers uniquely, but maintain their user account~easily.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<h3>Duplicate Products returned in <code>ME</code> Product~Lists</h3>\newline%
+<p>We’ve fixed a problem where, sometimes in very large catalogs with complicated category structures, a user using a <a href=""><code>GET me/products</code> list</a> would return some duplicate products. This fix should also show some minor performance improvements for very large catalog list~calls.</p>\newline%
+<h3>Post{-}Submit Order Changes Triggered Promotion~Evaluation</h3>\newline%
+<p>Previously, if you tried to alter an order with a promotion after it had been submitted, and the promotion had expired, your alteration would throw an error. We’ve fixed this so that promotions are never evaluated after order submit~now.</p>\newline%
+<h3>Various performance improvements and other small bug~fixes.</h3>\newline%
+<p>What it says on the~tin. </p>
+
+%
+\section*{API v1.0.65 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<blockquote>\newline%
+<p>Released to Production on Tuesday, November 21st,~2017</p>\newline%
+</blockquote>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>The <a href="https://documentation.ordercloud.io/api{-}reference\#MeCategories">Me endpoint for categories</a> now has an optional <code>ProductID</code> filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the <code>CategoryReader</code> role to accomplish~this.   </li>\newline%
+</ul>\newline%
+<p><em>Request:</em></p>\newline%
+<div class="highlight"><pre><span></span>GET https://api.ordercloud.io/v1/me/categories?ProductID=SuperAwesomeProduct\newline%
+</pre></div>\newline%
+<p><em>Response:</em></p>\newline%
+<div class="highlight"><pre><span></span>Status Code = 200\newline%
+\newline%
+\{\newline%
+  "Meta": \{\newline%
+    "Page": 1,\newline%
+    "PageSize": 20,\newline%
+    "TotalCount": 25,\newline%
+    "TotalPages": 2,\newline%
+    "ItemRange": {[}\newline%
+      1,\newline%
+      20\newline%
+    {]}\newline%
+  \},\newline%
+  "Items": {[}\newline%
+    \{\newline%
+      "ID": "SuperAwesomeCategory",\newline%
+      "Name": "I Contain the SuperAwesomeProduct",\newline%
+      "Description": "",\newline%
+      "ListOrder": 1,\newline%
+      "Active": true,\newline%
+      "ParentID": "",\newline%
+      "ChildCount": 0,\newline%
+      "xp": \{\}\newline%
+    \}\newline%
+  {]}\newline%
+\}\newline%
+</pre></div>\newline%
+<ul>\newline%
+<li>\newline%
+<p>We also added a Me route for <code>GET</code>ing a single category! <a href="http://documentation.ordercloud.io/api{-}reference\#MeCategories\_GetCategory"><span class="caps">DOCS</span></a></p>\newline%
+<p><code>GET</code> <code>https://api.ordercloud.io/v1/me/categories/\{categoryID\}</code></p>\newline%
+</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Previously, if you attempted to submit an order that had a lineitem with a product that had specs <em>and</em> options, it would fail. Fixed now!<ul>\newline%
+<li><a href="https://documentation.ordercloud.io/use{-}case{-}guides/product{-}catalog{-}management/cpq{-}configure{-}price{-}quote">need a refresher on product specs and spec~options?</a></li>\newline%
+<li><a href="https://documentation.ordercloud.io/api{-}reference\#Specs">api reference for product~specs</a></li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>On <code>OrderSubmitted</code> <a href="https://github.com/ordercloud{-}api/mailchimp{-}email{-}templates">Message Sender Mandrill Templates</a>, the order total merge variable was not accurately reflecting order total, leaving out promotion discount. This is now fixed. (The <span class="caps">API</span> model was never affected, only the Message Sender merge~variable.)</li>\newline%
+<li>We fixed a bad index that was causing massive performance problems for <code>DELETE</code>ing a Security Profile <em>assignment</em>. You should be able to go forth and delete to your hearts content now with no fear of the angry~spinner!</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.64 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p><em>Released to Production on Monday, October 30th,~2017</em></p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>We now allow <code>lineitems</code> of <em>unsubmitted</em> <code>Orders</code> to be added to a <code>Shipment</code>. This does not apply to the <a href="http://qa{-}documentation.ordercloud.io/api{-}reference\#Orders\_Ship"><code>ship all</code> endpoint</a>.</li>\newline%
+<li>There is a new endpoint that allows a <code>buyer user</code> to be transfered from one buyer to another, within the same organization. Please check out the <a href="http://qa{-}documentation.ordercloud.io/api{-}reference\#Users\_Move">documentation</a> for further~details.</li>\newline%
+<li>please note, this should only be attempted by an <code>admin user</code> in a seller application. If a buyer user, even one with <code>Full Access</code>, tries this, it will not work as~expected. </li>\newline%
+</ul>
+
+%
+\section*{API v1.0.63 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p><em>Released to Production on Wednesday, October 18th,~2017</em></p>\newline%
+<h2>Bugs</h2>\newline%
+<ul>\newline%
+<li>Payments: Payment with Type <code>SpendingAccount</code> must have <code>SpendingAccountID</code></li>\newline%
+<li>Unable to use <code>PUT</code> to create new <code>UserGroup</code></li>\newline%
+<li>Orders: <code>order.Total</code> not updated when <code>ShippingCost</code> is updated via <code>PATCH</code></li>\newline%
+</ul>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Added transactional email support for guest checkout (<a href="http://qa{-}documentation.ordercloud.io/api{-}reference\#Orders\_PatchFromUser">documentation</a>)</li>\newline%
+</ul>\newline%
+<div class="highlight"><pre><span></span>`PATCH` `v1/orders/\{direction\}/\{orderID\}/fromuser`\newline%
+\{"FirstName": "", "LastName": "", "Email": ""\}\newline%
+</pre></div>\newline%
+<ul>\newline%
+<li>Products: Allow negation of all filters on admin Product List (<code>catalogID</code>, <code>categoryID</code>, <code>supplierID</code>)</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.62 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p><em>Released to Production on Thursday, September 28th,~2017</em></p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Upgraded to latest <a href="">Flurl</a></li>\newline%
+</ul>
+
+%
+\section*{API v1.0.61 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p><em>Released to Production on Thursday, September 7th,~2017</em></p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Several tweaks to improve <span class="caps">API</span> logging and Documentation~generation.</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Previously, if you transfered an anon user’s order to a profiled user, the prices would not update to reflect the profiled user’s price assignments. This is now~fixed.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.60 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Tuesday, July 18th, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>We’ve added a description field to Message~Senders. </li>\newline%
+<li>We moved the platform Message Sender code to a public repo, so that developers can use it to create custom Message Senders. <a href="https://github.com/ordercloud{-}api/MessageSender">Message Sender on GitHub</a><ul>\newline%
+<li>Please note, <strong>we have not yet enabled custom message senders in DevCenter</strong>. You can start to develop one but can’t configure one just yet to be used. This will be available in DevCenter in the near~future.</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>We’ve improved logging around Message~Senders.</li>\newline%
+</ul>\newline%
+<h2>Bugs~Fixed</h2>\newline%
+<ul>\newline%
+<li>We fixed an issue that was blocking New User Invite~emails.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.59 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Thursday, July 13th, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>We’ve added the Billing Information Name to Customer Profile on our Authorize.Net~integration.</li>\newline%
+</ul>\newline%
+<h2>Bugs~Fixed</h2>\newline%
+<ul>\newline%
+<li>We have added better error handling for <span class="caps">API</span> calls that include .<span class="caps">NET</span> reserved keywords in the route (typically in a buyer <span class="caps">ID</span>,~etc.) </li>\newline%
+<li>You should no longer ever receive a 409 duplicate error on a <code>GET</code> call. Instead this will properly return a 500 error, as this is a~bug.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.58 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Thursday, June 29th, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Various performance~improvements</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.57 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Friday, June 23rd, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Previously, if you created or patched a Shipment’s <code>ToAddressId</code>, the response body would show <code>NULL</code>. This is now~fixed.</li>\newline%
+<li>If you had a Shipment’s <code>ToAddressId</code> set to <code>NULL</code>, and attempted to trigger a shipment notification through Message Senders, it would not get~sent.</li>\newline%
+</ul>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>When you add a new xp value to be indexed, previous xp with that value will now be retroactively~indexed.</li>\newline%
+<li>Performance improvement around~logging.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.56 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Planned to be released to Prod on Friday, June 16th, 2017 at 7:30 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed an issue where a second approval or decline of an order would return a 409~error</li>\newline%
+</ul>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>If a default <code>ShipFrom</code> address exists on a product, the <code>shipFromAddress</code> on a line item containing that product is now inherited on line item create, not order submit. This allows shipping to be more easily~calculated.</li>\newline%
+<li>You can now filter lists with comparative operands <code>\&gt;=</code> and <code>=\&lt;</code>, as well as <code>\&gt;</code>, <code>\&lt;</code>, <code>=</code>, and <code>!</code></li>\newline%
+<li>All approvals are now listed in an order’s approval history, not just the final~one.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.55 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Tuesday, June 13th, 2017 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>We added two new Mandrill template variables: <code>ShipmentItems</code> and <code>DateShipped</code></li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>We fixed an issue where some list endpoints would fail intermittently with a 409 error. This included Me Categories, and Me Products, among~others.</li>\newline%
+<li>We fixed an issue where the Rules Engine was throwing a 500 if you tried to create a rule with <code>order.xp</code> in either of the~expressions.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.54 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Friday, May 26th, 2017 at 7:30pm <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Now when you <code>PATCH</code> the LineItem.UnitPrice, the LineItem Total will update as~well!</li>\newline%
+<li>We’ve improved our error handling for invalid rules engine expressions, so you find out if it’s an invalid rule when you try to create it, not when you try to submit an~order.</li>\newline%
+<li>Fixed a race condition where adding the same product to multiple categories sometimes resulted in a 409~error.</li>\newline%
+</ul>\newline%
+<h2>New~Feature</h2>\newline%
+<ul>\newline%
+<li>We improved performance for admin category lists~substantially.</li>\newline%
+<li>We now return a <code>Buyer</code> subobject on the me/user~model</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.53 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Monday, May 15th, 2017 at 7:30pm <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Buyer Users with the <code>ShipmentAdmin</code> role can now properly create~shipments.</li>\newline%
+<li>We now properly throw a 409 error if you try to delete an admin user who is being used as the <code>DefaultUserContextID</code> for an~org.</li>\newline%
+<li>Listing me/Shipments performance should be noticeably improved on large~lists.</li>\newline%
+<li>Initial emails for Approvals message senders were not being~sent.</li>\newline%
+</ul>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Developers who use the <span class="caps">OIDC</span> flow for authentication will now be able to dynamically route their users to specific parts of their app after authentication. To do so, add <code>appstartpath=\&lt;extrapath\&gt;</code> to the query on ocrplogin.<ul>\newline%
+<li>Example: <code>https://nodomain.com/myapp\{2\}?token=\{0\}\&amp;idt=\{1\}</code></li>\newline%
+<li>The \{2\} can go anywhere in the appstart~url.</li>\newline%
+</ul>\newline%
+</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.52 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Wednesday May 10th, 2017 at 7:00pm <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Improved performance for seller{-}side <code>/orders</code> lists</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Now, a buyer user with <code>CatalogAdmin</code> should be able to:<ul>\newline%
+<li>Patch any catalog assigned to their~buyer</li>\newline%
+<li>Update any catalog assigned to their~buyer</li>\newline%
+<li>SaveProductAssignments for any catalog assigned to their~buyer</li>\newline%
+<li>ListProductAssignments for any catalog assigned to their~buyer</li>\newline%
+<li>DeleteProductAssignments for any catalog assigned to their~buyer</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>A buyer user with <code>CatalogAdmin</code> should not have the ability to:<ul>\newline%
+<li>Assign catalogs to other~buyers</li>\newline%
+<li>List catalog assignments of other~buyers</li>\newline%
+<li>Delete catalog assignments (even those for their own~buyer)</li>\newline%
+<li>Delete catalogs (even those assigned to their~buyer)</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>Removed invalid parameters previously documented on list~endpoints</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.51 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Sunday, May 7th,~2017.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Improved performance for <code>me/categories</code> and <code>me/product</code> lists.</li>\newline%
+<li>We’ve added some more debug information to OpenConnectID~errors.</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Previously, we required <code>CatalogAdmin</code> and <code>ProductAdmin</code> to list Catalog and Product assignments, respectively. This is now changed to be consistant with other assignment listing role checks so that the user only needs <code>CatalogReader</code> / <code>ProductReader</code>.</li>\newline%
+<li>Now, if you patch a line item unit price with either <code>null</code> or an empty string, the price will be~recalculated.</li>\newline%
+<li>No more 500 error when you try to delete a category with~children.</li>\newline%
+<li>Generating variant IDs for Spec Option IDs that have blank spaces in their values will no longer result in IDs with spaces. Now all spaces are translated as~{-}.</li>\newline%
+<li>Trying to patch <code>ShipWeight</code>/<code>Height</code>/<code>Width</code>/<code>Length</code> with a string no longer throws an~error.</li>\newline%
+<li>Trying to patch a spec option with an invalid <span class="caps">ID</span> returns a 404~now.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.50 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>A public staging environment will be available starting on Sunday, April 2nd. The 1.0.50 version will be released to Production on May 4th at 8:00 <span class="caps">PM</span>~Central.</p>\newline%
+<p>You can access the staging environment using your production data and the~following:</p>\newline%
+<p>api: <code>https://stagingapi.ordercloud.io</code></p>\newline%
+<p>auth: <code>https://stagingauth.ordercloud.io</code></p>\newline%
+<p>devcenter: <a href="https://staging{-}account.ordercloud.io">https://staging{-}account.ordercloud.io</a></p>\newline%
+<p>Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production <span class="caps">ASAP</span>. On the production release, no staging data will be transfered to~production.</p>\newline%
+<p>This was released to Production on May 4th at 8:00 <span class="caps">PM</span>~Central. </p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Payments have a new boolean field, <code>Accepted</code>. <code>PUT</code> has been removed from Payments, and <code>PATCH</code> can never edit <code>Type</code>, <code>CreditCardID</code>, and <code>SpendingAccountID</code>.<ul>\newline%
+<li>Only users with OrderAdmin or FullAccess roles will be able to create or update the <code>Accepted</code> property.</li>\newline%
+<li>If the <code>Accepted</code> property is true <span class="caps">AND</span> the order has been submited, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess~can.</li>\newline%
+<li>If the <code>Accepted</code> property is true <span class="caps">AND</span> the payment type is a credit card, a Shopper cannot patch the payment but a user with OrderAdmin or FullAccess~can.</li>\newline%
+<li>If the <code>Accepted</code> property is true, the order has not been submitted, and the payment type is not a credit card, either a Shopper or OrderAdmin <span class="caps">CAN</span> patch the~payment.</li>\newline%
+<li>If <code>Accepted</code> is false, any user with either role can patch all other fields except the 3 listed~above.</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>As part of the data conversion for existing payments, <code>Accepted</code> will be set to true for the following:<ul>\newline%
+<li>All non{-}credit card payments (spending accounts,~POs)</li>\newline%
+<li>All orders that were ever submitted (open, completed,~seller{-}canceled)</li>\newline%
+<li>All payments containing a successful~PaymentTransaction</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li><code>PUT</code> has been removed from payments. <code>PATCH</code> is allowed, but only to patch the <code>Accepted</code> property, and only if the user has <code>OrderAdmin</code> or <code>FullAccess</code>.</li>\newline%
+<li>Order submit logic will validate Payment.Accepted=true and an error will be thrown if an order with an unaccepted payment is~submitted.</li>\newline%
+<li>Previously, any admin user could impersonate any buyer user. Going forward, an admin user must have the <code>BuyerImpersonation</code> role in their security profile to impersonate buyer users and request the role when impersonating a~user.</li>\newline%
+<li>Due to refactoring around our password hash algorithm, and since we do not store users’ passwords ourselves, but simply a hash of the password, <strong>users will need to reset their passwords before they can log into the OrderCloud DevCenter or any OrderCloud apps</strong>. When you authenticate to the Ordercloud <span class="caps">API</span> initially after this release, the only role your user will have is the <code>PasswordReset</code> role, and after you’ve reset your password, you’ll need to re{-}authenticate to get your full array of roles. <ul>\newline%
+<li>If you provide an application to users, we recommend have the application redirect any user who authenticates and only has the <code>PasswordReset</code> role to be redirected to a different view, where their password can be reset using the new <code>/me/password</code> endpoint.</li>\newline%
+<li>Alternately, any user can trigger an email{-}based password reset, using the <a href="https://staging{-}documentation.herokuapp.com/api{-}reference\#PasswordResets">Forgotten Password</a>~endpoint. </li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>Due to the aforementioned password changes, DevCenter users will need to reset their DevCenter passwords by going to the “Forgot Password” link in DevCenter. Users will need to do this in the Staging Environment <em>and</em> in Prod after the production~release. </li>\newline%
+<li>Added roles that control who can list or edit shipments. Now users with <code>ShipmentAdmin</code> <em>or</em> <code>OrderAdmin</code> can create or edit shipments. Users with <code>ShipmentReader</code> or <code>OrderReader</code> can get/list~shipments.</li>\newline%
+<li>Seller{-}side product lists (<code>v1/products</code>) can now be filtered on <code>CatalogID</code> and <code>CategoryID</code> (<code>CategoryID</code> is unique only within a Catalog, so you must specify both in order to filter on~Category.)</li>\newline%
+<li>Buyer{-}side product lists (<code>v1/me/products</code>) that specify <code>CategoryID</code> can also specify <code>depth</code>, which can be an integer 1 or greater (<code>depth=1</code> means products directly assigned to category) or <code>all</code>. Default is <code>all</code>. </li>\newline%
+<li>An order that requires approval can now be sent back to the submitting user by the approver user for editing and re{-}submission. See <a href="https://staging{-}documentation.herokuapp.com/api{-}reference\#Orders\_Decline">Decline Orders</a> for more~details. </li>\newline%
+<li>We are changing the route to register an anonymous user (previously called “Create From Temp User”) to <code>PUT</code> <code>v1/me/register</code>. This will help make our Swagger spec more~flexible.</li>\newline%
+<li>Any buyer user can now list shipments for their own orders in a User Perspective route, <code>me/shipments</code>. No more need for elevated~permissions!</li>\newline%
+<li>In order to encourage best practices, only group{-}level and buyer{-}level assignments will be allowed for the following resources:<ul>\newline%
+<li>Products</li>\newline%
+<li>Categories</li>\newline%
+<li>Promotions</li>\newline%
+<li>Cost~Centers</li>\newline%
+<li>Message~Config</li>\newline%
+</ul>\newline%
+</li>\newline%
+</ul>\newline%
+<p><strong>If there are existing user{-}level assignments for any of the above, you must convert them to group{-} or buyer{-}level before the production release date</strong>.</p>\newline%
+<ul>\newline%
+<li><code>OrderApproval</code> now contains nested <code>Approver</code> object containing all details of the approving user.~Example:</li>\newline%
+</ul>\newline%
+<div class="highlight"><pre><span></span>\{\newline%
+    "ApprovalRuleID": "...",\newline%
+    "ApprovingGroupID": "...",\newline%
+    "Status": "Pending",\newline%
+    "DateCreated": "...",\newline%
+    "DateCompleted": "...",\newline%
+    "Approver":\newline%
+    \{\newline%
+        "ID": "...",\newline%
+        "FirstName": "...",\newline%
+        "LastName": "...",\newline%
+        "UserName": "...",\newline%
+        "Email": "...",\newline%
+        "Active": "...",\newline%
+        "xp" : \{ ... \}\newline%
+    \},\newline%
+    "Comments": "..."\newline%
+\}\newline%
+</pre></div>\newline%
+<ul>\newline%
+<li>We have also moved approval comments out of the <span class="caps">URL</span> query string and into the request body. There is a maximum length of 2000~characters.</li>\newline%
+<li>We have added new roles around the administration of Admin Addresses: <code>AdminAddressReader</code> and <code>AdminAddressAdmin</code>.</li>\newline%
+</ul>\newline%
+<h3>Inventory~Revamp</h3>\newline%
+<ul>\newline%
+<li>Inventory{-}related data points on <code>Product</code> are being moved into a nested <code>Inventory</code> object.</li>\newline%
+</ul>\newline%
+<h4>Summary of Inventory Object~Changes:</h4>\newline%
+<table class="table table{-}hover table{-}striped">\newline%
+<thead>\newline%
+<tr>\newline%
+<th>Old</th>\newline%
+<th>New</th>\newline%
+</tr>\newline%
+</thead>\newline%
+<tbody>\newline%
+<tr>\newline%
+<td>Product.InventoryEnabled</td>\newline%
+<td>Product.Inventory.Enabled</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Product.InventoryNotificationPoint</td>\newline%
+<td>Product.Inventory.NotificationPoint</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Product.VarientLevelInventory</td>\newline%
+<td>Product.Inventory.VariantLevelTracking</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Product.AllowOrderExceedInventory</td>\newline%
+<td>Product.Inventory.OrderCanExceed</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Product.InventoryVisible</td>\newline%
+<td><em>removed</em></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td><code>/products/:id/inventory</code> resource</td>\newline%
+<td><em>removed</em></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Inventory.Available</td>\newline%
+<td>Product.Inventory.QuantityAvailable</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Inventory.LastUpdated</td>\newline%
+<td>Product.Inventory.LastUpdated</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Inventory.<span class="caps">ID</span></td>\newline%
+<td><em>removed</em></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Inventory.Name</td>\newline%
+<td><em>removed</em></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Inventory.Reserved</td>\newline%
+<td><em>removed</em></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td><code>/products/:id/inventory</code></td>\newline%
+<td><em>removed</em></td>\newline%
+</tr>\newline%
+</tbody>\newline%
+</table>\newline%
+<h4>Summary of Inventory Behavioral~Changes:</h4>\newline%
+<ul>\newline%
+<li><code>Product.Inventory.QuantityAvailable</code> is~writable.</li>\newline%
+<li><code>PATCH v1/products/:id \{ "Inventory": \{ "QuantityAvailable": 999 \} \}</code> is the preferred way to manually set~inventory.</li>\newline%
+<li><code>QuantityAvailable</code> is deducted on order submit or final order approval (whichever point order status changes to <code>Open</code>).</li>\newline%
+<li><code>QuantityAvailable</code> is adjusted when quantity changes are made to line items on <code>Open</code> orders.</li>\newline%
+<li><code>QuantityAvailable</code> is validated, but not adjusted, when items are added or quantities change on <code>Unsubmitted</code> orders. A 400 error occurs if item quantity exceeds available inventory and <code>Product.Inventory.OrderCanExceed</code> is~false.</li>\newline%
+<li><code>QuantityAvailable</code> is always re{-}validated per the rules above on order~submit.</li>\newline%
+</ul>\newline%
+<h3>Shipment~Changes</h3>\newline%
+<ul>\newline%
+<li>The nested <code>Shipment.Items</code> collection has been removed, and shipment items are instead retrieved or saved via new endpoints, much like line~items. </li>\newline%
+<li>To compensate for the above, there is a new <code>me/shipmentitems</code> endpoint.</li>\newline%
+<li><code>BuyerID</code> has been removed from routes, meaning you can list shipments across multiple~buyers. </li>\newline%
+<li>Shipment IDs are now~seller{-}unique.</li>\newline%
+<li>All new fields listed below derive their values from corresponding LineItems, helping to avoid additional lookups when working with~shipments.</li>\newline%
+</ul>\newline%
+<table class="table table{-}hover table{-}striped">\newline%
+<thead>\newline%
+<tr>\newline%
+<th>New Shipment Field</th>\newline%
+<th>Notes</th>\newline%
+</tr>\newline%
+</thead>\newline%
+<tbody>\newline%
+<tr>\newline%
+<td>Shipment.Account</td>\newline%
+<td>writeable</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Shipment.FromAddressID</td>\newline%
+<td>writeable</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Shipment.ToAddressID</td>\newline%
+<td>writeable</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Shipment.FromAddress</td>\newline%
+<td>nested object, read{-}only</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Shipment.ToAddress</td>\newline%
+<td>nested object, read{-}only</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>ShipmentItem.UnitPrice</td>\newline%
+<td>read{-}only</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>ShipmentItem.CostCenter</td>\newline%
+<td>read{-}only</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>ShipmentItem.DateNeeded</td>\newline%
+<td>nested object, read{-}only</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>ShipmentItem.Product</td>\newline%
+<td>nested object, read{-}only</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>ShipmentItem.Specs</td>\newline%
+<td>nested collection, read{-}only</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>ShipmentItem.xp</td>\newline%
+<td>read{-}only</td>\newline%
+</tr>\newline%
+</tbody>\newline%
+</table>\newline%
+<table class="table table{-}hover table{-}striped">\newline%
+<thead>\newline%
+<tr>\newline%
+<th>Old Endpoint</th>\newline%
+<th>New Endpoint</th>\newline%
+</tr>\newline%
+</thead>\newline%
+<tbody>\newline%
+<tr>\newline%
+<td><code>GET v1/:BuyerID/shipments</code></td>\newline%
+<td><code>GET v1/shipments</code></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td><code>GET v1/:BuyerID/shipments/:id</code></td>\newline%
+<td><code>GET v1/shipments/:id</code></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>N/A</td>\newline%
+<td><code>GET v1/shipments/:id/items</code></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>N/A</td>\newline%
+<td><code>GET v1/shipments/:id/items/:orderID/:lineItemID</code></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>N/A</td>\newline%
+<td><code>POST v1/shipments/:id/items</code></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>N/A</td>\newline%
+<td><code>PATCH v1/shipments/:id/items/:orderID/:lineItemID</code></td>\newline%
+</tr>\newline%
+</tbody>\newline%
+</table>\newline%
+<h3>Simplified Product and Category~Assignments</h3>\newline%
+<table class="table table{-}hover table{-}striped">\newline%
+<thead>\newline%
+<tr>\newline%
+<th>New Properties</th>\newline%
+<th>Notes</th>\newline%
+</tr>\newline%
+</thead>\newline%
+<tbody>\newline%
+<tr>\newline%
+<td>Catalog.Active</td>\newline%
+<td></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>CatalogAssignment.ViewAllCategories</td>\newline%
+<td></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>CatalogAssignment.ViewAllProducts</td>\newline%
+<td></td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>CategoryAssignment.Visible</td>\newline%
+<td>Nullable, inherited from parent or catalog</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>CategoryAssignment.ViewAllProducts</td>\newline%
+<td>Nullable, inherited from parent or catalog</td>\newline%
+</tr>\newline%
+<tr>\newline%
+<td>Product.DefaultPriceScheduleId</td>\newline%
+<td>Optional, but encouraged.</td>\newline%
+</tr>\newline%
+</tbody>\newline%
+</table>\newline%
+<ul>\newline%
+<li>\newline%
+<p>For a Buyer User to see a Product in the User Perspective (<code>GET v1/me/products</code>), <em>all</em> of the following must be~true:</p>\newline%
+<ul>\newline%
+<li><code>Product.Active</code> is <code>true</code></li>\newline%
+<li>Product belongs to a Catalog where <code>Catalog.Active</code> is <code>true</code></li>\newline%
+<li>Buyer is assigned to this~Catalog</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>\newline%
+<p>In addition, <em>one</em> of the following must be~true:</p>\newline%
+<ul>\newline%
+<li>In Buyer assignment to Catalog, <code>CatalogAssignment.ViewAllProducts</code> is <code>true</code>, <strong><span class="caps">OR</span></strong></li>\newline%
+<li>Product belongs to active Category in the catalog, Category is assigned to Buyer (or any Group the user is in), and <code>CategoryAssignment.ViewAllProducts</code> is <code>true</code>, <strong><span class="caps">OR</span></strong></li>\newline%
+<li>Product is assigned directly to Buyer (or any Group the user is~in).</li>\newline%
+</ul>\newline%
+</li>\newline%
+</ul>\newline%
+<p>We recommend checking out the {[}Catalog Visibility~Guide{]}</p>
+
+%
+\section*{API v1.0.44 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Monday, April 17th, 2017 at 8 <span class="caps">PM</span> <span class="caps">CST</span>. </p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed a bug where, in some particular cases, a user who submitted an order could also approve~it.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.43 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Wednesday, April 5th, 2017 at 7:30 <span class="caps">PM</span>~Central. </p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>We now round the following to two decimal places:<ul>\newline%
+<li><code>OrderPromotion.Amount</code></li>\newline%
+<li><code>LineItem.LineTotal</code></li>\newline%
+<li><code>Order.Subtotal</code></li>\newline%
+<li><code>Order.ShippingCost</code></li>\newline%
+<li><code>Order.TaxCost</code></li>\newline%
+<li><code>Order.PromotionDiscount</code></li>\newline%
+<li><code>SpendingAccount.Balance</code></li>\newline%
+<li><code>Shipment.Cost</code></li>\newline%
+<li><code>Payment.Amount</code></li>\newline%
+<li><code>PaymentTransaction.Amount</code></li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>We now return a useful and informative error message if you try to list <code>CatalogAssignments</code> without required~parameters.</li>\newline%
+<li>We now return a useful and informative error message if you try to delete a user who has an open order~outstanding.</li>\newline%
+<li>We now decrement <code>SpendingAccounts</code> on delete of a payment and not if it’s just routed for~approval. </li>\newline%
+</ul>
+
+%
+\section*{API v1.0.42 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Planned to be released to Production on Thursday, March 9th, 2017 at 7:30 <span class="caps">PM</span>~Central. </p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed a couple issues where markups on product specs were not being correctly reflected in lineitem~totals.</li>\newline%
+<li><span class="caps">XP</span> filtering on buyers is now~fixed.</li>\newline%
+<li>Delete webhook firing issue is~fixed.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.41 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Friday, March 3rd, 2017 at 7:30 <span class="caps">PM</span>~Central. </p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed an issue where the Reset Password Token didn’t expire. Now expires after two~hour.</li>\newline%
+<li>Fixed an issue around Promotions with value expressions containing <code>product.incategory</code></li>\newline%
+<li>Fixed an issue where you couldn’t delete orders after they’d been~approved.</li>\newline%
+<li>Fixed an issue where you’d get a 500 instead of a useful error if you submit an order without specs if the order contained a specc’d~product</li>\newline%
+<li>Fixed an issue where you got a 500 instead of a useful error if you tried to assign a non{-}existent user to an admin~group</li>\newline%
+<li>Improved large value handling in unit~prices</li>\newline%
+<li>You now (correctly) need <code>ApprovalRuleAdmin</code> and <code>ApprovalRuleReader</code> to admin/read approval rules and not <code>AddressReader</code>.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.40 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Thursday, February 23rd,~2017. </p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed an issue where you couldn’t update a Category’s <code>ParentID</code> to~null</li>\newline%
+<li>Fixed a bug around promotions with value expressions evaluating <code>product.incategory</code></li>\newline%
+<li>Removed some <code>ApprovalRule</code> fields related to features that don’t exist~yet.</li>\newline%
+<li>Fixed a tricksy bug where in some situations, the <code>Meta</code> of a list would change if the <code>pageSize</code> changed.</li>\newline%
+<li>You now get a much more helpful error if you try to assign a price to a product that doesn’t~exist.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.39 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Planned to be released to Production on Thursday, February 9th,~2017. </p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Fixed an issue where occasionally, if you added valid promo on an order, you would not be able to update the order~afterwards.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.38 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on Sunday, February 5th,~2017. </p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Several performance improvements around Product and Product~Inventory </li>\newline%
+<li>We’ve added a <code>FromCompanyID</code> to the <code>Order</code> object, and you can filter on it, so that orders from different companies can be easily~identified.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.37 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production Tuesday, January 31st, 2017 at 7:30 <span class="caps">PM</span>~Central. </p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>We’ve fixed an issue where, if a product on an lineitem has required specs, but no specs are filled out and there’s no default, the line item create is successful. Instead, now an error is thrown with with the missing~specs.</li>\newline%
+<li>You should now be able to successfully set a string as a spec value on a lineitem if the product on the lineitem allows open~text.</li>\newline%
+<li>If a buyer user has a private credit card <strong>and</strong> elevated roles (<code>FullAccess</code>, <code>CreditCardReader</code> <span class="amp">\&amp;</span> <code>OrderAdmin</code>, for example), you’ll be able to create a payment on the private credit card without~errors.</li>\newline%
+<li>Admin listing endpoints for assignments (<code>listProductAssignments</code>, etc) will no longer return assignments for deleted~buyers. </li>\newline%
+</ul>
+
+%
+\section*{API v1.0.36 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Production on January 17th, 2017 at 7:30 <span class="caps">PM</span>~Central.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>We’ve added a new sub{-}object to the LineItem object. Now, when you list LineItems, you’ll see the products that are on the lineitem too. This currently does not include the full price break information.\newline%
+    <em>New Line Item Object Example</em>:\newline%
+    <code>\{\newline%
+      "ID": "6{-}Ap0yfJ6k2kDxEJhPA4432vjA",\newline%
+      "ProductID": "Test01",\newline%
+      "Quantity": 5,\newline%
+      "DateAdded": "2016{-}05{-}19T17:51:46.127+00:00",\newline%
+      "QuantityShipped": 0,\newline%
+      "UnitPrice": null,\newline%
+      "LineTotal": 0,\newline%
+      "CostCenter": null,\newline%
+      "DateNeeded": null,\newline%
+      "ShippingAccount": null,\newline%
+      "ShippingAddressID": "2WRMZMDcakaVaoJ6Hf\_r1w",\newline%
+      "ShipFromAddressID": null,\newline%
+      "Product": \{\newline%
+        "ID": "Test01",\newline%
+        "Name": "Test01",\newline%
+        "Description": "Test01 Lorem Ipsum",\newline%
+        "QuantityMultiplier": 1,\newline%
+        "ShipWeight": 1,\newline%
+        "ShipHeight": null,\newline%
+        "ShipWidth": null,\newline%
+        "ShipLength": null,\newline%
+        "xp": \{\newline%
+          "test": false\newline%
+        \}\newline%
+      \}</code></li>\newline%
+</ul>\newline%
+<h3>Shipping Rates~Integration</h3>\newline%
+<ul>\newline%
+<li>We’ve added <span class="caps">UPS</span> account configuration options to the Shipping Rates~integration.</li>\newline%
+<li>We’ve added the option to adjust (as an admin) rates that are displayed to users by either a percentage or a flat rate, either at a global or carrier~level.</li>\newline%
+<li>You can now add a manual shipper as well, to account for another kind of shipper than <span class="caps">USPS</span> or <span class="caps">UPS</span>.</li>\newline%
+</ul>\newline%
+<h3>Authorize.net</h3>\newline%
+<ul>\newline%
+<li>We’re storing the partial card number for single use card payments in the Payment object’s <span class="caps">XP</span>, so it can be used in the refund~transaction.</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>You can’t see expired Spending Accounts in the User Perspective Spending Account list, and you can’t use one to make a new payment~either.</li>\newline%
+<li>You can create a payment that exceeds the Spending Account balance if and only if the Spending Account Assignment for the relevant party has <code>AllowExceed</code> set to <code>true</code>.</li>\newline%
+<li>Speaking of price schedules, you can now set a minimum quantity, even when the quantity is not restricted to particular breaks. So, you can now say someone has to order <em>at least</em> 5 products, but they don’t have to order only 10, 20, or 30, for~example.</li>\newline%
+<li>A buyer user without elevated permissions cannot cancel their completed orders.~(๑•̀ㅂ•́)و</li>\newline%
+</ul>\newline%
+<h3>Mandrill~Integration</h3>\newline%
+<ul>\newline%
+<li>We’ve fixed an issue with the Date Submitted variable for Orders not getting pulled into Mandrill email templates~properly.</li>\newline%
+</ul>\newline%
+<h3>Authorize.net</h3>\newline%
+<ul>\newline%
+<li>We’ve fixed the partial UpdateCreditCard to stop overwriting the CardholderName with <code>null</code>. </li>\newline%
+</ul>\newline%
+<h2>Client~Libraries</h2>
+
+%
+\section*{API v1.0.35 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Planned to be released to Production Thursday, December 15th, 2016 at 7 <span class="caps">PM</span> <span class="caps">CST</span>. <em>This date is subject to~change</em></p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>We’ve expanded how you can use categories in the Rules Engine. You can now use <code>items.total</code> in your value~expressions. </li>\newline%
+<li>We’ve added some new Mandrill variables that can be used in your Mandrill integrations:<ul>\newline%
+<li>Line Item~Count</li>\newline%
+<li><span class="caps">PO</span>\#</li>\newline%
+<li>Ship~To</li>\newline%
+<li>Prior~Approver</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>You can use any Order <span class="caps">XP</span> in your Mandrill templates, including subobjects. <span class="caps">EX</span>: <code>orderxp\_xpKey</code>, nested objects: <code>orderxp\_xpKey\_xpKey2</code>, and xp arrays indexes are accessed like this: <code>orderxp\_xpKey\_0</code> (with zero being the index of~choice).</li>\newline%
+<li>The Shipping Rate integration will now also calcuate shipping rates based off of the Line Item level ship from address, not just the product ship from address. Line Item{-}level shipping will take priority over~product{-}level.</li>\newline%
+<li>You can now use just a username, not an email, to trigger a forgotten password~email!</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>We fixed a bug where the Product Delete webhook trigger wasn’t firing~correctly.</li>\newline%
+<li>We fixed a display issue in the documentation around sorting~priority.</li>\newline%
+</ul>\newline%
+<h2>Client~Libraries</h2>\newline%
+<p>(potentially link to all of our current client~libraries)</p>
+
+%
+\section*{API v1.0.33 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod Tuesday, December 6th, 2016 at 8:00 <span class="caps">PM</span> <span class="caps">CDT</span>. </p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>We added a new User Prespective endpoint for returning a user’s spending accounts. <a href="https://documentation.ordercloud.io/api{-}reference\#MeSpendingAccounts">Me/ListSpendingAccounts</a></li>\newline%
+<li>We’ve improved the information in our documentation about searchable/sortable properties and the order of precedence that these are applied in. <a href="https://documentation.ordercloud.io/api{-}reference\#MeAddresses">An example is the <span class="caps">API</span> Documentation around~Addresses</a></li>\newline%
+<li>We’ve added some performance enhacements around Products, particularly listing all products for a~buyer. </li>\newline%
+<li>We now allow you to delete a product that is being used in an unsubmitted order. In submitted orders, the product information is retained, even after~deletion.</li>\newline%
+<li>You can now use categories in the Rules Engine! For example, if you’d like to make a promotion that applies to products in only one category, you can use the following for a value expression: <code>items.any(product.incategory('xxx'))</code></li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>When you update a buyer company’s default catalog, it actually updates~now!</li>\newline%
+<li>We fixed an issue where, if you were authenticating as a user with claims other than <code>FullAccess</code>, the authentication performance was very~poor.</li>\newline%
+</ul>\newline%
+<h2>Client~Libraries</h2>\newline%
+<ul>\newline%
+<li><a href="https://github.com/ordercloud{-}api/angular{-}sdk/releases/tag/v1.0.25{-}prerelease">Angular <span class="caps">SDK</span></a></li>\newline%
+</ul>
+
+%
+\section*{API v1.0.32 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Release Date: November 21st, 2016 at 8:00 <span class="caps">PM</span>~Central.</p>\newline%
+<h2>New~Features:</h2>\newline%
+<ul>\newline%
+<li>You can now filter list Order queries on the BillingAddress and ShippingAddress subobjects. This works on both Order and Me.Order lists. <span class="caps">EX</span>:  <code>/orders?ShippingAddress.Street1=xyz</code></li>\newline%
+<li>We’ve added true order{-}level shipping addresses. If a shipping address is set at the order level, all line items on the order will inherit that shipping address.<ul>\newline%
+<li><strong><span class="caps">PLEASE</span> <span class="caps">NOTE</span></strong>: Previously, if all your line items had the same shipping address, any new line item would have the same shipping address. This is no longer true. Line items will <em><span class="caps">ONLY</span></em> inherit a shipping address when it is explicitly set at the order~level.</li>\newline%
+<li>There are no longer write{-}only address IDs on Order or Line Items; all of the following are now read/write:<ul>\newline%
+<li>Order.BillingAddressID</li>\newline%
+<li>Order.ShippingAddressID</li>\newline%
+<li>LineItem.ShippingAddressID</li>\newline%
+<li>LineItem.ShipFromAddressID</li>\newline%
+</ul>\newline%
+</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>We’ve made several performance improvements around product~history. </li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes:</h2>\newline%
+<ul>\newline%
+<li>You can again list and delete security profile assignments for admin~users. </li>\newline%
+<li>Search results will now be accurate when listing categories using a depth~parameter.</li>\newline%
+<li>You can no longer assign an invalid spec to a product; you will get an error on~assignment.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.31 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod Thursday, November 10th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features:</h2>\newline%
+<ul>\newline%
+<li>The Authorize.net integration was updated to return more information in a more uniform response body. You can view updated Authorize.Net documentation <a href="">here</a>.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.30.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod Friday, November 4th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features:</h2>\newline%
+<ul>\newline%
+<li>Delivery date added to <strong>Shipments</strong></li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes:</h2>\newline%
+<ul>\newline%
+<li>several fixes around <strong>Buyer~Networks</strong></li>\newline%
+</ul>
+
+%
+\section*{API v1.0.30.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Friday, October 28th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features:</h2>\newline%
+<ul>\newline%
+<li>\newline%
+<p><strong>Shared Catalogs</strong>: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you’ll need to add the catalog <span class="caps">ID</span> to your <span class="caps">API</span> routes, and as a parameter in your <span class="caps">SDK</span> calls. Me Category endpoints are not affected, except in that you can optionally filter by catalog. Please check out the <a href="http://qa{-}documentation.ordercloud.io/guides/base{-}use{-}cases/implement{-}shared{-}catalogs">Api Documentation</a>.</p>\newline%
+</li>\newline%
+<li>\newline%
+<p>A single client <span class="caps">ID</span> for an app can be used by different buyers. This is our first step towards an exciting feature on our roadmap, <strong>Buyer Networks</strong>.</p>\newline%
+</li>\newline%
+<li>\newline%
+<p>You can now reference Product Names in your Mailchimp/Mandrill message templates! Previously, you could use Product Description and Product <span class="caps">ID</span>, now you can add Product Name as~well. </p>\newline%
+</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes:</h2>\newline%
+<ul>\newline%
+<li>We updated <strong>Spending Accounts</strong> to be decremented when an order is submitted, rather then when a payment is applied to an unsubmitted order. (Clearing an order will refund any payments applied, even if the order is unsubmitted— deleting the order will not do so~automatically.)</li>\newline%
+</ul>\newline%
+<h2><span class="caps">SDK</span> Release~Notes:</h2>\newline%
+<p>The <span class="caps">SDK</span> that will be going out with the <span class="caps">API</span> release will be <a href="https://github.com/ordercloud{-}api/angular{-}sdk/releases/tag/v1.0.24">v1.0.24</a>.</p>\newline%
+<p>After the <span class="caps">API</span> is released, if anyone runs a <code>bower update</code> with <em>lastest</em> in their bower.json for ordercloud{-}ng{-}sdk they will be updated to <a href="https://github.com/ordercloud{-}api/angular{-}sdk/releases/tag/v1.0.24">v1.0.24</a></p>
+
+%
+\section*{API v1.0.29.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Wednesday, October 26th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Integration Proxies and Assignments {-} see the Integrations guides in~documentation.ordercloud.io</li>\newline%
+<li>Webhook assignments {-} see Webhooks in the Dashboard guide in~documentation.ordercloud.io</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.28.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Wednesday, October 5th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Product/Spec~Enhancements</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Preserve InteropID in Buyer~Delete</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.26.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Monday, September 21st, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Line Items: Date Needed cannot be in the~past</li>\newline%
+<li>Category: SaveCategoryAssignmentAsync Assigning to usergroup also assigns at company~level</li>\newline%
+<li>Category: Client.Me.ListCategoriesAsync not returning expected~result</li>\newline%
+<li><span class="dquo">“</span>Sequence contains no elements” exceptions in~BaseApiController</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.25.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Thursday, September 8th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Line Items: Attempt to patch product id should throw~error</li>\newline%
+<li>Credit Cards: should validate on~creating</li>\newline%
+<li>Performance issues {-} <code>order/\{orderid\}/submit</code> endpoint {-} time out~error</li>\newline%
+<li>Specs: <code>/productassignments</code> returns 500 if no~specID</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.25.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Saturday, September 3rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Promotions {-} Patching order incorrectly updates~PromotionDiscount</li>\newline%
+<li>Resolved Deadlock/Timeout issue on product search with xp~filter</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.24.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Thursday, August 25th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Add Dimensions to Product~Object</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.24.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Tuesday, August 9th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features</h2>\newline%
+<ul>\newline%
+<li>Security Profiles can now be assigned at the party level. (Buyer, User Group, User) These Security Profiles will be inherited, so a user’s total roles will actually be the total sum of these inherited profiles. In order to see what roles a user actually has, <code>user.AvailableRoles</code> is an array listing all the roles that user~has.</li>\newline%
+<li>Because security profiles can be assigned at the Buyer level, apps can now use self{-}signup of users more~easily. </li>\newline%
+<li>Administration of Admin Users is more granular now with new <code>AdminUserReader</code> and <code>AdminUserAdmin</code> roles for Security~Profiles. </li>\newline%
+<li>We added <span class="caps">XP</span> to Approval~Rules. </li>\newline%
+<li>We added the option to limit usage of a Promotion to once per~customer. </li>\newline%
+<li>We added a read{-}only <code>RedemptionCount</code> to Promotions, so that users will be able to report more easily on how often a Promotions is~used.</li>\newline%
+<li>We have added the ability to set a default <code>ShipFrom</code> address on a product, so that it will always show as shipping from that~address. </li>\newline%
+<li>Admin Users can now be put into Admin User Groups, much like Buyer Users/Buyer User~Groups.</li>\newline%
+</ul>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Previously, you would occasionally get a 409 error when <code>PATCH</code>ing an order. This has now been~fixed.</li>\newline%
+</ul>\newline%
+<h2>Breaking~Changes</h2>\newline%
+<ul>\newline%
+<li>Integration Proxy responses are now more clear about where an error is coming~from. </li>\newline%
+<li>We changed how we store refresh tokens. This adds more security, as well as allowing us to have an unlimited refresh token. All apps will have to reauthorize after we deploy <span class="caps">API</span>~24. </li>\newline%
+<li>As the Category List endpoint now supports filtering a list of categories by parentID, we have removed: <code>GET categories/xyz/categories</code> (Categories.ListChildren) <code>GET me/categories/xyz/categories</code> (Me.Categories.ListSubcategories) </li>\newline%
+<li>Providing a <code>parentID</code> parameter explicitly in Category List is now redundant. Users should check that you are using the latest version of your <span class="caps">SDK</span>. </li>\newline%
+<li>Username is now required to be unique within a seller network. This opens up better possibilities for multiple buyers within one app, and a better user verification process. <em>If you have not updated your username before the <span class="caps">API</span> 24 deploy when contacted, you will not be able to log~in.</em> </li>\newline%
+<li>We have changed our integration proxy base <span class="caps">URL</span> from <code>api.ordercloud.io/v1/nativeintegrationproxy/:service</code> to <code>api.ordercloud.io/v1/integrationproxy/:service</code>. If you use an integration within your app, please verify your url has been~updated.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.23.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Saturday, July 23rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>A new Promotions feature has been added to the platform. Now you can set up promotions, using the same Rules Engine logic as <a href="https://devcenter.ordercloud.io/blog/rules{-}have{-}arrived">Approval Rules</a>. This new functionality allows buyers to get a limited time discount, free shipping, etc. These Promotions can now be added to orders. Promotions are assignable to buyer parties. But like products, they are admin owned and can be shared between multiple~buyers.</li>\newline%
+<li>An existing user can now start off as a temp user and then log in as an existing user. This gives them the ability to keep their current temp user~order.</li>\newline%
+<li>The Order Approvals endpoint has been updated. You can now add comments and sort~chronologically.</li>\newline%
+<li>You can now filter on~Order.Total</li>\newline%
+<li>The endpoints returned from the Documentation <span class="caps">API</span> now properly reflect the Role information for each~endpoint.</li>\newline%
+<li>The ability to get a list of pending order approvals has been improved. You can now get a list of unique users in one step, via: <code>/orders/xyz/eligibleapprovers</code> </li>\newline%
+<li>A number of bug fixes also went out with this~release.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.22.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Friday, July 8th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>You can now list the pending approvals, for an order, by passing in the Order <span class="caps">ID</span>. This will primarily be used for email integrations. Notifications can now be sent to the approving group of users for each step, as the order gets passed~along.</li>\newline%
+<li>The ability to set a ship{-}from address on a line item has been added, this will be useful for calculating shipping~rates</li>\newline%
+<li>Endpoints have been created for seller~addresses</li>\newline%
+<li><span class="caps">XP</span> is now available for Approval~Rules</li>\newline%
+<li>A Description field is now available for viewing, approving, and declining~orders.</li>\newline%
+<li><span class="caps">XP</span> is now available for~Variants</li>\newline%
+<li>a number of bug fixes were also deployed with this~release.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.21.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Wednesday, June 22nd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>Endpoint arguments that exist in the model, which the endpoint returns, and that have listArgs, have been removed. Example:<ul>\newline%
+<li><code>v1/buyers/\{buyerID\}/categories/assignments</code> This endpoint accepts buyerID, categoryID, userID, userGroupID, level, and listArgs. buyerID is required because it is part of the route. level should also be included because it is not part of the CategoryAssignment model. However, categoryID, userID, and userGroupID are all part of the CategoryAssignment model and can therefore be added to the Filters field within listArgs (since in both cases they will be included as query string~parameters).</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>The State and Zipcode validation has been updated. For Addresses with <span class="caps">US</span> country code, it is now required to have a State and Zipcode. For non{-}<span class="caps">US</span> addresses, it is not~required.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.20.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Friday, June 10th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li><span class="caps">XP</span> has been added to Cost Center~endpoints. </li>\newline%
+<li>List routes for /me order will now mirror admin order routes with respect to requiring incoming/outgoing. Further, the rules of visibility have changed with the four order list routes in the interest of simplicity: <ul>\newline%
+<li><strong>orders/outgoing</strong> orders from my company (submitted only unless UnsubmittedOrderReader~role) </li>\newline%
+<li><strong>orders/incoming</strong> orders to my company (submitted only unless UnsubmittedOrderReader~role)</li>\newline%
+<li><strong>me/orders/outgoing</strong> orders created, approved, or declined by~me</li>\newline%
+<li><strong>me/orders/incoming</strong> orders awaiting my~approval </li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>For Approval Rules, approved(ruleid) has been changed to~order.approved(ruleid) </li>\newline%
+<li>Previously, admin address routes allowed you to see all addresses assigned to the buyer company <span class="caps">AND</span> your own private addresses. In order to simplify the visibility rules for admin routes (like with orders), private addresses are now only visible through /me~routes.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.19.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Tuesday, May 31st, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>Route params have been added to webhooks. An object has been added that contains the values from the~routeparams. </li>\newline%
+<li>A small number of bug fixes also went out with this~release.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.18.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Wednesday, May 25th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>The <span class="caps">API</span> now has elevated security integration. 3rd party systems now have the ability to perform elevated security operations. This means that we can grant them specific access that is not accessible by the (buyer)~client.</li>\newline%
+<li>The Rules Engine has been updated to replace the <code>item</code> object with <code>items</code> aggregate function. The <code>item</code> object has been replaced with <code>items</code> that contains aggregate functions allowing you do this: <code>items.any(CostCenter = 'XYZ')</code> instead of this: <code>item.CostCenter = 'XYZ'</code> This supports four such aggregate functions: <ul>\newline%
+<li><code>items.any(subexpression)</code> {-} returns true/false indicating whether any items match~subexpression </li>\newline%
+<li><code>items.all(subexpression)</code> {-} returns true/false indicating whether any items match~subexpression </li>\newline%
+<li><code>items.quantity(subexpression)</code> {-} returns total quantity of items matching~subexpression</li>\newline%
+<li><code>items.total(subexpression)</code> {-} returns price total of all items matching~subexpression</li>\newline%
+</ul>\newline%
+</li>\newline%
+<li>Upon sending a webhook, an access token is now appended to the outbound web hook call. If a web hook receiver needs to perform actions on behalf of that user with elevated claims, they can now use this token to do so. A nullable field has been added to webhooks called ElevatedClaimsList containing a comma separated list of~Claims. </li>\newline%
+<li>Several improvements have been made to the Dev Center to allow management of the webhooks from with the Dev Center <span class="caps">UI</span>. </li>\newline%
+<li>Several bug fixes were also deployed with this~release.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.17.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Friday, May 20th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>Approval rules have been updated significantly in this release. This release includes the new ApprovalRule data model (with full admin{-}side <span class="caps">CRUD</span> endpoints), support for a wide variety of expressions, and support for the actual buyer{-}side flow, including (legacy) email messaging. <em>There will be an approval rules blog post in the near future that will cover this more~in{-}depth.</em></li>\newline%
+<li>The <span class="caps">API</span> route for Order listing has changed. When listing orders as a Seller user, you must now specify incoming or outgoing in the route, rather than in the query string. For example:<br/>\newline%
+<code>v1/orders/incoming</code> \newline%
+      This does <span class="caps">NOT</span> apply to <code>me/orders</code> {-} outgoing is always assumed there. It only applies to admin routes, such as incoming orders for sellers and outgoing orders for approving buyer users. Apps will need to be updated accordingly, and make sure you’re using the latest version of the <span class="caps">SDK</span></li>\newline%
+<li><code>IsReportingGroup</code> and <code>IsApprovingGroup</code> have been removed from the UserGroup~object.</li>\newline%
+<li>This release also contains several bug~fixes.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.16.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Wednesday, May 4th, 2016 at 9 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>Buyer users can now can get a list of the products assigned to themselves. This used to require multiple <span class="caps">API</span> calls.This is now a single~call.</li>\newline%
+<li>There is now the ability to list security profiles in the <span class="caps">API</span> itself and not just in DevCenter (as~before).</li>\newline%
+<li>When logged in as a buyer user you can now list their assigned security~profiles</li>\newline%
+<li>There is now the ability to create personal addresses (billing and shipping) outside the~organization.</li>\newline%
+<li>There is now the ability to create a personal list of saved credit cards outside the organization. Users can now add, update, and delete personal credit~cards.</li>\newline%
+<li>Shipment <span class="caps">XP</span> {-} <span class="caps">XP</span> can now be used on~Shipments</li>\newline%
+<li>Address <span class="caps">XP</span> {-} <span class="caps">XP</span> can now be used on~Addresses.</li>\newline%
+<li><span class="caps">API</span> Client <span class="caps">XP</span> {-} <span class="caps">XP</span> can now be used on a client~organization.</li>\newline%
+<li>There are now more advanced search and filtering capabilities available on Addresses, Credit Cards, Specs, and Buyer Categories. This new search capability allows for more advanced filtering and fuzzy searches on lists. Take a look at the new, searchable attributes here:~https://testdevcenter.ordercloud.io/docs\#Categories\_List </li>\newline%
+<li>The <span class="caps">API</span> has been updated to allow for Anonymous Shopping within the OrderCloud platform. This update allows for much more flexibility in the buyer user workflow. In the past, buyer users had to be registered in order to purchase products. Now, they can go through the entire shopping workflow without signing~in.</li>\newline%
+<li>Spec Options can now be designated as the Default Spec Option for a~Spec.</li>\newline%
+<li>There is now the ability to create registration off of a temp user. A user can start with a temp user session and when they choose to profile themselves, a new user based on the template is~created.</li>\newline%
+<li>Temp users can create an order but nothing else on Me. It is now impossible for a temp user to create Me data outside of an~order.</li>\newline%
+<li>A <code>SpecCount</code> can now be shown to designate how many options are set up for a particular~Spec.</li>\newline%
+<li>The Docs section of Devcenter has been reorganized to better reflect how people are actually using the <span class="caps">API</span>.</li>\newline%
+<li>We fixed a bug so that users can now filter on <span class="caps">XP</span> in the /me endpoint~lists.</li>\newline%
+<li>Multiple bug fixes were also included in this~release.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.15.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Friday, April 15th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>We’ve fixed a bug where, if you <a href="https://devcenter.ordercloud.io/docs\#XP">searched a list</a> on <span class="caps">XP</span>, you sometimes got duplicate~results.</li>\newline%
+<li>We’ve fixed a bug where, if you are an Admin User, you couldn’t update the line items on an order for a Buyer User. This is an uncommon scenario, as generally an Admin user would impersonate a Buyer User to make an order on behalf of the Buyer user, but some integrations use an Admin User~directly.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.14.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Monday, April 11th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes</h2>\newline%
+<ul>\newline%
+<li>Duplicate error when creating categories in different~buyers</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.14.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Tuesday, April 5th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Changelog</h2>\newline%
+<ul>\newline%
+<li>We’ve added some new functionality around how we store credit card and other payment transactions. If your app uses our credit card processing, you’ll probably want to check out the <a href="https://devcenter.ordercloud.io/docs\#Payments">documentation</a> on Payments, and make sure everything is working the way you~expect.</li>\newline%
+<li>You can now use partial updates ( <code>PATCH</code> calls) to update fields on any model to <span class="caps">NULL</span> instead of having to overwrite with some other~value!</li>\newline%
+<li>We’ve changed how you can check if all the line items on an Order are being shipped to the same place. While you could previously set all the line items on an order to the same address by writing to <code>Order.ShippingAddressID</code> , the value was write{-}only. Now <code>Order.ShippingAddressID</code>  will return a non{-}null value if and only if all the line items on that order have the same shipping address. Check out the <a href="https://devcenter.ordercloud.io/docs\#Orders\_Update">documentation</a> for more on~this.</li>\newline%
+<li>To go along with the above, if Order.ShippingAddressID is non{-}null (that is, all the line items are being shipped to the same place), newly added line items will inherit that shipping~address. </li>\newline%
+<li>Some performance improvements were made around working with line{-}items. If your app has a lot of <code>PATCH</code>ing  of line items, you’ll hopefully notice those~improvements.</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.13.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Wednesday, March 16th, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>Bug~Fixes:</h2>\newline%
+<ul>\newline%
+<li>Payments: Unable to create, states order is already fully~paid</li>\newline%
+<li>Products: Generating variants throws 500~error</li>\newline%
+<li>CostCenterID cannot be set on an~ApprovalRule</li>\newline%
+<li>Specs: After variants are generated for a product, the <code>definesVariant</code> is set to~false</li>\newline%
+</ul>
+
+%
+\section*{API v1.0.12.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+<p>Released to Prod on Thursday, March 3rd, 2016 at 8 <span class="caps">PM</span> <span class="caps">CST</span>.</p>\newline%
+<h2>New~Features:</h2>\newline%
+<ul>\newline%
+<li><strong>Payment Types</strong> allow using multiple payment types on a single~order</li>\newline%
+<li><a href="\#generating{-}variants"><strong>Generate~Variants</strong></a></li>\newline%
+</ul>\newline%
+<h2>Breaking~Changes:</h2>\newline%
+<ul>\newline%
+<li>DefinesVariant has been moved from the Spec model to the Product{-}Spec Assignment~model</li>\newline%
+</ul>\newline%
+<h4>Generating~Variants</h4>\newline%
+<p>There are 4 things needed to create a product with variants\newline%
+Spec(s)\newline%
+Spec options\newline%
+a spec product relationship that sets Defines variant = true\newline%
+an explicit call to \newline%
+<code>POST \{productID\}/variants/generate</code></p>\newline%
+<p>it’s pretty simple once they’re initally set up. Take the ubiquitous shirt example\newline%
+Specs \newline%
+<em>size small, large</em>\newline%
+<em>color red,~black</em></p>\newline%
+<p>spec {-} product = size/shirt/definesvariant = true\newline%
+spec {-} product = color/shirt/definesvariant =~true</p>\newline%
+<p>a call to <span class="caps">POST</span>\newline%
+<code>\{productID\}/variants/generate</code>\newline%
+will generate 4 variants\newline%
+{-} small red\newline%
+{-} small black\newline%
+{-} large red\newline%
+{-} large~black</p>\newline%
+<p>Adding specs is pretty simple\newline%
+add color:blue\newline%
+and a call to \newline%
+<code>POST \{productID\}/variants/generate</code>\newline%
+will <span class="caps">ADD</span> the missing variants \newline%
+1   small blue\newline%
+2   large~blue</p>\newline%
+<p>The tricky bit starts when a spec is removed. if color is deleted, all the varaints are not relevant because color is built into all of them. Delete color and add logo to our shirt. So that this is the config of shirt:\newline%
+    size: small,large\newline%
+    logo:~logoA,logoB</p>\newline%
+<p>and a call to \newline%
+<code>POST \{productID\}/variants/generate</code>\newline%
+will only <span class="caps">ADD</span> new variants and you’ll have 8. Even with the spec deleted, the dependant variant can still exist, it’s just not tied to the deleted spec. This is important if that variant is already on an order.\newline%
+{-} small logoA\newline%
+{-} small logoB\newline%
+{-} large logoA\newline%
+{-} large logoB\newline%
+{-} small red\newline%
+{-} small black\newline%
+{-} large red\newline%
+{-} large~black</p>\newline%
+<p>if your intention is to start over and reset the variants, there is the spec nuclear~option:</p>\newline%
+<p><code>POST \{productID\}/variants/generate?overwriteExisting=true</code></p>\newline%
+<p>This will <span class="caps">DELETE</span> <span class="caps">ALL</span> variants and regenerate them based on the current spec configurations. If a variant is on a lineitem, it will be removed. The previous example deletes color and adds logo. calling overwriteExisting=true will result in \newline%
+{-} small logoA\newline%
+{-} small logoB\newline%
+{-} large logoA\newline%
+{-} large~logoB</p>\newline%
+<p>The key to overwriteExisting=true is that it will always delete all variaints and regenerate regardless of the change to the spec~configuration.</p>
 
 %
 \end{document}

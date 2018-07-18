@@ -13,118 +13,95 @@ import markdown
 from pathlib import Path
 import json
 import re
+import feedparser
 
-def getVersions():
 
-	p = Path('../content/API-ReleaseNotes')
+
+class ApiVersion(object):
+	"""
+	an api release version which is comparable
+
+	version: float, version #
+	title: version title
+	link: release notes link
+	summary: exec summary
+	contents: changelog
+	"""
+
+	def __init__(self, version, title='', link='', summary='', contents=''):
+		self.version = version
+		self.title = title
+		self.link = link
+		self.summary = summary 
+		self.contents = contents
+
+def formatContents(versions):
+
+
+
+	for item in versions:
+
+		soup = BeautifulSoup(''.join(item.contents), 'html.parser')
+
+		item['release date'] = soup.p.text
+		item['changelog'] = []
+		for s in soup.find_all('p')[1:]:
+			item['changelog'].append(item.text)
+
+	print(versions)
+
+	return versions
+
+def getVersionsFromXML(xmlPath):
+
+	d = feedparser.parse(xmlPath)
 
 	versions = []
 
-	for child in p.iterdir():
-		versions.append(child)
+	for release in d.entries:
+		content = []
+		verNum = ''
+		if re.search(r'[^v][\d\.][\S]+', release.title) is not None:
+			verNum = re.search(r'[^v][\d\.][\S]+', release.title).group(0)
+		else:
+			continue
+		for item in release.content:
+			content.append(item['value'])
 
-	#print(versions)
+		version = ApiVersion(verNum, release.title, release.link, '', ''.join(content))
+		versions.append(version)
+
 
 	return versions
 
 
 
-def getFeatures(version):
-
-	path = Path(version)
-
-	#print(path)
-
-	try:
-		f = open(path, 'r', encoding='utf-8')
-		fileString = f.read()
-		html=markdown.markdown( fileString )
-	except: # catch *all* exceptions
-	  e = sys.exc_info()[0]
-	  write_to_page( "<p>Error: %s</p>" % e )
-
-
-	soup = BeautifulSoup(html, "html.parser")
-
-	#print(soup.prettify())
-	
-	date = soup.find('p')
-	#print(date.contents)
-	date = ''+str(date.contents[0].string)
-	#print(date)
-	#print(type(date))
-
-	date = re.search('Date:.\w.+[^"]', date)
-
-	date = (date.group(0)[6:])
-	print(date)
-	meta = {}
-
-	meta["Summary"]= ""
-	meta["Released to Production"] = '2018-01-03 00:00 CDT'
-	meta["Breaking Changes"] = False
-
-	if len(version.stem) > 5:
-		meta['Version Number'] = version.stem
-	elif len(version.stem) <= 5:
-		meta['Version Number'] = 'v1.0.'+version.stem[1:]
-	
-	meta['Date'] = date
-
-
-
-	bits = {}
-	
-
-	for header in soup.find_all('h2'):
-		#print('HEADER: '+header.string)
-		headerStr = str(header.string)
-		bits[headerStr] = []
-		for sibling in header.find_all_next():
-			#print(sibling)
-			if 'h2' not in sibling:
-				bits[headerStr].append(str(sibling))
-			else: 
-				break
-
-	
-
-	total = {}
-
-
-	total["Meta"] = meta
-	total["Features"] = bits
-
-	return total
-
-#print(features.strings)
-
-
 def main():
 
-	versions = []
-	versions = getVersions()
+	versions = getVersionsFromXML('https://ordercloud-api.github.io/release-notes/feeds/api-release-notes.atom.xml')
+	
+	finetuned = formatContents(versions)
 
-	print(versions)
+	with open('Timeline.json', 'w') as f:
 
-	features = []
 
-	for version in versions:
-		features.append(getFeatures(version))
-
-	with open('Timeline.json', 'a') as f:
 		timeline = {}
-		timeline['Data'] = []
 		
-		for item in features:
-			timeline['Data'].append(item)
+		
+		for item in finetuned:
+			version = {
+				'title' : item.title,
+				'version' : item.version,
+				'summary' : item.summary,
+				'changelog' : item.contents,
+				'release notes link' : item.link
+
+			}
+			timeline[item.version] = version
 			
 		json.dump(timeline, f, indent=4, sort_keys=False)
 
-
-
-
-
+		
 
 
 
