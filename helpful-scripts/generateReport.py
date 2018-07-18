@@ -6,12 +6,13 @@ from collections import OrderedDict
 import re
 from pylatex import Document, Section, Subsection, Command, LineBreak, NewLine
 from pylatex.utils import italic, NoEscape
+from pylatex.section import Paragraph
 from operator import itemgetter
 from datetime import datetime
 
 def get_json():
 
-	jsonLoc = 'Timeline-Generated.json'
+	jsonLoc = 'Timeline-Massage.json'
 
 
 	jsonFile = {}
@@ -30,7 +31,7 @@ def get_json():
 
 	versions = sorted(versions, key=itemgetter(1))
 
-	print(versions)
+	#print(versions)
 	return (versions, jsonFile)
 
 
@@ -44,32 +45,33 @@ def fill_document(doc):
 	versions = get_json()[0]
 	jsonFile = get_json()[1]
 
-	print(versions)
-	print(len(jsonFile))
+	#print(versions)
+	#print(len(jsonFile))
 
 
 
 	for i in versions: # sorted by time rn
-		print(i)
+		#print(i)
 		for item in jsonFile:
-			print(item['Meta']['Version Number'])
+			#print(item['Meta']['Version Number'])
 			if item['Meta']['Version Number'] == 'v1.0.'+str(i[0]):
-				with doc.create(Section('Release '+item['Meta']['Version Number'], numbering=None)):
-					doc.append('Released to Production: ' + item['Meta']['Released to Production'])
-					doc.append(NewLine())
-					doc.append(item['Meta']['Summary'])
+				with doc.create(Section('Release '+item['Meta']['Version Number'], numbering=False, label=False)):
+					with doc.create(Paragraph(title= '', numbering=False, label=False)):
+						doc.append('Released to Production: ' + item['Meta']['Released to Production'])
+					with doc.create(Paragraph(title= '', numbering=False, label=False)):
+						doc.append(item['Meta']['Summary'])
 
 					
 
 if __name__ == '__main__':
 
 	# Document with `\maketitle` command activated
-	doc = Document(documentclass='article', indent=4)
+	doc = Document(documentclass='memoir', indent=4)
 
 	doc.preamble.append(Command('title', 'OrderCloud Platform Timeline'))
 	doc.preamble.append(Command('author', 'K.L.Reeher'))
-	doc.preamble.append(Command('date', NoEscape(r'\\today')))
-	doc.append(NoEscape(r'\\maketitle'))
+	doc.preamble.append(Command('date', NoEscape(r'\today')))
+	doc.append(NoEscape(r'\maketitle'))
 
 	fill_document(doc)
 

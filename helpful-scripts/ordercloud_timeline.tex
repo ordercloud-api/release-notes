@@ -1,4 +1,4 @@
-\documentclass{article}%
+\documentclass{memoir}%
 \usepackage[T1]{fontenc}%
 \usepackage[utf8]{inputenc}%
 \usepackage{lmodern}%
@@ -7,158 +7,210 @@
 %
 \title{OrderCloud Platform Timeline}%
 \author{K.L.Reeher}%
-\date{\\today}%
+\date{\today}%
 %
 \begin{document}%
 \normalsize%
-\\maketitle%
-\section{Release v1.0.12.0}%
-\label{sec:Release v1.0.12.0}%
-Released to Production: 2016{-}03{-}03 20:00 CST%
-\newline%
+\maketitle%
+\section*{Release v1.0.12.0}%
+\paragraph*{}%
+Released to Production: 2016{-}03{-}03 20:00 CST
+
+%
+\paragraph*{}%
 In API 1.0.12, OrderCloud Platform added variant generation, and the ability to use multiple Payment types on an Order.
 
 %
-\section{Release v1.0.13.0}%
-\label{sec:Release v1.0.13.0}%
-Released to Production: 2016{-}03{-}16 20:00 CST%
-\newline%
+\section*{Release v1.0.13.0}%
+\paragraph*{}%
+Released to Production: 2016{-}03{-}16 20:00 CST
+
+%
+\paragraph*{}%
 Bug fix release.
 
 %
-\section{Release v1.0.14.0}%
-\label{sec:Release v1.0.14.0}%
-Released to Production: 2016{-}04{-}05 20:00 CST%
-\newline%
+\section*{Release v1.0.14.0}%
+\paragraph*{}%
+Released to Production: 2016{-}04{-}05 20:00 CST
+
+%
+\paragraph*{}%
 New functionality added to the OrderCloud Platform to allow easier management of Order and Lineitem shipment. Can now verify if an order has been entirely shipped more easily, and can ship all lineitems on an order, among other tweaks. Performance improvements around `PATCH`ing lineitems.
 
 %
-\section{Release v1.0.14.1}%
-\label{sec:Release v1.0.14.1}%
-Released to Production: 2016{-}04{-}11 20:00 CST%
-\newline%
+\section*{Release v1.0.14.1}%
+\paragraph*{}%
+Released to Production: 2016{-}04{-}11 20:00 CST
+
+%
+\paragraph*{}%
 Bug fix release.
 
 %
-\section{Release v1.0.15.0}%
-\label{sec:Release v1.0.15.0}%
-Released to Production: 2016{-}04{-}15 20:00 CST%
-\newline%
+\section*{Release v1.0.15.0}%
+\paragraph*{}%
+Released to Production: 2016{-}04{-}15 20:00 CST
+
+%
+\paragraph*{}%
 Bug fix release.
 
 %
-\section{Release v1.0.16.0}%
-\label{sec:Release v1.0.16.0}%
-Released to Production: 2016{-}05{-}04 21:00 CST%
-\newline%
+\section*{Release v1.0.16.0}%
+\paragraph*{}%
+Released to Production: 2016{-}05{-}04 21:00 CST
+
+%
+\paragraph*{}%
 OrderCloud Platform gains 'Me' endpoints, allowing buyer users to interact with their own buying experience more easily. This includes listing all Products assigned to them in one API call, and the addition of personal Buyer User shipping and billing addresses, and personal Credit Card payment options. Additionally, XP were added to Shipments, Addresses, API clients. Filtering and advanced searching capabilities (including fuzzy searching) were also added to Addresses, Credit Cards, Specs, and Buyer Categories. Anonymous Shopping was added to the Platform in this release as well. Finally, SpecCount was added to the Spec model, making it very easy for developers to find how many options are set up for a particular Spec. There were also various bug fixes in this release.
 
 %
-\section{Release v1.0.17.0}%
-\label{sec:Release v1.0.17.0}%
-Released to Production: 2016{-}05{-}20 21:00 CST%
-\newline%
+\section*{Release v1.0.17.0}%
+\paragraph*{}%
+Released to Production: 2016{-}05{-}20 21:00 CST
+
+%
+\paragraph*{}%
 This release significantly expanded and improved Approval Rules, including introducing the first iteration of the Rules Engine. This release additionally added the 'incoming'/'outgoing' distinction to orders.
 
 %
-\section{Release v1.0.18.0}%
-\label{sec:Release v1.0.18.0}%
-Released to Production: 2016{-}05{-}25 20:00 CST%
-\newline%
+\section*{Release v1.0.18.0}%
+\paragraph*{}%
+Released to Production: 2016{-}05{-}25 20:00 CST
+
+%
+\paragraph*{}%
 This release added the option to give integrations elevated security permissions. This allows for more secure, powerful backend integrations. Webhooks can now also perform actions using security permissions as well, using an access token appended to the outbound web hook call. Finally, the Rules Engine was improved, and various bug fixes were also released.
 
 %
-\section{Release v1.0.19.0}%
-\label{sec:Release v1.0.19.0}%
-Released to Production: 2016{-}05{-}31 20:00 CST%
-\newline%
+\section*{Release v1.0.19.0}%
+\paragraph*{}%
+Released to Production: 2016{-}05{-}31 20:00 CST
+
+%
+\paragraph*{}%
 This relase added route parameters to webhook calls, and a small number of bug fixes.
 
 %
-\section{Release v1.0.20.0}%
-\label{sec:Release v1.0.20.0}%
-Released to Production: 2016{-}06{-}10 20:00 CST%
-\newline%
+\section*{Release v1.0.20.0}%
+\paragraph*{}%
+Released to Production: 2016{-}06{-}10 20:00 CST
+
+%
+\paragraph*{}%
 Several enhancements were made to the `Me` endpoints, including more detailed order routes. Additionally, admin address routes no longer list a user's personal addresses as well {-}{-} they are only available through the `Me` endpoint. In the Rules Engine, `approved(ruleid)` is now `order.approved(ruleid)`. Finally, XP have been added to Cost Center endpoints.
 
 %
-\section{Release v1.0.21.0}%
-\label{sec:Release v1.0.21.0}%
-Released to Production: 2016{-}6{-}22 20:00 CST%
-\newline%
+\section*{Release v1.0.21.0}%
+\paragraph*{}%
+Released to Production: 2016{-}6{-}22 20:00 CST
+
+%
+\paragraph*{}%
 Duplicate information that is conveyed in both the route and the request's parameters has been simplified. If the information is already in the route, it's no longer needed in the request parameters. Additionally, address validation has been updated {-}{-} for addresses with a US country code, it is now required to have a State and Zipcode. However for non{-}US addresses, it is not required.
 
 %
-\section{Release v1.0.23.0}%
-\label{sec:Release v1.0.23.0}%
-Released to Production: 2016{-}07{-}23 20:00 CST%
-\newline%
+\section*{Release v1.0.23.0}%
+\paragraph*{}%
+Released to Production: 2016{-}07{-}23 20:00 CST
+
+%
+\paragraph*{}%
 In this release, Promotions were added to the OrderCloud platform, using the same Rules Engine as Approvals. Anonymous Shoppers can now register during the checkout process, and keep their carts. Order approvals now have comments, and can be sorted chronologically. The ability to list pending order approvals has also been improved{-}{-} an endpoint has been added that allows the listing of all eligable approvers for an order. Finally, bug fixes, and the ability to filter on Order.Total.
 
 %
-\section{Release v1.0.22.0}%
-\label{sec:Release v1.0.22.0}%
-Released to Production: 2016{-}08{-}08 20:00 CST%
-\newline%
+\section*{Release v1.0.22.0}%
+\paragraph*{}%
+Released to Production: 2016{-}08{-}08 20:00 CST
+
+%
+\paragraph*{}%
 This release adds the ability to list pending approvals for an Order. Additionally, order approvals now include a description of why an order was or was not approved. Message Senders can now send emails to the approving group of users for each order approval needed. Additionally, there is now the ability to set the address each lineitem is shipped from, enabling easier shipping rate calculation, among other things. Finally, XP was added to Approval Rules and Variants. Also, bug fixes.
 
 %
-\section{Release v1.0.24.0}%
-\label{sec:Release v1.0.24.0}%
-Released to Production: 2016{-}08{-}09 20:00 CDT%
-\newline%
+\section*{Release v1.0.24.0}%
+\paragraph*{}%
+Released to Production: 2016{-}08{-}09 20:00 CDT
+
+%
+\paragraph*{}%
 As of this release, Security Profiles can be assigned at the party level. This means easier control of self{-}registered users when using Anonymous Shopping. More granular administration of Admin Users is possible with new `AdminUserReader` and `AdminUserAdmin` roles. Admin users can also now be organized into Admin User Groups, as well. Promotions can be set to only be able to be used once per user. Additionally, Promotion objects now have a `RedemptionCount`, which allows easier reporting of promotion usage. Finally, XP was added to Approval Rules. \newline%
  The OrderCloud Platform changed how it stores refresh tokens in this release, improving platform security.\newline%
  The OrderCloud platform's integration proxy base URL changed from `api.ordercloud.io/v1/nativeintegrationproxy/:service` to `api.ordercloud.io/v1/integrationproxy/:service`\newline%
  Finally, Username is required to be unique within a Seller network as of this release. 
 
 %
-\section{Release v1.0.24.1}%
-\label{sec:Release v1.0.24.1}%
-Released to Production: 2016{-}08{-}25 20:00 CST%
-\newline%
+\section*{Release v1.0.24.1}%
+\paragraph*{}%
+Released to Production: 2016{-}08{-}25 20:00 CST
 
 %
-\section{Release v1.0.25.0}%
-\label{sec:Release v1.0.25.0}%
-Released to Production: 2018{-}01{-}03 00:00 CDT%
-\newline%
+\paragraph*{}%
+Dimensions were added to Product models.
 
 %
-\section{Release v1.0.25.1}%
-\label{sec:Release v1.0.25.1}%
-Released to Production: 2018{-}01{-}03 00:00 CDT%
-\newline%
+\section*{Release v1.0.25.0}%
+\paragraph*{}%
+Released to Production: 2016{-}09{-}03 20:00 CST
 
 %
-\section{Release v1.0.26.0}%
-\label{sec:Release v1.0.26.0}%
-Released to Production: 2018{-}01{-}03 00:00 CDT%
-\newline%
+\paragraph*{}%
+Several bug fixes, and a resolved deadlock issue on a product search with an XP filter.
 
 %
-\section{Release v1.0.28.0}%
-\label{sec:Release v1.0.28.0}%
-Released to Production: 2018{-}01{-}03 00:00 CDT%
-\newline%
+\section*{Release v1.0.25.1}%
+\paragraph*{}%
+Released to Production: 2016{-}09{-}08 20:00 CST
 
 %
-\section{Release v1.0.29.0}%
-\label{sec:Release v1.0.29.0}%
-Released to Production: 2018{-}01{-}03 00:00 CDT%
-\newline%
+\paragraph*{}%
+Bug fixes and performance improvements on Order Submit.
 
 %
-\section{Release v1.0.30.0}%
-\label{sec:Release v1.0.30.0}%
-Released to Production: 2018{-}01{-}03 00:00 CDT%
-\newline%
+\section*{Release v1.0.26.0}%
+\paragraph*{}%
+Released to Production: 2016{-}09{-}21 20:00 CST
 
 %
-\section{Release v1.0.30.1}%
-\label{sec:Release v1.0.30.1}%
-Released to Production: 2018{-}01{-}03 00:00 CDT%
-\newline%
+\paragraph*{}%
+Bug fix release.
+
+%
+\section*{Release v1.0.28.0}%
+\paragraph*{}%
+Released to Production: 2016{-}10{-}05 20:00 CDT
+
+%
+\paragraph*{}%
+Several Product Spec enhancements
+
+%
+\section*{Release v1.0.29.0}%
+\paragraph*{}%
+Released to Production: 2016{-}10{-}26 20:00 CST
+
+%
+\paragraph*{}%
+Integration proxy and assignment enhancements.
+
+%
+\section*{Release v1.0.30.0}%
+\paragraph*{}%
+Released to Production: 2016{-}10{-}28 20:00 CST
+
+%
+\paragraph*{}%
+Introduction of Shared Catalogs to the OrderCloud platform. Spending Accounts are now decremented when an order is submitted, rather than when a payment is applied to an unsubmitted order. Message Sender variable added for Product Name.
+
+%
+\section*{Release v1.0.30.1}%
+\paragraph*{}%
+Released to Production: 2016{-}11{-}04 21:00 CST
+
+%
+\paragraph*{}%
+Delivery date added to the Shipment model, and several bug networks around Buyer Networks.
 
 %
 \end{document}
