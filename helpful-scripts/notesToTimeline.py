@@ -8,7 +8,7 @@ API Version, Release Date, Features, Bug Fixes
 
 '''
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup 
 import markdown
 from pathlib import Path
 import json
@@ -35,18 +35,38 @@ class ApiVersion(object):
 		self.summary = summary 
 		self.contents = contents
 
+	def __getitem__(self, key):
+
+		return self.key
+
+	def __setitem__(self, key, value):
+		self.key = value
+
+		return self.key
+
+	def __repr__(self):
+
+		return '\nApiVersion: \n title: '+self.title+' \n version: '+self.version+'\n link: '+self.link+'\n summary: '+self.summary+'\n contents: '+repr(self.contents)
+
 def formatContents(versions):
 
-
-
 	for item in versions:
+		#print(type(item))
+		#print(item)
 
-		soup = BeautifulSoup(''.join(item.contents), 'html.parser')
+		listText = []
 
-		item['release date'] = soup.p.text
-		item['changelog'] = []
-		for s in soup.find_all('p')[1:]:
-			item['changelog'].append(item.text)
+		soup = BeautifulSoup((item.contents), 'html.parser')
+		#print(item.contents)
+		fullText = soup.p.text
+		
+		for s in list(soup.find_all('p')[1:]):
+
+			listText.append(s.text)
+
+		#print(listText)
+
+		item.contents=listText
 
 	print(versions)
 
@@ -55,6 +75,8 @@ def formatContents(versions):
 def getVersionsFromXML(xmlPath):
 
 	d = feedparser.parse(xmlPath)
+
+	print(d.encoding)
 
 	versions = []
 

@@ -1,0 +1,534 @@
+{
+    "1.0.80": {
+        "title": "OrderCloud API v1.0.80 Release\u00a0Notes",
+        "version": "1.0.80",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.80.html"
+    },
+    "1.0.79": {
+        "title": "OrderCloud API v1.0.79 Release\u00a0Notes",
+        "version": "1.0.79",
+        "summary": "",
+        "changelog": [
+            "Release contains a bug fix addressing an admin-visibility issue with buyer user private credit card\u00a0objects. ",
+            "If a buyer user created a credit card that only they can access, and then used that card in a payment on an order, admin users were unable to update the payment at all. Instead, the API would respond with a 404 not found error, because the admin user did not have visibility into that private credit card. This is a particular problem as admin users are generally the ones to update a payment\u2019s accepted bool to true once a card payment\u00a0clears. ",
+            "This is now fixed. While an admin user cannot get or otherwise retrieve the buyer user\u2019s private card object, the admin user is now able to update the payment that references the private\u00a0card. "
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.79.html"
+    },
+    "1.0.77": {
+        "title": "OrderCloud API v1.0.77 Release\u00a0Notes",
+        "version": "1.0.77",
+        "summary": "",
+        "changelog": [
+            "Release contains a fix around hash headers in Message Senders. No application using Message Senders should be\u00a0affected."
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.77.html"
+    },
+    "1.0.76": {
+        "title": "OrderCloud API v1.0.76 Release\u00a0Notes",
+        "version": "1.0.76",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.76.html"
+    },
+    "1.0.75": {
+        "title": "OrderCloud API v1.0.75 Release\u00a0Notes",
+        "version": "1.0.75",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.75.html"
+    },
+    "1.0.74": {
+        "title": "OrderCloud API v1.0.74 Release\u00a0Notes",
+        "version": "1.0.74",
+        "summary": "",
+        "changelog": [
+            "Release contains a bug fix for me/categories. Previously, a call to me/categories with a CatalogID and a ProductID would throw an error. This now works\u00a0correctly."
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.74.html"
+    },
+    "1.0.73": {
+        "title": "OrderCloud API v1.0.73 Release\u00a0Notes",
+        "version": "1.0.73",
+        "summary": "",
+        "changelog": [
+            "Release consisted of minor bug fixes and\u00a0enhancements."
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.73.html"
+    },
+    "1.0.72": {
+        "title": "OrderCloud API v1.0.72 Release\u00a0Notes",
+        "version": "1.0.72",
+        "summary": "",
+        "changelog": [
+            "Previously, if you filtered a list by an xp, it only cared about items in that list that had that xp. This meant that negative filters, such as xp.Color=!Blue, for example, would only return other items with xp.Color but where xp.Color was not blue. If an item didn\u2019t have xp.Color at all, it would not be returned in the filtered\u00a0list.",
+            "Now, xp filters don\u2019t just look for the specified xp and filter down from there. Instead, a filter of xp.Color=!Blue will return all items with xp.Color where the color isn\u2019t blue, but also any items without xp.Color at\u00a0all."
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.72.html"
+    },
+    "1.0.71": {
+        "title": "OrderCloud API v1.0.71 Release\u00a0Notes",
+        "version": "1.0.71",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.71.html"
+    },
+    "1.0.70": {
+        "title": "OrderCloud API v1.0.70 Release\u00a0Notes",
+        "version": "1.0.70",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.70.html"
+    },
+    "1.0.69": {
+        "title": "OrderCloud API v1.0.69 Release\u00a0Notes",
+        "version": "1.0.69",
+        "summary": "",
+        "changelog": [
+            "Previously, we had some inconsistent logic about when we evaluated Promotions on an order. Sometimes, this would lead to a submitted order suddenly having an invalid promotion, potentially changing the order total. \nAs we want to allow a historical record of promotions at the time of order submit, we have now limited promotion evaluation to only orders whose statuses are unsubmitted or awaiting approval.",
+            "We also fixed a bug around the rules engine for  Order Approvals. If a User is in the approving group for an approval rule, any order submitted by that User that meets the approval rule should be auto-approved. Or, stated another way, because the User is an Approving User, their order does not need separate\u00a0approval."
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.69.html"
+    },
+    "1.0.68": {
+        "title": "API v1.0.68 Release\u00a0Notes",
+        "version": "1.0.68",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.68-release-notes.html"
+    },
+    "1.0.67": {
+        "title": "API v1.0.67 Release\u00a0Notes",
+        "version": "1.0.67",
+        "summary": "",
+        "changelog": [
+            "Fixed some performance issues that cropped up in Production after API 1.0.66 was\u00a0released."
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.67-release-notes.html"
+    },
+    "1.0.66": {
+        "title": "API v1.0.66 Release\u00a0Notes",
+        "version": "1.0.66",
+        "summary": "",
+        "changelog": [
+            "A big question we get from clients a lot is \u201cHow can I make the OrderCloud API IDs work nicely with the IDs from my ERP or other internal\u00a0systems?\u201d. ",
+            "Prior to API 1.0.66, you could either set the ID manually (which is a pain if you want incrementation to work well) or you could settle for the default platform random GUID, and keep track of your ERP integration ID in an xp, or some other work\u00a0around.",
+            "We\u2019ve added a new feature that aims to make this process much, much simpler! Incrementation Config allows you to create a customized pattern for ID\u00a0generation. ",
+            "Incrementation Config",
+            "The important parts here are the LastNumber and the LeftPaddingCount. ",
+            "Objective: Every order from a buyer should start with the buyer company\u2019s name, TestCorp, so that it can be differentiated easily by the supplier. The total number of characters for an ID can only be 20 characters long. (ex: TestCorp-00000000001)",
+            "POST /v1/incrementors/",
+            "POST /v1/orders/outgoing",
+            "returns\u00a0as:",
+            "If you make another order with this Incrementor Config, you\u2019ll get TestCorp-00000000002 and so\u00a0on. ",
+            "This Incrementor Config can be used for both object creation, and PATCH/PUT updates. Additionally, once created, the Incrementor Config\u2019s LastNumber reflects the last number incremented to. So, if the last ID generated by config01 was TestCorp-00000000011, the LastNumber for config01 would be 11 at that\u00a0moment.",
+            "1 - Left-padding does not represent a maximum value for the ID. If you\u00a0have",
+            "when you get to 99, the ID will continue incrementing. If you\u2019re using it as in the above example, where your ERP expects ONLY x number of characters, this is going to cause some\u00a0problems. ",
+            "2 - While you can reuse the same incrementator on different endpoints \u2014 such as using config01 for both products and orders, for some reason \u2014 the incrementation will be across both\u00a0endpoints.",
+            "EX:",
+            "3 - If you\u2019re not careful about how you handle your asynchronous API calls, it\u2019s much easier to accidentally try to create duplicate IDs. So be hygienic with your async\u00a0calls! ",
+            "4 - If you decide to reset the incrementor\u2019s LastNumber, you can end up trying to create duplicate IDs again. Be\u00a0careful!",
+            "Now, instead of a Buyer User only being able to impersonate a Buyer User within the same Buyer, a Buyer User can impersonate a Buyer User in a different Buyer, as long as they\u2019re within the same Seller\u00a0organization. ",
+            "This is useful if you have a customer user that works for multiple of your customers. This allows them to interact within those buyers uniquely, but maintain their user account\u00a0easily.",
+            "We\u2019ve fixed a problem where, sometimes in very large catalogs with complicated category structures, a user using a GET me/products list would return some duplicate products. This fix should also show some minor performance improvements for very large catalog list\u00a0calls.",
+            "Previously, if you tried to alter an order with a promotion after it had been submitted, and the promotion had expired, your alteration would throw an error. We\u2019ve fixed this so that promotions are never evaluated after order submit\u00a0now.",
+            "What it says on the\u00a0tin. "
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.66-release-notes.html"
+    },
+    "1.0.65": {
+        "title": "API v1.0.65 Release\u00a0Notes",
+        "version": "1.0.65",
+        "summary": "",
+        "changelog": [
+            "Request:",
+            "Response:",
+            "We also added a Me route for GETing a single category! DOCS",
+            "GET https://api.ordercloud.io/v1/me/categories/{categoryID}"
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.65-release-notes.html"
+    },
+    "1.0.64": {
+        "title": "API v1.0.64 Release\u00a0Notes",
+        "version": "1.0.64",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.64-release-notes.html"
+    },
+    "1.0.63": {
+        "title": "API v1.0.63 Release\u00a0Notes",
+        "version": "1.0.63",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.63-release-notes.html"
+    },
+    "1.0.62": {
+        "title": "API v1.0.62 Release\u00a0Notes",
+        "version": "1.0.62",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.62-release-notes.html"
+    },
+    "1.0.61": {
+        "title": "API v1.0.61 Release\u00a0Notes",
+        "version": "1.0.61",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.61-release-notes.html"
+    },
+    "1.0.60": {
+        "title": "API v1.0.60 Release\u00a0Notes",
+        "version": "1.0.60",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.60-release-notes.html"
+    },
+    "1.0.59": {
+        "title": "API v1.0.59 Release\u00a0Notes",
+        "version": "1.0.59",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.59-release-notes.html"
+    },
+    "1.0.58": {
+        "title": "API v1.0.58 Release\u00a0Notes",
+        "version": "1.0.58",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.58-release-notes.html"
+    },
+    "1.0.57": {
+        "title": "API v1.0.57 Release\u00a0Notes",
+        "version": "1.0.57",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.57-release-notes.html"
+    },
+    "1.0.56": {
+        "title": "API v1.0.56 Release\u00a0Notes",
+        "version": "1.0.56",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.56-release-notes.html"
+    },
+    "1.0.55": {
+        "title": "API v1.0.55 Release\u00a0Notes",
+        "version": "1.0.55",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.55-release-notes.html"
+    },
+    "1.0.54": {
+        "title": "API v1.0.54 Release\u00a0Notes",
+        "version": "1.0.54",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.54-release-notes.html"
+    },
+    "1.0.53": {
+        "title": "API v1.0.53 Release\u00a0Notes",
+        "version": "1.0.53",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.53-release-notes.html"
+    },
+    "1.0.52": {
+        "title": "API v1.0.52 Release\u00a0Notes",
+        "version": "1.0.52",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.52-release-notes.html"
+    },
+    "1.0.51": {
+        "title": "API v1.0.51 Release\u00a0Notes",
+        "version": "1.0.51",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.51-release-notes.html"
+    },
+    "1.0.50": {
+        "title": "API v1.0.50 Release\u00a0Notes",
+        "version": "1.0.50",
+        "summary": "",
+        "changelog": [
+            "You can access the staging environment using your production data and the\u00a0following:",
+            "api: https://stagingapi.ordercloud.io",
+            "auth: https://stagingauth.ordercloud.io",
+            "devcenter: https://staging-account.ordercloud.io",
+            "Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production ASAP. On the production release, no staging data will be transfered to\u00a0production.",
+            "This was released to Production on May 4th at 8:00 PM\u00a0Central. ",
+            "If there are existing user-level assignments for any of the above, you must convert them to group- or buyer-level before the production release date.",
+            "For a Buyer User to see a Product in the User Perspective (GET v1/me/products), all of the following must be\u00a0true:",
+            "In addition, one of the following must be\u00a0true:",
+            "We recommend checking out the [Catalog Visibility\u00a0Guide]"
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.50-release-notes.html"
+    },
+    "1.0.44": {
+        "title": "API v1.0.44 Release\u00a0Notes",
+        "version": "1.0.44",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.44-release-notes.html"
+    },
+    "1.0.43": {
+        "title": "API v1.0.43 Release\u00a0Notes",
+        "version": "1.0.43",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.43-release-notes.html"
+    },
+    "1.0.42": {
+        "title": "API v1.0.42 Release\u00a0Notes",
+        "version": "1.0.42",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.42-release-notes.html"
+    },
+    "1.0.41": {
+        "title": "API v1.0.41 Release\u00a0Notes",
+        "version": "1.0.41",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.41-release-notes.html"
+    },
+    "1.0.40": {
+        "title": "API v1.0.40 Release\u00a0Notes",
+        "version": "1.0.40",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.40-release-notes.html"
+    },
+    "1.0.39": {
+        "title": "API v1.0.39 Release\u00a0Notes",
+        "version": "1.0.39",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.39-release-notes.html"
+    },
+    "1.0.38": {
+        "title": "API v1.0.38 Release\u00a0Notes",
+        "version": "1.0.38",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.38-release-notes.html"
+    },
+    "1.0.37": {
+        "title": "API v1.0.37 Release\u00a0Notes",
+        "version": "1.0.37",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.37-release-notes.html"
+    },
+    "1.0.36": {
+        "title": "API v1.0.36 Release\u00a0Notes",
+        "version": "1.0.36",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.36-release-notes.html"
+    },
+    "1.0.35": {
+        "title": "API v1.0.35 Release\u00a0Notes",
+        "version": "1.0.35",
+        "summary": "",
+        "changelog": [
+            "(potentially link to all of our current client\u00a0libraries)"
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.35-release-notes.html"
+    },
+    "1.0.33": {
+        "title": "API v1.0.33 Release\u00a0Notes",
+        "version": "1.0.33",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.33-release-notes.html"
+    },
+    "1.0.32": {
+        "title": "API v1.0.32 Release\u00a0Notes",
+        "version": "1.0.32",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.32-release-notes.html"
+    },
+    "1.0.31": {
+        "title": "API v1.0.31 Release\u00a0Notes",
+        "version": "1.0.31",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.31-release-notes.html"
+    },
+    "1.0.30.1": {
+        "title": "API v1.0.30.1 Release\u00a0Notes",
+        "version": "1.0.30.1",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.30.1-release-notes.html"
+    },
+    "1.0.30.0": {
+        "title": "API v1.0.30.0 Release\u00a0Notes",
+        "version": "1.0.30.0",
+        "summary": "",
+        "changelog": [
+            "Shared Catalogs: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you\u2019ll need to add the catalog ID to your API routes, and as a parameter in your SDK calls. Me Category endpoints are not affected, except in that you can optionally filter by catalog. Please check out the Api Documentation.",
+            "A single client ID for an app can be used by different buyers. This is our first step towards an exciting feature on our roadmap, Buyer Networks.",
+            "You can now reference Product Names in your Mailchimp/Mandrill message templates! Previously, you could use Product Description and Product ID, now you can add Product Name as\u00a0well. ",
+            "The SDK that will be going out with the API release will be v1.0.24.",
+            "After the API is released, if anyone runs a bower update with lastest in their bower.json for ordercloud-ng-sdk they will be updated to v1.0.24"
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.30.0-release-notes.html"
+    },
+    "1.0.29.0": {
+        "title": "API v1.0.29.0 Release\u00a0Notes",
+        "version": "1.0.29.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.29.0-release-notes.html"
+    },
+    "1.0.28.0": {
+        "title": "API v1.0.28.0 Release\u00a0Notes",
+        "version": "1.0.28.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.28.0-release-notes.html"
+    },
+    "1.0.26.0": {
+        "title": "API v1.0.26.0 Release\u00a0Notes",
+        "version": "1.0.26.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.26.0-release-notes.html"
+    },
+    "1.0.25.1": {
+        "title": "API v1.0.25.1 Release\u00a0Notes",
+        "version": "1.0.25.1",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.25.1-release-notes.html"
+    },
+    "1.0.25.0": {
+        "title": "API v1.0.25.0 Release\u00a0Notes",
+        "version": "1.0.25.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.25.0-release-notes.html"
+    },
+    "1.0.24.1": {
+        "title": "API v1.0.24.1 Release\u00a0Notes",
+        "version": "1.0.24.1",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.24.1-release-notes.html"
+    },
+    "1.0.24.0": {
+        "title": "API v1.0.24.0 Release\u00a0Notes",
+        "version": "1.0.24.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.24.0-release-notes.html"
+    },
+    "1.0.23.0": {
+        "title": "API v1.0.23.0 Release\u00a0Notes",
+        "version": "1.0.23.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.23.0-release-notes.html"
+    },
+    "1.0.22.0": {
+        "title": "API v1.0.22.0 Release\u00a0Notes",
+        "version": "1.0.22.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.22.0-release-notes.html"
+    },
+    "1.0.21.0": {
+        "title": "API v1.0.21.0 Release\u00a0Notes",
+        "version": "1.0.21.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.21.0-release-notes.html"
+    },
+    "1.0.20.0": {
+        "title": "API v1.0.20.0 Release\u00a0Notes",
+        "version": "1.0.20.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.20.0-release-notes.html"
+    },
+    "1.0.19.0": {
+        "title": "API v1.0.19.0 Release\u00a0Notes",
+        "version": "1.0.19.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.19.0-release-notes.html"
+    },
+    "1.0.18.0": {
+        "title": "API v1.0.18.0 Release\u00a0Notes",
+        "version": "1.0.18.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.18.0-release-notes.html"
+    },
+    "1.0.17.0": {
+        "title": "API v1.0.17.0 Release\u00a0Notes",
+        "version": "1.0.17.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.17.0-release-notes.html"
+    },
+    "1.0.16.0": {
+        "title": "API v1.0.16.0 Release\u00a0Notes",
+        "version": "1.0.16.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.16.0-release-notes.html"
+    },
+    "1.0.15.0": {
+        "title": "API v1.0.15.0 Release\u00a0Notes",
+        "version": "1.0.15.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.15.0-release-notes.html"
+    },
+    "1.0.14.1": {
+        "title": "API v1.0.14.1 Release\u00a0Notes",
+        "version": "1.0.14.1",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.14.1-release-notes.html"
+    },
+    "1.0.14.0": {
+        "title": "API v1.0.14.0 Release\u00a0Notes",
+        "version": "1.0.14.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.14.0-release-notes.html"
+    },
+    "1.0.13.0": {
+        "title": "API v1.0.13.0 Release\u00a0Notes",
+        "version": "1.0.13.0",
+        "summary": "",
+        "changelog": [],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.13.0-release-notes.html"
+    },
+    "1.0.12.0": {
+        "title": "API v1.0.12.0 Release\u00a0Notes",
+        "version": "1.0.12.0",
+        "summary": "",
+        "changelog": [
+            "There are 4 things needed to create a product with variants\nSpec(s)\nSpec options\na spec product relationship that sets Defines variant = true\nan explicit call to \nPOST {productID}/variants/generate",
+            "it\u2019s pretty simple once they\u2019re initally set up. Take the ubiquitous shirt example\nSpecs \nsize small, large\ncolor red,\u00a0black",
+            "spec - product = size/shirt/definesvariant = true\nspec - product = color/shirt/definesvariant =\u00a0true",
+            "a call to POST\n{productID}/variants/generate\nwill generate 4 variants\n- small red\n- small black\n- large red\n- large\u00a0black",
+            "Adding specs is pretty simple\nadd color:blue\nand a call to \nPOST {productID}/variants/generate\nwill ADD the missing variants \n1   small blue\n2   large\u00a0blue",
+            "The tricky bit starts when a spec is removed. if color is deleted, all the varaints are not relevant because color is built into all of them. Delete color and add logo to our shirt. So that this is the config of shirt:\n    size: small,large\n    logo:\u00a0logoA,logoB",
+            "and a call to \nPOST {productID}/variants/generate\nwill only ADD new variants and you\u2019ll have 8. Even with the spec deleted, the dependant variant can still exist, it\u2019s just not tied to the deleted spec. This is important if that variant is already on an order.\n- small logoA\n- small logoB\n- large logoA\n- large logoB\n- small red\n- small black\n- large red\n- large\u00a0black",
+            "if your intention is to start over and reset the variants, there is the spec nuclear\u00a0option:",
+            "POST {productID}/variants/generate?overwriteExisting=true",
+            "This will DELETE ALL variants and regenerate them based on the current spec configurations. If a variant is on a lineitem, it will be removed. The previous example deletes color and adds logo. calling overwriteExisting=true will result in \n- small logoA\n- small logoB\n- large logoA\n- large\u00a0logoB",
+            "The key to overwriteExisting=true is that it will always delete all variaints and regenerate regardless of the change to the spec\u00a0configuration."
+        ],
+        "release notes link": "https://ordercloud-api.github.io/release-notes/1.0.12.0-release-notes.html"
+    }
+}
