@@ -1,0 +1,569 @@
+\documentclass{memoir}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+%
+\title{OrderCloud Platform Timeline}%
+\author{K.L.Reeher}%
+\date{\today}%
+%
+\begin{document}%
+\normalsize%
+\maketitle%
+\section*{OrderCloud API v1.0.80 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{OrderCloud API v1.0.79 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Release contains a bug fix addressing an admin{-}visibility issue with buyer user private credit card~objects. 
+
+%
+\paragraph*{}%
+If a buyer user created a credit card that only they can access, and then used that card in a payment on an order, admin users were unable to update the payment at all. Instead, the API would respond with a 404 not found error, because the admin user did not have visibility into that private credit card. This is a particular problem as admin users are generally the ones to update a payment’s accepted bool to true once a card payment~clears. 
+
+%
+\paragraph*{}%
+This is now fixed. While an admin user cannot get or otherwise retrieve the buyer user’s private card object, the admin user is now able to update the payment that references the private~card. 
+
+%
+\section*{OrderCloud API v1.0.77 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Release contains a fix around hash headers in Message Senders. No application using Message Senders should be~affected.
+
+%
+\section*{OrderCloud API v1.0.76 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{OrderCloud API v1.0.75 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{OrderCloud API v1.0.74 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Release contains a bug fix for me/categories. Previously, a call to me/categories with a CatalogID and a ProductID would throw an error. This now works~correctly.
+
+%
+\section*{OrderCloud API v1.0.73 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Release consisted of minor bug fixes and~enhancements.
+
+%
+\section*{OrderCloud API v1.0.72 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Previously, if you filtered a list by an xp, it only cared about items in that list that had that xp. This meant that negative filters, such as xp.Color=!Blue, for example, would only return other items with xp.Color but where xp.Color was not blue. If an item didn’t have xp.Color at all, it would not be returned in the filtered~list.
+
+%
+\paragraph*{}%
+Now, xp filters don’t just look for the specified xp and filter down from there. Instead, a filter of xp.Color=!Blue will return all items with xp.Color where the color isn’t blue, but also any items without xp.Color at~all.
+
+%
+\section*{OrderCloud API v1.0.71 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{OrderCloud API v1.0.70 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{OrderCloud API v1.0.69 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Previously, we had some inconsistent logic about when we evaluated Promotions on an order. Sometimes, this would lead to a submitted order suddenly having an invalid promotion, potentially changing the order total. \newline%
+As we want to allow a historical record of promotions at the time of order submit, we have now limited promotion evaluation to only orders whose statuses are unsubmitted or awaiting approval.
+
+%
+\paragraph*{}%
+We also fixed a bug around the rules engine for  Order Approvals. If a User is in the approving group for an approval rule, any order submitted by that User that meets the approval rule should be auto{-}approved. Or, stated another way, because the User is an Approving User, their order does not need separate~approval.
+
+%
+\section*{API v1.0.68 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.67 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Fixed some performance issues that cropped up in Production after API 1.0.66 was~released.
+
+%
+\section*{API v1.0.66 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+A big question we get from clients a lot is “How can I make the OrderCloud API IDs work nicely with the IDs from my ERP or other internal~systems?”. 
+
+%
+\paragraph*{}%
+Prior to API 1.0.66, you could either set the ID manually (which is a pain if you want incrementation to work well) or you could settle for the default platform random GUID, and keep track of your ERP integration ID in an xp, or some other work~around.
+
+%
+\paragraph*{}%
+We’ve added a new feature that aims to make this process much, much simpler! Incrementation Config allows you to create a customized pattern for ID~generation. 
+
+%
+\paragraph*{}%
+Incrementation Config
+
+%
+\paragraph*{}%
+The important parts here are the LastNumber and the LeftPaddingCount. 
+
+%
+\paragraph*{}%
+Objective: Every order from a buyer should start with the buyer company’s name, TestCorp, so that it can be differentiated easily by the supplier. The total number of characters for an ID can only be 20 characters long. (ex: TestCorp{-}00000000001)
+
+%
+\paragraph*{}%
+POST /v1/incrementors/
+
+%
+\paragraph*{}%
+POST /v1/orders/outgoing
+
+%
+\paragraph*{}%
+returns~as:
+
+%
+\paragraph*{}%
+If you make another order with this Incrementor Config, you’ll get TestCorp{-}00000000002 and so~on. 
+
+%
+\paragraph*{}%
+This Incrementor Config can be used for both object creation, and PATCH/PUT updates. Additionally, once created, the Incrementor Config’s LastNumber reflects the last number incremented to. So, if the last ID generated by config01 was TestCorp{-}00000000011, the LastNumber for config01 would be 11 at that~moment.
+
+%
+\paragraph*{}%
+1 {-} Left{-}padding does not represent a maximum value for the ID. If you~have
+
+%
+\paragraph*{}%
+when you get to 99, the ID will continue incrementing. If you’re using it as in the above example, where your ERP expects ONLY x number of characters, this is going to cause some~problems. 
+
+%
+\paragraph*{}%
+2 {-} While you can reuse the same incrementator on different endpoints — such as using config01 for both products and orders, for some reason — the incrementation will be across both~endpoints.
+
+%
+\paragraph*{}%
+EX:
+
+%
+\paragraph*{}%
+3 {-} If you’re not careful about how you handle your asynchronous API calls, it’s much easier to accidentally try to create duplicate IDs. So be hygienic with your async~calls! 
+
+%
+\paragraph*{}%
+4 {-} If you decide to reset the incrementor’s LastNumber, you can end up trying to create duplicate IDs again. Be~careful!
+
+%
+\paragraph*{}%
+Now, instead of a Buyer User only being able to impersonate a Buyer User within the same Buyer, a Buyer User can impersonate a Buyer User in a different Buyer, as long as they’re within the same Seller~organization. 
+
+%
+\paragraph*{}%
+This is useful if you have a customer user that works for multiple of your customers. This allows them to interact within those buyers uniquely, but maintain their user account~easily.
+
+%
+\paragraph*{}%
+We’ve fixed a problem where, sometimes in very large catalogs with complicated category structures, a user using a GET me/products list would return some duplicate products. This fix should also show some minor performance improvements for very large catalog list~calls.
+
+%
+\paragraph*{}%
+Previously, if you tried to alter an order with a promotion after it had been submitted, and the promotion had expired, your alteration would throw an error. We’ve fixed this so that promotions are never evaluated after order submit~now.
+
+%
+\paragraph*{}%
+What it says on the~tin. 
+
+%
+\section*{API v1.0.65 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Request:
+
+%
+\paragraph*{}%
+Response:
+
+%
+\paragraph*{}%
+We also added a Me route for GETing a single category! DOCS
+
+%
+\paragraph*{}%
+GET https://api.ordercloud.io/v1/me/categories/\{categoryID\}
+
+%
+\section*{API v1.0.64 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.63 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.62 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.61 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.60 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.59 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.58 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.57 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.56 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.55 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.54 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.53 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.52 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.51 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.50 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+You can access the staging environment using your production data and the~following:
+
+%
+\paragraph*{}%
+api: https://stagingapi.ordercloud.io
+
+%
+\paragraph*{}%
+auth: https://stagingauth.ordercloud.io
+
+%
+\paragraph*{}%
+devcenter: https://staging{-}account.ordercloud.io
+
+%
+\paragraph*{}%
+Production data will be copied down to the Staging environment weekly, on Sundays. In Staging, all webhooks will have their assignments deleted to disable them initially. Please update your webhooks and integrations in Staging to point somewhere other than Production ASAP. On the production release, no staging data will be transfered to~production.
+
+%
+\paragraph*{}%
+This was released to Production on May 4th at 8:00 PM~Central. 
+
+%
+\paragraph*{}%
+If there are existing user{-}level assignments for any of the above, you must convert them to group{-} or buyer{-}level before the production release date.
+
+%
+\paragraph*{}%
+For a Buyer User to see a Product in the User Perspective (GET v1/me/products), all of the following must be~true:
+
+%
+\paragraph*{}%
+In addition, one of the following must be~true:
+
+%
+\paragraph*{}%
+We recommend checking out the {[}Catalog Visibility~Guide{]}
+
+%
+\section*{API v1.0.44 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.43 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.42 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.41 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.40 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.39 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.38 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.37 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.36 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.35 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+(potentially link to all of our current client~libraries)
+
+%
+\section*{API v1.0.33 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.32 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.31 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.30.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.30.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+Shared Catalogs: Now a seller org can have multiple catalogs that can be assigned to one or many buyer orgs. There will be more information about this feature coming soon, but please be aware that it may break some existing routes particuarlly around categories, as categories are now specific to a catalog instead of a buyer. To update your existing categories routes, you’ll need to add the catalog ID to your API routes, and as a parameter in your SDK calls. Me Category endpoints are not affected, except in that you can optionally filter by catalog. Please check out the Api Documentation.
+
+%
+\paragraph*{}%
+A single client ID for an app can be used by different buyers. This is our first step towards an exciting feature on our roadmap, Buyer Networks.
+
+%
+\paragraph*{}%
+You can now reference Product Names in your Mailchimp/Mandrill message templates! Previously, you could use Product Description and Product ID, now you can add Product Name as~well. 
+
+%
+\paragraph*{}%
+The SDK that will be going out with the API release will be v1.0.24.
+
+%
+\paragraph*{}%
+After the API is released, if anyone runs a bower update with lastest in their bower.json for ordercloud{-}ng{-}sdk they will be updated to v1.0.24
+
+%
+\section*{API v1.0.29.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.28.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.26.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.25.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.25.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.24.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.24.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.23.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.22.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.21.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.20.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.19.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.18.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.17.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.16.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.15.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.14.1 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.14.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.13.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\section*{API v1.0.12.0 Release~Notes}%
+\paragraph*{}%
+
+%
+\paragraph*{}%
+There are 4 things needed to create a product with variants\newline%
+Spec(s)\newline%
+Spec options\newline%
+a spec product relationship that sets Defines variant = true\newline%
+an explicit call to \newline%
+POST \{productID\}/variants/generate
+
+%
+\paragraph*{}%
+it’s pretty simple once they’re initally set up. Take the ubiquitous shirt example\newline%
+Specs \newline%
+size small, large\newline%
+color red,~black
+
+%
+\paragraph*{}%
+spec {-} product = size/shirt/definesvariant = true\newline%
+spec {-} product = color/shirt/definesvariant =~true
+
+%
+\paragraph*{}%
+a call to POST\newline%
+\{productID\}/variants/generate\newline%
+will generate 4 variants\newline%
+{-} small red\newline%
+{-} small black\newline%
+{-} large red\newline%
+{-} large~black
+
+%
+\paragraph*{}%
+Adding specs is pretty simple\newline%
+add color:blue\newline%
+and a call to \newline%
+POST \{productID\}/variants/generate\newline%
+will ADD the missing variants \newline%
+1   small blue\newline%
+2   large~blue
+
+%
+\paragraph*{}%
+The tricky bit starts when a spec is removed. if color is deleted, all the varaints are not relevant because color is built into all of them. Delete color and add logo to our shirt. So that this is the config of shirt:\newline%
+    size: small,large\newline%
+    logo:~logoA,logoB
+
+%
+\paragraph*{}%
+and a call to \newline%
+POST \{productID\}/variants/generate\newline%
+will only ADD new variants and you’ll have 8. Even with the spec deleted, the dependant variant can still exist, it’s just not tied to the deleted spec. This is important if that variant is already on an order.\newline%
+{-} small logoA\newline%
+{-} small logoB\newline%
+{-} large logoA\newline%
+{-} large logoB\newline%
+{-} small red\newline%
+{-} small black\newline%
+{-} large red\newline%
+{-} large~black
+
+%
+\paragraph*{}%
+if your intention is to start over and reset the variants, there is the spec nuclear~option:
+
+%
+\paragraph*{}%
+POST \{productID\}/variants/generate?overwriteExisting=true
+
+%
+\paragraph*{}%
+This will DELETE ALL variants and regenerate them based on the current spec configurations. If a variant is on a lineitem, it will be removed. The previous example deletes color and adds logo. calling overwriteExisting=true will result in \newline%
+{-} small logoA\newline%
+{-} small logoB\newline%
+{-} large logoA\newline%
+{-} large~logoB
+
+%
+\paragraph*{}%
+The key to overwriteExisting=true is that it will always delete all variaints and regenerate regardless of the change to the spec~configuration.
+
+%
+\end{document}
