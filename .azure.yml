@@ -10,6 +10,8 @@ jobs:
         architecture: 'x64'
     - script: pip install -r requirements.txt
       displayName: 'Install Requirements'
+    - script: ls 
+      displayName: 'list current files'
     - task: PythonScript@0
       inputs:
         scriptSource: 'inline' # Options: filePath, inline
