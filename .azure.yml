@@ -3,6 +3,7 @@ jobs:
     displayName: 'Pelian Build'  # friendly name to display in the UI
     continueOnError: false  # 'true' if future jobs should run even if this job fails; defaults to 'false'
     #variables: { string: string } | [ variable ]
+    steps:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '3.6'
