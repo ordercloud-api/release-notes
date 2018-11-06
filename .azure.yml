@@ -16,7 +16,7 @@ jobs:
       inputs:
         scriptSource: 'inline' # Options: filePath, inline
         #scriptPath: # Required when scriptSource == FilePath
-        script: 'pelican content -o output -s publishconf.py' # Required when scriptSource == Inline
+        script: 'pelican -s publishconf.py' # Required when scriptSource == Inline
         #arguments: # Optional
         #pythonInterpreter: # Optional
         workingDirectory: $(System.DefaultWorkingDirectory)
