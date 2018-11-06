@@ -16,3 +16,15 @@ deploy:
   target_branch: gh-pages
   on:
     branch: master
+
+notifications:
+  slack: four51:$SLACK_TOKEN
+      template:
+      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
+      - "Latest Update: %{build_url}"
+    on_success: always # default: always
+    on_failure: never # default: always
+    on_start: never   # default: never
+    on_cancel: never # default: always
+    on_error: never # default: always
+
