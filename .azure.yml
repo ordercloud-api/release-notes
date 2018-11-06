@@ -26,7 +26,8 @@ jobs:
       inputs:
         pathtoPublish: $(Build.ArtifactStagingDirectory) 
         artifactName: 'drop' 
-        publishLocation: 'filePath' # Options: container, filePath
-        targetPath: output # Required when publishLocation == FilePath
+        #publishLocation: 'filePath' # Options: container, filePath
+        #artifactType
+        #targetPath: output # Required when publishLocation == FilePath
         #parallel: false # Optional
         #parallelCount: # Optional
