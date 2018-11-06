@@ -22,6 +22,10 @@ jobs:
         cleanTargetFolder: true # Optional
         #overWrite: false # Optional
         #flattenFolders: false # Optional
+    - script: |
+        cd $(Build.ArtifactStagingDirectory) 
+        ls
+      displayName: 'List Copied Files in StagingDir'
     - task: PublishBuildArtifacts@1
       inputs:
         pathtoPublish: $(Build.ArtifactStagingDirectory) 
