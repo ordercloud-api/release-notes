@@ -14,3 +14,26 @@ jobs:
       displayName: 'Install Requirements'
     - script: pelican content -s publishconf.py 
       displayName: 'Pelican Build'
+    - task: CopyFiles@2
+      inputs:
+        sourceFolder: output # Optional
+        #contents: '**' 
+        targetFolder: $(Build.ArtifactStagingDirectory)
+        cleanTargetFolder: true # Optional
+        #overWrite: false # Optional
+        #flattenFolders: false # Optional
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        buildType: 'current' # Options: current, specific
+        #project: # Required when buildType == Specific
+        #pipeline: # Required when buildType == Specific
+        #specificBuildWithTriggering: false # Optional
+        #buildVersionToDownload: 'latest' # Required when buildType == Specific# Options: latest, latestFromBranch, specific
+        #branchName: 'refs/heads/master' # Required when buildType == Specific && BuildVersionToDownload == LatestFromBranch
+        #buildId: # Required when buildType == Specific && BuildVersionToDownload == Specific
+        #tags: # Optional
+        #downloadType: 'single' # Options: single, specific
+        #artifactName: # Required when downloadType == Single
+        itemPattern: '$(Build.ArtifactStagingDirectory)/**' # Optional
+        downloadPath: '$(System.ArtifactsDirectory)' 
+        #parallelizationLimit: '8' # Optional
