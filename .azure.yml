@@ -1,6 +1,6 @@
 jobs:
   - job: 'BuildPelican'  # name of the job, no spaces allowed
-    displayName: 'Pelian Build'  # friendly name to display in the UI
+    displayName: 'Pelican Build'  # friendly name to display in the UI
     continueOnError: false  # 'true' if future jobs should run even if this job fails; defaults to 'false'
     #variables: { string: string } | [ variable ]
     steps:
@@ -8,6 +8,8 @@ jobs:
       inputs:
         versionSpec: '3.6'
         architecture: 'x64'
+    - script: git submodule update --init --recursive
+      displayName: 'Updating Submodules'
     - script: pip install -r requirements.txt
       displayName: 'Install Requirements'
     - script: pelican content -s publishconf.py 
