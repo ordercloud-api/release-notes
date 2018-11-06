@@ -10,14 +10,5 @@ jobs:
         architecture: 'x64'
     - script: pip install -r requirements.txt
       displayName: 'Install Requirements'
-    - script: ls 
-      displayName: 'list current files'
-    - task: PythonScript@0
-      inputs:
-        scriptSource: 'inline' # Options: filePath, inline
-        #scriptPath: # Required when scriptSource == FilePath
-        script: pelican -s publishconf.py --verbose # Required when scriptSource == Inline
-        #arguments: # Optional
-        #pythonInterpreter: # Optional
-        workingDirectory: $(System.DefaultWorkingDirectory)
-        #failOnStderr: false # Optional
+    - script: pelican content -s publishconf.py 
+      displayName: 'Pelican Build'
