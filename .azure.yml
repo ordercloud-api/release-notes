@@ -1,0 +1,20 @@
+- job: BuildPelican  # name of the job, no spaces allowed
+  displayName: Pelian Build  # friendly name to display in the UI
+  continueOnError: false  # 'true' if future jobs should run even if this job fails; defaults to 'false'
+  #variables: { string: string } | [ variable ]
+ steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.6'
+      architecture: 'x64'
+    - script: pip install -r requirements.txt
+      displayName: 'Install Requirements'
+  - task: PythonScript@0
+    inputs:
+      scriptSource: 'inline' # Options: filePath, inline
+      #scriptPath: # Required when scriptSource == FilePath
+      script: 'pelican content -o output -s publishconf.py' # Required when scriptSource == Inline
+      #arguments: # Optional
+      #pythonInterpreter: # Optional
+      #workingDirectory: # Optional
+      #failOnStderr: false # Optional
