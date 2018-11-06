@@ -19,5 +19,5 @@ jobs:
         script: 'pelican content -o output -s publishconf.py' # Required when scriptSource == Inline
         #arguments: # Optional
         #pythonInterpreter: # Optional
-        #workingDirectory: # Optional
+        workingDirectory: $(System.DefaultWorkingDirectory)
         #failOnStderr: false # Optional
