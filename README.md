@@ -11,7 +11,9 @@ The release notes site can be found at [https://ordercloud-api.github.io/release
 
 > If you are just looking for the simple **markdown** version of an OrderCloud.io release note, look to [the content folder](/content). They are organized by release version number.
 
+## Notifications
 
+Included in the [Travis Build](.travis.yml) are Slack notifications. Currently, these post to the Four51 Slack #releasenotification channel when a build of the pelican site is successful. 
 
 ## Static Site
 

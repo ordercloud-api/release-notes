@@ -8,9 +8,9 @@ repoName = 'ordercloud-api/release-notes'
 outputFiles = Path('output')
 
 params = {
-    'message':,
-    'content':,
-    'branch':,
+    'message': "TEST MESSAGE",
+    'content': "TEST MESSAGE",
+    'branch': "Dev",
     'committer': {
         "name": "Azure DevOps Pipeline",
         "email": "azure@four51.com"
