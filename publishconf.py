@@ -11,7 +11,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 SITEURL = 'https://ordercloud-api.github.io/release-notes'
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 OCURL = 'http://developer.ordercloud.io'
 
