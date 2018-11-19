@@ -11,10 +11,16 @@ SITEURL = 'localhost:8000'
 TIMEZONE = "America/Chicago"
 DEFAULT_LANG = 'English'
 
+STATIC_PATHS = [
+    'images',
+    'extra'
+]
+
 PATH = 'content'
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['assets']
+PLUGINS = ['assets', 'i18n_subsites']
 THEME = 'pelican-themes/pelican-bootstrap3'
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 
 # global metadata to all the contents
