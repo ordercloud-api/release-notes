@@ -1,9 +1,15 @@
 [submodule "pelican-plugins"]
 	path = pelican-plugins
-	url = https://github.com/getpelican/pelican-plugins
+	url = https://github.com/getpelican/pelican-plugins.git
 [submodule "pelican-bootstrapify"]
 	path = pelican-bootstrapify
 	url = https://github.com/ingwinlu/pelican-bootstrapify/
 [submodule "pelican-themes"]
 	path = pelican-themes
-	url = https://github.com/getpelican/pelican-themes
+	url = https://github.com/getpelican/pelican-themes.git
+[submodule "bulrush"]
+	path = bulrush
+	url = https://github.com/textbook/bulrush.git
+[submodule "brutalist"]
+	path = brutalist
+	url = https://github.com/mamcmanus/brutalist.git

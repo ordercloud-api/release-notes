@@ -6,8 +6,8 @@ install:
 - pip install --upgrade pip
 - pip install -r requirements.txt
 script:
-#- make publish
-- pelican -s publishconf.py -v
+- make publish
+#- pelican -s publishconf.py -v
 deploy:
   provider: pages
   skip_cleanup: true
@@ -15,7 +15,7 @@ deploy:
   local_dir: output
   target_branch: gh-pages
   on:
-    branch: master
+    branch: dev
 
 notifications:
   slack: four51:$SLACK_TOKEN

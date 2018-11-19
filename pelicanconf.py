@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 from datetime import datetime
+import pathlib
+
 
 AUTHOR = 'OrderCloud'
 SITENAME = 'OrderCloud API Release Notes'
@@ -10,15 +12,13 @@ TIMEZONE = "America/Chicago"
 DEFAULT_LANG = 'English'
 
 PATH = 'content'
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['assets']
+THEME = 'pelican-themes/bootstrap2'
+
 
 # global metadata to all the contents
-DEFAULT_METADATA = {
-    'Title': 'OrderCloud API v{ApiVersion} Release Notes',
-    'Category': 'API Release Notes',
-    'Tags': 'OrderCloud API',
-    'Date': datetime.today(),
-    'Status': 'draft',
-    'Authors': 'Kate Reeher'}
+
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -43,4 +43,4 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-THEME = 'bootstrap'
+AUTHOR_SAVE_AS = 'author/{slug}.html'

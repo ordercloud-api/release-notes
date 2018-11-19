@@ -1,6 +1,6 @@
-PY?=python
+PY?=python3
 PELICAN?=pelican
-PELICANOPTS=
+PELICANOPTS= -D --ignore-cache
 
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
@@ -27,7 +27,7 @@ DROPBOX_DIR=~/Dropbox/Public/
 
 GITHUB_PAGES_BRANCH=gh-pages
 
-DEBUG ?= 0
+DEBUG ?= 1
 ifeq ($(DEBUG), 1)
 	PELICANOPTS += -D
 endif

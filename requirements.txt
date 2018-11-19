@@ -5,3 +5,4 @@ gitpython
 webassets
 yuicompressor
 typogrify
+bulrush
