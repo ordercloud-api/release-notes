@@ -14,7 +14,7 @@ DEFAULT_LANG = 'English'
 PATH = 'content'
 PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['assets']
-THEME = 'pelican-themes/bootstrap2'
+THEME = 'pelican-themes/pelican-bootstrap3'
 
 
 # global metadata to all the contents
