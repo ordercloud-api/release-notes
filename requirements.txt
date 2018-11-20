@@ -1,7 +1,8 @@
-pelican
+pelican==3.7
 Markdown
 beautifulsoup4
 gitpython
 webassets
 yuicompressor
 typogrify
+bulrush

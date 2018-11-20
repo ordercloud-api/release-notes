@@ -1,0 +1,33 @@
+jobs:
+  - job: 'BuildPelican'  # name of the job, no spaces allowed
+    displayName: 'Pelican Build'  # friendly name to display in the UI
+    continueOnError: false  # 'true' if future jobs should run even if this job fails; defaults to 'false'
+    #variables: { string: string } | [ variable ]
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.6'
+        architecture: 'x64'
+    - script: git submodule update --init --recursive
+      displayName: 'Updating Submodules'
+    - script: pip install -r requirements.txt
+      displayName: 'Install Requirements'
+    - script: pelican content -s publishconf.py 
+      displayName: 'Pelican Build'
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: 'output' 
+        includeRootFolder: false
+        archiveType: 'zip' # Options: zip, 7z, tar, wim
+        #tarCompression: 'gz' # Optional. Options: gz, bz2, xz, none
+        archiveFile: '$(Build.ArtifactStagingDirectory)/ReleaseNotes-$(Build.BuildId).zip' 
+        replaceExistingArchive: true 
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathtoPublish: $(Build.ArtifactStagingDirectory) 
+        artifactName: 'drop' 
+        #publishLocation: 'filePath' # Options: container, filePath
+        #artifactType
+        #targetPath: output # Required when publishLocation == FilePath
+        #parallel: false # Optional
+        #parallelCount: # Optional
