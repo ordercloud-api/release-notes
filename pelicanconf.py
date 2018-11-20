@@ -29,8 +29,8 @@ JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = True
-CATEGORY_FEED_ATOM = True
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
@@ -52,3 +52,6 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 
 AUTHOR_SAVE_AS = 'author/{slug}.html'
+
+DIRECT_TEMPLATES = (('index', 'tags', 'categories',
+                     'archives', 'search'))
