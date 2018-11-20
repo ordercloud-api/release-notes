@@ -18,8 +18,10 @@ STATIC_PATHS = [
 
 PATH = 'content'
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['assets', 'i18n_subsites']
+PLUGINS = ['assets', 'i18n_subsites', 'tipue_search']
 THEME = 'pelican-themes/pelican-bootstrap3'
+
+
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 
@@ -27,8 +29,8 @@ JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+FEED_ALL_ATOM = True
+CATEGORY_FEED_ATOM = True
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
@@ -41,8 +43,8 @@ LINKS = (
 )
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+# SOCIAL = (('You can add links in your config file', '#'),
+#          ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 10
 
