@@ -13,6 +13,8 @@ from pelicanconf import *
 SITEURL = 'https://ordercloud-api.github.io/release-notes'
 RELATIVE_URLS = False
 
+SEARCH_URL = SITEURL + '/search.html'
+
 OCURL = 'http://developer.ordercloud.io'
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
