@@ -16,7 +16,13 @@ deploy:
   local_dir: output
   target_branch: gh-pages
   on:
-    branch: master
+    branch: dev
 
 notifications:
-  slack: four51:$SLACK_TOKEN
+  slack: 
+    rooms:
+      - four51:$SLACK_TOKEN#kreeher
+      - ordercloudapi:$OCSUPPORT_TOKEN#kreeher
+    template:
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
+
