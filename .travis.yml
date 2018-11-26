@@ -19,10 +19,9 @@ deploy:
     branch: dev
 
 notifications:
-  slack: 
-    rooms:
-      - four51:$SLACK_TOKEN#kreeher
-      - ordercloudapi:$OCSUPPORT_TOKEN#kreeher
-    template:
-      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
+  webhooks:
+    urls:
+      - https://hooks.slack.com/services/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
+    payload:
+      - {"text": "This is a line of text in a channel.\nAnd this is another line of text."}
 
