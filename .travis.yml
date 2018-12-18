@@ -16,7 +16,12 @@ deploy:
   local_dir: output
   target_branch: gh-pages
   on:
-    branch: master
+    branch: dev
 
 notifications:
-  slack: four51:$SLACK_TOKEN
+  webhooks:
+    urls:
+      - https://hooks.slack.com/services/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
+    payload:
+      - {"text": "This is a line of text in a channel.\nAnd this is another line of text."}
+
