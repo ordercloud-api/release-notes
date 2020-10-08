@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>How To Use Premium Search/Facet Search - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/drafts/Premium-Search.html">
+
+        <meta name="author" content="Todd Menier" />
+        <meta name="keywords" content="Search" />
+        <meta name="description" content="Availability &#34;Premium&#34; search must be turned on at both the Seller and Buyer level, and for now there is no endpoint or UI to do that. I created a sproc to do this, I imagine Todd or Jeff will typically be the ones to run it: exec EnableProductSearch @CompanyID Here …" />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="How To Use Premium Search/Facet Search"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/drafts/Premium-Search.html"/>
+        <meta property="og:description" content="Availability &#34;Premium&#34; search must be turned on at both the Seller and Buyer level, and for now there is no endpoint or UI to do that. I created a sproc to do this, I imagine Todd or Jeff will typically be the ones to run it: exec EnableProductSearch @CompanyID Here …"/>
+        <meta property="article:published_time" content="2016-04-07" />
+            <meta property="article:section" content="blog-posts" />
+            <meta property="article:tag" content="Search" />
+            <meta property="article:author" content="Todd Menier" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/drafts/Premium-Search.html"
+                       rel="bookmark"
+                       title="Permalink to How To Use Premium Search/Facet Search">
+                        How To Use Premium Search/Facet Search
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-04-07T00:00:00-05:00"> Thu 07 April 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://ordercloud-api.github.io/release-notes/tag/search.html">Search</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>Availability</h2>
+<p>"Premium" search must be turned on at both the Seller and Buyer level, and for now there is no endpoint or UI to do that. I created a sproc to do this, I imagine Todd or Jeff will typically be the ones to run it:</p>
+<blockquote>
+<p>exec EnableProductSearch @CompanyID</p>
+</blockquote>
+<p>Here’s how to disable:</p>
+<blockquote>
+<p>exec EnableProductSearch @CompanyID, 0</p>
+</blockquote>
+<p>For everyone who does not have premium search enabled, nothing changes. Poor man's search, etc, work as they do today.</p>
+<h2>Building Indexes</h2>
+<p>A periodic WebJob (currently once per minute) will (re)build new/expired indexes in Elasticsearch, so there will always be a waiting period of one to several minutes (or longer for huge catalogs) after search is enabled for the index to actually be ready.</p>
+<p>At any time after enabling search for someone, you can check on the progress by looking at the database:</p>
+<blockquote>
+<p>SELECT * FROM ProductSearchIndex</p>
+</blockquote>
+<p>In-progress index (re)builds will have Status = "Building", and these columns are useful to see how far along it is: ProductsCompleted, TotalProducts, PercentComplete</p>
+<h2>Searching</h2>
+<p><strong>Currently only Buyers get Elasticsearch-powered search via <code>me/products</code></strong>.
+Using it for admin endpoints is a possible future enhancement, but I'm holding off until it's requested by someone. The API for search, filter, sort, etc. haven't changed - it's the same "fancy list" semantics used everywhere else, they're just entirely powered by Elasticsearch instead of SQL. Here's some improvements you should notice over poor man's search:</p>
+<ul>
+<li>Better results in terms of search hits and ranking. 
+    "Better" is subjective - I'm guessing the beta group will help us determine how good it is in real-world scenarios. Elasticsearch has an endless amount of levers and knobs to play with, and it could take lots of iterations to get it just right.)</li>
+<li>Better performance. 
+    Will be interesting to test against catalogs known to be slow.</li>
+<li>Searchable xp, including specifying specific fields and wildcards in searchOn (i.e. "xp.<em>" or "xp.nested.</em>")</li>
+</ul>
+<h2>Defining Facets</h2>
+<p>Facet values are assigned to products via product.xp, but you must designate which xp fields should be considered facets. Do this by creating ProductFacet objects which, like products, are a seller-level concept. The usual CRUD patterns are supported, including ProductFacetAdmin and ProductFacetReader roles along with these endpoints:</p>
+<blockquote>
+<p>GET productfacets
+GET productfacets/:id
+POST productfacets
+PUT productfacets/:id
+PATCH productfacets/:id</p>
+</blockquote>
+<p>The ProductFacet model has these properties:</p>
+<ul>
+<li>ID (must match product.xp field name unless XpPath is specified)</li>
+<li>Name</li>
+<li>XpPath (optional. specify if you want to use a different xp field than ID. particularly useful for nested xp fields, since an ID cannot contain a ".".)</li>
+<li>ListOrder</li>
+<li>MinCount (default is 1, meaning zero-count facet values won't be returned in list results. set to 0 if you want them all returned.)</li>
+<li>xp</li>
+</ul>
+<p><strong>NOTE</strong>:
+Creating a new XP value via creation of a ProductFacet indexes the XP automatically for the Buyer the ProductFacet is used with. This does not extend to the Seller. If you want to search on an XP in the Seller, you will still need to index the XP.</p>
+<h2>Using Facets</h2>
+<p>List endpoints will now include a Meta.Facets property. This is an array of facets, each containing an array of values with counts, all reflecting the current list context (search, filters, category, etc reflected in counts). Facet behaviors described in detail in this doc:</p>
+<p>https://docs.google.com/document/d/1DC6GaPagpdjx5dOLZloND4olSIQCCYWtGzrMrIFRd58/edit?usp=sharing</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

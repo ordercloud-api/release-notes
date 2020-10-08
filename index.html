@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes">
+        <meta name="author" content="OrderCloud" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="OrderCloud API Release Notes"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes"/>
+        <meta property="og:description" content="OrderCloud API Release Notes"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10144-release-notes.html">API v1.0.144 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>Bug fix: Impersonation failed with 500 when Roles were not provided.</li>
+<li>Bug fix: Inventory validation was incorrectly occurring in a few specific scenarios involving editing a submitted order.</li>
+<li>Bug fix: Suppliers were unable to list Product-Spec assignments for products they own.</li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10144-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10140-release-notes.html">API v1.0.140 Release Notes</a></h2>
+                <div class="summary"><p>This release adds the same Elasticsearch-driven <a href="https://ordercloud.io/intro-to-premium-search/">Premium Search features</a> to <code>GET v1/products</code> that are currently only available in <code>GET v1/me/products</code>. Initially, this will only affect a small group of beta customers, but we will be rolling it out to everyone in the coming days/weeks. <strong>Please review …</strong></p>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10140-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10134-release-notes.html">API v1.0.134 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>Bug fix: PATCHing any string property where only the casing of the string changes will stick.</li>
+<li>Bug fix: Suppliers can add their own ship-from Address to a Product without receiving an error.</li>
+<li>Bug fix: Line items on a submitted order can be PATCHed without error after the corresponding Product has …</li></ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10134-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10133-release-notes.html">API v1.0.133 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>Suppliers can create/edit/manage Specs under <code>v1/specs/*</code> endpoints. Sellers cannot see Supplier-created specs, except in relation to Products that they have been assigned to.</li>
+<li>New endpoint: <code>GET v1/products/{productID}/specs</code>. Previously available only under <code>me/products</code>, it is now possible to list specs associated with a product …</li></ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10133-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10131-release-notes.html">API v1.0.131 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>New Orders endpoint: <code>POST v1/orders/direction/{orderID}/complete</code> - Changes an order's Status from <code>Open</code> to <code>Complete</code>, without the need to create Shipments. Note that this action is irreversable, i.e. Status cannot be reverted to <code>Open</code> by removing Shipments, for example.</li>
+<li>New Orders endpoint: <code>POST v1/orders/direction/{orderID …</code></li></ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10131-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10130-release-notes.html">API v1.0.130 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>New Orders endpoint: <code>POST v1/orders/incoming/{orderID}/split</code> - Creates outgoing Order(s) to Supplier(s), one per unique <code>DefaultSupplierID</code> on the products ordered.</li>
+<li>New Orders endpoint: <code>POST v1/orders/incoming/{orderID}/forward</code> - Same as <code>/split</code>, but also sumbits the outgoing Orders created.</li>
+<li>New Product property: <code>AutoForward</code> - If true, indicates …</li></ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10130-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10128-release-notes.html">API v1.0.128 Release Notes</a></h2>
+                <div class="summary"><p>This is the first of a series of feature releases expanding the capabilities of Suppliers in OrderCloud. It is part of a larger vision of enabling Marketplaces, where independent Suppliers (who typically own product catalogs) can interact with independent Sellers (who typically own relationships with Buyers).</p>
+<p>Specifically, this release introduces …</p>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10128-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10126-release-notes.html">API v1.0.126 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>Bugfix: Regression allowed Buyers with only Shopper role to see inactive Products in some scenarios.</li>
+<li>Bugfix: Buyer-created shipping address can be used on manually created shipment.</li>
+<li>Misc. performance enhancements.</li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10126-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10123-release-notes.html">API v1.0.123 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>Improved performance of buyer-side product cache refreshes triggered by product changes.</li>
+<li>Custom roles can now be added to an impersonation token request.</li>
+<li>Bugfix: Paged lists of Category-Product assignments could be sorted unpredictably if <code>ListOrer</code> is missing or non-unique.</li>
+<li>Misc. performance enhancements.</li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10123-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://ordercloud-api.github.io/release-notes/api-v10120-release-notes.html">API v1.0.120 Release Notes</a></h2>
+                <div class="summary"><ul>
+<li>Elasticsearch enabled for all new sellers.</li>
+<li>Significant improvements to early detection and self-correction of certain types of performance issues. </li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="https://ordercloud-api.github.io/release-notes/api-v10120-release-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="https://ordercloud-api.github.io/release-notes/index.html">1</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index2.html">2</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index3.html">3</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index4.html">4</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index5.html">5</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index6.html">6</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index7.html">7</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index8.html">8</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index9.html">9</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index10.html">10</a></li>
+                    <li class=""><a
+                            href="https://ordercloud-api.github.io/release-notes/index11.html">11</a></li>
+                <li class="next"><a
+                        href="https://ordercloud-api.github.io/release-notes/index2.html">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

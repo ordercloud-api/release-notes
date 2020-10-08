@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>OrderCloud API v1.0.82 Release Notes - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.82.html">
+
+        <meta name="author" content="Kate Reeher" />
+        <meta name="keywords" content="OrderCloud API" />
+        <meta name="description" content="Release Notes for OrderCLoud v1.0.82, a release that consisted largely of some enhancements to the Search 2.0 beta based on internal beta group feedback." />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="OrderCloud API v1.0.82 Release Notes"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.82.html"/>
+        <meta property="og:description" content="Release Notes for OrderCLoud v1.0.82, a release that consisted largely of some enhancements to the Search 2.0 beta based on internal beta group feedback."/>
+        <meta property="article:published_time" content="2018-09-04" />
+            <meta property="article:section" content="API Release Notes" />
+            <meta property="article:tag" content="OrderCloud API" />
+            <meta property="article:author" content="Kate Reeher" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.82.html"
+                       rel="bookmark"
+                       title="Permalink to OrderCloud API v1.0.82 Release Notes">
+                        OrderCloud API v1.0.82 Release Notes
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-09-04T00:00:00-05:00"> Tue 04 September 2018</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://ordercloud-api.github.io/release-notes/tag/ordercloud-api.html">OrderCloud API</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Planned To Be Released To Production on September 04, 2018 at 7:30 PM CST.</p>
+<h2>Summary</h2>
+<p>This release consisted largely of some enhancements to the Search 2.0 beta, based on internal beta group feedback. </p>
+<h3>Updates</h3>
+<h4>Search 2.0 Beta: Fuzziness</h4>
+<p><em>What Is It?</em> 
+<img alt="A cute ball of Fuzz" src="https://media.giphy.com/media/XHHqlsBaWptMk/giphy.gif"></p>
+<p>Haha, no, we did not add adorable soft kittens to the search results. Instead, we added <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/fuzziness.html">fuzzy matching</a>.  </p>
+<p><em>Why Is It Important?</em></p>
+<p>Search 2.0 already looks for natural English-language stemming, but fuzzy search allows for common errors as well. Did your user search for "elctric" when they meant "electric"? Adding fuzzy matches improves the quality of the search results.</p>
+<p><em>How Does This Affect Me?</em> </p>
+<p>Search 2.0 enabled applications should see some improved search results, particularly around misspellings and <a href="https://www.livescience.com/18392-reading-jumbled-words.html">common errors</a>.</p>
+<h4>Search 2.0 Beta: Changes to Facet Lists' Meta Info</h4>
+<p><em>What Is It?</em> 
+We made some changes to the way that Facet Meta information is presented in the resulting JSON object from a <code>me/products</code> call in a Search 2.0 enabled application.</p>
+<p><em>Why Is It Important?</em> 
+These changes were made after some feedback from our internal beta group, who found that <code>Facet.ID</code> was unhelpful, but knowing <code>Facet.XpPath</code> would be helpful when using these results to build Faceted Navigation.</p>
+<p><em>How Does This Affect Me?</em> </p>
+<p>You will see the following Meta body if using Facets with Search 2.0 in your application:</p>
+<div class="highlight"><pre><span></span><code><span class="err">{</span>
+<span class="err">    &quot;Meta&quot;: {</span>
+<span class="err">      &quot;Facets&quot;: [</span>
+<span class="err">        {</span>
+<span class="err">          &quot;Name&quot;: &quot;colors.spring&quot;,</span>
+<span class="err">          &quot;XpPath&quot;: &quot;colors.spring&quot;,</span>
+<span class="err">          &quot;Values&quot;: [</span>
+<span class="err">            {</span>
+<span class="err">              &quot;Value&quot;: &quot;680947636313&quot;,</span>
+<span class="err">              &quot;Count&quot;: 20</span>
+<span class="err">            },</span>
+<span class="err">            {</span>
+<span class="err">              &quot;Value&quot;: &quot;107259688976&quot;,</span>
+<span class="err">              &quot;Count&quot;: 16</span>
+<span class="err">            }</span>
+<span class="err">          ],</span>
+<span class="err">          &quot;xp&quot;: {}</span>
+<span class="err">        },</span>
+<span class="err">        {</span>
+<span class="err">          &quot;Name&quot;: &quot;job&quot;,</span>
+<span class="err">          &quot;XpPath&quot;: &quot;job&quot;,</span>
+<span class="err">          &quot;Values&quot;: [</span>
+<span class="err">            {</span>
+<span class="err">              &quot;Value&quot;: &quot;107259688976&quot;,</span>
+<span class="err">              &quot;Count&quot;: 16</span>
+<span class="err">            }</span>
+<span class="err">          ],</span>
+<span class="err">          &quot;xp&quot;: {}</span>
+<span class="err">        }</span>
+<span class="err">      ]</span>
+<span class="err">    }</span>
+</code></pre></div>
+
+<p>Additionally, Facets themselves now carry their own XP information, just in case.</p>
+<h3>Bug Fixes</h3>
+<ul>
+<li>Facets were not showing up in the Swagger Spec</li>
+<li>We now throw a better error if a user attempts to access Search 2.0 endpoints from an application that does not have Search 2.0 enabled.</li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

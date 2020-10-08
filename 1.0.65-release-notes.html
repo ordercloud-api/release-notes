@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>API v1.0.65 Release Notes - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/1.0.65-release-notes.html">
+
+        <meta name="author" content="Kate Reeher" />
+        <meta name="description" content="Released to Production on Tuesday, November 21st, 2017 New Features The Me endpoint for categories now has an optional ProductID filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the CategoryReader role to …" />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="API v1.0.65 Release Notes"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/1.0.65-release-notes.html"/>
+        <meta property="og:description" content="Released to Production on Tuesday, November 21st, 2017 New Features The Me endpoint for categories now has an optional ProductID filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the CategoryReader role to …"/>
+        <meta property="article:published_time" content="2017-11-21" />
+            <meta property="article:section" content="API Release Notes" />
+            <meta property="article:author" content="Kate Reeher" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/1.0.65-release-notes.html"
+                       rel="bookmark"
+                       title="Permalink to API v1.0.65 Release Notes">
+                        API v1.0.65 Release Notes
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-11-21T00:00:00-06:00"> Tue 21 November 2017</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <blockquote>
+<p>Released to Production on Tuesday, November 21st, 2017</p>
+</blockquote>
+<h2>New Features</h2>
+<ul>
+<li>The <a href="https://documentation.ordercloud.io/api-reference#MeCategories">Me endpoint for categories</a> now has an optional <code>ProductID</code> filter. This allows a user to find all the categories assigned to them that have that product in them, removing the need to give a user the <code>CategoryReader</code> role to accomplish this.   </li>
+</ul>
+<p><em>Request:</em></p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://api.ordercloud.io/v1/me/categories?ProductID=SuperAwesomeProduct</span>
+</code></pre></div>
+
+<p><em>Response:</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">Status</span> <span class="n">Code</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="err">{</span>
+  <span class="ss">&quot;Meta&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;Page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">&quot;PageSize&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="ss">&quot;TotalCount&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+    <span class="ss">&quot;TotalPages&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="ss">&quot;ItemRange&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="mi">1</span><span class="p">,</span>
+      <span class="mi">20</span>
+    <span class="p">]</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="ss">&quot;Items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;ID&quot;</span><span class="p">:</span> <span class="ss">&quot;SuperAwesomeCategory&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;Name&quot;</span><span class="p">:</span> <span class="ss">&quot;I Contain the SuperAwesomeProduct&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;Description&quot;</span><span class="p">:</span> <span class="ss">&quot;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;ListOrder&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="ss">&quot;Active&quot;</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+      <span class="ss">&quot;ParentID&quot;</span><span class="p">:</span> <span class="ss">&quot;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;ChildCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="ss">&quot;xp&quot;</span><span class="p">:</span> <span class="err">{}</span>
+    <span class="err">}</span>
+  <span class="p">]</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p>We also added a Me route for <code>GET</code>ing a single category! <a href="http://documentation.ordercloud.io/api-reference#MeCategories_GetCategory">DOCS</a></p>
+<p><code>GET</code> <code>https://api.ordercloud.io/v1/me/categories/{categoryID}</code></p>
+</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>Previously, if you attempted to submit an order that had a lineitem with a product that had specs <em>and</em> options, it would fail. Fixed now!<ul>
+<li><a href="https://documentation.ordercloud.io/use-case-guides/product-catalog-management/cpq-configure-price-quote">need a refresher on product specs and spec options?</a></li>
+<li><a href="https://documentation.ordercloud.io/api-reference#Specs">api reference for product specs</a></li>
+</ul>
+</li>
+<li>On <code>OrderSubmitted</code> <a href="https://github.com/ordercloud-api/mailchimp-email-templates">Message Sender Mandrill Templates</a>, the order total merge variable was not accurately reflecting order total, leaving out promotion discount. This is now fixed. (The API model was never affected, only the Message Sender merge variable.)</li>
+<li>We fixed a bad index that was causing massive performance problems for <code>DELETE</code>ing a Security Profile <em>assignment</em>. You should be able to go forth and delete to your hearts content now with no fear of the angry spinner!</li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>API v1.0.36 Release Notes - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/1.0.36-release-notes.html">
+
+        <meta name="author" content="Kate Reeher" />
+        <meta name="description" content="Released to Production on January 17th, 2017 at 7:30 PM Central. New Features We&#39;ve added a new sub-object to the LineItem object. Now, when you list LineItems, you&#39;ll see the products that are on the lineitem too. This currently does not include the full price break information. New Line …" />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="API v1.0.36 Release Notes"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/1.0.36-release-notes.html"/>
+        <meta property="og:description" content="Released to Production on January 17th, 2017 at 7:30 PM Central. New Features We&#39;ve added a new sub-object to the LineItem object. Now, when you list LineItems, you&#39;ll see the products that are on the lineitem too. This currently does not include the full price break information. New Line …"/>
+        <meta property="article:published_time" content="2017-01-17" />
+            <meta property="article:section" content="API Release Notes" />
+            <meta property="article:author" content="Kate Reeher" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/1.0.36-release-notes.html"
+                       rel="bookmark"
+                       title="Permalink to API v1.0.36 Release Notes">
+                        API v1.0.36 Release Notes
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-01-17T00:00:00-06:00"> Tue 17 January 2017</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Released to Production on January 17th, 2017 at 7:30 PM Central.</p>
+<h2>New Features</h2>
+<ul>
+<li>We've added a new sub-object to the LineItem object. Now, when you list LineItems, you'll see the products that are on the lineitem too. This currently does not include the full price break information.
+    <em>New Line Item Object Example</em>:
+    <code>{
+      "ID": "6-Ap0yfJ6k2kDxEJhPA4432vjA",
+      "ProductID": "Test01",
+      "Quantity": 5,
+      "DateAdded": "2016-05-19T17:51:46.127+00:00",
+      "QuantityShipped": 0,
+      "UnitPrice": null,
+      "LineTotal": 0,
+      "CostCenter": null,
+      "DateNeeded": null,
+      "ShippingAccount": null,
+      "ShippingAddressID": "2WRMZMDcakaVaoJ6Hf_r1w",
+      "ShipFromAddressID": null,
+      "Product": {
+        "ID": "Test01",
+        "Name": "Test01",
+        "Description": "Test01 Lorem Ipsum",
+        "QuantityMultiplier": 1,
+        "ShipWeight": 1,
+        "ShipHeight": null,
+        "ShipWidth": null,
+        "ShipLength": null,
+        "xp": {
+          "test": false
+        }
+      }</code></li>
+</ul>
+<h3>Shipping Rates Integration</h3>
+<ul>
+<li>We've added UPS account configuration options to the Shipping Rates integration.</li>
+<li>We've added the option to adjust (as an admin) rates that are displayed to users by either a percentage or a flat rate, either at a global or carrier level.</li>
+<li>You can now add a manual shipper as well, to account for another kind of shipper than USPS or UPS.</li>
+</ul>
+<h3>Authorize.net</h3>
+<ul>
+<li>We're storing the partial card number for single use card payments in the Payment object's XP, so it can be used in the refund transaction.</li>
+</ul>
+<h2>Bug Fixes</h2>
+<ul>
+<li>You can't see expired Spending Accounts in the User Perspective Spending Account list, and you can't use one to make a new payment either.</li>
+<li>You can create a payment that exceeds the Spending Account balance if and only if the Spending Account Assignment for the relevant party has <code>AllowExceed</code> set to <code>true</code>.</li>
+<li>Speaking of price schedules, you can now set a minimum quantity, even when the quantity is not restricted to particular breaks. So, you can now say someone has to order <em>at least</em> 5 products, but they don't have to order only 10, 20, or 30, for example.</li>
+<li>A buyer user without elevated permissions cannot cancel their completed orders. (๑•̀ㅂ•́)و</li>
+</ul>
+<h3>Mandrill Integration</h3>
+<ul>
+<li>We've fixed an issue with the Date Submitted variable for Orders not getting pulled into Mandrill email templates properly.</li>
+</ul>
+<h3>Authorize.net</h3>
+<ul>
+<li>We've fixed the partial UpdateCreditCard to stop overwriting the CardholderName with <code>null</code>. </li>
+</ul>
+<h2>Client Libraries</h2>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

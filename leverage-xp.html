@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Leveraging Extended Properties in the Development of Custom eCommerce Apps - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/leverage-xp.html">
+
+        <meta name="author" content="Steve Davis" />
+        <meta name="keywords" content="XP" />
+        <meta name="description" content="Recently I came across a post from one of my favorite developers and technology thought leaders that centered on how to work with some architecture patterns that drive so much of the development work that occurs today. His name is Rob Conery, and he posts to his blog frequently. I …" />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Leveraging Extended Properties in the Development of Custom eCommerce Apps"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/leverage-xp.html"/>
+        <meta property="og:description" content="Recently I came across a post from one of my favorite developers and technology thought leaders that centered on how to work with some architecture patterns that drive so much of the development work that occurs today. His name is Rob Conery, and he posts to his blog frequently. I …"/>
+        <meta property="article:published_time" content="2016-03-09" />
+            <meta property="article:section" content="Blog Posts" />
+            <meta property="article:tag" content="XP" />
+            <meta property="article:author" content="Steve Davis" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/leverage-xp.html"
+                       rel="bookmark"
+                       title="Permalink to Leveraging Extended Properties in the Development of Custom eCommerce Apps">
+                        Leveraging Extended Properties in the Development of Custom eCommerce Apps
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-09T00:00:00-06:00"> Wed 09 March 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://ordercloud-api.github.io/release-notes/tag/xp.html">XP</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Recently I came across a post from one of my favorite developers and technology thought leaders that centered on how to work with some architecture patterns that drive so much of the development work that occurs today. His name is <a href="https://twitter.com/robconery">Rob Conery</a>, and he posts to his <a href="http://rob.conery.io/">blog</a> frequently. I never miss a post, and listen to so much of what he publishes through his terrific podcast, <a href="http://thisdeveloperslife.com/">This Developer’s Life</a>. In his most recent post, <a href="http://rob.conery.io/2016/02/27/jsonb-and-postgresql/">JSONB and PostreSQL: Work Faster By Ditching Migrations</a> he touched on a subject that resonated with our OrderCloud.io API strategy. In particular, how we manage our Extended Properties (<code>XP</code>) strategy, and ways to leverage it in the development of custom solutions.</p>
+<p>Conery touches on the difficulties in choosing ORM patterns and his dislike of them, his love for SQL, and the choice to use good SQL project management, especially when the database begins to grow into a robust and production ready system. His answer, as he’s approaching in his latest project, is to work with JSONB at the top level. In doing so he’s able to use a schema-less approach to reduce friction and “nail the idea first”. I found his thought process enlightening.</p>
+<p>With OrderCloud.io, we’ve actually enabled this very development process. Our data model is the product of over 16 years worth of intellectual property in B2B Commerce and Order Management. Add to that 100% exposure via our <a href="https://devcenter.ordercloud.io/docs/api">REST API</a>, and we believe we have the most robust and flexible B2B solution in the industry.</p>
+<p>Still, we recognize that it can’t cover every conceivable scenario. We can’t predict every column in every table that your hypothetical database might need. That’s why we created our own schema-less solution with Extended Properties (XP) and exposed it on every API resource. We might not have <code>Product.YourSpecialDataPoint</code>, but we certainly do have <code>Product.xp.YourSpecialDataPoint</code>.</p>
+<p>In your development projects you will encounter needs to customize the data model. With more rigid platforms like Magento you’re going to face challenges that require extensive work and timely development efforts.</p>
+<div class="highlight"><pre><span></span><code><span class="err">Our Extended Properties strategy allows you to overcome those obstacles and continue to create and develop fast.</span>
+</code></pre></div>
+
+<p>Additionally, leveraging the tools in the <a href="https://devcenter.ordercloud.io/">OrderCloud.io Dev Center</a> enables you to collaborate with our Architects and Developers to enhance the data model through suggestions. Developers are now a first-class customer. We seek out and encourage suggestions and so many of those suggestions will be born out of the usage of XP and the power it provides.</p>
+<p>Learn more about <a href="https://devcenter.ordercloud.io/docs/guides/basic-api-features/extended-properties">OrderCloud.io Extended Properties</a> here, or get started building on the OrderCloud.io Dev Center for free <a href="https://devcenter.ordercloud.io/about">here</a>.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

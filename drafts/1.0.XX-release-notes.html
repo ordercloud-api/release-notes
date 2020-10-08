@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>DevCenter v1.0.6 Release Notes - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/drafts/1.0.XX-release-notes.html">
+
+        <meta name="author" content="Kate Reeher" />
+        <meta name="description" content="DevCenter API Client ID changes to go along with API v1.0.85." />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="DevCenter v1.0.6 Release Notes"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/drafts/1.0.XX-release-notes.html"/>
+        <meta property="og:description" content="DevCenter API Client ID changes to go along with API v1.0.85."/>
+        <meta property="article:published_time" content="2018-05-08" />
+            <meta property="article:section" content="DevCenter Release Notes" />
+            <meta property="article:author" content="Kate Reeher" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/drafts/1.0.XX-release-notes.html"
+                       rel="bookmark"
+                       title="Permalink to DevCenter v1.0.6 Release Notes">
+                        DevCenter v1.0.6 Release Notes
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-05-08T00:00:00-05:00"> Tue 08 May 2018</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <blockquote>
+<p>Released To Production on October 31st, 2018 at 7:30 PM CST.</p>
+</blockquote>
+<h2>Summary</h2>
+<p>This release contained a general restructuring of DevCenter's dashboard to reorient API Client IDs as the building blocks of an OrderCloud Organization. This also included some changes to the DevCenter Console' Impersonation interface.</p>
+<h3>Updates</h3>
+<h3>API Client Unification</h3>
+<p><em>What Is It?</em></p>
+<p>We've replaced the idea of <em>Buyer Networks</em>, <em>Buyer Apps</em>, <em>Seller Networks</em>, and <em>Seller Apps</em> with, instead, just the <strong>API Client ID</strong>. Instead of talking about multiple apps with API client IDs attached to a Buyer, we now have multiple API Client IDs with a Buyer Commerce Role.</p>
+<p>Check out <a href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.85.html">API v1.0.85's Release Notes</a> for more detail about how this will impact you. Additionally, our documentation has been updated to reflect these changes, particularly <a href="">X</a>, <a href="">Y</a>, and <a href="">Z</a>.</p>
+<h3>Console Impersonation Changes</h3>
+<p><em>What Is It?</em></p>
+<p>Part of the OrderCloud Platform's foundational assumptions is that actions always, always happen in the context of a particular user. This could be the user one is authenticated as, or the user one is <a href="">impersonating</a>. We've come to realize that our previous practice of allowing DevCenter users largely out of context access to organizations and their API Clients was somewhat at odds with this foundational principle. As such, we've changed the Console to require a user to be impersonated in order to access an API Client.</p>
+<p><em>Why Is It Important?</em></p>
+<p>An OrderCloud API user, admin or buyer, always is working in its own context of permissions, assignments, and accesses. <a href="">Security Profiles</a> and <a href="">product assignments</a>, for example, control what products a given user can see, and if they can purchase that product, set the price for that product, order it to be shipped to a non-standard address, etc. Requiring DevCenter users to work within this framework as well follows logically, and enforces the security of an organization's data.</p>
+<p><em>How Does This Affect Me?</em></p>
+<p>Any DevCenter user who attempts to use the Console will first be asked to choose the API Client ID they'd like to view, not the previous Buyer App/Seller App choices. Then, they will be required to pick a user to impersonate, and they will only have access to the <em>intersection</em> of the <a href="https://developer.ordercloud.io/documentation/platform-guides/getting-started/using-the-dashboard/Navigation">DevCenter user's accesses</a> and the <a href="https://developer.ordercloud.io/documentation/platform-guides/authentication/security-profiles/SecurityOverview">impersonated user's accesses</a>. This is to preserve security -- Even if a DevCenter User <em>can</em> impersonate a user with more credentials than they themselves do, they cannot access those credentials and, for example, alter prices.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>DevCenter User Joanie</th>
+<th>Impersonated User Bradley</th>
+<th>Joanie's Accesses in the Console</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FullAccess</td>
+<td>Shopper, AddressAdmin</td>
+<td>Shopper, AddressAdmin</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>DevCenter User Joanie</th>
+<th>Impersonated User Bradley</th>
+<th>Joanie's Accesses in the Console</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shopper, OrderReader, PromotionReader</td>
+<td>Shopper, OrderReader, AddressAdmin</td>
+<td>Shopper, OrderReader</td>
+</tr>
+</tbody>
+</table>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

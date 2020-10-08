@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>OrderCloud API v1.0.81 Release Notes - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.81.html">
+
+        <meta name="author" content="Kate Reeher" />
+        <meta name="keywords" content="OrderCloud API" />
+        <meta name="description" content="Planned To Be Released To Production on August 27, 2018 at 8:00 PM CST. Summary Updates TLS 1.2 Enforced On All Traffic What Is It? A minimum of TLS 1.2 will be enforced on all inbound traffic to OrderCloud, as well as on all outbound traffic from …" />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="OrderCloud API v1.0.81 Release Notes"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.81.html"/>
+        <meta property="og:description" content="Planned To Be Released To Production on August 27, 2018 at 8:00 PM CST. Summary Updates TLS 1.2 Enforced On All Traffic What Is It? A minimum of TLS 1.2 will be enforced on all inbound traffic to OrderCloud, as well as on all outbound traffic from …"/>
+        <meta property="article:published_time" content="2018-08-24" />
+            <meta property="article:section" content="API Release Notes" />
+            <meta property="article:tag" content="OrderCloud API" />
+            <meta property="article:author" content="Kate Reeher" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/ordercloud-api-v1.0.81.html"
+                       rel="bookmark"
+                       title="Permalink to OrderCloud API v1.0.81 Release Notes">
+                        OrderCloud API v1.0.81 Release Notes
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-08-24T00:00:00-05:00"> Fri 24 August 2018</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://ordercloud-api.github.io/release-notes/tag/ordercloud-api.html">OrderCloud API</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Planned To Be Released To Production on August 27, 2018 at 8:00 PM CST.</p>
+<h2>Summary</h2>
+<h3>Updates</h3>
+<h4>TLS 1.2 Enforced On All Traffic</h4>
+<p><em>What Is It?</em></p>
+<p>A minimum of TLS 1.2 will be enforced on all <em>inbound</em> traffic to OrderCloud, as well as on all <em>outbound</em> traffic from OrderCloud, such as webhooks.</p>
+<p><em>Why Is It Important?</em></p>
+<p>TLS 1.2 is the latest and most secure standard for the cryptographic protocols that provide widespread communication security over a computer network. PCI compliance requires TLS 1.1 or better encryption, so this is likely something you already support. <sup><a href="#footnote1">1</a></sup></p>
+<p><em>How Does This Affect Me?</em></p>
+<p>All modern web browsers use TLS 1.2 which means calls made directly to OrderCloud from your client UIs will not be impacted. In the event that you have any custom middleware, such as Punchout, Back-office integrations, Single Sign-on, etc., please make any relevant changes. Ensure that any integrations you have set up to receive webhook payloads from OC will accept TLS 1.2.</p>
+<h4>Premium Search</h4>
+<p><em>What Is It?</em></p>
+<p>We've added a new type of search that can be used on the platform: <strong>Premium Search</strong>. This allows for more powerful, natural language search, as well as support for Faceted Navigation natively on the OrderCloud platform. Currently, Premium Search is only available for the <code>me/products</code> endpoint, although we plan on expanding to cover other areas soon.</p>
+<p><em>Why Is It Important?</em></p>
+<p>We know our customers want the most robust, sophisticated search capabilities available natively on the OrderCloud platform. That's why we've chosen ElasticSearch, an industry standard, to provide a powerful premium search experience. 
+Premium Search will allow us to provide you and your users with improved Buyer-side catalog searching, and give you the ability to create faceted navigation natively, without the need to integrate with a third party tool.</p>
+<p><em>How Do I Use This?</em></p>
+<p>Currently this feature is <strong>in Beta</strong>, and while you may see the related endpoints in the DevCenter Console or API documentation, such as <code>v1/ProductFacets</code>, they will not be active for any organizations outside of our Beta program. We will be inviting some clients to take part in our Beta program in the near future. </p>
+<p>We expect Premium Search to be available to the public this Fall -- contact your account rep to discuss getting Premium Search set up.</p>
+<h2>Changelog</h2>
+<ul>
+<li>Premium Search added.</li>
+<li>Outbound HTTP traffic required to use TLS 1.2.</li>
+</ul>
+<hr>
+<p><a name="footnote1">1</a>: <a href="https://www.forbes.com/sites/thesba/2018/05/30/changes-to-pci-compliance-are-coming-june-30-is-your-ecommerce-business-ready/#374005547408">Forbes</a></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

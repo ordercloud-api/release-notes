@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>The Rules Engine Has Arrived, and It’ll Do for Behavior What XP Did for Data - OrderCloud API Release Notes</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://ordercloud-api.github.io/release-notes/rules-engine-has-arrived.html">
+
+        <meta name="author" content="Todd Menier" />
+        <meta name="keywords" content="Development,Rules Engine,Orders,Order Approvals" />
+        <meta name="description" content="The Platform Team is excited to announce the release of our shiny new rules engine, with its first application being to power order approval workflows. What&#39;s a rules engine? Simply put, it&#39;s a system that executes rules. Okay... so what&#39;s a rule? In its simplest form, it&#39;s an if-then statement …" />
+
+        <meta property="og:site_name" content="OrderCloud API Release Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="The Rules Engine Has Arrived, and It’ll Do for Behavior What XP Did for Data"/>
+        <meta property="og:url" content="https://ordercloud-api.github.io/release-notes/rules-engine-has-arrived.html"/>
+        <meta property="og:description" content="The Platform Team is excited to announce the release of our shiny new rules engine, with its first application being to power order approval workflows. What&#39;s a rules engine? Simply put, it&#39;s a system that executes rules. Okay... so what&#39;s a rule? In its simplest form, it&#39;s an if-then statement …"/>
+        <meta property="article:published_time" content="2016-06-13" />
+            <meta property="article:section" content="Blog Posts" />
+            <meta property="article:tag" content="Development" />
+            <meta property="article:tag" content="Rules Engine" />
+            <meta property="article:tag" content="Orders" />
+            <meta property="article:tag" content="Order Approvals" />
+            <meta property="article:author" content="Todd Menier" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://ordercloud-api.github.io/release-notes/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="https://ordercloud-api.github.io/release-notes/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ordercloud-api.github.io/release-notes/theme/css/style.css" type="text/css"/>
+
+        <link href="https://ordercloud-api.github.io/release-notes/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="OrderCloud API Release Notes ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://ordercloud-api.github.io/release-notes/" class="navbar-brand">
+OrderCloud API Release Notes            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/api-release-notes.html">Api release notes</a>
+                        </li>
+                        <li class="active">
+                            <a href="https://ordercloud-api.github.io/release-notes/category/blog-posts.html">Blog posts</a>
+                        </li>
+                        <li >
+                            <a href="https://ordercloud-api.github.io/release-notes/category/devcenter-release-notes.html">Devcenter release notes</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://ordercloud-api.github.io/release-notes/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://ordercloud-api.github.io/release-notes/rules-engine-has-arrived.html"
+                       rel="bookmark"
+                       title="Permalink to The Rules Engine Has Arrived, and It’ll Do for Behavior What XP Did for Data">
+                        The Rules Engine Has Arrived, and It’ll Do for Behavior What XP Did for Data
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-06-13T00:00:00-05:00"> Mon 13 June 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://ordercloud-api.github.io/release-notes/tag/development.html">Development</a>
+        /
+	<a href="https://ordercloud-api.github.io/release-notes/tag/rules-engine.html">Rules Engine</a>
+        /
+	<a href="https://ordercloud-api.github.io/release-notes/tag/orders.html">Orders</a>
+        /
+	<a href="https://ordercloud-api.github.io/release-notes/tag/order-approvals.html">Order Approvals</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>The Platform Team is excited to announce the release of our shiny new rules engine, with its first application being to power <strong>order approval</strong> workflows.</p>
+<h2>What's a rules engine?</h2>
+<p>Simply put, it's a system that executes rules. </p>
+<p>Okay... so what's a rule? </p>
+<p>In its simplest form, it's an if-then statement that is provided from the outside, rather than being “baked into” the engine itself. In the case of OrderCloud.io, we'll define the “thens” (starting with “order requires approval”) and allow you to define the “if”s via custom logic expressions. Effectively, we're going to allow you to extend platform behavior in much the same way <code>XP</code> allows you to extend the data model.</p>
+<h2>Let's see an example.</h2>
+<p>Say you want every order over $200 with some specific <code>XP</code> value to require approval from a manager. You would first create a <code>UserGroup</code> containing all approving managers, then create a new <code>ApprovalRule</code>, setting the <code>ApprovingGroupID</code> to the ID of the new <code>UserGroup</code>, and setting <code>ApprovalRule.Expression</code> to this:</p>
+<p><code>order.Total &gt; 200 and order.xp.MyCustomProperty = 'XYZ'</code></p>
+<p>A couple things to note:</p>
+<ul>
+<li><code>order</code> supports the same properties as the Order model returned from /orders API endpoints, including <code>XP</code>.</li>
+<li><code>=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&lt;&gt;</code> comparison operators are supported.</li>
+<li><code>and</code>, <code>or</code>, and <code>not</code> logical operators are supported.</li>
+<li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> mathematical operators are supported.</li>
+<li>String values must be enclosed in straight single quotes.</li>
+<li>Date values must be enclosed in # symbols, e.g. <code>#6/15/2016#</code></li>
+<li>Parentheses may be used to enclose sub-expressions and control order of execution.</li>
+</ul>
+<h2>What about line items?</h2>
+<p>Glad you asked, because which products are being purchased, in what quantities, charged against which cost centers, etc, are very common in the world of approval rules. But line items are a collection, so we use <strong>aggregate functions</strong> to inspect them. </p>
+<p>Here's how you would require approval on all orders over $200 charged to cost center ABC:
+<code>order.Total &gt; 200 and items.any(CostCenter = 'ABC')</code></p>
+<p>That's pretty powerful, but it's more likely that you only care about the subtotal of just the line items matching your CostCenter condition. 
+For this you can use the items.total function:</p>
+<p><code>items.total(CostCenter = 'ABC') &gt; 200</code></p>
+<p>The condition inside the function (called a filter) can be more complex and contain and, or, etc. just like other parts of the expression:</p>
+<p><code>items.quantity(ProductID = 'P1' or ProductID = 'P2') &gt; 5</code></p>
+<p><code>items</code> supports a total of 4 functions:
+- <code>items.any</code> (true if any item matches filter)
+- <code>items.all</code> (true if all items match filter)
+- <code>items.quantity</code> (compare result to a number)
+- <code>items.total</code> (compare result to a dollar amount)</p>
+<p>Speaking of functions, there is one defined on order:</p>
+<p><code>order.approved('id_of_some_other_rule')</code></p>
+<p>This one's powerful, because it allows you to set up multi-level approval workflows by chaining rules together. For example, in a larger organization, getting the approval from a department manager might not be enough, and a higher-level VP must also sign off.</p>
+<p>There's nothing to stop you from using <code>and</code> or <code>or</code> in conjunction with multiple order.approved checks, if that's what's needed to support your flow. In fact, all valid elements of rule expressions can be mixed &amp; matched as needed, allowing for very sophisticated rules to be supported:</p>
+<p><code>(order.Total &gt; 20 and order.approved('rule_id_1')) or (not item.any(ProductID = 'QQQ') and approved('rule_id_2'))</code></p>
+<h2>A word of caution:</h2>
+<p>Rules are easy to write and very powerful, but can be tricky to debug when they don't work quite like you thought they would. While you can write very complex expressions, don't get more fancy with them than you need to. In some cases it might make sense to break a complex rule into 2 or more simpler rules. As always, we're here to help if you need guidance.</p>
+<h2>What else can I do with this?</h2>
+<p>Now that you have a better understanding of the power of rules, you might be wondering what other areas of the platform might we apply them to. Here are a few ideas currently being kicked around:</p>
+<ul>
+<li>Custom validation (upon creating/editing things)</li>
+<li>Time-based approval rules (aggregated totals over past week/month/quarter, etc.)</li>
+<li>Applying discounts/markups</li>
+<li>Determining coupon eligibility</li>
+<li>Replenish inventory</li>
+<li>Fire off a notification via <a href="https://documentation.ordercloud.io/integration-services/overview/your-first-webhook">Webhooks</a></li>
+</ul>
+<p>In short, order approvals are just the beginning. We envision this new rules engine playing a key role in our <a href="https://ordercloud-api.github.io/release-notes/flexibility-over-features.html">“Flexibility over Features“</a> platform strategy. Stay tuned!</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://ordercloud.io" target="_blank">OrderCloud.io</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://documentation.ordercloud.io/" target="_blank">OrderCloud Documentation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://community.ordercloud.io/" target="_blank">OrderCloud.io Community Support Slack</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 OrderCloud
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://ordercloud-api.github.io/release-notes/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
